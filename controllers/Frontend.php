@@ -14,7 +14,7 @@ class Frontend extends Theme_Controller{
  
 	// d(getallheaders());
 	 // d($_SERVER);
- dd(site_id);
+ //dd(site_id);
 		if(isset($_GET['debuger']) && $_GET['debuger']){
 	        
 	        $this->output->enable_profiler(TRUE);
