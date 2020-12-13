@@ -1,0 +1,427 @@
+
+
+var F = function() {
+    
+
+    return {
+        // Public functions
+        // readURL: function(file,image) { 
+ 
+        // file=$(file)[0];
+        //   if (file.files && file.files[0]) {
+        //     var reader = new FileReader();
+        //     alert(e.target.result);
+        //     reader.onload = function(e) {
+        //       $(image).attr('src', e.target.result);
+        //     }
+            
+        //     reader.readAsDataURL(file.files[0]); // convert to base64 string
+        //   }
+      
+
+        // },
+   get: function(text) { 
+      
+            var url = new URL(window.location.href);
+         return  url.searchParams.get(text);
+            },
+
+        getClipboard: function(text) { 
+
+  
+
+         jQuery.ajax({
+                    type : "post",
+                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/getClipboard",
+                     
+                     success: function(data) { 
+                        if(data.success === "yes") { 
+                            var html="";
+                            window.dd=$(data.response);     
+console.log(data);
+$.each(data.response,function(i,v) {
+    var item="";
+ 
+ $.each(v,function(ii,vv) {
+     item+='  <span class="text-muted font-weight-bold">'+vv.row.name+' <i onclick="F.deleteCopy(\''+vv.rowid+'\')" class="fa fa-times-circle text-danger   icon-sm"></i></span>';
+  });
+                          
+                  
+
+    html     +=' <!--begin: Item-->\
+                    <div class="d-flex align-items-center flex-wrap mb-5">\
+                        <div class="symbol symbol-50 symbol-light mr-5">\
+                            <span class="symbol-label">\
+                                <img src="'+backend_base_url+'/assets/media/clipboard/'+i+'.png" class="h-50 align-self-center" alt=""/>\
+                            </span>\
+                        </div>\
+                        <div class="d-flex flex-column flex-grow-1 mr-2">\
+                            <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">'+i+'\
+                             <i onclick="F.deleteClipboardGroup(\''+i+'\')" class="far fa-times-circle text-danger   icon-sm"></i>\
+                            </a>\
+                            '+item+'\
+                        </div>\
+                        <span class="btn btn-sm btn-light font-weight-bolder py-1 my-lg-0 my-2 text-dark-50">Total :'+v.length+'</span>\
+                    </div>\
+                    <!--end: Item-->';
+ 
+
+
+
+});
+
+       $('#clipboard').html(html);    
+             
+                                /*
+
+
+
+  <?php foreach (getClipboard() as $key=>$items): ?>
+                    <!--begin: Item-->
+                    <div class="d-flex align-items-center flex-wrap mb-5">
+                        <div class="symbol symbol-50 symbol-light mr-5">
+                            <span class="symbol-label">
+                                <img src="<?=backend_base_url?>/assets/media/clipboard/<?=$key?>.png" class="h-50 align-self-center" alt=""/>
+                            </span>
+                        </div>
+                        <div class="d-flex flex-column flex-grow-1 mr-2">
+                            <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1"><?=strtoupper($key)?></a>
+                        <?php foreach ($items as  $item): ?>
+                            <span class="text-muted font-weight-bold"><?=$item['row']->name?></span>
+                        <?php endforeach;?>
+                        </div>
+                        <span class="btn btn-sm btn-light font-weight-bolder py-1 my-lg-0 my-2 text-dark-50">Total : <?=count($items)?></span>
+                    </div>
+                    <!--end: Item-->
+ 
+                    <?php endforeach;?>
+
+
+*/
+
+                        }
+                        else {
+                            Swal.fire("Error","Failed To Fill "+id,"error");
+                        }
+                     }
+                }); 
+
+
+
+        },
+        slugify: function(text) { 
+
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '');            // Trim - from end of text
+
+        },
+        submitForm: function(id,url,title,redirect_url=null) { 
+             // var datastring = $(id).serialize();
+              var datastring =  new FormData($(id)[0]) ;
+                    $.ajax({
+                        type: "POST",
+                        url: api_base_url+"/"+url,
+                         headers: { 'x-cookie': cookie },  
+                        data: datastring,
+                        dataType: "json",
+                          contentType: false,
+                         cache: false,
+                         processData:false,
+                        success: function(data) {
+                            if(data.success=='yes'){
+                                     Swal.fire("Good job!", title, "success");
+                                     if(redirect_url){
+                                        window.location.href=redirect_url;
+                                     }
+                            }else{
+                                     Swal.fire("Failed!", data.response, "error");
+
+                            } 
+                        },
+                        error: function(e,x,c) { 
+                                  Swal.fire("Failed!", "error handling here "+c, "error");
+                        }
+                    });
+
+        },
+           // Public functions
+        fillSelectAjax: function(id,url,selected_id='',extraOptions=[]) {   
+
+         jQuery.ajax({
+                   type : "post",
+                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/"+url,
+                     cache : false,
+                   
+                     success: function(data) { 
+                        if(data.success === "yes") { 
+                            var html="";
+
+                        F.fillSelect(id,data,selected_id,extraOptions);
+                                
+
+                        }
+                        else {
+                            Swal.fire("Error","Failed To Fill "+id,"error");
+                        }
+                     }
+                }); 
+
+        }, // Public functions
+        fillSelect: function(id,data,selected_id='',extraOptions=[]) {    
+                            var html="";
+
+                                        $(id).empty(); 
+
+                                         $(extraOptions).each(function(i,v){ 
+                                          console.log(v);
+                                                   html+="<option   '"+v.selected+"' value='"+v.value+"' >"+v.title+"</option>" ;
+                                            });
+
+                                            $(data.response).each(function(i,v){
+                                                    var selected="";
+
+                                                    if(v.id==selected_id){selected="selected";}
+                                                   html+="<option "+selected+" value='"+v.id+"' >"+v.name+"</option>"
+
+                                            });
+                                        $(id).html(html);
+                                        $(id).selectpicker('refresh');
+
+                            
+
+ 
+                 
+
+        },
+        init: function() {   
+
+/*
+             jQuery.ajax({
+                     type : "get",
+                     dataType : "json",
+                     url : api_base_url+"/getStores",
+                     data : {
+                        action: "", 
+                         },
+                     success: function(data) { 
+                        if(data.success === "yes") { 
+                                          init_table(data.response);
+
+                        }
+                        else {
+                            alert("Folder not created");
+                        }
+                     }
+                }); 
+
+*/
+           
+        },
+          copyThis: function(id,type) {  
+
+
+                
+            F.saveCopy(id,type);
+           
+
+
+           
+        } , copySelected: function(type) {  
+
+            var selectedCheckboxes=$('.datatable-body td[data-field=id] input[type=checkbox]:checked');
+            var checkbox_ids=[];
+
+            selectedCheckboxes.each(function(i,v) {
+            checkbox_ids.push($(v).val());
+            });
+ 
+            F.saveCopy(checkbox_ids.join(','),type);
+           
+        }, saveCopy: function(ids,type) {  
+
+               Swal.fire({
+                title: "Are you sure?",
+                text: "do you want to copy this ",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, copy it!"
+            }).then(function(result) {
+                if (result.value) {
+
+                      jQuery.ajax({
+                        type : "post",
+                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                         dataType : "json",
+                         url : api_base_url+"/"+type+"?ids="+ids,
+                         success: function(data) { 
+                            if(data.success === "yes") {  
+                                            Swal.fire(
+                                                "Copied!",
+                                                "Copy  Successfully",
+                                                "success"
+                                            ) 
+
+                                       F.getClipboard();
+                                       setTimeout(function(){
+                                                   $('#kt_quick_panel_toggle').click();
+
+                                       },2000);
+                               
+                            }
+                            else {
+                              Swal.fire('Failed To copy',data.response,'error');
+                            }
+                         }
+                    });   
+
+
+                }
+            });
+                
+           
+        }, deleteCopy: function(id) {  
+
+               Swal.fire({
+                title: "Are you sure?",
+                text: "do you want to delete item from clipboard ",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, delete it!"
+            }).then(function(result) {
+                if (result.value) {
+
+                      jQuery.ajax({
+                        type : "post",
+                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                     
+                         dataType : "json",
+                         url : api_base_url+"/deleteClipboard/"+id,
+                         success: function(data) { 
+                            if(data.success === "yes") {  
+                                  toastr.options = {
+                                      "closeButton": false,
+                                      "debug": false,
+                                      "newestOnTop": false,
+                                      "progressBar": false,
+                                      "positionClass": "toast-top-right",
+                                      "preventDuplicates": false,
+                                      "onclick": null,
+                                      "showDuration": "300",
+                                      "hideDuration": "1000",
+                                      "timeOut": "5000",
+                                      "extendedTimeOut": "1000",
+                                      "showEasing": "swing",
+                                      "hideEasing": "linear",
+                                      "showMethod": "fadeIn",
+                                      "hideMethod": "fadeOut"
+                                    };
+
+                                    toastr.success("Clipboard item deleted!");
+
+                                       F.getClipboard();
+                                     
+                               
+                            }
+                            else {
+                              Swal.fire('Failed To copy',data.response,'error');
+                            }
+                         }
+                    });   
+
+
+                }
+            });
+                
+           
+        },deleteClipboardGroup: function(type) {  
+
+               Swal.fire({
+                title: "Are you sure?",
+                text: "do you want to delete Group from clipboard ",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, delete it!"
+            }).then(function(result) {
+                if (result.value) {
+
+                      jQuery.ajax({
+                        type : "post",
+                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                         dataType : "json",
+                         url : api_base_url+"/clearClipboardByType/"+type,
+                         success: function(data) { 
+                            if(data.success === "yes") {  
+                                  toastr.options = {
+                                      "closeButton": false,
+                                      "debug": false,
+                                      "newestOnTop": false,
+                                      "progressBar": false,
+                                      "positionClass": "toast-top-right",
+                                      "preventDuplicates": false,
+                                      "onclick": null,
+                                      "showDuration": "300",
+                                      "hideDuration": "1000",
+                                      "timeOut": "5000",
+                                      "extendedTimeOut": "1000",
+                                      "showEasing": "swing",
+                                      "hideEasing": "linear",
+                                      "showMethod": "fadeIn",
+                                      "hideMethod": "fadeOut"
+                                    };
+
+                                    toastr.success("Clipboard Group deleted!");
+
+                                       F.getClipboard();
+                                     
+                               
+                            }
+                            else {
+                              Swal.fire('Failed To copy',data.response,'error');
+                            }
+                         }
+                    });   
+
+
+                }
+            });
+                
+           
+        },
+    };
+}();
+ 
+
+$(document).ready(function(){
+
+       F.getClipboard();
+$('#sites_list').selectpicker();
+$('#sites_list').change(function() {
+    jQuery.ajax({
+                     type : "post",
+                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/changeSite/"+$(this).val(),
+                  
+                     success: function(data) { 
+                        if(data.success === "yes") { 
+                              Swal.fire("Site Changed!", 'Success', "success");
+                                   window.location.href="";
+                        }
+                        else {
+                            alert("Error");
+                        }
+                     }
+                }); 
+  
+});
+
+
+});

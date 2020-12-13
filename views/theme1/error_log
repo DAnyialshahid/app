@@ -1,0 +1,8 @@
+[09-Dec-2020 23:07:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_page() in /home/danyialshahid/bin/.test/ITworld.com.pk/affiliateplatform/application/views/theme1/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/danyialshahid/bin/.test/ITworld.com.pk/affiliateplatform/application/views/theme1/index.php on line 1
+[10-Dec-2020 16:32:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_page() in /home/danyialshahid/bin/.test/ITworld.com.pk/affiliateplatform/application/views/theme1/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/danyialshahid/bin/.test/ITworld.com.pk/affiliateplatform/application/views/theme1/index.php on line 1
