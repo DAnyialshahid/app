@@ -529,7 +529,14 @@ class front_api extends Theme_Controller{
  			  
  	 $this->db->like('name', $query, 'both'); 
  		 $this->db->limit(10); 
-$_POST['site_id']=$site_id;
+ 		$site_id= str_ireplace('plus', '+', $site_id);
+ 		$site_id= str_ireplace('minus', '-', $site_id);
+ 		$site_id= str_ireplace('email', '@', $site_id);
+ 		$site_id= str_ireplace('dot', '.', $site_id);
+ 		$site_id= str_ireplace('equal', '=', $site_id);
+ 
+		$_POST['site_id']=decrypt($site_id,"no_one_can_decrypt");
+ 
 		$stores=$this->getStores([ 
 				 
 		],[],true);

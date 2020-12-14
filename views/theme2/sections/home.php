@@ -160,7 +160,7 @@
  
 <section class="homepage categories">
    <div class="happy-hunting container">     
-         <h2 class="title">Popular Categories</h2>  
+         <h2 class="title">Popular Categories</h2>  `
              <p class="sub-heading">
                  Check out curated deals from some of the most popular categories  
                  </p> 
@@ -179,7 +179,7 @@
                                             v-if="category.feature_image"  
                                             v-bind:src="api_url+'/assets/uploads/stores/'+category.feature_image" 
                                             v-bind:alt="category.name" 
-                                     
+                                     style="width: 50px" 
                                             />
                                         </center>
                                               <span  class="col-xs-12 " >{{category.name}}</span>
@@ -328,7 +328,7 @@
   <h2 class="title">Popular Stores</h2> 
 
   <p class="sub-heading">
-      Check out curated deals from some of the most popular categories  
+      Check out curated deals from some of the most popular Stores  
       </p> <div class="col-lg-12 happy-hunting-heading-list">
 
  

@@ -21,7 +21,7 @@ function submitContact(){
  $.ajax({
                          type : "post",
                          dataType : "json",
-                         url : base_url+"/front_api/submit_offer_details", 
+                         url : api_url+"/front_api/submit_offer_details", 
                          data:{
                             'name':$('[name=name]').val(),
                             'email':$('[name=email]').val(),

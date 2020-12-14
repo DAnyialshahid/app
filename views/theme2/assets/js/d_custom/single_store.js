@@ -75,7 +75,7 @@ function loadStore(visit){
 	 $.ajax({
 	                     type : "post",
 	                     dataType : "json",
-	                     url : base_url+"/front_api/"+url, 
+	                     url : api_url+"/front_api/"+url, 
 	                     data:{
 	                     	 'side_bar':$("#d_sidebar_serialize input").serialize(),
 	                     	'visit':visit,

@@ -12,7 +12,8 @@
                         <button type="submit" class="input-group-addon" aria-label="Search"><i class="df df-search"></i></button>
 
 
-                        <input type="text" class="form-control typeahead" id="top-search" name="q" required="" placeholder="Search for stores, offers or brands" autocomplete="off" />
+                        <input type="text" class="form-control typeahead" id="search_input" name="q" required="" placeholder="Search for stores, offers or brands" autocomplete="off" />
+ 
                         <div role="listbox" class="tt-menu" id="top-search_listbox" aria-expanded="false" style="position: absolute; top: 100%; left: 0px; z-index: 100;  display: block; ">
                             <div role="presentation" class="tt-dataset tt-dataset-offers"> </div>
                             <div role="presentation" class="tt-dataset tt-dataset-stores"> </div>

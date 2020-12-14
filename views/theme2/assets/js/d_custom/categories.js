@@ -22,7 +22,7 @@ function loadData(page_no=''){
 	 $.ajax({
 	                     type : "post",
 	                     dataType : "json",
-	                     url : base_url+"/front_api/getCategories/", 
+	                     url : api_url+"/front_api/getCategories/", 
 	                     data:{
 	                     	'limit':1000,
 	                     	'alphabet':currentAlphabet,

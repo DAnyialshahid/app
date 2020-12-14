@@ -20,6 +20,150 @@ var F = function() {
       
 
         // },
+   pasteClipboardStart: function(data) { 
+
+               Swal.fire({
+                title: "Are you sure?",
+                text: "do you want to paste this ",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, paste it!"
+            }).then(function(result) {
+  if (result.value) {
+             jQuery.ajax({
+                          type : "post",
+                           data:data, headers: { 'x-cookie': cookie },  
+                           dataType : "json",
+                           url : api_base_url+"/pasteClipboard", 
+                           success: function(res) {
+ if (res.success=='yes') {
+                                    Swal.fire({
+                                        title: "Copied",
+                                        text: data.type+" Copied Successfully do you want to clear clip board ?",
+                                        icon: "success",
+                                        showCancelButton: true,
+                                        confirmButtonText: "Yes, Clear it!"
+                                    }).then(function(result) {  
+                                        if (result.value) { 
+                                        F.deleteClipboardGroup(data.type)
+                                      }
+                                    });
+                                       $('#modal').modal('hide');
+                              
+}else{
+
+}
+
+                            
+
+                            }
+
+                          });
+           }else{
+
+                   $('#modal').modal('hide');
+           }
+           });
+   },
+   pasteClipboard: function(text) { 
+
+
+         jQuery.ajax({
+                    type : "post",
+                     data:{'token':token,'skip_current_site_item':'yes'}, headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/getClipboard",
+                     
+                     success: function(data) { 
+                        if(data.success === "yes") { 
+                            var html="";
+                      
+
+                          $.each(data.response,function(i,v) {
+                            if (i.toLowerCase()!=text.toLowerCase()) {return;}
+                              var item="";
+                           
+                           $.each(v,function(ii,vv) {
+                               item+='   <span class="text-muted font-weight-bold">  <span class="label label-primary label-inline font-weight-lighter mr-2 mb-1">'+vv.site_name+'</span> '+vv.row.name+' <i onclick="F.deleteCopy(\''+vv.rowid+'\')" class="fa fa-times-circle text-danger   icon-sm"></i></span>';
+                            });
+                                                    
+                  
+
+    html     +=' <!--begin: Item-->\
+                    <div class="d-flex align-items-center flex-wrap mb-5">\
+                        <div class="symbol symbol-50 symbol-light mr-5">\
+                            <span class="symbol-label">\
+                                <img src="'+backend_base_url+'/assets/media/clipboard/'+i+'.png" class="h-50 align-self-center" alt=""/>\
+                            </span>\
+                        </div>\
+                        <div class="d-flex flex-column flex-grow-1 mr-2">\
+                            <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">'+i+'\
+                             <i onclick="F.deleteClipboardGroup(\''+i+'\')" class="far fa-times-circle text-danger   icon-sm"></i>\
+                            </a>\
+                            '+item+'\
+                        </div>\
+                        <span class="btn btn-sm btn-light font-weight-bolder py-1 my-lg-0 my-2 text-dark-50">Total :'+v.length+'</span>\
+                    </div>\
+                    <!--end: Item-->';
+ 
+
+
+
+});
+
+ 
+        F.m('Paste Stores',html,
+          'Cancle', function(btn1) {
+              return true;
+          }
+          ,'Paste Now',function(btn2) {
+
+                F.pasteClipboardStart({'token':token,'type':text,'withCoupons':false});
+
+          }
+          ,'Paste With Coupons',function(btn2) {
+              F.pasteClipboardStart({'token':token,'type':text,'withCoupons':true});
+          }
+          );
+
+
+
+                        }
+                        else {
+                            Swal.fire("Error","Failed To Fill "+id,"error");
+                        }
+                     }
+                }); 
+
+
+
+
+   },
+   m: function(title,body,button1_title,button1_click,button2_title,button2_click,button3_title=null,button3_click=null) { 
+
+  $('#modal .modal-title').html(title);
+  $('#modal .modal-body').html(body);
+
+
+  if (button3_title && button3_click) {  
+  $('#modal .btn3').show();
+  $('#modal .btn3').on('click',button3_click); 
+  }else{
+  $('#modal .btn3').hide();
+  }
+
+
+  $('#modal .btn1').html(button1_title);
+  $('#modal .btn1').on('click',button1_click);
+
+  $('#modal .btn2').html(button2_title); 
+  $('#modal .btn2').on('click',button2_click);
+
+
+
+  $('#modal').modal('show');
+
+   },
    get: function(text) { 
       
             var url = new URL(window.location.href);
@@ -39,13 +183,13 @@ var F = function() {
                      success: function(data) { 
                         if(data.success === "yes") { 
                             var html="";
-                            window.dd=$(data.response);     
-console.log(data);
+                        
+ 
 $.each(data.response,function(i,v) {
     var item="";
  
  $.each(v,function(ii,vv) {
-     item+='  <span class="text-muted font-weight-bold">'+vv.row.name+' <i onclick="F.deleteCopy(\''+vv.rowid+'\')" class="fa fa-times-circle text-danger   icon-sm"></i></span>';
+     item+='  <span class="text-muted font-weight-bold"> <span class="label label-primary label-inline font-weight-lighter mr-2 mb-1">'+vv.site_name+'</span>  '+vv.row.name+' <i onclick="F.deleteCopy(\''+vv.rowid+'\')" class="fa fa-times-circle text-danger   icon-sm"></i></span>';
   });
                           
                   
@@ -181,7 +325,7 @@ $.each(data.response,function(i,v) {
                                         $(id).empty(); 
 
                                          $(extraOptions).each(function(i,v){ 
-                                          console.log(v);
+                                        
                                                    html+="<option   '"+v.selected+"' value='"+v.value+"' >"+v.title+"</option>" ;
                                             });
 
@@ -300,7 +444,7 @@ $.each(data.response,function(i,v) {
 
                       jQuery.ajax({
                         type : "post",
-                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                     data:{'token':token,'skip_current_site_item':'yes'}, headers: { 'x-cookie': cookie },  
                      
                          dataType : "json",
                          url : api_base_url+"/deleteClipboard/"+id,
@@ -345,7 +489,7 @@ $.each(data.response,function(i,v) {
 
                Swal.fire({
                 title: "Are you sure?",
-                text: "do you want to delete Group from clipboard ",
+                text: "do you want to delete "+type+" from clipboard ",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Yes, delete it!"

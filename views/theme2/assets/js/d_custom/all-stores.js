@@ -45,7 +45,7 @@ function loadData(element,page_no=''){
 	 $.ajax({
 	                     type : "post",
 	                     dataType : "json",
-	                     url : base_url+"/front_api/getStores/", 
+	                     url : api_url+"/front_api/getStores/", 
 	                     data:{
 	                     	'limit':20,
 	                     	'alphabet':currentAlphabet,

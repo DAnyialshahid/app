@@ -55,7 +55,7 @@ function init() {
  $.ajax({
                          type : "post",
                          dataType : "json",
-                         url : base_url+"/front_api/getCommon", 
+                         url : api_url+"/front_api/getCommon", 
                          data:{
                             'site_id':site_id,
                             [token_name]:token_hash,
@@ -96,7 +96,7 @@ function subscribes_email() {
  $.ajax({
                          type : "post",
                          dataType : "json",
-                         url : base_url+"/front_api/subscribe_email", 
+                         url : api_url+"/front_api/subscribe_email", 
                          data:{
                             'subscribe_email':$('[name="subscribe_email"]').filter(function() { return this.value!='';}).val()+"",
                             'site_id':site_id,
@@ -124,7 +124,7 @@ function visitCoupon(coupon_id,callback=null){
    $.ajax({
                        type : "post",
                        dataType : "json",
-                       url : base_url+"/front_api/visit_coupon/", 
+                       url : api_url+"/front_api/visit_coupon/", 
                        data:{
                          
                         'visit':1,
@@ -152,7 +152,7 @@ function notification_coupon_link_expire(coupon_id,callback){
    $.ajax({
                        type : "post",
                        dataType : "json",
-                       url : base_url+"/front_api/notification/", 
+                       url : api_url+"/front_api/notification/", 
                        data:{ 
                         'coupon_id':coupon_id,
                         'action':'Coupon link not found ',
@@ -252,12 +252,18 @@ if (redirect=='yes') {
 
 
 
+
+var encodeSiteId=site_id.replaceAll('+','plus');
+encodeSiteId=encodeSiteId.replaceAll('-','minus');
+encodeSiteId=encodeSiteId.replaceAll('@','email');
+encodeSiteId=encodeSiteId.replaceAll('.','dot');
+encodeSiteId=encodeSiteId.replaceAll('=','equal');
  var bestPictures = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
  
   remote: {
-   url: api_url+'/front_api/search/'+site_id+'/%QUERY',
+   url: api_url+'/front_api/search/'+encodeSiteId+'/%QUERY',
     wildcard: '%QUERY'
   }
 });

@@ -77,5 +77,32 @@ class Categories_model extends MY_Model{
 		  
 	}
 
+
+	public function paste($items){
+		$rows=[];
+
+		foreach ($items as $item) {
+				$row=$item['row'];
+				$row->site_id= $this->session->userdata('user_active_site');
+				$row->inserted_from='paste';
+				unset($row->id); 
+				$rows[]=(array)$row;
+
+		 	
+		}
+	 
+
+ $complete=$this->db->insert_batch('categories',$rows); 
+		if ($complete) {
+		    return true;
+		 }	 else{
+		 	return false;
+		 }
+	
+
+	}
+	
+ 
+
 	
 }

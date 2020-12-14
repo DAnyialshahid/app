@@ -254,6 +254,49 @@ allbtns.on('success', function(e) {
                                         }
                                     });
                                 });
+                            
+
+
+var encodeSiteId=site_id.replaceAll('+','plus');
+encodeSiteId=encodeSiteId.replaceAll('-','minus');
+encodeSiteId=encodeSiteId.replaceAll('@','email');
+encodeSiteId=encodeSiteId.replaceAll('.','dot');
+encodeSiteId=encodeSiteId.replaceAll('=','equal');
+ var bestPictures = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+ 
+  remote: {
+   url: api_url+'/front_api/search/'+encodeSiteId+'/%QUERY',
+   date:{'ddd':'2434'},
+   type:'post',
+    wildcard: '%QUERY'
+  }
+});
+
+$('#search_input').typeahead(null, {
+  name: 'best-pictures',
+  display: 'value',
+  source: bestPictures,
+  templates: {
+    empty: [
+      '<div class="empty-message">',
+        'unable to find any Best Picture winners that match the current query',
+      '</div>'
+    ].join('\n'),
+    suggestion: Handlebars.compile('<div class="hover:tw-bg-grey-light tw-border-b tw-p-1"><a href="'+base_url+'store/{{custom_url}}" class="tw-block"><img width="50px" src="'+api_url+'/assets/uploads/stores/{{feature_image}}" class="tw-mr-2 tw-h-auto tw-rounded-sm">{{name}}</a></div>')
+  }
+});
+$('#search_input').val('a').trigger('change');
+ 
+
+
+
+
+
+
+
+
                             })();
 
 //couponbox end

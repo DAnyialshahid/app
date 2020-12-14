@@ -29,7 +29,7 @@
 
     <?php if($this->session->userdata('role')=='admin') :?>
 <!--begin::Button-->
-<a href="#" onclick="F.pasteClipboard('stores')" class="btn btn-light font-weight-bolder mr-2">
+<a href="#" onclick="F.pasteClipboard('Stores')" class="btn btn-light font-weight-bolder mr-2">
     <span class="svg-icon svg-icon-md"><!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect x="0" y="0" width="24" height="24"/>

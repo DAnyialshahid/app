@@ -88,6 +88,39 @@ if($where){ $this->db->where($where);	 }
 			 }
 		  
 	}
-	
+
+	public function paste($items,$withCoupons){
+		$rows=[];
+ 
+		foreach ($items as $item) {
+				$row=$item['row'];
+				$row->site_id= $this->session->userdata('user_active_site');
+				$row->inserted_from='paste';
+				unset($row->id); 
+				$insert=$this->db->insert('stores',(array)$row );
+				
+				if ($insert && $withCoupons=='true') {
+					$insert_id=$this->db->insert_id();
+				 
+						$rows=$this->db->get_where('coupons',['store_id'=>$item['id']])->result();
+							
+						foreach ($rows as $coupon) { 
+							$coupon->store_id=$insert_id;
+							$coupon->site_id= $this->session->userdata('user_active_site');
+							$coupon->inserted_from='paste';
+							unset($coupon->id); 
+							$rows_2[]=(array)$coupon;
+					 	
+						} 
+					$this->db->insert_batch('coupons',$rows_2);
+				} 
+
+
+		 	
+		}
+		 
+ 
 	 
-}
+
+	}
+ 

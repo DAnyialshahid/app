@@ -30,15 +30,19 @@
         
         
         <script type="text/javascript">
-        	var base_url='<?=base_url()?>';
-        	var theme_base_url='<?=theme_base_url?>';
-     
-        	var site_id=1; 
 
-        	var token_name='<?= $this->security->get_csrf_token_name()?>';
-        	var token_hash='<?=$this->security->get_csrf_hash()?>'; 
-        	var api_url='<?=front_api_base_url?>'; 
-       
+                var base_url='<?=base_url()?>';
+            var theme_base_url='<?=theme_base_url?>';
+     
+            var site_id='<?=encrypt(site_id,"no_one_can_decrypt")?>'; 
+
+            var token_name='<?= $this->security->get_csrf_token_name()?>';
+            var token_hash='<?=$this->security->get_csrf_hash()?>'; 
+            var api_url='<?=front_api_base_url?>'; 
+  
+         
+
+
 
         </script>
 

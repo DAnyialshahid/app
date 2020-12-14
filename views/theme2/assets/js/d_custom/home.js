@@ -119,7 +119,7 @@ function getTopStores(){
 	 $.ajax({
 	                     type : "post",
 	                     dataType : "json",
-	                     url : base_url+"/front_api/getTopStores/", 
+	                     url : api_url+"/front_api/getTopStores/", 
 	                     data:{ 
 	                     	'limit':6,
 	                     	'site_id':site_id,
@@ -167,7 +167,7 @@ function getCoupons(data,limit,callback){
 	 $.ajax({
 	                     type : "post",
 	                     dataType : "json",
-	                     url : base_url+"/front_api/getRecommendedCoupons/", 
+	                     url : api_url+"/front_api/getRecommendedCoupons/", 
 	                     data:{ 
 	                     	'limit':limit,
 	                     	'side_bar':$.param(data),
@@ -198,7 +198,7 @@ function getPopuplarCategories(data,limit,callback){
 	 $.ajax({
 	                     type : "post",
 	                     dataType : "json",
-	                     url : base_url+"/front_api/getPopuplarCategories/", 
+	                     url : api_url+"/front_api/getPopuplarCategories/", 
 	                     data:{ 
 	                     	'limit':limit,
 	                     	'side_bar':$.param(data),
@@ -223,7 +223,7 @@ function getPopuplarStores(data,limit,callback){
 	 $.ajax({
 	                     type : "post",
 	                     dataType : "json",
-	                     url : base_url+"/front_api/getPopuplarStores/", 
+	                     url : api_url+"/front_api/getPopuplarStores/", 
 	                     data:{ 
 	                     	'limit':limit,
 	                     	'side_bar':$.param(data),
@@ -258,7 +258,7 @@ function getSlides(data,limit,callback){
 	 $.ajax({
 	                     type : "post",
 	                     dataType : "json",
-	                     url : base_url+"/front_api/getSlides/", 
+	                     url : api_url+"/front_api/getSlides/", 
 	                     data:{ 
 	                     	'limit':limit,
 	                      

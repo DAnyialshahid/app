@@ -7,7 +7,7 @@ if (isset(getallheaders()['x-cookie'])) {
  
   
   function dd($c){
-  d($c);
+  d($c); 
   exit('---');
 
 }
@@ -137,7 +137,7 @@ function backend_page($context,$page,$params=[]){
       DEFINE('settings',json_encode($settings));
  
     if(env=='development'){
-      $url='http://localhost/rana/site1/app2/';
+      $url='http://localhost/rana/site1/app2/affiliateplatform/';
     }else{
       $url='https://affiliateplatform.itworld.com.pk/';
     }

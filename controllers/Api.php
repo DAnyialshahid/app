@@ -89,9 +89,18 @@ public function getClipboard()
 
 
          $this->load->library('cart'); 
+         
 		 $group_items=[];
 		      foreach ($this->cart->contents() as $item){  
-		          $group_items[$item['type']][]=$item;
+ 
+		      	if ( $this->input->post('skip_current_site_item')=='yes' && ($item['site_id']==$this->session->userdata('user_active_site')) ) {
+		      		 
+		      			continue;
+		      	}
+
+		      		$group_items[$item['type']][]=$item;
+		      	
+		          
 		      }
 		      echo json_encode(['success'=>'yes','response'=>$group_items]);
  exit();
@@ -106,14 +115,39 @@ public function getClipboard()
 		      echo json_encode(['success'=>'yes','response'=>'deleted']);
  exit();
   }
-  public function pasteClipboard($type)
+  public function pasteClipboard()
 	{
 
     $this->load->library('cart'); 
- //$this->cart->remove($id); 
-    
+	$type=$this->input->post('type');
+     $group_items=[];
+	  foreach ($this->cart->contents() as $item){  
+	     if ($item['type']==$type) {
+	      	 $group_items[]=$item;
+	      }
+	  	   
+	  }
+
+			if ($type=='Stores') { 
+			$withCoupons=$this->input->post('withCoupons');
+			$this->load->model('admin/stores_model');
+			$this->stores_model->paste($group_items,$withCoupons);  
+			}
+		  if ($type=='Coupons') {  
+			$this->load->model('admin/coupons_model');
+			$this->coupons_model->paste($group_items);  
+			 
+			}
+		  if ($type=='Categories') {  
+			$this->load->model('admin/categories_model');
+			$this->categories_model->paste($group_items);  
+			 
+			}
+
+			 //$this->cart->remove($id); 
+
          
-		      echo json_encode(['success'=>'yes','response'=>$type]);
+			echo json_encode(['success'=>'yes','response'=>'Pasted Successfully']);
  exit();
   }
 
@@ -309,14 +343,14 @@ public function getClipboard()
 	public function copyStores()
 	{
 			$this->load->library('cart'); 
- 			$ids=explode(',', $this->input->get('ids'));
-
+ 			$ids=explode(',', $this->input->get('ids')); 
  			foreach ($ids as   $id) { 
  				$store=$this->db->get_where('stores',['id'=>$id])->first_row();
  				$data = array(
 			        'id'      => $id,
 			        'type'=>'Stores',
 			        'site_id'=>$this->session->userdata('user_active_site'),
+			        'site_name'=>$this->db->get_where('sites',['id'=>$this->session->userdata('user_active_site')])->first_row()->name,
 			        'row'     => $store,
 			        'qty'     => 1,
 			        'price'   => 1,
@@ -338,12 +372,13 @@ echo json_encode(['success'=>'yes','response'=>'Copied Successfully']);
  			$ids=explode(',', $this->input->get('ids'));
 
  			foreach ($ids as   $id) { 
- 				$store=$this->db->get_where('categories',['id'=>$id])->first_row();
+ 				$categories=$this->db->get_where('categories',['id'=>$id])->first_row();
  				$data = array(
 			        'id'      => $id,
 			        'type'=>'Categories',
 			        'site_id'=>$this->session->userdata('user_active_site'),
-			        'row'     => $store,
+			        'site_name'=>$this->db->get_where('sites',['id'=>$this->session->userdata('user_active_site')])->first_row()->name,
+			        'row'     => $categories,
 			        'qty'     => 1,
 			        'price'   => 1,
 			        'name'    => 'null',
@@ -364,12 +399,13 @@ echo json_encode(['success'=>'yes','response'=>'Copied Successfully']);
  			$ids=explode(',', $this->input->get('ids'));
 
  			foreach ($ids as   $id) { 
- 				$store=$this->db->get_where('coupons',['id'=>$id])->first_row();
+ 				$coupons=$this->db->get_where('coupons',['id'=>$id])->first_row();
  				$data = array(
 			        'id'      => $id,
 			        'type'=>'Coupons',
 			        'site_id'=>$this->session->userdata('user_active_site'),
-			        'row'     => $store,
+			        'site_name'=>$this->db->get_where('sites',['id'=>$this->session->userdata('user_active_site')])->first_row()->name,
+			        'row'     => $coupons,
 			        'qty'     => 1,
 			        'price'   => 1,
 			        'name'    => 'null',
@@ -396,6 +432,7 @@ echo json_encode(['success'=>'yes','response'=>'Copied Successfully']);
 			        'id'      => $id,
 			        'type'=>'Users',
 			        'site_id'=>$this->session->userdata('user_active_site'),
+			        'site_name'=>$this->db->get_where('sites',['id'=>$this->session->userdata('user_active_site')])->first_row()->name,
 			        'row'     => $users,
 			        'qty'     => 1,
 			        'price'   => 1,

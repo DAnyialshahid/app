@@ -15,7 +15,7 @@ init();
  $.ajax({
                          type : "post",
                          dataType : "json",
-                         url : base_url+"/front_api/load_dynamic_page_content/"+slug, 
+                         url : api_url+"/front_api/load_dynamic_page_content/"+slug, 
                          data:{
                             'site_id':site_id,
                             [token_name]:token_hash,
