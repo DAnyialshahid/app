@@ -61,7 +61,8 @@ class Admin extends Theme_Controller{
 	if($type=='' || $type=='dashboard'){
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'dashboard',
-			 	'js'=>'dashboard',
+			 	'js'=>'dashboard', 
+			 	'title'=>'Dashboard',
 			 ]); 
 		}
 	 
@@ -73,13 +74,15 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/stores_list',
 			 	'js'=>'stores_list',
+			 	'title'=>'Stores ',
 
 			 ]); 
 		}
 		if($type=='create'){
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/stores_create',
-			 	'js'=>'stores_create',
+			 	'js'=>'stores_create', 
+			 	'title'=>'Create Store',
 
 			 ]); 
 		}
@@ -87,7 +90,8 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/stores_create',
 			 	'js'=>'stores_create',
-			 	'id'=>$id,
+			 	'id'=>$id, 
+			 	'title'=>'Store Edit',
 
 			 ]); 
 		}
@@ -101,6 +105,7 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/categories_list',
 			 	'js'=>'categories_list',
+			 	'title'=>'Categories ',
 
 			 ]); 
 		}
@@ -108,6 +113,7 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/categories_create',
 			 	'js'=>'categories_create',
+			 	'title'=>'Create Category',
 
 			 ]); 
 		}
@@ -116,6 +122,7 @@ class Admin extends Theme_Controller{
 			 	'content_page'=>'sections/categories_create',
 			 	'js'=>'categories_create',
 			 	'id'=>$id,
+			 	'title'=>'Edit Category',
 
 			 ]); 
 		}
@@ -129,6 +136,7 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/sliders_list',
 			 	'js'=>'sliders_list',
+			 	'title'=>'Sliders ',
 
 			 ]); 
 		}
@@ -136,6 +144,7 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/sliders_create',
 			 	'js'=>'sliders_create',
+			 	'title'=>'Slider Create',
 
 			 ]); 
 		}
@@ -144,6 +153,7 @@ class Admin extends Theme_Controller{
 			 	'content_page'=>'sections/sliders_create',
 			 	'js'=>'sliders_create',
 			 	'id'=>$id,
+			 	'title'=>'Edit Slider',
 
 			 ]); 
 		}
@@ -157,6 +167,7 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/coupons_list',
 			 	'js'=>'coupons_list',
+			 	'title'=>'Coupons ',
 
 			 ]); 
 		}
@@ -164,6 +175,7 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/coupons_create',
 			 	'js'=>'coupons_create',
+			 	'title'=>'Coupon Create',
 
 			 ]); 
 		}
@@ -172,6 +184,7 @@ class Admin extends Theme_Controller{
 			 	'content_page'=>'sections/coupons_create',
 			 	'js'=>'coupons_create',
 			 	'id'=>$id,
+			 	'title'=>'Edit Coupon',
 
 			 ]); 
 		}
@@ -185,6 +198,7 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/users_list',
 			 	'js'=>'users_list',
+			 	'title'=>'Users',
 
 			 ]); 
 		}
@@ -192,6 +206,7 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/users_create',
 			 	'js'=>'users_create',
+			 	'title'=>'Create User',
 
 			 ]); 
 		}
@@ -199,7 +214,8 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/users_create',
 			 	'js'=>'users_create',
-			 	'id'=>$id,
+			 	'id'=>$id, 
+			 	'title'=>'Edit User',
 
 			 ]); 
 		}
@@ -213,6 +229,7 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/pages_list',
 			 	'js'=>'pages_list',
+			 	'title'=>'Pages',
 
 			 ]); 
 		}
@@ -220,6 +237,7 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/pages_create',
 			 	'js'=>'pages_create',
+			 	'title'=>'Create Page',
 
 			 ]); 
 		}
@@ -228,6 +246,7 @@ class Admin extends Theme_Controller{
 			 	'content_page'=>'sections/pages_create',
 			 	'js'=>'pages_create',
 			 	'id'=>$id,
+			 	'title'=>'Edit Page',
 
 			 ]); 
 		}
@@ -243,13 +262,15 @@ class Admin extends Theme_Controller{
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/config/site_config',
 			 	'js'=>'config/site_config',
+			 	'title'=>'Configurations',
 
 			 ]); 
 		}
 		if($type=='theme'){
 			 backend_page($this,'index.php',[
 			 	'content_page'=>'sections/config/site_theme',
-			 	'js'=>'config/site_theme',
+			 	'js'=>'config/site_theme', 
+			 	'title'=>'Themes',
 
 			 ]); 
 		} 

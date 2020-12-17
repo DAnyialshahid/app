@@ -227,5 +227,105 @@ function backend_page($context,$page,$params=[]){
            
     
    }
+   
+    function _fnr($find,$replace){ 
+ 
+    }
+    function head($page_name,$slug=null){ 
+      $title='';
+      $keywords='';
+      $description='';
+      $name='';
+      if ($page_name=='home') { 
+         $title=setting('seo_home_meta_title');
+         $keywords=setting('seo_home_meta_keywords');
+         $description=setting('seo_home_meta_description');    
+      }
+
+      if ($page_name=='single_store') { 
+         $title=setting('seo_store_meta_title');
+         $keywords=setting('seo_store_meta_keywords');
+         $description=setting('seo_store_meta_description');   
+
+         $CI=&get_instance();
+         $store=$CI->db->select('*')->where('custom_url',$slug)->where('site_id',site_id)->get('stores')->first_row();
+ 
+         if ($store) {
+          $name=$store->name;
+
+         } 
+      }
+
+     if ($page_name=='single_category') { 
+        $title=setting('seo_category_meta_title');
+         $keywords=setting('seo_category_meta_keywords');
+         $description=setting('seo_category_meta_description');   
+
+         $CI=&get_instance();
+         $store=$CI->db->select('*')->where('slug',$slug)->where('site_id',site_id)->get('categories')->first_row();
+ 
+         if ($store) {
+          $name=$store->name;
+
+         } 
+      }
+
+ 
+    if ($page_name=='catagories') { 
+        $title=setting('seo_all_category_meta_title');
+         $keywords=setting('seo_all_category_meta_keywords');
+         $description=setting('seo_all_category_meta_description');   
+
+      }
+    if ($page_name=='stores') { 
+        $title=setting('seo_all_store_meta_title');
+         $keywords=setting('seo_all_store_meta_keywords');
+         $description=setting('seo_all_store_meta_description');   
+
+      }
+
+
+  if ($title!='') {$title=str_replace('{name}',$name,$title); }
+  if ($keywords!='') {$keywords=str_replace('{name}',$name,$keywords); }
+  if ($description!='') {$description=str_replace('{name}',$name,$description); }
+
+  $keywords=str_replace('{name}',$name,$keywords);
+  $description=str_replace('{name}',$name,$description);
+
+
+  $title=str_replace('{Year}', date('Y'),$title);
+  $title=str_replace('{year}', date('y'),$title);
+  $title=str_replace('{Month}', date('M'),$title);
+  $title=str_replace('{month}', date('m'),$title);
+  $title=str_replace('{Day}', date('D'),$title);
+  $title=str_replace('{day}', date('d'),$title);
+
+
+  $keywords=str_replace('{Year}', date('Y'),$keywords);
+  $keywords=str_replace('{year}', date('y'),$keywords);
+  $keywords=str_replace('{Month}', date('M'),$keywords);
+  $keywords=str_replace('{month}', date('m'),$keywords);
+  $keywords=str_replace('{Day}', date('D'),$keywords);
+  $keywords=str_replace('{day}', date('d'),$keywords);
+  
+  $description=str_replace('{Year}', date('Y'),$description);
+  $description=str_replace('{year}', date('y'),$description);
+  $description=str_replace('{Month}', date('M'),$description);
+  $description=str_replace('{month}', date('m'),$description);
+  $description=str_replace('{Day}', date('D'),$description);
+  $description=str_replace('{day}', date('d'),$description);
+
+
+ 
+
+echo '
+      <title>'.$title.'</title>  
+      <meta name="keywords" content="'.$keywords.'">
+      <meta name="description" content="'.$description.'">
+      '.setting('header').'
+  ';
+           
+    
+   }
 
 //defining theme base_url

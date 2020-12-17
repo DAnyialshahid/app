@@ -1,16 +1,4 @@
-<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-    <!--begin::Subheader-->
-    <div class="subheader py-2 py-lg-4 subheader-transparent" id="kt_subheader">
-        <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-            <!--begin::Toolbar-->
-            <div class="d-flex align-items-center"></div>
-            <!--end::Toolbar-->
-        </div>
-    </div>
-    <!--end::Subheader-->
-
-    <!--begin::Entry-->
-    <div class="d-flex flex-column-fluid">
+ 
         <!--begin::Container-->
         <div class="container">
           <form action="#" method="post" id="default" enctype="multipart/form-data">
@@ -30,27 +18,7 @@
                         </div>
                         <div class="card-toolbar">
                             <!--begin::Button-->
-                            <a href="<?=base_url()?>admin/categories/list" class="btn btn-primary font-weight-bolder">
-                                <span class="svg-icon svg-icon-md">
-                                    <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Text\Bullet-list.svg-->
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <rect x="0" y="0" width="24" height="24" />
-                                            <path
-                                                d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
-                                                fill="#000000"
-                                            />
-                                            <path
-                                                d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
-                                                fill="#000000"
-                                                opacity="0.3"
-                                            />
-                                        </g>
-                                    </svg>
-                                    <!--end::Svg Icon-->
-                                </span>
-                                Goto List
-                            </a>
+                             
                             <!--end::Button-->
                         </div>
                     </div>
@@ -262,10 +230,279 @@
 
 
                             </div>
-                           
+
+                        <!--begin::Wizard Form-->
                            <div class="col-md-12 col-xl-12 col-xxl-12 row">
-                            <!--begin::Wizard Form-->
-                            <h5 class="col-md-12 col-xl-12 col-xxl-12 text-dark font-weight-bold mb-10">Contact Details:</h5> 
+                       
+                            <h5 class="col-md-12 col-xl-12 col-xxl-12 text-dark font-weight-bold mb-10"> Home SEO</h5> 
+                            <!--begin::Group-->
+                          
+
+                                    <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> Home Meta title </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                   <input class="form-control form-control-solid form-control-lg  " name="seo_home_meta_title"  type="text" value="" /> 
+                                            </div>
+                                        </div>  
+                                         <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> Home Meta Keywords </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <input class="form-control form-control-solid form-control-lg  " name="seo_home_meta_keywords"  type="text" value="" />
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div>
+                                     <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label">Home Meta Description</label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <textarea name="seo_home_meta_description" style="width: 100%;height: 130px;" ></textarea>
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div>
+
+
+
+
+                            </div>
+                         
+                            <!--end::Wizard Form--> 
+
+                        <!--begin::Wizard Form-->
+                           <div class="col-md-12 col-xl-12 col-xxl-12 row">
+                       
+                            <h5 class="col-md-12 col-xl-12 col-xxl-12 text-dark font-weight-bold mb-10">All Store SEO</h5> 
+                            <!--begin::Group-->
+                          
+
+                                    <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> All Store Meta title </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                   <input class="form-control form-control-solid form-control-lg  " name="seo_all_store_meta_title"  type="text" value="" /> 
+                                            </div>
+                                        </div>  
+                                         <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> All Store Meta Keywords </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <input class="form-control form-control-solid form-control-lg  " name="seo_all_store_meta_keywords"  type="text" value="" />
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div>
+                                     <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label">All Store Meta Description</label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <textarea name="seo_all_store_meta_description" style="width: 100%;height: 130px;" ></textarea>
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div>
+
+
+
+
+                            </div>
+                         
+                            <!--end::Wizard Form--> 
+
+
+                        <!--begin::Wizard Form-->
+                           <div class="col-md-12 col-xl-12 col-xxl-12 row">
+                       
+                            <h5 class="col-md-12 col-xl-12 col-xxl-12 text-dark font-weight-bold mb-10"> Store SEO</h5> 
+                            <!--begin::Group-->
+                          
+
+                                    <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> Store Meta title </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                   <input class="form-control form-control-solid form-control-lg  " name="seo_store_meta_title"  type="text" value="" /> 
+                                            </div>
+                                        </div>  
+                                         <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> Store Meta Keywords </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <input class="form-control form-control-solid form-control-lg  " name="seo_store_meta_keywords"  type="text" value="" />
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div>
+                                     <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label">Store Meta Description</label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <textarea name="seo_store_meta_description" style="width: 100%;height: 130px;" ></textarea>
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div>
+
+
+
+
+                            </div>
+                         
+                            <!--end::Wizard Form--> 
+
+
+                         <!--begin::Wizard Form-->
+                           <div class="col-md-12 col-xl-12 col-xxl-12 row"> 
+                            <h5 class="col-md-12 col-xl-12 col-xxl-12 text-dark font-weight-bold mb-10">All Category SEO</h5> 
+                            <!--begin::Group--> 
+
+                                    <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label">All Category Meta title </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                   <input class="form-control form-control-solid form-control-lg  " name="seo_all_category_meta_title"  type="text" value="" /> 
+                                            </div>
+                                        </div>  
+                                         <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label">All Category Meta Keywords </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <input class="form-control form-control-solid form-control-lg  " name="seo_all_category_meta_keywords"  type="text" value="" />
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div>
+                                     <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label">All Category Meta Description</label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <textarea name="seo_all_category_meta_description" style="width: 100%;height: 130px;" ></textarea>
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div> 
+
+                            </div>
+                          <!--end::Wizard Form--> 
+
+                         <!--begin::Wizard Form-->
+                           <div class="col-md-12 col-xl-12 col-xxl-12 row"> 
+                            <h5 class="col-md-12 col-xl-12 col-xxl-12 text-dark font-weight-bold mb-10"> Category SEO</h5> 
+                            <!--begin::Group--> 
+
+                                    <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> Category Meta title </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                   <input class="form-control form-control-solid form-control-lg  " name="seo_category_meta_title"  type="text" value="" /> 
+                                            </div>
+                                        </div>  
+                                         <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> Category Meta Keywords </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <input class="form-control form-control-solid form-control-lg  " name="seo_category_meta_keywords"  type="text" value="" />
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div>
+                                     <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label">Category Meta Description</label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <textarea name="seo_category_meta_description" style="width: 100%;height: 130px;" ></textarea>
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div> 
+
+                            </div>
+                          <!--end::Wizard Form--> 
+
+
+                         <!--begin::Wizard Form-->
+                           <div class="col-md-12 col-xl-12 col-xxl-12 row"> 
+                            <h5 class="col-md-12 col-xl-12 col-xxl-12 text-dark font-weight-bold mb-10"> Seasonal SEO</h5> 
+                            <!--begin::Group--> 
+
+                                    <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> Seasonal Meta title </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                   <input class="form-control form-control-solid form-control-lg  " name="seo_seasonal_meta_title"  type="text" value="" /> 
+                                            </div>
+                                        </div>  
+                                         <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> Seasonal Meta Keywords </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <input class="form-control form-control-solid form-control-lg  " name="seo_seasonal_meta_keywords"  type="text" value="" />
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div>
+                                     <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label">Seasonal Meta Description</label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <textarea name="seo_seasonal_meta_description" style="width: 100%;height: 130px;" ></textarea>
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div> 
+
+                            </div>
+                          <!--end::Wizard Form--> 
+
+
+                         <!--begin::Wizard Form-->
+                           <div class="col-md-12 col-xl-12 col-xxl-12 row"> 
+                            <h5 class="col-md-12 col-xl-12 col-xxl-12 text-dark font-weight-bold mb-10"> Coupon SEO</h5> 
+                            <!--begin::Group--> 
+
+                                    <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> Coupon Meta title </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                   <input class="form-control form-control-solid form-control-lg  " name="seo_coupon_meta_title"  type="text" value="" /> 
+                                            </div>
+                                        </div>  
+                                         <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label"> Coupon Meta Keywords </label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <input class="form-control form-control-solid form-control-lg  " name="seo_coupon_meta_keywords"  type="text" value="" />
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div>
+                                     <div class="col-md-6 col-xl-6 col-xxl-6">
+                                         <!--begin::Group--> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-lg-3 col-form-label">Coupon Meta Description</label>
+                                            <div class="col-lg-9 col-xl-9">
+                                                <textarea name="seo_coupon_meta_description" style="width: 100%;height: 130px;" ></textarea>
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                     </div> 
+
+                            </div>
+                          <!--end::Wizard Form--> 
+
+
+                                  <!--begin::Wizard Form-->
+                           <div class="col-md-12 col-xl-12 col-xxl-12 row">
+                       
+                            <h5 class="col-md-12 col-xl-12 col-xxl-12 text-dark font-weight-bold mb-10">Tracking Info</h5> 
                             <!--begin::Group-->
                           
 
@@ -331,6 +568,4 @@
             <!--end::Card-->
         </div>
         <!--end::Container-->
-    </div>
-    <!--end::Entry-->
-</div>
+   

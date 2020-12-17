@@ -1,17 +1,4 @@
-<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-    <!--begin::Subheader-->
-    <div class="subheader py-2 py-lg-4 subheader-transparent" id="kt_subheader">
-        <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-            <!--begin::Toolbar-->
-            <div class="d-flex align-items-center"></div>
-            <!--end::Toolbar-->
-        </div>
-    </div>
-    <!--end::Subheader-->
-
-    <!--begin::Entry-->
-    <div class="d-flex flex-column-fluid">
-        <!--begin::Container-->
+ <!--begin::Container-->
         <div class="container">
           <form action="#" method="post" id="default" enctype="multipart/form-data">
           <?php $csrf = array(  'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash()) ?>
@@ -243,6 +230,3 @@
             <!--end::Card-->
         </div>
         <!--end::Container-->
-    </div>
-    <!--end::Entry-->
-</div>

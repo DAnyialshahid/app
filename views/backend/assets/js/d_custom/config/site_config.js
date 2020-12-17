@@ -24,8 +24,7 @@ var Main = function() {
 
             $('#kt-ckeditor-1').val(ckeditor_box.getData());
             defaultForm.validate().then(function(status) {
-                if(status=='Valid'){
-                  
+                if(status=='Valid'){ 
                     F.submitForm("#default",'updateSettings','Update Settings',redirect_url);
                 }
             });
@@ -39,11 +38,21 @@ var Main = function() {
                      type : "get",
                      dataType : "json",
                      url : api_base_url+"/getSettings/",
-                  
+                            data:{'token':token}, headers: { 'x-cookie': cookie },  
                      success: function(data) { 
                         console.log(data);
                         if(data.success === "yes" ) { 
                           var row=data.response;
+
+
+ 
+
+
+
+
+
+
+
 
                                           //input
                                         $('[name=facebook]').val(row.facebook);
@@ -58,6 +67,22 @@ var Main = function() {
                                         $('[name=contact_country]').val(row.contact_country);
                                         $('[name=contact_flag]').val(row.contact_flag);
                                         $('[name=theme]').val(row.theme);
+                                        $('[name=seo_home_meta_title]').val(row.seo_home_meta_title);
+                                        $('[name=seo_store_meta_title]').val(row.seo_store_meta_title);
+                                        $('[name=seo_all_store_meta_title]').val(row.seo_store_meta_title);
+                                        $('[name=seo_all_category_meta_title]').val(row.seo_category_meta_title);
+                                        $('[name=seo_category_meta_title]').val(row.seo_category_meta_title);
+                                        $('[name=seo_seasonal_meta_title]').val(row.seo_seasonal_meta_title);
+                                        $('[name=seo_coupon_meta_title]').val(row.seo_coupon_meta_title);
+                                        $('[name=seo_home_meta_keywords]').val(row.seo_home_meta_keywords);
+                                        $('[name=seo_all_store_meta_keywords]').val(row.seo_store_meta_keywords);
+                                        $('[name=seo_store_meta_keywords]').val(row.seo_store_meta_keywords);
+                                        $('[name=seo_all_category_meta_keywords]').val(row.seo_category_meta_keywords);
+                                        $('[name=seo_category_meta_keywords]').val(row.seo_category_meta_keywords);
+                                        $('[name=seo_seasonal_meta_keywords]').val(row.seo_seasonal_meta_keywords);
+                                        $('[name=seo_coupon_meta_keywords]').val(row.seo_coupon_meta_keywords);
+                                   
+
                                     
                                           //selectpicker
                                    
@@ -65,10 +90,24 @@ var Main = function() {
                                     
                             
 
+
+
+
+
+
+
                                         //textarea
                                         $('[name=description]').val(row.description);
                                         $('[name=header]').val(row.header);
                                         $('[name=footer]').val(row.footer);
+
+                                        $('[name=seo_home_meta_description]').val(row.seo_home_meta_description);
+                                        $('[name=seo_all_category_meta_description]').val(row.seo_category_meta_description);
+                                        $('[name=seo_category_meta_description]').val(row.seo_category_meta_description);
+                                        $('[name=seo_seasonal_meta_description]').val(row.seo_seasonal_meta_description);
+                                        $('[name=seo_store_meta_description]').val(row.seo_store_meta_description);
+                                        $('[name=seo_all_store_meta_description]').val(row.seo_store_meta_description);
+                                        $('[name=seo_coupon_meta_description]').val(row.seo_coupon_meta_description);
                                         
                                   //image
  $('#kt_image_1 .image-input-wrapper').css('background-image','url("'+base_url+"/assets/uploads/sites/"+row.logo+'")');

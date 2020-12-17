@@ -27,6 +27,7 @@ class Frontend extends Theme_Controller{
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/home',
 			 	'js'=>'home',
+			 	'page_name'=>'home',
 
 			 ]); 
 
@@ -37,6 +38,8 @@ class Frontend extends Theme_Controller{
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/all-stores',
 			 	'js'=>'all-stores',
+			 	'page_name'=>'stores',
+
 
 			 ]); 
 
@@ -47,6 +50,7 @@ class Frontend extends Theme_Controller{
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/categories',
 			 	'js'=>'categories',
+			 	'page_name'=>'catagories',
 			 ]); 
 
 	}
@@ -59,6 +63,7 @@ class Frontend extends Theme_Controller{
 			 	'js'=>'single_store',
 			 	'type'=>'single_store',
 			 	'slug'=>$slug,
+			 	'page_name'=>'single_store',
 
 			 ]); 
 
@@ -70,6 +75,7 @@ class Frontend extends Theme_Controller{
 			 	'js'=>'single_store',
 			 	'type'=>'single_category',
 			 	'slug'=>$slug,
+			 	'page_name'=>'single_category',
 
 			 ]); 
 
@@ -80,7 +86,8 @@ class Frontend extends Theme_Controller{
 	{
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/pages/'.$slug,
-			 	'js'=>$slug,  
+			 	'js'=>$slug,
+			 	'page_name'=>'home',  
 
 			 ]); 
 
@@ -91,7 +98,8 @@ class Frontend extends Theme_Controller{
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/pages/dynamic_page.php',
 			 	'js'=>'dynamic_page',  
-			 	'slug'=>$slug,  
+			 	'slug'=>$slug,
+			 	'page_name'=>'home',  
 
 			 ]); 
 

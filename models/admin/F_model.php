@@ -72,17 +72,44 @@ class F_model extends MY_Model{
 				$settings['description']=$this->input->post('description');
 				$settings['header']=$this->input->post('header');
 				$settings['footer']=$this->input->post('footer');
+                //Seo
+				$settings['seo_home_meta_title']=$this->input->post('seo_home_meta_title');
+				$settings['seo_home_meta_keywords']=$this->input->post('seo_home_meta_keywords');
+				$settings['seo_home_meta_description']=$this->input->post('seo_home_meta_description');	
+				$settings['seo_all_store_meta_title']=$this->input->post('seo_all_store_meta_title');
+				$settings['seo_all_store_meta_keywords']=$this->input->post('seo_all_store_meta_keywords');
+				$settings['seo_all_store_meta_description']=$this->input->post('seo_all_store_meta_description');
+				$settings['seo_store_meta_title']=$this->input->post('seo_store_meta_title');
+				$settings['seo_store_meta_keywords']=$this->input->post('seo_store_meta_keywords');
+				$settings['seo_store_meta_description']=$this->input->post('seo_store_meta_description');
+				$settings['seo_category_meta_title']=$this->input->post('seo_category_meta_title');
+				$settings['seo_category_meta_keywords']=$this->input->post('seo_category_meta_keywords');
+				$settings['seo_category_meta_description']=$this->input->post('seo_category_meta_description');
+				$settings['seo_all_category_meta_title']=$this->input->post('seo_all_category_meta_title');
+				$settings['seo_all_category_meta_keywords']=$this->input->post('seo_all_category_meta_keywords');
+				$settings['seo_all_category_meta_description']=$this->input->post('seo_all_category_meta_description');
+				$settings['seo_seasonal_meta_title']=$this->input->post('seo_seasonal_meta_title');
+				$settings['seo_seasonal_meta_keywords']=$this->input->post('seo_seasonal_meta_keywords');
+				$settings['seo_seasonal_meta_description']=$this->input->post('seo_seasonal_meta_description');
+				$settings['seo_coupon_meta_title']=$this->input->post('seo_coupon_meta_title');
+				$settings['seo_coupon_meta_keywords']=$this->input->post('seo_coupon_meta_keywords');
+				$settings['seo_coupon_meta_description']=$this->input->post('seo_coupon_meta_description'); 
+ 
+
+
+
+
 				// $settings['domain']=$this->input->post('domain');
 				// $settings['theme']=$this->input->post('theme');
 	 
-				foreach ($settings as $name => $value) {
+
+			foreach ($settings as $name => $value) {
 					 $update=$this->db->set('value',$value)
 					 ->where([ 
 					 	'name'=> $name ,
 					 	'site_id'=>$this->session->userdata('user_active_site')
 					])
 		 			 ->update('configs');  
-				 
 				}
 		
 		 

@@ -48,7 +48,12 @@ var KTLogin = function() {
                 }
             }
         );
+ $('[type=password').on('keydown', function (e) {
+      if (e.code=="Enter" || e.code == "NumpadEnter" ) {
+                $('#kt_login_signin_submit').trigger('click');
+      }
 
+        });
         $('#kt_login_signin_submit').on('click', function (e) {
             e.preventDefault();
 
@@ -68,8 +73,21 @@ var KTLogin = function() {
                          processData:false,
                         success: function(data) { 
                             if(data.success=='yes'){
-                                
-                                 window.location.href=base_url+"/admin";
+                                     KTUtil.scrollTop();
+                                                     swal.fire({
+                                            text: "Login success",
+                                            icon: "success",
+                                            buttonsStyling: false,
+                                            confirmButtonText: "Ok, got it!",
+                                            customClass: {
+                                                confirmButton: "btn font-weight-bold btn-light-primary"
+                                            }
+                                        }).then(function() {
+                                         
+                                            KTUtil.scrollTop();
+                                             //   window.location.href=base_url+"/admin";
+                                        });
+                                 window.location.href=base_url+"admin";
                         //          $.ajax({
                         // type: "POST",
                         // url: backend_base+"/"+'Authentication/do_login',

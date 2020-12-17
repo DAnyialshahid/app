@@ -47,5 +47,6 @@
                             <script src="<?=script_attach(theme_base_url,'/assets/js/d_custom/'.$js.'.js')?>"></script>
                            <?php endif;?>
                         <!--end::Page Scripts-->
+                        <?= setting('footer')?>
 
 </body></html>

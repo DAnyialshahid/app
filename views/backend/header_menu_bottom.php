@@ -50,7 +50,7 @@
 
                                 
                                 <li class="menu-item menu-item-active" aria-haspopup="true">
-                                    <a href="index.html" class="menu-link"><span class="menu-text">Dashboard</span></a>
+                                    <a  href="<?=base_url()?>admin/"  class="menu-link"><span class="menu-text">Dashboard</span></a>
                                 </li>
 
                                 <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
