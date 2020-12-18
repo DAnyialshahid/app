@@ -35,7 +35,7 @@
                                         <span class="nav-icon"><i class="la la-credit-card-alt"></i></span>
                                         <span class="nav-text">Basic</span>
                                     </a>
-                                </li>
+                                </li> 
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#site_config">
                                         <span class="nav-icon"><i class="la la-gear"></i></span>
