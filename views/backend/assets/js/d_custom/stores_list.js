@@ -271,7 +271,7 @@ var Main = function() {
                             </a>\
 						';
                         var html="";
-                        if (role=='Admin') {
+                        if (role=='admin') {
                             html+=action;
                             html+=edit;
                             html+=del; 
@@ -283,7 +283,7 @@ var Main = function() {
                 },
             }],
         });
-if (role!='Admin') {
+if (role!='admin') {
     datatable.columns( 'type' ).visible( false );
     datatable.columns( 'views_n_click' ).visible( false );
 }
