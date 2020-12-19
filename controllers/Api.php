@@ -177,10 +177,34 @@ public function getClipboard()
 	{
 
 			$this->load->model('admin/coupons_model');
+			$store_id=$this->input->post('store_id');
+			if ($store_id) {
+				$this->db->where('store_id',$store_id);
+				$this->db->order_by('position','ASC');
+
+			}else{
+				$this->db->order_by('coupons.id','desc');
+			}
 			$stores=$this->coupons_model->get_all($where); 
+
 				if($return){return $stores;}
-			echo json_encode(['success'=>'yes','response'=>$stores]);
+			echo json_encode(['success'=>'yes','response'=>$stores,'q'=>$this->db->last_query()]);
 			exit();
+	}
+	public function sortCoupon()
+	{
+
+			$this->load->model('admin/coupons_model');
+			$store_id=$this->input->post('store_id');
+			$coupon_ids=$this->input->post('coupon_ids');
+			if ($store_id && $coupon_ids) { 
+				$sorted=$this->coupons_model->sort($store_id,$coupon_ids); 
+							echo json_encode(['success'=>'yes','response'=>$sorted]);
+			}else{
+			 
+			echo json_encode(['success'=>'no','response'=>'failed']);
+			exit();
+			}
 	}
 
 	public function getUsers($where=null,$return=false)

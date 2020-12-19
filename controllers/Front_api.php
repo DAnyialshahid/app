@@ -57,11 +57,14 @@ class front_api extends Theme_Controller{
 		$this->side_bar_where_coditions();
 		if (isset($store_id)) {
 				$this->db->where('store_id',$store_id); 
+					 $this->db->order_by('position','ASC');
 		}
 	
-		$this->db->order_by('id','desc');
+		  
+		 
   
 			$data = $this->db->get_where('coupons',[])->result();  
+			// echo $this->db->last_query();
 			if($return){return $data;}
 			echo json_encode(['success'=>'yes','response'=>$data]);
 			exit();
@@ -234,7 +237,7 @@ class front_api extends Theme_Controller{
 		if($alphabet){
 					  $this->db->like('name', $alphabet, 'after'); 
 					  	  $this->db->order_by('name', 'asc'); 
-		}	
+		} 
 		$limit=$this->input->post('limit');
 		if($where){$this->db->where($where);}
 		$page_no=$this->input->post('page_no')?$this->input->post('page_no'):1; 

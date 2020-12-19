@@ -22,6 +22,11 @@ class Users_model extends MY_Model{
 			$data = $this->db->get_where('users',[
 					'users.company_id'=>$this->session->userdata('user_company_id')
 			])->result();
+			if ($data) {
+				foreach ($data as   &$row) {
+				$row->password=decrypt($row->password,'no_one_can_decrypt');
+				}
+			}
 		
 		return $data;
 

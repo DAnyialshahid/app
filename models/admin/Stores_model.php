@@ -13,6 +13,7 @@ class Stores_model extends MY_Model{
 	);
 	
 	public function get_all($where=null){
+				// $this->db->limit(10);
 $this->db->select('id as id');	
 $this->db->select('feature_image as feature_image');	
 $this->db->select('name as store_name');	

@@ -34,8 +34,7 @@ var Main = function() {
             search: {
                 input: $('#kt_datatable_search_query'),
                 key: 'generalSearch'
-            },
-
+            }, 
             // columns definition
             columns: [{
                 field: 'id',
@@ -65,6 +64,11 @@ var Main = function() {
                 // callback function support for column rendering
                 template: function(row) {
                     var status = {
+                        '': {
+                            'title': 'null',
+                            'state': '', 
+                            'icon': '',
+                        },
                         'coupon': {
                             'title': 'Coupon',
                             'state': 'primary', 
@@ -93,6 +97,10 @@ var Main = function() {
                 //'active','inactive','unknown','not_update','closed','error','sales_issue'
                 template: function(row) {
                     var status = {
+                        '': {
+                            'title': 'null',
+                            'state': ''
+                        },
                         'inactive': {
                             'title': 'Inactive',
                             'state': 'warning'
@@ -226,7 +234,7 @@ var Main = function() {
 
              jQuery.ajax({
                    type : "post",
-                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                     data:{'token':token,store_id:F.get('store_id')}, headers: { 'x-cookie': cookie },  
                      dataType : "json",
                      url : api_base_url+"/getCoupons", 
                      success: function(data) { 

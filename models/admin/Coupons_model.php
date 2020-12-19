@@ -11,11 +11,11 @@ class Coupons_model extends MY_Model{
 	 
 
  	public function get_all($where=null){
+		$this->db->limit(100);
    
 		$this->db->select('coupons.*');
 		$this->db->select('stores.name as store_name');
-		$this->db->order_by('coupons.id','desc');
-		$this->db->limit(10);
+		
 		$this->db->join('stores','stores.id=coupons.store_id');
 		if($where){ $this->db->where($where);	 }	   
 			$data = $this->db->get_where('coupons',[
@@ -86,6 +86,20 @@ class Coupons_model extends MY_Model{
 		  
 	}
 
+
+
+
+public function sort($store_id,$coupon_ids){
+
+	foreach (explode(',',$coupon_ids) as $position => $coupon_id) {
+	 $this->db->set('position',$position)->where(['store_id'=>$store_id,'id'=>$coupon_id])->update('coupons');
+	} 
+
+
+		 
+	}
+
+	
 
 
 	

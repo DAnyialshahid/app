@@ -2,7 +2,7 @@
 <div id="home">
 <section class="homepage banners bg-white" >
     <div class="container">
-        <a href="https://www.dontpayfull.com/page/amazon-discount-finder">
+        <a href="#">
             <img
                 src="https://static.dontpayfull.com/static/images/banners/amazon-discount-finder-desktop.png"
                 srcset="https://static.dontpayfull.com/static/images/banners/amazon-discount-finder-desktop@2x.png"

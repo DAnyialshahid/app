@@ -7,7 +7,8 @@
 var Main = function() {
     // Private functions
 
-    // demo initializer
+    // demo initializer 
+
     var init_table = function(dataJSONArray) {  
       //  var dataJSONArray = JSON.parse();
 
@@ -202,6 +203,18 @@ var Main = function() {
                                                 <span class="navi-text">Add Coupon</span>\
                                             </a>\
                                         </li>\
+                                        <li class="navi-item">\
+                                            <a href="'+base_url+'admin/coupons/sort?store_id='+row.id+'" class="navi-link">\
+                                                <span class="navi-icon"><i class="la-sort-amount-down"></i></span>\
+                                                <span class="navi-text">Sort Coupons</span>\
+                                            </a>\
+                                        </li>\
+                                        <li class="navi-item">\
+                                            <a href="#" class="navi-link"  onclick="Main.assignTaskPopup('+row.id+')">\
+                                                <span class="navi-icon"><i class="la-tasks"></i></span>\
+                                                <span class="navi-text">Asign Task </span>\
+                                            </a>\
+                                        </li>\
 	                                    <li class="navi-item">\
 	                                        <a href="#" class="navi-link" onclick="F.copyThis('+row.id+',\'copyStores\')">\
 	                                            <span class="navi-icon"><i class="la la-copy"></i></span>\
@@ -384,8 +397,150 @@ if (role!='admin') {
 
            
         },
+        //assignThisTask
+assignTaskPopup: function(id) {  
+     
+
+
+         jQuery.ajax({
+                    type : "post",
+                     data:{'token':token }, headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/getUsers",
+                     
+                     success: function(data) { 
+                        if(data.success === "yes") { 
+                            var html="";
+                      
+     var options="";
+                          $.each(data.response,function(i,v) { 
+                         
+                               options+='<option value="'+v.id+' ">'+v.first_name+' '+v.last_name+' </option>';
+                       
+                            });
+                          //'active','inactive','unknown','not_update','closed','error','sales_issue'
+  html     +=' <!--begin: Item--><form id="assignToUpdateStore">\
+                    <div class="row">\
+                        <div class="col-xs-12 col-md-6">Select Status</div>\
+                        <div class="col-xs-12 col-md-6">Select Users</div>\
+                         <div class="col-xs-12 col-md-6">\
+                                    <select name="status" class="selectpicker">\
+                                    <option value="active">Active</option>\
+                                    <option value="inactive">Inactive</option>\
+                                    <option value="not_update">Not Update</option>\
+                                    <option value="closed">Closed</option>\
+                                    <option value="error">Error </option>\
+                                    <option value="sales_issue">Sales Issues</option>\
+                                    </select>\
+                        </div>\
+                        <div class="col-xs-12 col-md-6">\
+                            <select name="users" multiple class="selectpicker">\
+                            '+options+'\
+                        </select></div>\
+                    </div>\
+                    </form><!--end: Item-->';
+ 
+
+ 
+        F.m('Assign Stores to Users',html,
+          'Cancle', function(btn1) {
+              return true;
+          }
+          ,'Notifiy',function(btn2) {
+
+
+ 
+          } ,null,null,function() {
+                $('#assignToUpdateStore select').selectpicker(); 
+
+          } 
+        );
+
+
+
+                        }
+                        else {
+                            Swal.fire("Error","Failed To Fill "+id,"error");
+                        }
+                     }
+                }); 
+
+
+
+
+   
+} ,
+assignThisTask: function(id) {   
+            Main.saveCopy(id);  
+        }  ,
+copyThis: function(id) {   
+            F.saveCopy(id);  
+        }  ,
+copySelected:function () {  
+
+            var selectedCheckboxes=$('.datatable-body td[data-field=id] input[type=checkbox]:checked');
+            var checkbox_ids=[];
+
+            selectedCheckboxes.each(function(i,v) {
+            checkbox_ids.push($(v).val());
+            });
+ 
+            F.saveCopy(checkbox_ids.join(','),type);
+           
+        },
+
+
+ assignTask:function(ids) {  
+
+               Swal.fire({
+                title: "Are you sure?",
+                text: "do you want to copy this ",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, copy it!"
+            }).then(function(result) {
+                if (result.value) {
+
+                      jQuery.ajax({
+                        type : "post",
+                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                         dataType : "json",
+                         url : api_base_url+"/"+type+"?ids="+ids,
+                         success: function(data) { 
+                            if(data.success === "yes") {  
+                                            Swal.fire(
+                                                "Copied!",
+                                                "Copy  Successfully",
+                                                "success"
+                                            ) 
+
+                                       F.getClipboard();
+                                       setTimeout(function(){
+                                                   $('#kt_quick_panel_toggle').click();
+
+                                       },2000);
+                               
+                            }
+                            else {
+                              Swal.fire('Failed To copy',data.response,'error');
+                            }
+                         }
+                    });   
+
+
+                }
+            });
+
+                
+           
+        },
+
     };
 }();
+
+
+ 
+
 
 jQuery(document).ready(function() {
     Main.init();

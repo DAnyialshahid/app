@@ -139,7 +139,7 @@ var F = function() {
 
 
    },
-   m: function(title,body,button1_title,button1_click,button2_title,button2_click,button3_title=null,button3_click=null) { 
+   m: function(title,body,button1_title,button1_click,button2_title,button2_click,button3_title=null,button3_click=null,callback=null) { 
 
   $('#modal .modal-title').html(title);
   $('#modal .modal-body').html(body);
@@ -162,8 +162,11 @@ var F = function() {
 
 
   $('#modal').modal('show');
+  // console.log(callback);
+  if (callback) {callback();}
 
-   },
+   }
+,
    get: function(text) { 
       
             var url = new URL(window.location.href);

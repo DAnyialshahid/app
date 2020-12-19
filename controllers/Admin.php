@@ -188,6 +188,14 @@ class Admin extends Theme_Controller{
 
 			 ]); 
 		}
+		if($type=='sort'){
+			 backend_page($this,'index.php',[
+			 	'content_page'=>'sections/coupons_sort',
+			 	'js'=>'coupons_sort', 
+			 	'title'=>'Sort Coupons',
+
+			 ]); 
+		}
 	 
 
 	}
