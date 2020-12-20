@@ -20,7 +20,7 @@ var Ajax = function() {
 
 
                       $.ajax({
-                      url: api_base_url2+'assets/js/d_custom/'+js+'.js',
+                      url: api_base_url2+'application/views/backend/assets/js/d_custom/'+js+'.js',
                       dataType: "script",
                     headers: { 'x-cookie': cookie },   
                               success:  function( data, textStatus, jqxhr ) { 

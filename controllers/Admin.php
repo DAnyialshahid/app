@@ -39,7 +39,7 @@ header("Expires: 0"); // Proxies.
 	     		if (!($this->uri->segment(1)=='admin' && $this->uri->segment(2)=='login') ) {
 	   
 	     			 // redirect('authentication/login_panel');
-	     					exit('Redirecting to login <script>window.location.href='.base_url().'+"authentication/login_panel"</script>');
+	     					exit('Redirecting to login <script>window.location.href=\''.base_url().'authentication/login_panel\'</script>');
 	     		}
 		
 			exit('Redirect to login');
