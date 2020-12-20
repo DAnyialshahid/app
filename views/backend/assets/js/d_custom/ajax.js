@@ -8,16 +8,21 @@ var Ajax = function() {
           var idSlug='';
           if (id) {idSlug='/'+id;} 
                  $.ajax({
-          url: base_url+'/admin/index/load'+idSlug+'?page_name='+page+'&'+F.getAll(),
-          dataType: "script",
+                     type : "post",
+                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+ 
+
+          url: api_base_url2+'admin/load'+idSlug+'?page_name='+page,
+  
                   success:  function( data, textStatus, jqxhr ) {
                     $('title').html("Rendering:".title);
                      $('#ajax_based_content').html(data);
 
 
                       $.ajax({
-                      url: backend_base_url+'/assets/js/d_custom/'+js+'.js',
+                      url: api_base_url2+'assets/js/d_custom/'+js+'.js',
                       dataType: "script",
+                    headers: { 'x-cookie': cookie },   
                               success:  function( data, textStatus, jqxhr ) { 
 
                                  $('title').html(title);

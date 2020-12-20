@@ -153,6 +153,9 @@ function backend_page($context,$page,$params=[]){
       $api_base=  $url.'api';
         // $api_base=  $url.'api'; 
          DEFINE('api_base_url',$api_base);
+
+        // $api_base=  $url.'api'; 
+         DEFINE('api_base_url2',$url);
  
  /**frontend*/
   

@@ -24,6 +24,7 @@
         <link rel="shortcut icon" href="<?=backend_base_url?>/assets/media/logos/favicon.ico"/>
 <script> 
     var api_base_url='<?=api_base_url?>';
+    var api_base_url2='<?=api_base_url2?>';
     var backend_base_url='<?=backend_base_url?>';
     var base_url='<?=base_url()?>';
     var token='<?=$this->session->userdata("token")?>';

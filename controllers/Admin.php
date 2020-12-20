@@ -19,6 +19,10 @@ class Admin extends Theme_Controller{
 		parent::__construct();
 	
 
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0"); // Proxies.
+
 
 		// $this->load->model('admin/Taxonomies_model');
 	 	// dd($_SESSION); 
@@ -28,10 +32,13 @@ class Admin extends Theme_Controller{
 	        $this->output->enable_profiler(TRUE);
 	    }
 
-	     if( $this->session->userdata('loggedIn')!=1){
+	     if(!$this->session->userdata('loggedIn')){
+
 	  
+
 	     		if (!($this->uri->segment(1)=='admin' && $this->uri->segment(2)=='login') ) {
-	     			redirect('authentication/login_panel');
+	   
+	     			 // redirect('authentication/login_panel');
 	     					exit('Redirecting to login');
 	     		}
 		
@@ -41,23 +48,25 @@ class Admin extends Theme_Controller{
 	}
 
 	public function index($type='',$id='')
-	{ 
+	{
 
-	if($type==''){
-			 backend_page($this,'index.php',[
+ backend_page($this,'index.php',[
 			 	'content_page'=>'sections/ajax',
 			 	'js'=>'ajax', 
 			 	'title'=>'Home',
 			 ]); 
-		}
-		if($type=='load'){
+	}
+
+	public function load($type='',$id='')
+	{ 
+
+	 
 			// dd($this->input->get('page_name'));
 			 backend_page($this,$this->input->get('page_name'),[
 			 		 	'id'=>$id, 
 			 ]);
 
-			 
-		}
+		 
 	 
 	}	
 

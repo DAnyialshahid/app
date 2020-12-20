@@ -5,7 +5,9 @@
     <!--begin::Head-->
     <?php backend_page($this,'head')?>
     <!--end::Head-->
-
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0" />
     <!--begin::Body-->
     <body  id="kt_body"  class="header-fixed header-mobile-fixed page-loading"  > 
     	<!--begin::Main-->
