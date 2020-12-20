@@ -269,7 +269,9 @@ $.each(data.response,function(i,v) {
 
         },
         submitForm: function(id,url,title,redirect_url=null) { 
-             // var datastring = $(id).serialize();
+  
+              KTApp.blockPage({overlayColor: '#000000', state: 'danger', message: 'Please wait...', size: 'lg'}); 
+              // var datastring = $(id).serialize();
               var datastring =  new FormData($(id)[0]) ;
                     $.ajax({
                         type: "POST",
@@ -281,6 +283,7 @@ $.each(data.response,function(i,v) {
                          cache: false,
                          processData:false,
                         success: function(data) {
+                              KTApp.unblockPage();
                             if(data.success=='yes'){
                                      Swal.fire("Good job!", title, "success");
                                      if(redirect_url){
@@ -290,8 +293,10 @@ $.each(data.response,function(i,v) {
                                      Swal.fire("Failed!", data.response, "error");
 
                             } 
+
                         },
                         error: function(e,x,c) { 
+                              KTApp.unblockPage();
                                   Swal.fire("Failed!", "error handling here "+c, "error");
                         }
                     });
@@ -299,7 +304,7 @@ $.each(data.response,function(i,v) {
         },
            // Public functions
         fillSelectAjax: function(id,url,selected_id='',extraOptions=[]) {   
-
+      KTApp.block('.form-group:has('+id+')',{ state: 'danger', message: 'Data Loading...', size: 'lg'}); 
          jQuery.ajax({
                    type : "post",
                      data:{'token':token}, headers: { 'x-cookie': cookie },  
@@ -313,9 +318,10 @@ $.each(data.response,function(i,v) {
 
                         F.fillSelect(id,data,selected_id,extraOptions);
                                 
-
+                        KTApp.unblock('.form-group:has('+id+')');
                         }
                         else {
+                         KTApp.unblock('.form-group:has('+id+')');
                             Swal.fire("Error","Failed To Fill "+id,"error");
                         }
                      }
@@ -323,6 +329,7 @@ $.each(data.response,function(i,v) {
 
         }, // Public functions
         fillSelect: function(id,data,selected_id='',extraOptions=[]) {    
+
                             var html="";
 
                                         $(id).empty(); 
