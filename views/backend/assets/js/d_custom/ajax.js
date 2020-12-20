@@ -4,6 +4,7 @@ var Ajax = function() {
   return {
       loadPage:function(title,page,js,id) {
       $('title').html("Loading:".title);
+   KTApp.blockPage({overlayColor: '#000000', state: 'danger', message: 'Loading Page...', size: 'lg'}); 
           var idSlug='';
           if (id) {idSlug='/'+id;} 
                  $.ajax({
@@ -20,6 +21,7 @@ var Ajax = function() {
                               success:  function( data, textStatus, jqxhr ) { 
 
                                  $('title').html(title);
+                                  KTApp.unblockPage();
                               }
 
                         });
@@ -28,6 +30,7 @@ var Ajax = function() {
                   }, 
                   fail:  function( data, textStatus, jqxhr ) {
                       Route.E_404(title,page);
+                       KTApp.unblockPage();
 
                   }
 
