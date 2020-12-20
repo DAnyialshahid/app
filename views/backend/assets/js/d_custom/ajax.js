@@ -5,6 +5,9 @@ var Ajax = function() {
       loadPage:function(title,page,js,id) {
       $('title').html("Loading:".title);
    KTApp.blockPage({overlayColor: '#000000', state: 'danger', message: 'Loading Page...', size: 'lg'}); 
+   setTimeout(function() {
+       KTApp.unblockPage();
+     },9000);
           var idSlug='';
           if (id) {idSlug='/'+id;} 
                  $.ajax({
