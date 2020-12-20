@@ -58,6 +58,8 @@ var Main = function() {
                                         $('[name=store_slug]').val(row.custom_url);
                                         $('[name=website_url]').val(row.website_url);
                                         $('[name=affiliate_link]').val(row.affiliate_link);
+                                        $('[name=seo_store_meta_title]').val(row.seo_store_meta_title);
+                                        $('[name=seo_store_meta_keywords]').val(row.seo_store_meta_keywords);
                                           //selectpicker
                                         $('[name=category_id]').val(row.category_id).selectpicker('refresh');
                                         $('[name=type]').val(row.type).selectpicker('refresh');
@@ -69,6 +71,7 @@ var Main = function() {
 
                                         //textarea
                                         $('[name=description]').val(row.description);
+                                        $('[name=seo_store_meta_description]').val(row.seo_store_meta_description);
  
                                         // $('[name=store_name]').val(row.store_name);
                                           //image 

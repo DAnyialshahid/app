@@ -249,8 +249,11 @@ function backend_page($context,$page,$params=[]){
 
          $CI=&get_instance();
          $store=$CI->db->select('*')->where('custom_url',$slug)->where('site_id',site_id)->get('stores')->first_row();
- 
-         if ($store) {
+      
+       if ($store) { 
+        if ($store->seo_store_meta_title) {       $title      =$store->seo_store_meta_title;  }
+        if ($store->seo_store_meta_keywords) {    $keywords   =$store->seo_store_meta_keywords;  }
+        if ($store->seo_store_meta_description) { $description=$store->seo_store_meta_description;  }
           $name=$store->name;
 
          } 
@@ -262,10 +265,30 @@ function backend_page($context,$page,$params=[]){
          $description=setting('seo_category_meta_description');   
 
          $CI=&get_instance();
-         $store=$CI->db->select('*')->where('slug',$slug)->where('site_id',site_id)->get('categories')->first_row();
+         $category=$CI->db->select('*')->where('slug',$slug)->where('site_id',site_id)->get('categories')->first_row();
  
-         if ($store) {
-          $name=$store->name;
+         if ($category) {
+        if ($category->seo_category_meta_title) {       $title      =$category->seo_category_meta_title;  }
+        if ($category->seo_category_meta_keywords) {    $keywords   =$category->seo_category_meta_keywords;  }
+        if ($category->seo_category_meta_description) { $description=$category->seo_category_meta_description;  }
+          $name=$category->name;
+
+         } 
+      }
+
+     if ($page_name=='dynamic_page' || $page_name=='constant_page') { 
+        $title=setting('seo_page_meta_title');
+         $keywords=setting('seo_page_meta_keywords');
+         $description=setting('seo_page_meta_description');   
+ 
+         $CI=&get_instance();
+         $page=$CI->db->select('*')->where('slug',$slug)->where('site_id',site_id)->get('pages')->first_row();
+ 
+         if ($page) {
+        if ($page->seo_page_meta_title) {       $title      =$page->seo_page_meta_title;  }
+        if ($page->seo_page_meta_keywords) {    $keywords   =$page->seo_page_meta_keywords;  }
+        if ($page->seo_page_meta_description) { $description=$page->seo_page_meta_description;  }
+          $name=$page->name;
 
          } 
       }

@@ -160,7 +160,41 @@
 
                             </div>
                            
-                         
+              
+    <div class="col-md-12 col-xl-12 col-xxl-12 row">
+        <h5 class="col-md-12 col-xl-12 col-xxl-12 text-dark font-weight-bold mb-10">Category SEO</h5>
+        <!--begin::Group-->
+
+        <div class="col-md-6 col-xl-6 col-xxl-6">
+            <!--begin::Group-->
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label"> Category Meta title </label>
+                <div class="col-lg-9 col-xl-9">
+                    <input class="form-control form-control-solid form-control-lg" name="seo_category_meta_title" type="text" value="" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label"> Category Meta Keywords </label>
+                <div class="col-lg-9 col-xl-9">
+                    <input class="form-control form-control-solid form-control-lg" name="seo_category_meta_keywords" type="text" value="" />
+                </div>
+            </div>
+            <!--end::Group-->
+        </div>
+        <div class="col-md-6 col-xl-6 col-xxl-6">
+            <!--begin::Group-->
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label">Category Meta Description</label>
+                <div class="col-lg-9 col-xl-9">
+                    <textarea name="seo_category_meta_description" style="width: 100%; height: 130px;"></textarea>
+                </div>
+            </div>
+            <!--end::Group-->
+        </div>
+    </div>
+ 
+
+
                             <!--end::Wizard Form-->
                         </div>
                     </div>

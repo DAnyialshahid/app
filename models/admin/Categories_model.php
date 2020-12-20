@@ -42,6 +42,9 @@ class Categories_model extends MY_Model{
 			'top'		=>$this->input->post('check_top'), 
 			'icon'		=>$this->input->post('icon'), 
 			'site_id'		=>$this->session->userdata('user_active_site'), 
+			'seo_category_meta_title'		=>$this->input->post('seo_category_meta_title'), 
+			'seo_category_meta_keywords'		=>$this->input->post('seo_category_meta_keywords'), 
+			'seo_category_meta_description'		=>$this->input->post('seo_category_meta_description'),  
 		
 		);
 		if(!empty($uploaded_filename)){

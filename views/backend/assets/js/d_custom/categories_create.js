@@ -54,6 +54,8 @@ var Main = function() {
                                           //input
                                         $('[name=name]').val(row.name);
                                         $('[name=slug]').val(row.slug);
+                                        $('[name=seo_category_meta_title]').val(row.seo_category_meta_title);
+                                        $('[name=seo_category_meta_keywords]').val(row.seo_category_meta_keywords);
                                         // $('[name=icon]').val(row.icon);      
                                           //selectpicker
                                         $('[name=category_id]').val(row.category_id).selectpicker('refresh');
@@ -67,6 +69,7 @@ var Main = function() {
 
                                         //textarea
                                         $('[name=description]').val(row.description);
+                                        $('[name=seo_category_meta_description]').val(row.seo_category_meta_description);
                                         
                                   //image
                                 $('#kt_image_1 .image-input-wrapper').css('background-image','url("'+base_url+"/assets/uploads/categories/"+row.feature_image+'")');

@@ -68,19 +68,21 @@ var Main = function() {
                                         $('[name=contact_flag]').val(row.contact_flag);
                                         $('[name=theme]').val(row.theme);
                                         $('[name=seo_home_meta_title]').val(row.seo_home_meta_title);
-                                        $('[name=seo_store_meta_title]').val(row.seo_store_meta_title);
-                                        $('[name=seo_all_store_meta_title]').val(row.seo_store_meta_title);
-                                        $('[name=seo_all_category_meta_title]').val(row.seo_category_meta_title);
-                                        $('[name=seo_category_meta_title]').val(row.seo_category_meta_title);
-                                        $('[name=seo_seasonal_meta_title]').val(row.seo_seasonal_meta_title);
-                                        $('[name=seo_coupon_meta_title]').val(row.seo_coupon_meta_title);
                                         $('[name=seo_home_meta_keywords]').val(row.seo_home_meta_keywords);
+                                        $('[name=seo_all_store_meta_title]').val(row.seo_store_meta_title);
                                         $('[name=seo_all_store_meta_keywords]').val(row.seo_store_meta_keywords);
-                                        $('[name=seo_store_meta_keywords]').val(row.seo_store_meta_keywords);
+                                        $('[name=seo_all_category_meta_title]').val(row.seo_category_meta_title);
                                         $('[name=seo_all_category_meta_keywords]').val(row.seo_category_meta_keywords);
+                                        $('[name=seo_category_meta_title]').val(row.seo_category_meta_title);
                                         $('[name=seo_category_meta_keywords]').val(row.seo_category_meta_keywords);
+                                        $('[name=seo_store_meta_title]').val(row.seo_store_meta_title);
+                                        $('[name=seo_store_meta_keywords]').val(row.seo_store_meta_keywords);
+                                        $('[name=seo_seasonal_meta_title]').val(row.seo_seasonal_meta_title);
                                         $('[name=seo_seasonal_meta_keywords]').val(row.seo_seasonal_meta_keywords);
-                                        $('[name=seo_coupon_meta_keywords]').val(row.seo_coupon_meta_keywords);
+                                        $('[name=seo_coupon_meta_title]').val(row.seo_coupon_meta_title);
+                                        $('[name=seo_coupon_meta_keywords]').val(row.seo_coupon_meta_keywords); 
+                                        $('[name=seo_page_meta_title]').val(row.seo_page_meta_title);
+                                        $('[name=seo_page_meta_keywords]').val(row.seo_page_meta_keywords);
                                    
 
                                     
@@ -108,6 +110,7 @@ var Main = function() {
                                         $('[name=seo_store_meta_description]').val(row.seo_store_meta_description);
                                         $('[name=seo_all_store_meta_description]').val(row.seo_store_meta_description);
                                         $('[name=seo_coupon_meta_description]').val(row.seo_coupon_meta_description);
+                                        $('[name=seo_page_meta_description]').val(row.seo_page_meta_description);
                                         
                                   //image
  $('#kt_image_1 .image-input-wrapper').css('background-image','url("'+base_url+"/assets/uploads/sites/"+row.logo+'")');

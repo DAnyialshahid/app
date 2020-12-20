@@ -87,7 +87,7 @@ class Frontend extends Theme_Controller{
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/pages/'.$slug,
 			 	'js'=>$slug,
-			 	'page_name'=>'home',  
+			 	'page_name'=>'constant_page',  
 
 			 ]); 
 
@@ -99,7 +99,7 @@ class Frontend extends Theme_Controller{
 			 	'content_page'=>'sections/pages/dynamic_page.php',
 			 	'js'=>'dynamic_page',  
 			 	'slug'=>$slug,
-			 	'page_name'=>'home',  
+			 	'page_name'=>'dynamic_page',  
 
 			 ]); 
 

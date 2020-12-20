@@ -94,6 +94,9 @@ class F_model extends MY_Model{
 				$settings['seo_coupon_meta_title']=$this->input->post('seo_coupon_meta_title');
 				$settings['seo_coupon_meta_keywords']=$this->input->post('seo_coupon_meta_keywords');
 				$settings['seo_coupon_meta_description']=$this->input->post('seo_coupon_meta_description'); 
+				$settings['seo_page_meta_title']=$this->input->post('seo_page_meta_title');
+				$settings['seo_page_meta_keywords']=$this->input->post('seo_page_meta_keywords');
+				$settings['seo_page_meta_description']=$this->input->post('seo_page_meta_description'); 
  
 
 

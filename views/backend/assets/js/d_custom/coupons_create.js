@@ -56,6 +56,8 @@ var Main = function() {
                                         $('[name=short_title]').val(row.short_title);
                                         $('[name=affiliate_link]').val(row.affiliate_link);
                                         $('[name=coupon_code]').val(row.coupon_code); 
+                                        $('[name=seo_coupon_meta_title]').val(row.seo_coupon_meta_title); 
+                                        $('[name=seo_coupon_meta_keywords]').val(row.seo_coupon_meta_keywords); 
 
                                         //dates
                                         $('[name=expire_date]').val(row.expire_date).trigger('change');
@@ -86,6 +88,7 @@ var Main = function() {
 
                                         //textarea
                                         $('[name=description]').val(row.description);
+                                        $('[name=seo_coupon_meta_description]').val(row.seo_coupon_meta_description);
 
                                         //image 
                                         $('#kt_image_1 .image-input-wrapper').css('background-image','url("'+base_url+"/assets/uploads/coupons/"+row.feature_image+'")');

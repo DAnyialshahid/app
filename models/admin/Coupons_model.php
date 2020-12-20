@@ -50,6 +50,9 @@ class Coupons_model extends MY_Model{
 			'added_date'	=> date('y-m-d h:i:s'),
 			'updated_date'		=> date('y-m-d h:i:s'),
 			'inserted_from'		=>'human',  
+			'seo_coupon_meta_title'		=>$this->input->post('seo_coupon_meta_title'), 
+			'seo_coupon_meta_keywords'		=>$this->input->post('seo_coupon_meta_keywords'), 
+			'seo_coupon_meta_description'		=>$this->input->post('seo_coupon_meta_description'),  
 			'site_id'		=>$this->session->userdata('user_active_site'), 
 			'type'		=> !empty($this->input->post('coupon_code'))?'coupon':'deal', 
 		

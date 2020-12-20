@@ -56,6 +56,10 @@ if($where){ $this->db->where($where);	 }
 			'show_in_home'		=>$this->input->post('check_show_in_home'), 
 			'top'		=>$this->input->post('check_top'), 
 			'site_id'		=>$this->session->userdata('user_active_site'), 
+
+			'seo_store_meta_title'		=>$this->input->post('seo_store_meta_title'), 
+			'seo_store_meta_keywords'		=>$this->input->post('seo_store_meta_keywords'), 
+			'seo_store_meta_description'		=>$this->input->post('seo_store_meta_description'),  
 		
 		);
 		if(!empty($uploaded_filename)){

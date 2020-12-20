@@ -53,9 +53,12 @@ var Main = function() {
 
                                           //input
                                         $('[name=name]').val(row.name); 
+                                        $('[name=slug]').val(row.slug);
+                                        $('[name=seo_page_meta_title]').val(row.seo_page_meta_title);
+                                        $('[name=seo_page_meta_keywords]').val(row.seo_page_meta_keywords);
                                         //textarea
                                         $('[name=description]').val(row.description);
-                                        $('[name=slug]').val(row.slug);
+                                        $('[name=seo_page_meta_description]').val(row.seo_page_meta_description);
 
                                    
                         }
@@ -154,8 +157,8 @@ defaultForm=FormValidation.formValidation(
 
 $(document).ready(function() {
 
- F.fillSelectAjax('#select_store','getStores',F.get('store_id'));
- F.fillSelectAjax('#select_category','getCategories');
+ // F.fillSelectAjax('#select_store','getStores',F.get('store_id'));
+ // F.fillSelectAjax('#select_category','getCategories');
 
  
 
