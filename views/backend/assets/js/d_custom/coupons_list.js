@@ -304,7 +304,8 @@ var Main = function() {
                 confirmButtonText: "Yes, edit it!"
             }).then(function(result) {
                 if (result.value) {
-                    window.location.href=base_url+"admin/coupons/edit/"+id;
+                     Route.go('coupons','edit',id);
+                   // window.location.href=base_url+"admin/coupons/edit/"+id;
                 }
             }); 
 

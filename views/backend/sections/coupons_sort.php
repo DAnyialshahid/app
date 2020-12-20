@@ -1,3 +1,4 @@
+    <input type="hidden" name="id" value="<?=isset($id)?$id:''?>" id="id" />
 <div class="content  d-flex flex-column flex-column-fluid" id="kt_content">
 											<!--begin::Subheader-->
 <div class="subheader py-2 py-lg-4  subheader-transparent " id="kt_subheader">

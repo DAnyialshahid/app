@@ -113,6 +113,11 @@ var Main = function() {
                 // callback function support for column rendering
                 template: function(row) {
                     var status = {
+                        '': {
+                            'title': 'Null',
+                            'state': '', 
+                            'icon': '',
+                        },
                         'timing': {
                             'title': 'Timing',
                             'state': 'primary', 
@@ -138,6 +143,10 @@ var Main = function() {
                 //'active','inactive','unknown','not_update','closed','error','sales_issue'
                 template: function(row) {
                     var status = {
+                        '': {
+                            'title': 'Null',
+                            'state': 'warning'
+                        },
                         'inactive': {
                             'title': 'Inactive',
                             'state': 'warning'
@@ -204,7 +213,7 @@ var Main = function() {
                                             </a>\
                                         </li>\
                                         <li class="navi-item">\
-                                            <a href="'+base_url+'admin/coupons/sort?store_id='+row.id+'" class="navi-link">\
+                                            <a href="#"  onclick="Route.go(\'coupons\',\'sort\',\''+row.id+'\')"  class="navi-link">\
                                                 <span class="navi-icon"><i class="la-sort-amount-down"></i></span>\
                                                 <span class="navi-text">Sort Coupons</span>\
                                             </a>\
@@ -390,7 +399,8 @@ if (role!='admin') {
                 confirmButtonText: "Yes, edit it!"
             }).then(function(result) {
                 if (result.value) {
-                    window.location.href=base_url+"admin/stores/edit/"+id;
+                      Route.go('stores','edit',id);
+                  //  window.location.href=base_url+"admin/stores/edit/"+id;
                 }
             }); 
 

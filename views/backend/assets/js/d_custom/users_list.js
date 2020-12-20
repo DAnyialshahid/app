@@ -283,7 +283,8 @@ var Main = function() {
                 confirmButtonText: "Yes, edit it!"
             }).then(function(result) {
                 if (result.value) {
-                    window.location.href=base_url+"admin/users/edit/"+id;
+                      Route.go('users','edit',id);
+                   // window.location.href=base_url+"admin/users/edit/"+id;
                 }
             }); 
 

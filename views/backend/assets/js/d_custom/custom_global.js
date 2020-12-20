@@ -171,6 +171,10 @@ var F = function() {
       
             var url = new URL(window.location.href);
          return  url.searchParams.get(text);
+            },   getAll: function(text) { 
+      
+            var url = new URL(window.location.href);
+         return url.search.substr(1,9999);;
             },
 
         getClipboard: function(text) { 
@@ -557,6 +561,18 @@ $(document).ready(function(){
 
        F.getClipboard();
 $('#sites_list').selectpicker();
+
+
+$('.menu-subnav .menu-item').click(function() {
+
+ 
+  $('.menu-item').removeClass('menu-item-active');
+  $(this).addClass('menu-item-active');
+  $(this).parent().closest('.menu-item').addClass('menu-item-active');;
+
+});
+
+
 $('#sites_list').change(function() {
     jQuery.ajax({
                      type : "post",
@@ -567,7 +583,8 @@ $('#sites_list').change(function() {
                      success: function(data) { 
                         if(data.success === "yes") { 
                               Swal.fire("Site Changed!", 'Success', "success");
-                                   window.location.href="";
+                              Route.go('dashboard','');
+                                 //  window.location.href="";
                         }
                         else {
                             alert("Error");
