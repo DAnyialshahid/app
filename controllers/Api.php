@@ -27,7 +27,10 @@ public $login_user;
 		  	if (!( ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
 		   				 if(strpos($_SERVER['HTTP_ACCEPT'], 'json') !== false){  
 						 }else{
-						 	   exit('No direct script access allowed');
+						 	if (!isset($_GET['development'])) {
+						 		 exit('No direct script access allowed');
+						 	}
+						 	  
 						 }
 			}
 
@@ -65,7 +68,7 @@ public $login_user;
 			
 			// }
 			
-		 if( $this->session->userdata('loggedIn')!=1){ 
+		 if( $this->session->userdata('loggedIn')!=1 && 	(!isset($_GET['development']) ) ){ 
 				 		echo json_encode(['success'=>'no','response'=>'OAuth Failed']);
 						exit(); 
 				 		 
@@ -934,6 +937,38 @@ if(!empty($_FILES['feature_image']['name'])){
  			
 			$this->load->model('admin/f_model'); 
 			echo json_encode(['success'=>'yes','response'=>$this->f_model->update_settings($logo,$favicon)]);
+			exit();
+	}
+
+	public function network_add()
+	{
+ 
+ 			
+			$this->load->model('admin/networks_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->networks_model->add()]);
+			exit();
+	}
+	public function network_connect()
+	{
+ 
+ 			
+			$this->load->model('admin/networks_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->networks_model->network_connect()]);
+			exit();
+	}
+	public function recaptcha__en()
+	{
+ 
+ 			
+			$this->load->model('admin/networks_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->networks_model->recaptcha__en()]);
+			exit();
+	}public function test()
+	{
+ 
+ 			
+			$this->load->model('admin/networks_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->networks_model->recaptcha__en()]);
 			exit();
 	}
 

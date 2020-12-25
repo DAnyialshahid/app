@@ -1,0 +1,16 @@
+.tt-menu{
+	background: white !important;
+	width: 100% !important;
+	height: 100% !important;
+}
+.twitter-typeahead,.twitter-typeahead input{
+	width: 100%;
+}
+
+.twitter-typeahead input{
+	padding: : 10px;
+}
+
+.tt-dataset{
+background: white;
+}

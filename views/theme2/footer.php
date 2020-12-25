@@ -17,8 +17,9 @@
                     <a href="https://twitter.com/thecouponcause" target="_blank"><i class="fa fa-twitter"></i></a>
                 </div>
                 <h4 class="disclaimertitle">Disclaimer</h4>
-                The display of third-party trademarks and trade names on this site does not necessarily indicate any affiliation or endorsement of Coupon Cause.<br />
-                If you click a merchant link and buy a product or service on their website, we may be paid a fee by the merchant.
+                 <b v-html="configs.description" ></b> 
+
+
             </div>
             <div class="col-md-2"></div>
             <div class="col-sm-3 col-md-3 footer-widget">
@@ -50,7 +51,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3">
                     <p>
-                        2020 Copyright <a href="/"><b>Rapid Voucher</b></a>
+                        2020 Copyright <a href="/">   <b v-html="configs.site_name" ></b> </a>
                     </p>
                 </div>
                 <div class="col-md-6 col-sm-6">

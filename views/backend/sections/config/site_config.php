@@ -62,6 +62,12 @@
                                         <span class="nav-text">Adwords Accounts</span>
                                     </a>
                                 </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#networks">
+                                        <span class="nav-icon"><i class="fab la-neos"></i></span>
+                                        <span class="nav-text">Network Accounts</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -571,6 +577,166 @@
                 </div>
             </div>
             <!--end::Group-->
+        </div>
+    </div>
+
+    <!--end::Wizard Form-->
+</div>
+
+
+
+<div class="tab-pane fade" id="adwords" role="tabpanel" aria-labelledby="adwords">
+    <!--begin::Wizard Form-->
+    <div class="col-md-12 col-xl-12 col-xxl-12 row">
+        
+        <div class="card card-custom col-md-6 col-xl-6 col-xxl-6 " id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">  <span class="la la-list"></span> Accounts List</h3>
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Toggle Card">
+            <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="reload" data-toggle="tooltip" data-placement="top" title="Reload Card">
+            <i class="ki ki-reload icon-nm"></i>
+            </a>
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary" data-card-tool="remove" data-toggle="tooltip" data-placement="top" title="Remove Card">
+            <i class="ki ki-close icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        ...
+    </div>
+</div>
+
+        <div class="card card-custom col-md-6 col-xl-6 col-xxl-6 " id="kt_card_1">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label"> <span class="la la-plus"></span> Connect New</h3>
+        </div>
+        <div class="card-toolbar">
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Toggle Card">
+            <i class="ki ki-arrow-down icon-nm"></i>
+            </a>
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="reload" data-toggle="tooltip" data-placement="top" title="Reload Card">
+            <i class="ki ki-reload icon-nm"></i>
+            </a>
+            <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary" data-card-tool="remove" data-toggle="tooltip" data-placement="top" title="Remove Card">
+            <i class="ki ki-close icon-nm"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body" id="network_add">
+        
+              <div class="form-group row">
+                    <label class="col-12 col-form-label">Select Network</label>
+                    <div class="col-12 col-form-label">
+                        <div class="radio-inline">
+                            <label class="radio radio-success">
+                                <input type="radio" name="add_network_network" value="webgain"/>
+                                <span></span>
+                               <img style="width:20px;padding:2px"   src="<?=backend_base_url?>/assets/media/networks/webgains.png" />  Webgains
+                            </label>
+                            <label class="radio radio-success">
+                                <input type="radio" name="add_network_network" value="skimlinks"   />
+                                <span></span>
+                                 <img style="width:20px;padding:2px"     src="<?=backend_base_url?>/assets/media/networks/skimlinks.png" /> Skimlinks
+                            </label>
+                              <label class="radio radio-success">
+                                <input type="radio" name="add_network_network" value="ganet"/>
+                                <span></span>
+                                 <img style="width:20px;padding:2px"     src="<?=backend_base_url?>/assets/media/networks/Shareasale.png" />  Ganet
+                            </label>
+
+                            <label class="radio radio-success">
+                                <input type="radio" name="add_network_network" value="awin"   />
+                                <span></span>
+                                 <img style="width:20px;padding:2px"     src="<?=backend_base_url?>/assets/media/networks/awin.png" />   Awin
+                            </label>
+                         
+                        </div>
+                  
+                    </div>
+
+                     <div class="col-12 col-form-label">
+                        <div class="radio-inline">
+
+                            <label class="radio radio-success">
+                                <input type="radio" name="add_network_network" value="chinesean"  />
+                                <span></span>
+                                     <img style="width:20px;padding:2px"     src="<?=backend_base_url?>/assets/media/networks/chinesean.ico" />  Chinesean
+                            </label>
+                            <label class="radio radio-success">
+                                <input type="radio" name="add_network_network" value="admitad"/>
+                                <span></span>
+                                 <img style="width:20px;padding:2px"     src="<?=backend_base_url?>/assets/media/networks/admitad.png" />   admitad
+                            </label> 
+                               <label class="radio radio-success">
+                                <input type="radio" name="add_network_network" value="shareasale"  />
+                                <span></span>
+                                      <img style="width:20px;padding:2px"    src="<?=backend_base_url?>/assets/media/networks/Shareasale.png" />  Shareasale
+                            </label>
+                        </div>
+                  
+                    </div>
+                </div>
+
+  <!--begin::Group-->
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label"> Username </label>
+                <div class="col-lg-9 col-xl-9">
+                    <input class="form-control form-control-solid form-control-lg" name="add_network_username" type="text" value="" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label"> Password </label>
+                <div class="col-lg-9 col-xl-9">
+                    <input class="form-control form-control-solid form-control-lg" name="add_network_password" type="password" value="" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label"> Set Title  </label>
+                <div class="col-lg-9 col-xl-9">
+                    <input class="form-control form-control-solid form-control-lg" name="add_network_title" type="text" value="" placeholder="Optional" />
+                </div>
+            </div>
+            <!--end::Group-->
+ 
+
+    </div>
+    <div class="card-footer d-flex justify-content-end">
+                <div>
+                    <!--begin::Button-->
+                    <button  onclick="return Main.addNetwork()" class="btn btn-light-primary font-weight-bolder bb">   
+                     <span >Login</span>
+                    </button>
+                    <!--end::Button-->
+                </div>
+            </div>
+</div>
+
+
+        
+    </div>
+
+    <!--end::Wizard Form-->
+</div>
+
+           <div class="tab-pane fade" id="networks" role="tabpanel" aria-labelledby="networks">
+    <!--begin::Wizard Form-->
+    <div class="col-md-12 col-xl-12 col-xxl-12 row">
+        <h5 class="col-md-12 col-xl-12 col-xxl-12 text-dark font-weight-bold mb-10">Network Accounts</h5>
+        <!--begin::Group-->
+
+        <div class="col-md-6 col-xl-6 col-xxl-6">
+        
+
+        </div>
+        <div class="col-md-6 col-xl-6 col-xxl-6">
+            
+
         </div>
     </div>
 

@@ -34,7 +34,7 @@
                              <a class="dropdown-item" :href="base_url+'stores'">View All Stores</a> 
                           </div>
                         <div v-for="store in popular_stores"  class="col-xs-12">
-                      <a class="dropdown-item" href="base_url+'store/'+store.custom_url">{{store.name}}</a> 
+                      <a class="dropdown-item" :href="base_url+'store/'+store.custom_url">{{store.name}}</a> 
                       </div>
 
                     </div>

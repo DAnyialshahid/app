@@ -20,6 +20,45 @@ var Main = function() {
 
     return {
         // Public functions
+        addNetwork: function() {
+         window.networkForm.validate().then(function(status) {
+                if(status=='Valid'){ 
+                        KTApp.block('#network_add',{ state: 'danger', message: 'Authenticating Wait.....', size: 'lg'}); 
+       jQuery.ajax({
+                     type : "post",
+                     dataType : "json",
+                     url : api_base_url+"/network_add/",
+                            data:{
+                              'token':token,
+                              'add_network_network': $('#network_add [name="add_network_network"]:checked').val(),
+                              'add_network_username':$('#network_add [name=add_network_username]').val(),
+                              'add_network_password':$('#network_add [name=add_network_password]').val(), 
+                              'add_network_title':$('#network_add [name=add_network_title]').val(),  
+
+                          },
+
+                             headers: { 'x-cookie': cookie },  
+                     success: function(data) { 
+                        console.log(data);
+                        if(data.success === "yes" ) { 
+
+
+                        }
+
+                           KTApp.unblock('#network_add');
+                      },
+                      fail:function(r){
+                         KTApp.unblock('#network_add');
+                      }
+                });
+
+             return false;
+
+         }
+       });
+ 
+      return false;
+        },
         submit: function(redirect_url=null) {
 
             $('#kt-ckeditor-1').val(ckeditor_box.getData());
@@ -42,17 +81,7 @@ var Main = function() {
                      success: function(data) { 
                         console.log(data);
                         if(data.success === "yes" ) { 
-                          var row=data.response;
-
-
- 
-
-
-
-
-
-
-
+                          var row=data.response; 
 
                                           //input
                                         $('[name=facebook]').val(row.facebook);
@@ -163,6 +192,50 @@ jQuery(document).ready(function() {
 
     //F.fillSelectAjax('#select_category','getCategories');
 
+window.networkForm=FormValidation.formValidation(
+    document.getElementById('network_add'),
+    {
+        fields: {
+            add_network_network: {
+                validators: {
+                    notEmpty: {
+                        message: 'Network  is required'
+                    }  
+                }
+            }, 
+            add_network_username: {
+                validators: {
+                    notEmpty: {
+                        message: 'Username  is required'
+                    } 
+                }
+            }, 
+            add_network_password: {
+                validators: {
+                    notEmpty: {
+                        message: 'Password  is required'
+                    } 
+                }
+            },
+ 
+
+        },
+
+        plugins: {
+            // defaultSubmit:'23',
+        trigger: new FormValidation.plugins.Trigger(),
+            // Bootstrap Framework Integration
+        bootstrap: new FormValidation.plugins.Bootstrap(),
+            // Validate fields when clicking the Submit button
+            //submitButton: new FormValidation.plugins.SubmitButton(),
+                                            // Submit the form when all fields are valid
+       // defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+        }
+    }
+)    .on('core.form.valid', function() {
+
+  
+});
 defaultForm=FormValidation.formValidation(
     document.getElementById('default'),
     {
