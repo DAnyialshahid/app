@@ -3,14 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 require_once APPPATH . 'controllers/Theme_Controller.php';
 class Admin extends Theme_Controller{
 	
-		
-	public $props = array(
-		
-		'title'		=> 'Untitled',
-		'page'		=> '',
-		'template'	=> '',
-		'data'		=> array()
-	);
+	 
 	
 	
 	public function __construct()
@@ -22,8 +15,7 @@ class Admin extends Theme_Controller{
 header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
 header("Pragma: no-cache"); // HTTP 1.0.
 header("Expires: 0"); // Proxies.
-
-
+ 
 		// $this->load->model('admin/Taxonomies_model');
 	 	// dd($_SESSION); 
 
@@ -39,7 +31,7 @@ header("Expires: 0"); // Proxies.
 	     		if (!($this->uri->segment(1)=='admin' && $this->uri->segment(2)=='login') ) {
 	   
 	     			 // redirect('authentication/login_panel');
-	     					exit('Redirecting to login <script>window.location.href=\''.base_url().'authentication/login_panel\'</script>');
+	     					exit('Redirecting to login <script>window.location.href=\''.$this->config->item('api_url').'authentication/login_panel\'</script>');
 	     		}
 		
 			exit('Redirect to login');

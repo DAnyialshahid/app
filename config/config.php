@@ -8,11 +8,21 @@ $config['local_whitelist'] = array(
     '::1'
 ); 
 
+
+
 if(in_array($_SERVER['REMOTE_ADDR'],$config['local_whitelist'])){
 	 define('env','development');  
 }else{
 	 define('env','production'); 
 }
+
+
+if (env=='development') {
+     $config['api_url'] ='http://localhost/rana/site1/app2/affiliateplatform/';
+}else{
+	 $config['api_url'] ='https://affiliateplatform.itworld.com.pk/';
+}	
+
 
 $root=(isset($_SERVER['HTTPS']) ? "https://" : "http://").$_SERVER['HTTP_HOST'];
 $root.= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
@@ -22,6 +32,8 @@ if (isset(getallheaders()['domain_from']) ) {
 }else{
 	$config['base_url'] = $root;
 }
+
+
  
 /*
 |--------------------------------------------------------------------------

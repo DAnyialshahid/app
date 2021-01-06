@@ -117,6 +117,7 @@ function backend_page($context,$page,$params=[]){
 
   }
   function common($context,$include=''){  
+       $CI=&get_instance();
     // dd(getallheaders());
     if (isset(getallheaders()['site_id'])) {
          DEFINE('site_id',decrypt(getallheaders()['site_id'],'no_one_can_decrypt'));
@@ -135,13 +136,9 @@ function backend_page($context,$page,$params=[]){
       ])->result();
       
       DEFINE('settings',json_encode($settings));
- 
-    if(env=='development'){
-      $url='http://localhost/rana/site1/app2/affiliateplatform/';
-    }else{
-      $url='https://affiliateplatform.itworld.com.pk/';
-    }
+
      
+      $url=$CI->config->item('api_url');
  
 /**backend*/ 
 		 $admin_base=  base_url().'application/views/backend';
