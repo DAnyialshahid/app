@@ -48,7 +48,7 @@ var KTLogin = function() {
                 }
             }
         );
- $('[type=password').on('keydown', function (e) {
+ $('[type=password],[type=username]').on('keydown', function (e) {
       if (e.code=="Enter" || e.code == "NumpadEnter" ) {
                 $('#kt_login_signin_submit').trigger('click');
       }
