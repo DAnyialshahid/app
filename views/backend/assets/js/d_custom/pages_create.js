@@ -105,7 +105,7 @@ var Main = function() {
 }();
 
 jQuery(document).ready(function() { 
-
+  $('select').selectpicker();
     //F.fillSelectAjax('#select_Coupons','getCategories');
 
 defaultForm=FormValidation.formValidation(

@@ -132,23 +132,27 @@ if (store_id) {
 
 
 jQuery(document).ready(function() {  
-    
+
+
+   // alert($('#id').val());
                   $.ajax({
+
                   url: 'https://code.jquery.com/ui/1.12.1/jquery-ui.js',
                   dataType: "script",
                   success:  function( data, textStatus, jqxhr ) {
-                  store_id= $('#id').val();
-                    Main.getCoupons(store_id);
-                }
+                         store_id= $('#id').val();
+                  //alert(store_id);
+                        Main.getCoupons(store_id);
+                          F.fillSelectAjax('#select_store','getStores',store_id);
+                    }
     
                   });
 
 
-$('#select_store').on('change',function() {
-    store_id=$('#id').val();
-Main.getCoupons(store_id);
-});
-
- F.fillSelectAjax('#select_store','getStores',store_id);
+            $('#select_store').on('change',function() { 
+                    store_id=$('#select_store').val(); 
+                    Main.getCoupons(store_id);
+            }); 
+          
 
 });

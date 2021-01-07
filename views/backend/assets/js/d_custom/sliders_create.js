@@ -188,7 +188,7 @@ slideCounter++;
 }
 
 $(document).ready(function() {
-
+  $('select').selectpicker();
     if($('#id').val()!=''){
   Main.fillUpdate($('#id').val());
        $('#card_label').html('Update Slide');

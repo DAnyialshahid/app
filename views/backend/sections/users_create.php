@@ -17,7 +17,7 @@
                         </div>
                         <div class="card-toolbar">
                             <!--begin::Button-->
-                            <a href="<?=base_url()?>admin/users/list" class="btn btn-primary font-weight-bolder">
+                            <a  onclick="Route.go('users','list')"  class="btn btn-primary font-weight-bolder">
                                 <span class="svg-icon svg-icon-md">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Text\Bullet-list.svg-->
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -187,7 +187,7 @@
                     <div class="card-footer d-flex justify-content-end">
                         <div>
                             <!--begin::Button-->
-                            <a href="#"  onclick="Main.submit('<?=base_url()?>admin/users/list')"  class="btn btn-light-primary font-weight-bolder pulse pulse-primary">
+                            <a href="#"  onclick="Main.submit({path1:'users',path2:'list'})"  class="btn btn-light-primary font-weight-bolder pulse pulse-primary">
                                 <span class="svg-icon svg-icon-md">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Navigation\Arrow-to-left.svg-->
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">

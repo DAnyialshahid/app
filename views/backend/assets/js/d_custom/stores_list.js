@@ -207,7 +207,7 @@ var Main = function() {
 	                                        Choose an action:\
 	                                    </li>\
                                         <li class="navi-item">\
-                                            <a href="'+base_url+'admin/coupons/create?store_id='+row.id+'" class="navi-link">\
+                                            <a onclick="Route.go(\'coupons\',\'create\',{store_id:'+row.id+'})" class="navi-link">\
                                                 <span class="navi-icon"><i class="la la-tags"></i></span>\
                                                 <span class="navi-text">Add Coupon</span>\
                                             </a>\

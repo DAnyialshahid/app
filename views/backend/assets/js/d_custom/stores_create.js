@@ -31,7 +31,7 @@ var Main = function() {
                         url="updateStore";
                         title="Store Update";
                      }
-                    F.submitForm("#default",url,title,redirect_url);
+                    F.submit              Form("#default",url,title,redirect_url);
                 }
             });
          
@@ -122,7 +122,7 @@ var Main = function() {
 }();
 
 jQuery(document).ready(function() { 
-
+  $('select').selectpicker();
     F.fillSelectAjax('#select_category','getCategories');
 
 defaultForm=FormValidation.formValidation(

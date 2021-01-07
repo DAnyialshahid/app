@@ -21,7 +21,7 @@
 	<div class="card-header flex-wrap border-0 pt-6 pb-0">
 		<div class="card-title">
 			<h3 class="card-label">
-				Manage  Categories
+				Manage  Users
 				<span class="d-block text-muted pt-2 font-size-sm"> management made easy</span>
 			</h3>
 		</div>
@@ -99,7 +99,7 @@
 <!--end::Dropdown-->
 
 <!--begin::Button-->
-<a href="<?=base_url()?>/admin/users/create" class="btn btn-primary font-weight-bolder">
+<a onclick="Route.go('users','create')" class="btn btn-primary font-weight-bolder">
     <span class="svg-icon svg-icon-md"><!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect x="0" y="0" width="24" height="24"/>

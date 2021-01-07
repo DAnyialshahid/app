@@ -272,7 +272,7 @@ $.each(data.response,function(i,v) {
     .replace(/-+$/, '');            // Trim - from end of text
 
         },
-        submitForm: function(id,url,title,redirect_url=null) { 
+        submitForm: function(id,url,title,redirect_route=null) { 
   
               KTApp.blockPage({overlayColor: '#000000', state: 'danger', message: 'Please wait...', size: 'lg'}); 
               // var datastring = $(id).serialize();
@@ -290,8 +290,10 @@ $.each(data.response,function(i,v) {
                               KTApp.unblockPage();
                             if(data.success=='yes'){
                                      Swal.fire("Good job!", title, "success");
-                                     if(redirect_url){
-                                        window.location.href=redirect_url;
+                                     if(redirect_route){
+
+                                       // window.location.href=redirect_url;
+                                        Route.go(redirect_route.path1,redirect_route.path2); 
                                      }
                             }else{
                                      Swal.fire("Failed!", data.response, "error");
@@ -307,7 +309,7 @@ $.each(data.response,function(i,v) {
 
         },
            // Public functions
-        fillSelectAjax: function(id,url,selected_id='',extraOptions=[]) {   
+        fillSelectAjax: function(id,url,selected_id='',extraOptions=[],callback=null) {   
       KTApp.block('.form-group:has('+id+')',{ state: 'danger', message: 'Data Loading...', size: 'lg'}); 
          jQuery.ajax({
                    type : "post",
@@ -320,7 +322,7 @@ $.each(data.response,function(i,v) {
                         if(data.success === "yes") { 
                             var html="";
 
-                        F.fillSelect(id,data,selected_id,extraOptions);
+                        F.fillSelect(id,data,selected_id,extraOptions,callback);
                                 
                         KTApp.unblock('.form-group:has('+id+')');
                         }
@@ -332,14 +334,13 @@ $.each(data.response,function(i,v) {
                 }); 
 
         }, // Public functions
-        fillSelect: function(id,data,selected_id='',extraOptions=[]) {    
+        fillSelect: function(id,data,selected_id='',extraOptions=[],callback=null) {    
 
                             var html="";
 
                                         $(id).empty(); 
 
                                          $(extraOptions).each(function(i,v){ 
-                                        
                                                    html+="<option   '"+v.selected+"' value='"+v.value+"' >"+v.title+"</option>" ;
                                             });
 
@@ -354,8 +355,8 @@ $.each(data.response,function(i,v) {
                                         $(id).selectpicker('refresh');
 
                             
+if (callback) { callback();}
 
- 
                  
 
         },

@@ -181,7 +181,7 @@ defaultForm=FormValidation.formValidation(
 
 $(document).ready(function() {
     
-   
+     $('select').selectpicker();
 
  // $('#select_role').change(function() {
  //    if($(this).val()=='1'){

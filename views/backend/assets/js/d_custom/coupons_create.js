@@ -137,7 +137,7 @@ var Main = function() {
 }();
 
 jQuery(document).ready(function() { 
-
+  $('select').selectpicker();
     //F.fillSelectAjax('#select_Coupons','getCategories');
 
 defaultForm=FormValidation.formValidation(
@@ -189,7 +189,7 @@ defaultForm=FormValidation.formValidation(
 
 $(document).ready(function() {
 
- F.fillSelectAjax('#select_store','getStores',F.get('store_id'));
+ F.fillSelectAjax('#select_store','getStores',$('#store_id').val());
  F.fillSelectAjax('#select_category','getCategories');
 
   $('[name=expire_date]').datepicker({
@@ -206,7 +206,7 @@ $(document).ready(function() {
 
 
     if($('#id').val()!=''){
-  Main.fillUpdate($('#id').val());
+         Main.fillUpdate($('#id').val());
        $('#card_label').html('Update Coupons');
 
         $('#submit_btn_1').html(' Update & exit');

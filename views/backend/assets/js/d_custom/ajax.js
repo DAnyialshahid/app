@@ -9,7 +9,8 @@ var Ajax = function() {
        KTApp.unblockPage();
      },9000);
           var idSlug='';
-          if (id) {idSlug='/'+id;} 
+          if ((typeof id !=='undefined') && (typeof id !='object') ) {idSlug='/'+id;} 
+
                  $.ajax({
                      type : "post",
                      data:{'token':token}, headers: { 'x-cookie': cookie },  
@@ -20,15 +21,23 @@ var Ajax = function() {
                   success:  function( data, textStatus, jqxhr ) {
                     $('title').html("Rendering:".title);
                      $('#ajax_based_content').html(data);
-
+                 
+                     if ((typeof id !=='undefined') && (typeof id =='object') ) {
+                   
+                           for(i in id){ 
+                           $('#ajax_based_content').append('<input type="hidden" id="'+i+'" value="'+id[i]+'" />');
+                
+                           }
+                    }else if(typeof id !=='undefined'){
+                           $('#ajax_based_content #id').val(id);
+                    }
 
                       $.ajax({
                       url: api_base_url2+'application/views/backend/assets/js/d_custom/'+js+'.js',
                       dataType: "script",
                     headers: { 'x-cookie': cookie },   
-                              success:  function( data, textStatus, jqxhr ) { 
-
-                                 $('title').html(title);
+                              success:  function( data, textStatus, jqxhr ) {  
+                                 $('title').html(title); 
                                   KTApp.unblockPage();
                               }
 
@@ -105,7 +114,7 @@ var Route = function() {
                 if (type=='list') {
                   Ajax.loadPage('Coupons List','sections/coupons_list','coupons_list'); 
                 }else if (type=='create') {
-                   Ajax.loadPage('Create New Coupon','sections/coupons_create','coupons_create');  
+                   Ajax.loadPage('Create New Coupon','sections/coupons_create','coupons_create',id);  
                 }else if (type=='edit') {
                    Ajax.loadPage('Edit Coupon','sections/coupons_create','coupons_create',id);  
                 }else if (type=='sort') {
