@@ -1,4 +1,3 @@
- 
 <div id="home">
 <section class="hero " style="padding-top: 4px; padding-bottom: 5px;"> <div class="container">
         <div class="row">

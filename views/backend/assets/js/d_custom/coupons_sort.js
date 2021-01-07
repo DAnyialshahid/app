@@ -142,6 +142,7 @@ jQuery(document).ready(function() {
                   success:  function( data, textStatus, jqxhr ) {
                          store_id= $('#id').val();
                   //alert(store_id);
+                  
                         Main.getCoupons(store_id);
                           F.fillSelectAjax('#select_store','getStores',store_id);
                     }

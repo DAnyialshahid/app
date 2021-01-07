@@ -292,8 +292,13 @@
         <!--end::Global Config-->
 
     	<!--begin::Global Theme Bundle(used by all pages)-->
-    	    	   <script src="<?=backend_base_url?>/assets/plugins/global/plugins.bundle.js"></script>
-		    	   <script src="<?=backend_base_url?>/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    	    	   <!-- <script src="<?=backend_base_url?>/assets/plugins/global/plugins.bundle.js"></script> -->
+                   <script src="<?=backend_base_url?>/assets/plugins/custom/jquery/jquery.js"></script>
+		    	   <script src="<?=backend_base_url?>/assets/js/pages/features/miscellaneous/sweetalert2.js"></script>
+                   <script src="<?=backend_base_url?>/assets/plugins/custom/formvalidation/FormValidation.min.js"></script>
+                   <script src="<?=backend_base_url?>/assets/plugins/custom/sweetalert2/sweetalert2.js"></script>
+                   <script src="<?=backend_base_url?>/assets/plugins/custom/formvalidation/plugins/Bootstrap.js"></script>
+                   <script src="<?=backend_base_url?>/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
 		    	   <script src="<?=backend_base_url?>/assets/js/scripts.bundle.js"></script>
 				<!--end::Global Theme Bundle-->
 
