@@ -284,10 +284,12 @@ $('#search_input').typeahead(null, {
         'unable to find any Best Picture winners that match the current query',
       '</div>'
     ].join('\n'),
-    suggestion: Handlebars.compile('<div class="hover:tw-bg-grey-light tw-border-b tw-p-1"><a href="'+base_url+'store/{{custom_url}}" class="tw-block"><img width="50px" src="'+api_url+'/assets/uploads/stores/{{feature_image}}" class="tw-mr-2 tw-h-auto tw-rounded-sm">{{name}}</a></div>')
-  }
+    suggestion: Handlebars.compile('<div role="" class="tt-dataset tt-dataset-stores">\
+      <a class="tt-suggestion tt-selectable"  href="'+base_url+'store/{{custom_url}}"  style="border: solid 1px #716c6b42;padding-top: 0px;padding-bottom: 0px;" ><div class="store-logo">\
+      <img src="'+api_url+'/assets/uploads/stores/{{feature_image}}" style="border: solid 1px #988b8942; margin: 4px;width: 50px;" class="img-responsive" />\
+      </div><div class="store-info"><div class="store-name"><h4> {{name}} </h4><p><span class="tt-hint-domain">{{custom_url}}</p></div><div class="store-offers-available"><span>50</span> offer<strong class="tt-highlight">s</strong> available</div></div></a></div> <div class="hover:tw-bg-grey-light tw-border-b tw-p-1">') }
 });
-$('#search_input').val('a').trigger('change');
+//$('#search_input').val('a').trigger('change');
  
 
 

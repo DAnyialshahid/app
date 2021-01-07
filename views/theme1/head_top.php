@@ -7,13 +7,12 @@
                 </a>
             </div>
             <div class="search">
-                <form action="https://search/" id="top-search-form" class="store-search text-left">
+                <form action="#" id="top-search-form" class="store-search text-left">
                     <div class="input-group input-group-lg search-wrap">
                         <button type="submit" class="input-group-addon" aria-label="Search"><i class="df df-search"></i></button>
 
 
-                        <input type="text" class="form-control typeahead" id="search_input" name="q" required="" placeholder="Search for stores, offers or brands" autocomplete="off" />
- 
+                        <input type="text" class="form-control typeahead" id="search_input" name="q" required="" placeholder="Search for stores, offers or brands" autocomplete="off"  style="    border-top-left-radius: 10px; border-top-right-radius: 10px;" />
                         <div role="listbox" class="tt-menu" id="top-search_listbox" aria-expanded="false" style="position: absolute; top: 100%; left: 0px; z-index: 100;  display: block; ">
                             <div role="presentation" class="tt-dataset tt-dataset-offers"> </div>
                             <div role="presentation" class="tt-dataset tt-dataset-stores"> </div>
