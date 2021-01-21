@@ -3,7 +3,7 @@
  	<style type="text/css">
  		@media screen and (max-width: 480px) {
   #layout{
-    width:47%;
+    width:100%;
   }
 }
  	</style>
