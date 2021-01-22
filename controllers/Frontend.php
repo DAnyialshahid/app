@@ -84,17 +84,20 @@ class Frontend extends Theme_Controller{
 	 
 	public function constant_page($slug)
 	{
+
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/pages/'.$slug,
 			 	'js'=>$slug,
 			 	'page_name'=>'constant_page',  
 
 			 ]); 
+			
 
 	}	
 
 	public function dynamic_page($slug)
 	{
+
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/pages/dynamic_page.php',
 			 	'js'=>'dynamic_page',  
