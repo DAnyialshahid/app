@@ -4,7 +4,7 @@
 <?=head($page_name,(isset($slug)?$slug:null))?> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <meta content="width=640, initial-scale=0.47, maximum-scale=1.0, user-scalable=1" name="viewport"> -->
-        <link rel="stylesheet" href="<?=theme_base_url?>/assets/css/style.css" media="all" />
+        <link rel="stylesheet" href="<?=theme_base_url?>/assets/css/style.css?v=1" media="all" />
 		<script type="text/javascript" src="<?=theme_base_url?>/assets/js/jquery.js"></script>
         <script type="text/javascript" src="<?=theme_base_url?>/assets/js/vue.js"></script> 
         <script type="text/javascript" src="<?=theme_base_url?>/assets/js/typeahead.bundle.js"></script>
