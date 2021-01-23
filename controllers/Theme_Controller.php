@@ -9,8 +9,8 @@ class Theme_Controller extends CI_Controller{
 
  
 	public function __construct(){
-
-     parent::__construct();
+parent::__construct();
+		
 				common($this);
  }
   
@@ -18,11 +18,5 @@ class Theme_Controller extends CI_Controller{
  
 	
 }
-
-
-
-
-
-
 
 ?>

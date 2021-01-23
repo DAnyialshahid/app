@@ -9,6 +9,9 @@ $route['store/(:any)'] = "frontend/single_store/$1";
 $route['category/(:any)'] = "frontend/catagory/$1";
 $route['page/(:any)'] = "frontend/constant_page/$1";
 $route['pages/(:any)'] = "frontend/dynamic_page/$1";
+$route['sitemap.xml'] = "frontend/sitemap";
+$route['sitemap_stores_(:any)_(:any).xml'] = "frontend/sitemap_stores/$1/$2";
+$route['sitemap_categories_(:any)_(:any).xml'] = "frontend/sitemap_categories/$1/$2";
 $route['recaptcha__en.js'] = "api/recaptcha__en";
 
 
