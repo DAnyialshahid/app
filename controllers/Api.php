@@ -176,6 +176,110 @@ public function getClipboard()
 			echo json_encode(['success'=>'yes','response'=>$pages]);
 			exit();
 	}	
+	public function getBots($where=null,$return=false)
+	{
+			$this->load->model('admin/bots_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->bots_model->get_all()]);
+			exit();
+	}	
+	public function pauseBot($where=null,$return=false)
+	{
+			$this->load->model('admin/bots_model'); 
+
+			echo json_encode(['success'=>'yes','response'=>$this->bots_model->pause($this->input->post('id'))]);
+			exit();
+
+	
+	}
+	public function resetBot($where=null,$return=false)
+	{
+			$id=$this->input->post('id');
+			$this->load->model('admin/bots_model'); 
+			//get bot name	
+			$bot_details=$this->db->get_where('bots',['id'=>$id])->first_row();
+			
+			if (!empty($bot_details)) {
+				//get bot model by name
+				if ($bot_details->name=='couponfollow.com') {
+				 		$this->load->model('admin/bots/couponfollow_model'); 
+				 		$this->couponfollow_model->resync($id);
+				}
+			}
+			echo json_encode(['success'=>'yes','response'=>$this->bots_model->reset($id)]);
+			exit();
+
+	
+	}
+	public function getBotCoupons($bot_id,$store_id)
+	{
+		
+			$this->load->model('admin/bots_model'); 
+			//get bot name	
+			$bot_details=$this->db->get_where('bots',['id'=>$bot_id])->first_row(); 
+			 
+			if (!empty($bot_details)) {
+				//get bot model by name
+				if ($bot_details->name=='couponfollow.com') {
+				 		$this->load->model('admin/bots/couponfollow_model'); 
+				 		$this->couponfollow_model->fetchCoupons($bot_details,$bot_id,$store_id);
+				 			$this->db->set('status','completed')->where('id',$store_id)->update('bots_stores');
+				}
+			} 
+	}
+
+	public function runBot($where=null,$return=false)
+	{
+			$this->load->model('admin/bots_model');  
+			echo json_encode(['success'=>'yes','response'=>$this->bots_model->run($this->input->post('id'))]);
+			exit();
+
+	
+	}	
+
+	public function runAjaxBot($bot_id=null,$last_position=null)
+	{
+			//$this->load->model('admin/bots_model');  
+		if ($last_position=='null' || $last_position==null|| $last_position=='0') {
+			$last_position=$this->db->limit(1)->select('id')->get_where('bots_stores',['id >'=>$last_position])->first_row()->id;
+		}
+		$this->db->set('last_position',$last_position)->set('updated_date',date('Y-m-d h:i:s'))->where('id',$bot_id)->update('bots');
+		$this->getBotCoupons($bot_id,$last_position);
+		$new_last_position=$this->db->limit(1)->select('id')->get_where('bots_stores',['id >'=>$last_position])->first_row();
+		if (!empty($new_last_position)) {
+			$new_last_position=$new_last_position->id;
+		}else{ 
+				$new_last_position='completed';
+				$this->db->set('status','completed')->where('id',$bot_id)->update('bots');
+		}
+			echo json_encode(['success'=>'yes','response'=>['last_position'=>$new_last_position]]);
+			exit();
+	}	
+public function getBotDetails($where=null,$return=false)
+	{
+			$this->load->model('admin/bots_model'); 
+			$bot=$this->db->get_where('bots',['id'=>$this->input->post('id')])->first_row();
+			echo json_encode(['success'=>'yes','response'=>[
+																'stores'=>$this->bots_model->details($this->input->post('id')),
+																'bot'=>$bot,
+															]
+			]);
+			exit();
+
+		
+	}	
+
+	public function getSitesForBot($where=null,$return=false)
+	{
+			$this->load->model('admin/f_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->f_model->get_sites_for_bot()]);
+			exit();
+
+			$this->load->model('admin/pages_model');
+			$pages=$this->pages_model->get_all($where); 
+				if($return){return $pages;}
+			echo json_encode(['success'=>'yes','response'=>$pages]);
+			exit();
+	}	
 	public function getCoupons($where=null,$return=false)
 	{
 
@@ -507,6 +611,18 @@ echo json_encode(['success'=>'yes','response'=>'Clear Group Successfully']);
 	{
 		   $this->load->model('admin/stores_model');
 			$delete=$this->stores_model->delete($id); 
+			if($delete==true){ 
+					echo json_encode(['success'=>'yes','response'=>$delete]);
+			}else if(is_array($delete)){
+					echo json_encode(['success'=>'no','response'=>$delete->error]);
+			}
+		exit();
+
+	}			
+	public function deleteSiteStoresAndCouponsByBot($site_id)
+	{
+		   $this->load->model('admin/stores_model');
+			$delete=$this->stores_model->deleteBySiteId($site_id); 
 			if($delete==true){ 
 					echo json_encode(['success'=>'yes','response'=>$delete]);
 			}else if(is_array($delete)){

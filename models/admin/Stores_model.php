@@ -92,6 +92,18 @@ if($where){ $this->db->where($where);	 }
 			return ['error'=>''];
 			 }
 		  
+	}	public function deleteBySiteId($site_id){
+		
+		$this->db->query('DELETE FROM coupons WHERE store_id IN (SELECT id FROM stores WHERE site_id='.$site_id.')');
+		// echo $this->db->last_query();
+		$this->db->where('site_id' , $site_id);
+		if($this->db->delete('stores' )){
+			return true;
+		}else{
+
+			return ['error'=>''];
+			 }
+		  
 	}
 
 	public function paste($items,$withCoupons){

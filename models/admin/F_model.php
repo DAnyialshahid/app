@@ -20,6 +20,16 @@ class F_model extends MY_Model{
 		return $data; 
 	}
 
+ 	public function get_sites_for_bot($where=null){
+    
+		 $this->db->select('sites.*');	 
+		 $this->db->select('(select count(id) from stores where stores.site_id=sites.id) as total_stores');	 
+		 $this->db->select('(select count(id) from coupons where coupons.store_id in (select id from stores where stores.site_id=sites.id) ) as total_coupons');	 
+			$data = $this->get_sites($where);
+		
+		return $data; 
+	}
+
  	public function get_roles($where=null){
     
 		if($where){ $this->db->where($where);	 }	   
