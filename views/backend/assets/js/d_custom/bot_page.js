@@ -157,6 +157,41 @@ var Main = function() {
 
 
            
+        },  paste: function(id) {  
+             Swal.fire({
+                title: "Are you want to past this  bot data into this site? ?",
+                text: "Sure!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, Past bot data!"
+            }).then(function(result) {
+                if (result.value) { 
+
+                     jQuery.ajax({
+                    type : "post",
+                     data:{'id':id,'token':token}, 
+                     headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/pasteBotDataToSite", 
+                     success: function(data) { 
+                        if(data.success === "yes") { 
+                                       Main.init();
+
+                        }
+                        else {
+                            alert("Folder not created");
+                        }
+                     }
+                }); 
+
+              
+                }
+            });
+
+           
+
+
+           
         },  play: function(id) {  
              Swal.fire({
                 title: "Are you want to run bot ?",

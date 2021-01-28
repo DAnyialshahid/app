@@ -191,6 +191,15 @@ public function getClipboard()
 
 	
 	}
+	public function pasteBotDataToSite($where=null,$return=false)
+	{
+			$this->load->model('admin/bots_model'); 
+
+			echo json_encode(['success'=>'yes','response'=>$this->bots_model->paste($this->input->post('id'),$this->session->userdata('user_active_site'))]);
+			exit();
+
+	
+	}
 	public function resetBot($where=null,$return=false)
 	{
 			$id=$this->input->post('id');

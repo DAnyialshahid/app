@@ -126,9 +126,13 @@ $keyString=$html->find('#siteOut',0)->getAttribute('data-info');
 				 // dd($list);
 $this->db->insert_batch('bots_stores_coupons',$list);
 $logo=@$html->find('.logo img',0)->src;
-// dd($logo);
-$this->db->set('feature_image',$logo)->where('id',$store_id)->update('bots_stores');
-
+$logo_slugs=@explode('/', $logo);
+$logo_name_n_ext=@explode('.',$logo_slugs[count($logo_slugs)-1]);
+$store_name= @strtolower( str_ireplace(' ', '_',  str_ireplace('.', '_',str_ireplace('-', '_', $store->name))));
+$final_logo_file_name=@$store_name.'.'.$logo_name_n_ext[1];
+  @file_put_contents('assets/uploads/stores/'.$final_logo_file_name, fopen( str_ireplace('//', 'http://',$logo), 'r'));
+$this->db->set('feature_image',$final_logo_file_name)->where('id',$store_id)->update('bots_stores');
+ 
 				//print_r($list);
 	
 	 }

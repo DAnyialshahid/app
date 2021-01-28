@@ -73,6 +73,49 @@ class Bots_model extends MY_Model{
 	}
 
  
+ 
+	public function paste($bot_id,$site_id){
+
+	$this->db->trans_strict(FALSE);
+	ignore_user_abort(true);
+	set_time_limit(0);
+$stores=$this->db->get_where('bots_stores',[
+'bot_id'=>$bot_id,
+])->result();
+if (!empty($stores)) {
+	foreach ($stores as $store) {
+$this->db->trans_start();
+		 		$store_id=$store->id;
+		 	   unset($store->id);
+		 	   unset($store->bot_id);
+		 	   unset($store->custom_url);
+		 	   $store->custom_url= strtolower( str_ireplace(' ', '_',  str_ireplace('.', '_',str_ireplace('-', '_', $store->name))));
+		 	   $store->inserted_from='bot';
+		 	   $store->site_id=$site_id;
+			   $this->db->insert('stores',$store);	    
+			   $insert_store_id=$this->db->insert_id();
+
+			   $coupons=$this->db->get_where('bots_stores_coupons',[
+				'store_id'=>$store_id,
+				])->result();
+			   	foreach ($coupons as &$coupon) {
+			   			$coupon->store_id=$insert_store_id;
+			   			$coupon->expire_date=$coupon->expire_date?$coupon->expire_date:date('y-m-d',strtotime('now +45 days'));
+
+			   	}
+			   	 $this->db->insert_batch('coupons',$coupons);	    
+
+$this->db->trans_complete();
+		 	
+	}
+} 
+			 
+		return true;
+
+
+	}
+
+ 
 
 
 
