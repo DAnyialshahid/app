@@ -1,14 +1,13 @@
 <div id="home">
-<section class="hero " style="padding-top: 4px; padding-bottom: 5px;"> <div class="container">
-        <div class="row">
+<section class="hero " style="padding-top: 4px; padding-bottom: 5px;padding-left: 5px;padding-right: 5px;">
+
           <div class="owl-carousel owl-theme">
 
             <a v-for="slide in slides"  :href="slide.link">
               <img class="owl-lazy"   :data-src="api_url+'/assets/uploads/slides/'+slide.file_name"   alt="" style="height: 320px">
              </a>
             </div>
-        </div>
-    </div>
+ 
 </section>
 
 

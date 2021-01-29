@@ -31,11 +31,9 @@ var Main = function() {
                         url="updateStore";
                         title="Store Update";
                      }
-                    F.submit              Form("#default",url,title,redirect_url);
+                    F.submitForm("#default",url,title,redirect_url);
                 }
-            });
-         
- 
+            }); 
       return false;
         },
         fillUpdate: function(id) {  

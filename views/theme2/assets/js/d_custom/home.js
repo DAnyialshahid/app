@@ -233,8 +233,10 @@ function getPopuplarStores(data,limit,callback){
 	                     success: function(data) { 
 	                        if(data.success === "yes") { 
 	                        	home.popular_stores=data.response;
-	                        	 
+	                         
 	                        	 $('.owl-carousel').owlCarousel({
+									dots:false,
+									navigation:true,
 									    items:1,
 									    lazyLoad:true,
 									    loop:true,

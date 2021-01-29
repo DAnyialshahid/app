@@ -9,7 +9,7 @@ var app= Vue.createApp({
 	categories: [  ] 
     }
 }
-}).mount('#app');
+}).mount('#categories');
  
  init();
 $(document).ready(function() {

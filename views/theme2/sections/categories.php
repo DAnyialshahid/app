@@ -1,9 +1,9 @@
 
 
 
-  <div  id="terms_conditions"> 
+  <div  id="categories"> 
 
-<section class="main-content " id="app" >
+<section class="main-content " id="app1" >
     <div class="container">
     <section class="pages-breadcumb">
     <div class="container">
