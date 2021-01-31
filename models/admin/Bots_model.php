@@ -99,6 +99,7 @@ $this->db->trans_start();
 				'store_id'=>$store_id,
 				])->result();
 			   	foreach ($coupons as &$coupon) {
+			   			$coupon->site_id=$site_id;
 			   			$coupon->store_id=$insert_store_id;
 			   			$coupon->expire_date=$coupon->expire_date?$coupon->expire_date:date('y-m-d',strtotime('now +45 days'));
 

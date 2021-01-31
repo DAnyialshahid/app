@@ -55,7 +55,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="coupon in coupons">
+                                            <tr v-for="coupon in coupons.slice(0,5)">
                                                 <td>{{coupon.name}}</td>
                                                 <td>{{ (new Date(coupon.expire_date)+'').substr(0,15) }}</td>
                                                 <td v-if="coupon.type=='deal'">**DEAL**</td>

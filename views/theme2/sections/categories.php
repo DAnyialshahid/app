@@ -3,7 +3,7 @@
 
   <div  id="categories"> 
 
-<section class="main-content " id="app1" >
+<section class="main-content " >
     <div class="container">
     <section class="pages-breadcumb">
     <div class="container">

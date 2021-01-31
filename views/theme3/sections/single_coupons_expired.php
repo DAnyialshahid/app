@@ -1,129 +1,69 @@
-  <div     class="item-bolcks" style="  -webkit-filter: grayscale(1);">
-  <div  v-for="coupon in coupons"   dusk="coupon-card" class="tw-cursor-auto">
-     <template v-if="new Date()>new Date(coupon.expire_date)"   >
-                            <div class="tw-rounded-sm tw-shadow tw-bg-white sm:tw-p-4 tw-p-2 sm:tw-mb-4 tw-mb-2 xl:tw-h-full1">
-                                <div class="tw-flex lato tw-h-full1">
-                                    <div class="tw-text-center xl:tw-w-1/6 tw-w-1/4 xl:tw-min-w-1/6 tw-min-w-1/4">
-                                     <p v-if="comeFrom=='category'" class="tw-text-grey sm:tw-text-base tw-text-xs lato">    {{coupon.store.name}} </p>
-                                       <div    v-if="coupon.short_title"   class="coupon-label-context coupon roboto-slab tw-font-bold tw-leading-tight tw-my-0 ">
-                                            <div class="tw-inline-block cdroboto-slab tw-text-orange sm:tw-text-5xl tw-text-4xl">
-                                                {{coupon.short_title.split(' ')[0]}}
-                                            </div>
-                                            <div class="off__label">   {{coupon.short_title.split(' ')[1]}}</div>
 
-                                        </div> 
+<div v-for="coupon in coupons"    class="card coupon cbox hoverable promotion" style="  -webkit-filter: grayscale(1);" >
+       <template v-if="new Date()>new Date(coupon.expire_date)"    >
+           
+        <div class="offer-short">
+                    <div>     {{coupon.short_title.split(' ')[0]}}      {{coupon.short_title.split(' ')[1]}}</div>
+                                       <div v-if="coupon.type=='coupon'"   style="font-size: 16px;color:#e2a93f;">  <b> Code </b>  </div>
+                                         <div v-if="coupon.type=='deal'"   style="font-size: 16px;color:#5858c7;"> <b>Deal  </b></div>
+                    </div>
+    <div class="ccontent">
+        <p v-if="comeFrom=='category'"  >    {{coupon.store.name}} </p>
 
+        <h3 class="title">  {{coupon.name}} </h3>
+        <div class="coupon-desc">{{coupon.description}}
 
-                                        <img
-                                            v-if="!coupon.short_title && coupon.feature_image" :src="api_url+'/assets/uploads/coupons/'+coupon.feature_image" class="lazy-load img-responsive"
-                                             />
-
-                                        <img
-                                            v-if="!coupon.short_title && !coupon.feature_image && coupon.store.feature_image" :src="api_url+'/assets/uploads/stores/'+coupon.store.feature_image" class="lazy-load img-responsive"
-                                             />
-
-
-                                 <p class="tw-text-grey sm:tw-text-base tw-text-xs lato">           
-                                        <div v-if="coupon.type=='coupon'"   style="color:orange;">  <b> Code </b>  </div>
-                                         <div v-if="coupon.type=='deal'"   style="color:blue;"> <b>Deal  </b></div>
-                                   </p>
-                          
- 
-                                       
-                                    </div>
-                                    <div class="tw-flex tw-leading-tight tw-w-5/6 sm:tw-ml-6 tw-ml-4">
-                                        <div class="tw-flex-grow tw-pr-4 coupon-card-inner-container">
-                                          <div class="row">
- 
-                                            <div v-if="coupon.verified" class="col-xs-2 tw-text-green sm:tw-border sm:tw-border-green sm:tw-text-green sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Verified </div>
-                                            <div v-if="coupon.exclusive" class="col-xs-2 tw-text-blue sm:tw-border sm:tw-border-blue sm:tw-text-blue sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Exclusive </div>
-                                            <div v-if="coupon.featured" class="col-xs-2 tw-text-orange sm:tw-border sm:tw-border-orange sm:tw-text-orange sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Featured </div> 
-                                          </div>
-
-                                                <p class="tw-text-grey sm:tw-text-base tw-text-xs lato">    {{coupon.store.name}} </p>
-                                            <a dusk="coupon-card-label" href="/go/1210607" rel="nofollow" class="tw-text-grey-darker sm:tw-text-xl tw-text-lg tw-font-medium hover:tw-text-blue lato">
-                                                {{coupon.name}}
-                                            </a>
-                                            <div class="sm:tw-leading-loose tw-leading-normal">
-                                                <div class="tw-relative tw-hidden lg:tw-block tw-text-grey-darker tw-font-light tw-cursor-pointer">
-                                                    <span>Details: <i class="fa-caret-right fa"></i></span>
-                                                    <!---->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tw-hidden md:tw-flex tw-items-start tw-whitespace-no-wrap tw-min-w-1/4">
-                                            <div rel="nofollow" class="tw-relative tw-rounded-sm tw-overflow-hidden tw-cursor-pointer tw-w-full lato">
+        </div>
+                
+                <hr>
+        <div class="cfooter s12">
+                            <span><i class="fa fa-clock-o"></i>{{coupon.updated_date.split(' ')[0]}}</span>
+                            <span><i class="fa fa-eye"></i>  {{coupon.visits}} used total</span>
+                        <span><i class="far fa-clock"></i>Expire  on {{coupon.expire_date}}</span>
+        </div>
+    </div>
+    <div class="cbtn">
 
 
-                          <a  v-if="coupon.type=='deal'"   target="_blank" 
-                                 class="clipClass"
+          <a  v-if="coupon.type=='deal'"   target="_blank" 
+                                 class="clipClass btn go-cpn btn-offer waves-effect waves-light"
                                  :data-clipboard-text="'DEAL Activated'" 
-                                 v-on:click="loadCouponAffilate(coupon)"
+                           
                                  :href="base_url+comeFrom+'/'+slug+'?coupon_id='+coupon.id"
                                  :d-coupon_id="coupon.id"
                                  d-redirect="yes"
                                  style="bottom:auto" 
-                                  >
-                             <div v-if="coupon.type=='deal'" class="ohop deal">
-                                    <div class="tw-bg-blue hover:tw-bg-blue-dark tw-text-center tw-text-white tw-py-2 tw-px-4">Get Offer
-                                                </div>
-
-                            </div>
+                       >Get Deal 
                         </a>
 
                               <a  v-if="coupon.type=='coupon'"   target="_blank" 
-                                     class="clipClass"
+                                     class=" clipClass btn go-cpn btn-offer waves-effect waves-light"
                                      :data-clipboard-text="coupon.coupon_code" 
-                                     v-on:click="loadCouponAffilate(coupon)"
+                
                                      :href="base_url+comeFrom+'/'+slug+'?coupon_id='+coupon.id"
                                      :d-coupon_id="coupon.id"
                                      d-redirect="yes"
                                      style="bottom:auto" 
                                       >
-                                       <div class="tw-bg-grey-lighter tw-border tw-text-grey-dark tw-text-right tw-w-full tw-p-2">{{coupon.coupon_code}}</div> 
-                                                <div class="tw-absolute tw-pin-t tw-pin-l tw-bg-blue hover:tw-bg-blue-dark tw-border tw-border-blue tw-text-center tw-text-white tw-min-w-5/6 tw-p-2">Show Code
-                                                </div>
-
+                                    Copy  {{coupon.coupon_code.slice(0,2)}}***
 
                                
 
                                </a>
 
 
-                                           
 
-                                            
-
-                                            </div>
-                                        </div>
+                    <!-- <a rel="nofollow" class="btn go-cpn btn-offer waves-effect waves-light">View Offer</a> -->
 
 
-                                         
-
-                                    </div>
-
-
-                           
-
-                                </div>
-
-                               
-                        <table style=" width: 100%">
-                          <tr>
-                              <td><i class="far fa-calendar "></i>  {{coupon.updated_date.split(' ')[0]}}</td>
-                              <td><i class="far fa-eye"></i>          {{coupon.visits}} used total</td>
-                              <td><i class="far fa-clock"></i>  {{coupon.expire_date}}</td>
-                          </tr>
-                        </table>
-                           
-
-                            </div>
-                          </template>
- </div>
- </div>
+            </div>
+    <i class="fa fa-share-alt social-share waves-effect circle" aria-hidden="true"></i>
+    <div class="clear"></div>
+    
+        </template>
+    </div>
 
 
-          
-
+ 
 
 

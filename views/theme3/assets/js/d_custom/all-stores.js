@@ -30,8 +30,13 @@ $(document).ready(function() {
 
 function setCurrentAlphabet(element,alphabet=''){
 		if(element){
-		$(element).closest('ul').find('li').removeClass('active');
-		$(element).closest('li').addClass('active');
+		$(element).closest('ul').find('li a').removeClass('active');
+		$(element).closest('li a').addClass('active');
+		//extra 
+		var alphabetposition=$(element).closest('li a').position();
+		//alert(alphabetposition);
+		$('.indicator').css('left',alphabetposition.left);
+		$('.indicator').css('right',1200-(alphabetposition.left));
 }
 currentAlphabet=alphabet;
 loadData(null);

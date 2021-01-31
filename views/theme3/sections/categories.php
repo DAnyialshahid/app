@@ -1,59 +1,63 @@
+  <div  id="categories"> 
 
+<main class="main"   id="app1"  >
+            <div class="page-head-container">
+        <div class="container valign-wrapper">
+            <h1 class="valign">All Categories</h1>
+        </div>
+    </div>
 
-
-  <div  id="terms_conditions"> 
-
-<section class="main-content " id="app" >
-    <div class="container">
-    <section class="pages-breadcumb">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1  class="head_title">All Categories</h1>
-                <p class="breadCumb"><a href="/">Home</a> &gt; <span class="head_title">Categories</span></p>
-                  <hr class="border-line" />
+    <div class="page-content">
+        
+        <div class="container breadcrumb-nav">
+            <div class="container breadcrumb-list">
+                <ol itemscope="" itemtype="http://schema.org/BreadcrumbList" class="breadcrumb-ol">
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="/" title=""><span itemprop="name">Home</span> </a> <meta itemprop="position" content="1"> <i class="fa fa-chevron-right"></i></li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><span itemprop="name">Categorires</span> <meta itemprop="position" content="2"> </li>
+                </ol>
             </div>
         </div>
-    </div>
-</section>
-        <div class="stores-list">
-           
-                          <ul class="stores-list row">
-
-                               <li  v-for="category in categories"  class="col-xs-6 col-md-6 col-lg-4" >
-
-                              <center>                                   
-                                <a :href="base_url+'category/'+category.slug"  class="row" title=" ">
-                                        <div class="img-container " style="margin-top: 8px;">
-
-                                           <div   v-if="!category.feature_image" class="col-xs-12" > 
-                                             <i   :class="'fa fa-'+category.icon " style="font-size: 40px; "></i> </div>
-                                          <center>    
-                                            <img 
-                                            class="img-responsive "
-                                            v-if="category.feature_image"  
-                                            v-bind:src="api_url+'/assets/uploads/stores/'+category.feature_image" 
-                                            v-bind:alt="category.name" 
-                                            style="width: 52px;/* height: 50px;*/" 
-                                            />
-                                        </center>
-                                              <span  class="col-xs-12 " >{{category.name}}</span>
-                                        </div>
-                                      
-                                    </a>
-                                    </center>
-                               </li>
+        
+        <div class="container all-stores">
+            <div class="row">
+                                     
+                    
+                               <div id="list1" class="col s12 category-col mt-2">
+<br>
+                               
                                
 
-                          </ul>
+                 <div  v-for="category in categories" class="col-md-3 mb-2">
+                                    <a :href="base_url+'category/'+category.slug"   class="card hoverable" style="display: flex; padding: 7px; margin:11px;">
 
-             
+                                     <img   v-if="category.feature_image"  
+                                            v-bind:src="api_url+'/assets/uploads/stores/'+category.feature_image" 
+                                            v-bind:alt="category.name"  style="width: 50px;height:  50px"> 
+                                             <i    v-if="!category.feature_image"  :class="'fa fa-'+category.icon " style="font-size: 40px; "></i>
+                                  
+
+                                        <span style="margin-left: 22px;height:40px ">{{category.name}}</span> </a>
+                                </div>
+                                                   
+                                          
+                                   
+                                                    </div>
+                                 </div>
+
+
+                    
         </div>
-         
     </div>
-</section>
+    </main>
+
 
 
  
 
+
  
+
+
+
+
+   </section>

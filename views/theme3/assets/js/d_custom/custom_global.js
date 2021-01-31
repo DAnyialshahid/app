@@ -175,7 +175,10 @@ function notification_coupon_link_expire(coupon_id,callback){
   (function () {
 
 
+$('#app').click(function() {
 
+  
+});
 
 var allbtns=new ClipboardJS('.clipClass');
 allbtns.on('success', function(e) {

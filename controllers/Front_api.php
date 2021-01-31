@@ -109,6 +109,7 @@ class front_api extends Theme_Controller{
 		 				$this->db->group_start();
 		 				foreach ($side_bar_post['short_title'] as $key => $short_title) {
 		 				 		$this->db->or_like('short_title',$short_title,'both');
+		 				 		echo $short_title;
 		 				}
 		 				$this->db->group_end();
 		 			}
