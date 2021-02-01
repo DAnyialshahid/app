@@ -36,9 +36,9 @@ class Users_model extends MY_Model{
 
 	public function add($uploaded_filename,$update=false,$id=null){
 		// d($this->input->post());
+		
 		$data=array( 
 			'username'		=> $this->input->post('username'),
-			'password'		=> md5($this->input->post('password').'lock'),
 			'email'			=> $this->input->post('email'),
 			'first_name'	=> $this->input->post('first_name'), 
 			'last_name'		=> $this->input->post('last_name'),
@@ -53,6 +53,11 @@ class Users_model extends MY_Model{
 		
 		
 		);
+		if ($this->input->post('password') ) { 
+			$data['password']= md5($this->input->post('password').'lock');
+		}
+
+
 		if(!empty($uploaded_filename)){
 			$data['feature_image']=	$uploaded_filename;
 		}

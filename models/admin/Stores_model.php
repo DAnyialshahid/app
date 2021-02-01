@@ -12,19 +12,23 @@ $this->db->select('feature_image as feature_image');
 $this->db->select('name as store_name');	
 $this->db->select('updated_date as last_update');	
 $this->db->select('"2/3" as views_n_click');	
-$this->db->select('"2/3" as coupons_n_deals');	
+// $this->db->select('CONCAT((SELECT count(id) FROM coupons where TYPE="coupon"  and store_id=stores.id),"-", (SELECT count(id) FROM coupons where TYPE="deal"  and store_id=stores.id) ) as coupons_n_deals');	
 $this->db->select('type as type');	 
 $this->db->select('status as status');	  
 $this->db->select('feature_image as feature_image');	  
+$this->db->select('(SELECT updated_date FROM coupons where store_id=stores.id ORDER BY id DESC LIMIT 1) as last_coupon_date');	  
+
+$this->db->select('(SELECT id FROM stores_task WHERE stores_task.store_id=stores.id and stores_task.status="pending" and stores_task.to_user_id='.$this->session->userdata('user_id').' )  as is_my_task ');
+
 $this->db->select('stores.*');	  
 $this->db->order_by('id','desc');
 if($where){ $this->db->where($where);	 }	  
  
-// exit('5');
+ 
 			$data = $this->db->get_where('stores',[
 					'site_id'=>$this->session->userdata('user_active_site')
 			])->result();
-		
+		// dd($this->db->last_query());
 		return $data;
 
 
@@ -86,9 +90,16 @@ if($where){ $this->db->where($where);	 }
 			 }
 		  
 	}	public function deleteBySiteId($site_id){
-		
-		$this->db->query('DELETE FROM coupons WHERE store_id IN (SELECT id FROM stores WHERE site_id='.$site_id.')');
-		// echo $this->db->last_query();
+			$where='';
+		if (!$this->input->post('delete_all_data')) {
+			$where=' and inserted_from="bot"';
+		}
+
+		$this->db->query('DELETE FROM coupons WHERE store_id IN (SELECT id FROM stores WHERE site_id='.$site_id.') '.$where);
+
+if (!$this->input->post('delete_all_data')) {
+			$this->db->where('inserted_from' , 'bot');
+}
 		$this->db->where('site_id' , $site_id);
 		if($this->db->delete('stores' )){
 			return true;
@@ -126,6 +137,48 @@ if($where){ $this->db->where($where);	 }
 
 		}
 		$this->db->set('status',$status)->where('id',$store_id)->update('stores');
+return 'success';
+	}
+
+	public function task_complete($store_id){
+ 
+	$store_details=$this->db->get_where('stores',['id'=>$store_id])->first_row();
+	$task_details=$this->db->get_where('stores_task',[
+		'store_id'=>$store_id,
+		'to_user_id'=>$this->session->userdata('user_id')
+	])->first_row();
+			
+// d($this->db->last_query());
+// dd($task_details);
+			if ($task_details) {
+					$this->db->set('status','complete')
+			->where('store_id',$store_id)
+			->where('to_user_id',$this->session->userdata('user_id'))
+			->update('stores_task');
+
+
+
+	 	   	 $this->notification_model->add([
+				'title'=>$this->session->userdata('row')->first_name .' Complete '.$store_details->name.' !',
+				'type'=>'success',
+				'from_user_id'=>$this->session->userdata('user_id'),
+				'to_user_id'=>$task_details->from_user_id,
+				'status'=>'unread',
+				'close_button'=>'0',
+				'progress_bar'=>'0',
+				'reason'=>'update_store',
+				'reason_details'=>json_encode(['store_id'=>$store_id]),
+				'position'=>'toast-bottom-left',
+				'site_id'=>$this->session->userdata('user_active_site'),
+		]);
+
+					
+				}	
+		
+
+
+		
+		
 return 'success';
 	}
 	public function paste($items,$withCoupons){

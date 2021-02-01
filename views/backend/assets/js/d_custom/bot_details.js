@@ -42,13 +42,10 @@ var Main = function() {
              {
                 field: 'id',
                 title: '#',
-                sortable: false,
+                sortable: true,
                 width: 20,
-                type: 'number',
-                selector: {
-                    class: ''
-                },
-                textAlign: 'center',
+                type: 'number', 
+              
             },
              {
                 field: 'name',
@@ -107,6 +104,7 @@ var Main = function() {
                                             
                                           init_table(data.response.stores);
                                           if ( data.response.bot.status=='running') {
+                                console.log('bot is running');
                                                 Main.runBot(data.response.bot,data.response.stores);
                                           }
 

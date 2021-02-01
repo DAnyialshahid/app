@@ -50,7 +50,7 @@ $store=$this->db->get_where('bots_stores',['id'=>$store_id])->first_row();
 				//fetch last update date
 					 curl_setopt($ch, CURLOPT_URL, trim($site_url)); 
 					 $response = curl_exec($ch);
-
+ 
 				 $pregmatch_activate_date="/popup.initJsPopup\(\{(.*)\);/" ;
 				 $m=[];
 				 preg_match($pregmatch_activate_date,$response,$m);
@@ -59,11 +59,16 @@ $store=$this->db->get_where('bots_stores',['id'=>$store_id])->first_row();
  
 // dd(count('EgBnAxzic9uClnD'));
 			//  dd(	$response);
-				$html=str_get_html($response);
-$list=array();
-if (stripos($html, "This is what we call a")  ) {
+				 if (stripos($response, "This is what we call a")  ) {
+return true;
+}if (stripos($response, "Object moved")  ) {
 return true;
 }
+
+
+				$html=str_get_html($response);
+$list=array();
+
 // dd($response1);
  $type=str_ireplace('\'', '', trim(explode(',', $m[1])[11]));
  // d(explode(',', $m[1]));
@@ -197,8 +202,14 @@ public function utf8_char_code_at($str, $index)
 				curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
 				// curl_setopt($request, CURLOPT_HTTPHEADER, $singleLinheaders);
 
+
+$this->db->where('store_id in (select id from bots_stores where  bot_id='.$id.')');
+$this->db->delete('bots_stores_coupons');
+
+
 $this->db->where('bot_id',$id);
 $this->db->delete('bots_stores');
+
 
 foreach ($sites as $site_url) {
 $list=array();

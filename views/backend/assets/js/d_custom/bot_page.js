@@ -39,6 +39,14 @@ var Main = function() {
 
             // columns definition
             columns: [
+            {
+                field: 'id',
+                title: '#',
+                sortable: true,
+                width: 20,
+                type: 'number', 
+                textAlign: 'center',
+            },
              {
                 field: 'name',
                 title: 'title'
@@ -81,7 +89,8 @@ var Main = function() {
                     return '<div class="btn-group" role="group" aria-label="First group">'+button+
                         '<button type="button"  onclick="Main.resync('+row.id+')" class="resync btn btn-info btn-icon"><i class="la la-sync"></i></button>\
                         <button type="button"  onclick="Main.paste('+row.id+')" class="paste btn btn-warning btn-icon"><i class="la la-file-text-o"></i></button>\
-                        <button type="button"  onclick="Main.details('+row.id+')" class="details btn btn-danger btn-icon"><i class="la la-stream"></i></button>\
+                        <button type="button"  onclick="Main.details('+row.id+')" class="details btn btn-primary btn-icon"><i class="la la-stream"></i></button>\
+                        <button type="button"  onclick="Main.runAjaxBotPHP('+row.id+')" class="details btn btn-danger btn-icon"><i class="la la-stream"></i></button>\
                     </div>';
                 },
             }],
@@ -176,6 +185,41 @@ var Main = function() {
                      success: function(data) { 
                         if(data.success === "yes") { 
                                        Main.init();
+
+                        }
+                        else {
+                            alert("Folder not created");
+                        }
+                     }
+                }); 
+
+              
+                }
+            });
+
+           
+
+
+           
+        }, runAjaxBotPHP: function(id) {  
+             Swal.fire({
+                title: "Are you want to run this into server? ?",
+                text: "it will hang or load your server . sure?!",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonText: "Yes!"
+            }).then(function(result) {
+                if (result.value) { 
+
+                     jQuery.ajax({
+                    type : "post",
+                     data:{'id':id,'token':token}, 
+                     headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/runAjaxBotPHP", 
+                     success: function(data) { 
+                        if(data.success === "yes") { 
+                                       alert('done');
 
                         }
                         else {

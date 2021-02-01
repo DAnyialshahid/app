@@ -102,6 +102,18 @@ var Main = function() {
         },  cleanthissite: function(id) { 
 
 
+
+             Swal.fire({
+                title: "Want you want to delete?",
+                text: "You won't be able to revert this!",
+                icon: "question",
+                showCancelButton: true,
+                cancelButtonText: "All Site data ",
+                confirmButtonText: "Just bot data"
+            }).then(function(q) {
+var delete_all_data=!q.value;
+
+
              Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -114,7 +126,7 @@ var Main = function() {
 
                       jQuery.ajax({
                     type : "post",
-                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                     data:{'delete_all_data':delete_all_data,'token':token}, headers: { 'x-cookie': cookie },  
                      dataType : "json",
                      url : api_base_url+"/deleteSiteStoresAndCouponsByBot/"+id, 
                      success: function(data) { 
@@ -136,7 +148,7 @@ var Main = function() {
                 }
             });
 
-           
+      });
 
 
            

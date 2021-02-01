@@ -11,7 +11,7 @@ class Coupons_model extends MY_Model{
 	 
 
  	public function get_all($where=null){
-		$this->db->limit(100);
+		$this->db->limit(50);
    
 		$this->db->select('coupons.*');
 		$this->db->select('stores.name as store_name');

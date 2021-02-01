@@ -282,9 +282,50 @@ console.log(notification);
                         if(data.success === "yes") { 
                             var html="";
                         
-                             
+                                var n= $('#notifications_panel');
+                                        n.find('.count').html(data.response.notifications.length);
+                                      var items=  n.find('.notification_items');
+                                      if (!$('#notifications_panel .dropdown-menu-lg').hasClass('show')) {
+                                            items.empty();
+                                      }
+                                    
                             $.each(data.response.notifications.reverse(),function(i,v) {
-                              if (v.status!='unread') { return true;}
+ 
+                                 if ((v.status=='unread' || v.status=='notified' ) && (!$('#notifications_panel .dropdown-menu-lg').hasClass('show'))) { 
+
+                                  if (v.type=='success') {
+                                    v.type='la la-check text-success';
+                                  }else if (v.type=='info') {
+                                    v.type='la la-sticky-note-o text-warning';
+                                  }else if (v.type=='warning') {
+                                    v.type='la la-info text-info';
+                                  }else if (v.type=='error') {
+                                    v.type='la la-warning text-danger';
+                                  } 
+                          
+                             var item=' <!--begin::Item-->\
+                                                                     <a href="#" class="navi-item">\
+                                                                         <div class="navi-link">\
+                                                                             <div class="navi-icon mr-2">\
+                                                                                 <i class="'+v.type+'"></i>\
+                                                                             </div>\
+                                                                             <div class="navi-text">\
+                                                                                 <div class="font-weight-bold">\
+                                                                                    '+v.title+'\
+                                                                                 </div>\
+                                                                                 <div class="text-muted">\
+                                                                                     '+moment(v.date).fromNow()+'\
+                                                                                 </div>\
+                                                                             </div>\
+                                                                         </div>\
+                                                                     </a>\
+                                                                     <!--end::Item-->';
+
+
+                                   items.append(item);
+                                 }
+
+                              if (v.status=='unread') { 
 
                                 if ( v.progress_bar=='1' || v.progress_bar==1) {
                                   v.progress_bar=true;
@@ -321,6 +362,7 @@ console.log(notification);
                                   if (v.type=='info') { toastr.info(v.title);}
                                   if (v.type=='warning') { toastr.warning(v.title);}
                                   if (v.type=='error') { toastr.error(v.title);}
+                                }
                              
                              
                              
@@ -635,11 +677,11 @@ if (callback) { callback();}
  
 
 $(document).ready(function(){
- F.getNotifications();
+  F.getNotifications();
   setInterval(function() {
 
     F.getNotifications();
-  },10000);
+  },20000);
 
        F.getClipboard();
 $('#sites_list').selectpicker();

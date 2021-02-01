@@ -59,10 +59,15 @@ var Main = function() {
                 field: 'store_name',
                 title: 'Store Name', 
             }, {
-                field: 'last_update',
-                title: 'Last Update',
-                type: 'date',
-                format: 'MM/DD/YYYY',
+                field: 'last_coupon_date',
+                title: 'Last Update',   
+                template: function(row) {
+                      
+                    return moment(row.last_coupon_date).fromNow();
+                }
+                // type: 'date',
+                // format: 'MM/DD/YYYY',
+
             }, {
                 field: 'views_n_click',
                 title: 'Views / Clicks',
@@ -136,6 +141,13 @@ var Main = function() {
                     };
                     return ' <i class="'+ status[row.type].icon + ' icon-md   text-'+ status[row.type].state + ' "></i> <span class="font-weight-bold text-'+ status[row.type].state + '">' + status[row.type].title + '</span>';
                 },
+            }, {
+                field: 'is_my_task',
+                title: 'My Task',
+
+                template: function(row) { 
+                    if (row.is_my_task) {      return 'yes';}
+                }
             }, {
                 field: 'status',
                 title: 'status',
@@ -227,6 +239,9 @@ var Main = function() {
                                             +assing_task
                                             +copy_this;
                                         }else{
+                                            if (!row.is_my_task) {
+                                                complete_work='';
+                                            }
                                              action_btn=
                                              add_coupon
                                             +sort_coupon
@@ -418,6 +433,7 @@ if (role!='admin') {
 
            
         }, completeWork: function(id) { 
+ 
 
 
              Swal.fire({
@@ -427,9 +443,28 @@ if (role!='admin') {
                 showCancelButton: true,
                 confirmButtonText: "Yes, i update it!"
             }).then(function(result) {
+
                 if (result.value) {
                         
-                  //  window.location.href=base_url+"admin/stores/edit/"+id;
+                jQuery.ajax({
+                    type : "post",
+                     data:{'store_id':id,'token':token }, headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/taskStoreUpdateComplete",
+                         success: function(data) { 
+                            // debugger;
+                            if(data.success == "yes" ) { 
+                                  Swal.fire(
+                                                            "Good Job",
+                                                            "Keep it up !",
+                                                            "success"
+                                                        );
+
+
+                            }
+                        }
+
+                    }); 
                 }
             }); 
 

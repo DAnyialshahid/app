@@ -52,7 +52,7 @@ var Main = function() {
 
                                           //input
                                         $('[name=username]').val(row.username);
-                                        $('[name=password]').val(row.password); 
+                                        // $('[name=password]').val(row.password); 
                                         $('[name=first_name]').val(row.first_name);
                                         $('[name=last_name]').val(row.last_name);
                                         $('[name=contact]').val(row.contact); 
@@ -183,22 +183,7 @@ $(document).ready(function() {
     
      $('select').selectpicker();
 
- // $('#select_role').change(function() {
- //    if($(this).val()=='1'){
- //       $('#select_site').val('');
- //         $('#select_site').parent().parent().parent().hide(); 
- //     }else{ 
- //         $('#select_site').parent().parent().parent().show();
- //     }
-       
- //    });
-     
-// var extraoptions={
-//   'value':'',
-//   'title':'Please Select',
-//   'selected':'',
-//  };
-//   if($('#id').val()!=''){extraoptions=[];}
+
 
  F.fillSelectAjax('#select_role','getRoles','');
  F.fillSelectAjax('#select_site','getSites');

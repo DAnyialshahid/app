@@ -47,7 +47,7 @@
 <!--end::Button-->
 <?php endif;?>
 
-
+    <?php if($this->session->userdata('role')=='admin') :?>
 			<!--begin::Dropdown-->
 <div class="dropdown dropdown-inline mr-2">
 	<button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -97,7 +97,7 @@
 	<!--end::Dropdown Menu-->
 </div>
 <!--end::Dropdown-->
-
+<?php endif;?>
 <!--begin::Button-->
 <a href="#" onclick="Route.go('coupons','create')" class="btn btn-primary font-weight-bolder">
     <span class="svg-icon svg-icon-md"><!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -143,6 +143,18 @@
                                         <option value="" ></option>
                                         <option value="Active" >Active</option>
                                         <option value="Inactive" >Inactive</option> 
+
+                                            
+                                    </select> 
+                                </div>
+                                </div>
+                            </div>      
+                            <div class="col-md-4 my-2 my-md-0">
+                                <div class="d-flex align-items-center">
+                                    <label class="mr-3 mb-0 d-none d-md-block">Store:</label>
+                                    <div class="dropdown bootstrap-select form-control">
+                                        <select class="form-control" id="store_list" data-live-search="true"  title="Select Store" >
+                                      
 
                                             
                                     </select> 

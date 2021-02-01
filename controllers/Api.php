@@ -239,7 +239,16 @@ public function getClipboard()
 	
 	}	
 
-	public function runAjaxBot($bot_id=null,$last_position=null)
+	public function runAjaxBotPHP($bot_id=null,$last_position=null)
+	{
+		
+		$bot_stores=$this->db->select('id')->get_where('bots_stores',['bot_id'=>$this->input->post('id'),'status'=>'not fetch'])->result();
+// dd($bot_stores);
+		foreach ($bot_stores as  $store) {
+			$this->runAjaxBot($this->input->post('id'),$store->id,true);
+		}
+	}
+	public function runAjaxBot($bot_id=null,$last_position=null,$return=false)
 	{
 			//$this->load->model('admin/bots_model');  
 		if ($last_position=='null' || $last_position==null|| $last_position=='0') {
@@ -254,9 +263,16 @@ public function getClipboard()
 				$new_last_position='completed';
 				$this->db->set('status','completed')->where('id',$bot_id)->update('bots');
 		}
-			echo json_encode(['success'=>'yes','response'=>['last_position'=>$new_last_position]]);
-			exit();
+		if ($return) {
+			return ['last_position'=>$new_last_position];
+		}else{
+					echo json_encode(['success'=>'yes','response'=>['last_position'=>$new_last_position]]);
+					exit();
+				}
 	}	
+
+
+
 public function getBotDetails($where=null,$return=false)
 	{
 			$this->load->model('admin/bots_model'); 
@@ -360,12 +376,13 @@ public function getBotDetails($where=null,$return=false)
 					if ($search_query) {
 						$this->db->like('name',$search_query);
 					}
-					if ($myworkonly) {
-						$this->db->where('id in','(select store_id from stores_task where to_user_id='.$this->session->userdata('user_active_site').' )',false);
+					if ($myworkonly=='true') {
+						$this->db->where('id in','(select store_id from stores_task where to_user_id='.$this->session->userdata('user_id').' and status="pending" )',false);
 					}
+
 			$this->load->model('admin/stores_model');
 			$stores=$this->stores_model->get_all($where); 
-			//echo $this->db->last_query();
+			// echo $this->db->last_query();
 			if($return){return $stores;}
 		echo json_encode(['success'=>'yes','response'=>$stores]);
 		exit();
@@ -636,6 +653,8 @@ echo json_encode(['success'=>'yes','response'=>'Clear Group Successfully']);
 	}			
 	public function deleteSiteStoresAndCouponsByBot($site_id)
 	{
+
+
 		   $this->load->model('admin/stores_model');
 			$delete=$this->stores_model->deleteBySiteId($site_id); 
 			if($delete==true){ 
@@ -1068,6 +1087,21 @@ if(!empty($_FILES['feature_image']['name'])){
  			
 			$this->load->model('admin/f_model'); 
 			echo json_encode(['success'=>'yes','response'=>$this->f_model->update_settings($logo,$favicon)]);
+			exit();
+	}
+
+		public function taskStoreUpdateComplete()
+	{
+
+				$store_id=$this->input->post('store_id');
+			 
+	 
+			$this->load->model('admin/stores_model'); 
+			$this->load->model('admin/notification_model'); 
+			$response=$this->stores_model->task_complete($store_id);
+
+		
+			echo json_encode(['success'=>'yes','response'=>$response]);
 			exit();
 	}
 
