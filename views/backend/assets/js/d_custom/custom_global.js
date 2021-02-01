@@ -147,6 +147,7 @@ var F = function() {
 
   if (button3_title && button3_click) {  
   $('#modal .btn3').show();
+  $('#modal .btn3').unbind('click')
   $('#modal .btn3').on('click',button3_click); 
   }else{
   $('#modal .btn3').hide();
@@ -154,9 +155,11 @@ var F = function() {
 
 
   $('#modal .btn1').html(button1_title);
+  $('#modal .btn1').unbind('click')
   $('#modal .btn1').on('click',button1_click);
 
   $('#modal .btn2').html(button2_title); 
+  $('#modal .btn2').unbind('click')
   $('#modal .btn2').on('click',button2_click);
 
 
@@ -251,6 +254,79 @@ $.each(data.response,function(i,v) {
 
 
 */
+
+                        }
+                        else {
+                            Swal.fire("Error","Failed To Fill "+id,"error");
+                        }
+                     }
+                }); 
+
+
+
+        },
+        gotoNotification: function(notification) {
+console.log(notification);
+        },
+        getNotifications: function(text) { 
+
+  
+
+         jQuery.ajax({
+                    type : "post",
+                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/getIntervals",
+                     
+                     success: function(data) { 
+                        if(data.success === "yes") { 
+                            var html="";
+                        
+                             
+                            $.each(data.response.notifications.reverse(),function(i,v) {
+                              if (v.status!='unread') { return true;}
+
+                                if ( v.progress_bar=='1' || v.progress_bar==1) {
+                                  v.progress_bar=true;
+                                }else{
+                                  v.progress_bar=false;
+                                }
+                                if ( v.close_button=='1' || v.close_button==1) {
+                                  v.close_button=true;
+                                }else{
+                                  v.close_button=false;
+                                }
+                                
+                               toastr.options = {
+                                  "closeButton": v.close_button,
+                                  "debug": false,
+                                  "newestOnTop": false,
+                                  "progressBar":  v.progress_bar,
+                                  "positionClass": v.position,
+                                  "preventDuplicates": false,
+                                  "onclick": function( ) {
+
+                                        F.gotoNotification(v);
+                                  },
+                                  "showDuration": "300",
+                                  "hideDuration": "1000",
+                                  "timeOut": "5000",
+                                  "extendedTimeOut": "1000",
+                                  "showEasing": "swing",
+                                  "hideEasing": "linear",
+                                  "showMethod": "fadeIn",
+                                  "hideMethod": "fadeOut"
+                                }; 
+                                  if (v.type=='success') { toastr.success(v.title);}
+                                  if (v.type=='info') { toastr.info(v.title);}
+                                  if (v.type=='warning') { toastr.warning(v.title);}
+                                  if (v.type=='error') { toastr.error(v.title);}
+                             
+                             
+                             
+                            });
+
+                                
 
                         }
                         else {
@@ -559,6 +635,11 @@ if (callback) { callback();}
  
 
 $(document).ready(function(){
+ F.getNotifications();
+  setInterval(function() {
+
+    F.getNotifications();
+  },10000);
 
        F.getClipboard();
 $('#sites_list').selectpicker();

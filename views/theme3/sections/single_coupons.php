@@ -10,7 +10,7 @@
                                          <div v-if="coupon.type=='deal'"   style="font-size: 16px;color:#5858c7;"> <b>Deal  </b></div>
                     </div>
     <div class="ccontent">
-        <p v-if="comeFrom=='category'"  >    {{coupon.store.name}} </p>
+        <p v-if="comeFrom=='category'"  >   <a :href="base_url+'store/'+coupon.store.custom_url"> {{coupon.store.name}} </a> </p>
 
         <h3 class="title">  {{coupon.name}} </h3>
         <div class="coupon-desc">{{coupon.description}}

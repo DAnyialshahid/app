@@ -4,6 +4,7 @@ var home= Vue.createApp({
     return {
     api_url: api_url, 
     base_url: base_url, 
+	theme_base_url: theme_base_url,
     comeFrom: 'home', 
 	  slides: [  ],
 	  show_in_home_stores: [  ],
@@ -11,14 +12,17 @@ var home= Vue.createApp({
 	  popular_coupons: [  ],
 	  popular_categories: [  ],
 	  popular_stores: [  ],
+	  store: [  ],
+	  configs: [  ],
 
 	 initCouponBox: function(coupon) { 
 	 	coupon_box.box_data=coupon; 
+	 	coupon_box.store=coupon.store;  
 		showCouponBox();
 	 },
 
 	 loadCouponAffilate: function(coupon) { 
-	 	c(coupon);
+	 	//c(coupon); 
 	  
 
 	 	visitCoupon(coupon.id,function() {

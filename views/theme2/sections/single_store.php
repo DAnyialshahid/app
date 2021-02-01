@@ -76,8 +76,10 @@
                             <div class="row">
                                 <div class="content">
                                     <center>
-                                        <a href="#" target="_blank" class="store-hop" id="left-hop" data-store="Target" rel="nofollow">
-                                            <img :src="api_url+'/assets/uploads/stores/'+row.feature_image" class="img-responsive" width="150" />
+                                        <a href="#" target="_blank" class="store-hop" id="left-hop" data-store="Target" rel="nofollow"> 
+                                              <img v-if="comeFrom=='store'"   :src="api_url+'/assets/uploads/stores/'+row.feature_image" style="width: 95px" class="responsive-img" />
+                                                <img  v-if="comeFrom=='category' && (row.feature_image != 'blank.png' )"     v-bind:src="api_url+'/assets/uploads/categories/'+row.feature_image"  style="width: 95px" class="responsive-img" />
+                                                <i    v-if="comeFrom=='category' &&  (row.feature_image == 'blank.png' ) "  :class="'fa fa-'+row.icon " style="font-size: 40px; "></i>
                                         </a>
                                         <p v-html="row.description"></p>
                                     </center>

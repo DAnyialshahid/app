@@ -6,7 +6,7 @@
               <img  :src="base_url+'/assets/uploads/sites/'+configs.logo"   style="height: 69px;width: auto;"   class="responsive-img">
             </a>
             <ul id="menu" class="clearfix right">
-    <li class="top-stores hide-on-med-and-down"><a href="#" onclick="$('.top-category-mega').hide();$('.top-stores-mega').toggle();" class="">Top Stores</a></li>
+    <li class="top-stores hide-on-med-and-down"><a href="#" onclick="$('.top-category-mega').hide();$('.top-stores-mega').toggle();" class="">Stores</a></li>
   <li class="top-category hide-on-med-and-down"><a href="#" onclick="$('.top-stores-mega').hide();$('.top-category-mega').toggle();">Categories</a></li>
                                 <li>
                     <div id="ccsearch" class="ccsearch">
@@ -22,7 +22,7 @@
     <span class="ccsearch-close"></span>
 </div>                </li>
                 <li class="login-navi hide-on-med-and-down">
-                                            <a rel="nofollow" href="#" data-activates="slide-out" class="button-collapse btn login-btn">Login</a>
+                                            <a rel="nofollow"  :href="base_url+'/page/submit_offer'"  data-activates="slide-out" class="button-collapse btn login-btn">Add Offer</a>
                                     </li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse-nav"><i class="fa fa-bars"></i></a>
@@ -35,7 +35,7 @@
             <div class="userView">
                 <div class="background"></div>
                                     <a rel="nofollow" href="#"><img class="circle" src="https://www.couponchaska.com/img/user.png"></a>
-                    <a rel="nofollow" href="#" data-activates="slide-out" class="button-collapse login-mob-nav btn btn-flat waves-effect waves-light">Login</a>
+                    <a rel="nofollow" :href="base_url+'/submit_offer'" data-activates="slide-out" class="button-collapse login-mob-nav btn btn-flat waves-effect waves-light">Submit Offer</a>
                             </div>
         </li>
                     <li>

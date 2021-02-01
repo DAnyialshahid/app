@@ -197,7 +197,7 @@
     <div class="container">
     <div class="row">
     <div class="article">
-        <h1 class="h3">Recommended Offers for You</h1>
+        <h1 class="h3">Today's Most Popular Coupons & Deals</h1>
  <div  v-for="coupon in popular_coupons"  class="col-md-6 col-xs-12 "  style="height: 178px"> 
   <div  class=" tw-m-2  tw-rounded-sm tw-shadow tw-bg-white sm:tw-p-4 tw-p-2 sm:tw-mb-4 tw-mb-2 xl:tw-h-full1">
                                 <div class="tw-flex lato tw-h-full1">

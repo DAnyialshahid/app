@@ -4,13 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Stores_model extends MY_Model{
 	
 	
-	public $return_response = array(
-		
-		'ERROR'			=> FALSE,
-		'MESSAGE'		=> '',
-		'DATA'			=> array()
-	
-	);
 	
 	public function get_all($where=null){
 				// $this->db->limit(10);
@@ -106,6 +99,35 @@ if($where){ $this->db->where($where);	 }
 		  
 	}
 
+	public function task_assign($store_id,$status,$users){
+ 
+		foreach ($users as $user) {
+						$row=(object)[];
+						$row->store_id=$store_id;
+						$row->to_user_id=$user;
+						$row->from_user_id=$this->session->userdata('user_id');
+						$row->status='pending';
+						$row->site_id= $this->session->userdata('user_active_site');
+				 	   $insert=$this->db->insert('stores_task',(array)$row );
+
+				 	   	 $this->notification_model->add([
+							'title'=>$this->session->userdata('row')->first_name .' Assign you store to update !',
+							'type'=>'warning',
+							'from_user_id'=>$this->session->userdata('user_id'),
+							'to_user_id'=>$user,
+							'status'=>'unread',
+							'close_button'=>'0',
+							'progress_bar'=>'0',
+							'reason'=>'update_store',
+							'reason_details'=>json_encode(['store_id'=>$store_id]),
+							'position'=>'toast-bottom-left',
+							'site_id'=>$this->session->userdata('user_active_site'),
+					]);
+
+		}
+		$this->db->set('status',$status)->where('id',$store_id)->update('stores');
+return 'success';
+	}
 	public function paste($items,$withCoupons){
 		$rows=[];
  

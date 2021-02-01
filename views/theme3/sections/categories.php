@@ -1,6 +1,6 @@
   <div  id="categories"> 
 
-<main class="main"   id="app1"  >
+<main class="main"    >
             <div class="page-head-container">
         <div class="container valign-wrapper">
             <h1 class="valign">All Categories</h1>
@@ -31,7 +31,7 @@
                                     <a :href="base_url+'category/'+category.slug"   class="card hoverable" style="display: flex; padding: 7px; margin:11px;">
 
                                      <img   v-if="category.feature_image"  
-                                            v-bind:src="api_url+'/assets/uploads/stores/'+category.feature_image" 
+                                            v-bind:src="api_url+'/assets/uploads/categories/'+category.feature_image" 
                                             v-bind:alt="category.name"  style="width: 50px;height:  50px"> 
                                              <i    v-if="!category.feature_image"  :class="'fa fa-'+category.icon " style="font-size: 40px; "></i>
                                   

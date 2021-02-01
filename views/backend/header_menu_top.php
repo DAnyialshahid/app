@@ -5,7 +5,7 @@
             <div class="d-none d-lg-flex align-items-center mr-3">
                 <!--begin::Logo-->
                 <a href="index.html" class="mr-20">
-                    <img alt="Logo" src="assets/media/logos/logo-letter-9.png" class="max-h-35px" />
+                    <img alt="Logo" src="<?=backend_base_url?>/assets/media/logos/logo.png" class="max-h-35px" />
                 </a>
                 <!--end::Logo-->
 
@@ -127,6 +127,7 @@
                         <?php backend_page($this,'header_notification')?>
                 <!--end::Notifications-->
 
+    <?php if($this->session->userdata('role')=='admin'):?> 
                 <!--begin::Quick Actions-->
                 
                         <?php backend_page($this,'header_quickaction')?>
@@ -159,6 +160,7 @@
                 </div>
                 <!--end::Quick panel-->
 
+ 
                 <!--begin::Chat-->
                                   <div class="topbar-item mr-1">
                                 <div class="btn btn-icon btn-hover-transparent-white btn-clean btn-lg" data-toggle="modal" data-target="#kt_chat_modal">
@@ -183,7 +185,7 @@
                                 </div>
                             </div>
                 <!--end::Chat-->
-
+<?php endif;?>
                 <!--begin::User-->
                               <?php backend_page($this,'header_user')?>
                 <!--end::User-->

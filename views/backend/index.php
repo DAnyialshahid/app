@@ -15,8 +15,8 @@
 	<!--begin::Header Mobile-->
     <div id="kt_header_mobile" class="header-mobile bg-primary  header-mobile-fixed " >
 	<!--begin::Logo-->
-	<a href="index.html">
-		<img alt="Logo" src="assets/media/logos/logo-letter-9.png" class="max-h-30px"/>
+	<a href="#">
+		<img alt="Logo 111" src="<?=backend_base_url?>/assets/media/logos/logo.png" class="max-h-30px"/>
 	</a>
 	<!--end::Logo-->
 

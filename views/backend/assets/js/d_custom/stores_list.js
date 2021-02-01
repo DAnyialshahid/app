@@ -32,10 +32,10 @@ var Main = function() {
 
             pagination: true,
 
-            search: {
-                input: $('#kt_datatable_search_query'),
-                key: 'generalSearch'
-            },
+            // search: {
+            //     input: $('#kt_datatable_search_query'),
+            //     key: 'generalSearch'
+            // },
 
             // columns definition
             columns: [{
@@ -189,6 +189,51 @@ var Main = function() {
                 overflow: 'visible',
                 autoHide: false,
                 template: function(row) {
+                    var add_coupon=' <li class="navi-item">\
+                                            <a onclick="Route.go(\'coupons\',\'create\',{store_id:'+row.id+'})" class="navi-link">\
+                                                <span class="navi-icon"><i class="la la-tags"></i></span>\
+                                                <span class="navi-text">Add Coupon</span>\
+                                            </a>\
+                                        </li>';
+                    var sort_coupon='<li class="navi-item">\
+                                            <a href="#"  onclick="Route.go(\'coupons\',\'sort\',\''+row.id+'\')"  class="navi-link">\
+                                                <span class="navi-icon"><i class="la la-sort-amount-down"></i></span>\
+                                                <span class="navi-text">Sort Coupons</span>\
+                                            </a>\
+                                        </li>'; 
+                    var assing_task=' <li class="navi-item">\
+                                            <a href="#" class="navi-link"  onclick="Main.assignTaskPopup('+row.id+')">\
+                                                <span class="navi-icon"><i class="la la-tasks"></i></span>\
+                                                <span class="navi-text">Asign Task </span>\
+                                            </a>\
+                                        </li>';
+                     var copy_this='<li class="navi-item">\
+                                            <a href="#" class="navi-link" onclick="F.copyThis('+row.id+',\'copyStores\')">\
+                                                <span class="navi-icon"><i class="la la-copy"></i></span>\
+                                                <span class="navi-text">Copy</span>\
+                                            </a>\
+                                        </li>';   
+                     var complete_work='<li class="navi-item">\
+                                            <a href="#" class="navi-link" onclick="Main.completeWork('+row.id+')">\
+                                                <span class="navi-icon"><i class="la la-check"></i></span>\
+                                                <span class="navi-text">Complete</span>\
+                                            </a>\
+                                        </li>';
+                                        var action_btn='';
+                                        if (role=='admin') {
+                                            action_btn=
+                                             add_coupon
+                                            +sort_coupon
+                                            +assing_task
+                                            +copy_this;
+                                        }else{
+                                             action_btn=
+                                             add_coupon
+                                            +sort_coupon
+                                            +complete_work
+                                            +assing_task ;
+                                        }
+                     
                     var action= '\
 							<div class="dropdown dropdown-inline">\
 								<a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-1" data-toggle="dropdown">\
@@ -205,49 +250,7 @@ var Main = function() {
 	                                <ul class="navi flex-column navi-hover py-2">\
 	                                    <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">\
 	                                        Choose an action:\
-	                                    </li>\
-                                        <li class="navi-item">\
-                                            <a onclick="Route.go(\'coupons\',\'create\',{store_id:'+row.id+'})" class="navi-link">\
-                                                <span class="navi-icon"><i class="la la-tags"></i></span>\
-                                                <span class="navi-text">Add Coupon</span>\
-                                            </a>\
-                                        </li>\
-                                        <li class="navi-item">\
-                                            <a href="#"  onclick="Route.go(\'coupons\',\'sort\',\''+row.id+'\')"  class="navi-link">\
-                                                <span class="navi-icon"><i class="la-sort-amount-down"></i></span>\
-                                                <span class="navi-text">Sort Coupons</span>\
-                                            </a>\
-                                        </li>\
-                                        <li class="navi-item">\
-                                            <a href="#" class="navi-link"  onclick="Main.assignTaskPopup('+row.id+')">\
-                                                <span class="navi-icon"><i class="la-tasks"></i></span>\
-                                                <span class="navi-text">Asign Task </span>\
-                                            </a>\
-                                        </li>\
-	                                    <li class="navi-item">\
-	                                        <a href="#" class="navi-link" onclick="F.copyThis('+row.id+',\'copyStores\')">\
-	                                            <span class="navi-icon"><i class="la la-copy"></i></span>\
-	                                            <span class="navi-text">Copy</span>\
-	                                        </a>\
-	                                    </li>\
-	                                    <li class="navi-item">\
-	                                        <a href="#" class="navi-link">\
-	                                            <span class="navi-icon"><i class="la la-file-excel-o"></i></span>\
-	                                            <span class="navi-text">Excel</span>\
-	                                        </a>\
-	                                    </li>\
-	                                    <li class="navi-item">\
-	                                        <a href="#" class="navi-link">\
-	                                            <span class="navi-icon"><i class="la la-file-text-o"></i></span>\
-	                                            <span class="navi-text">CSV</span>\
-	                                        </a>\
-	                                    </li>\
-	                                    <li class="navi-item">\
-	                                        <a href="#" class="navi-link">\
-	                                            <span class="navi-icon"><i class="la la-file-pdf-o"></i></span>\
-	                                            <span class="navi-text">PDF</span>\
-	                                        </a>\
-	                                    </li>\
+	                                    </li>'+action_btn+'\
 	                                </ul>\
 							  	</div>\
 							</div>';
@@ -300,6 +303,7 @@ var Main = function() {
                             html+=copy; 
                         }else{
                               html+=edit;
+                              html+=action; 
                         }
                         return html;
                 },
@@ -324,11 +328,18 @@ if (role!='admin') {
 
     return {
         // Public functions
-        init: function() { 
+        init: function(params={}) { 
+            var limit=10;
+            if (params.showall) {
+                 limit=9999999999;
+            }
+            if (params.myworkonly) {
+                limit=1000;
+            }
 
              jQuery.ajax({
                     type : "post",
-                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                     data:{'token':token,'limit':limit,'search_query':params.search_query,'myworkonly':params.myworkonly}, headers: { 'x-cookie': cookie },  
                      dataType : "json",
                      url : api_base_url+"/getStores", 
                     
@@ -406,12 +417,27 @@ if (role!='admin') {
 
 
            
+        }, completeWork: function(id) { 
+
+
+             Swal.fire({
+                title: "This store is completed?",
+                text: "Sure?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, i update it!"
+            }).then(function(result) {
+                if (result.value) {
+                        
+                  //  window.location.href=base_url+"admin/stores/edit/"+id;
+                }
+            }); 
+
+
+           
         },
         //assignThisTask
 assignTaskPopup: function(id) {  
-     
-
-
          jQuery.ajax({
                     type : "post",
                      data:{'token':token }, headers: { 'x-cookie': cookie },  
@@ -420,13 +446,11 @@ assignTaskPopup: function(id) {
                      
                      success: function(data) { 
                         if(data.success === "yes") { 
-                            var html="";
+                            var html="";  
                       
-     var options="";
+                             var options="";
                           $.each(data.response,function(i,v) { 
-                         
                                options+='<option value="'+v.id+' ">'+v.first_name+' '+v.last_name+' </option>';
-                       
                             });
                           //'active','inactive','unknown','not_update','closed','error','sales_issue'
   html     +=' <!--begin: Item--><form id="assignToUpdateStore">\
@@ -434,7 +458,7 @@ assignTaskPopup: function(id) {
                         <div class="col-xs-12 col-md-6">Select Status</div>\
                         <div class="col-xs-12 col-md-6">Select Users</div>\
                          <div class="col-xs-12 col-md-6">\
-                                    <select name="status" class="selectpicker">\
+                                    <select name="assign_task_store_status" class="selectpicker">\
                                     <option value="active">Active</option>\
                                     <option value="inactive">Inactive</option>\
                                     <option value="not_update">Not Update</option>\
@@ -444,7 +468,7 @@ assignTaskPopup: function(id) {
                                     </select>\
                         </div>\
                         <div class="col-xs-12 col-md-6">\
-                            <select name="users" multiple class="selectpicker">\
+                            <select name="assign_task_users[]" multiple class="selectpicker">\
                             '+options+'\
                         </select></div>\
                     </div>\
@@ -457,6 +481,36 @@ assignTaskPopup: function(id) {
               return true;
           }
           ,'Notifiy',function(btn2) {
+KTApp.block('#modal',{ state: 'danger', message: 'Data Loading...', size: 'lg'});   
+
+ 
+var users=$('[name="assign_task_users\[\]"').val();
+var status=$('[name="assign_task_store_status"]').val();;
+
+         jQuery.ajax({
+                                type : "post",
+                             data:{'store_id':id,'status':status,'users':users,'token':token}, headers: { 'x-cookie': cookie },  
+                                 dataType : "json",
+                                 url : api_base_url+"/tasksAssignToUsers",
+                                 success: function(data) { 
+                                    if(data.success === "yes") {  
+                                                    Swal.fire(
+                                                        "Task Assign and Notified!",
+                                                        "Successfully",
+                                                        "success"
+                                                    );
+
+                                        $('#modal').modal('hide');
+                                    }
+                                    else {
+                                      Swal.fire('Failed To Assign',data.response,'error');
+                                    }
+                                     KTApp.unblock('#modal');
+                                 }
+
+                              
+                            });   
+
 
 
  
@@ -465,7 +519,6 @@ assignTaskPopup: function(id) {
 
           } 
         );
-
 
 
                         }
@@ -554,7 +607,18 @@ copySelected:function () {
 
 jQuery(document).ready(function() {
     Main.init();
- 
+  $('#kt_datatable_search_query').on('change',function() {
+             Main.init({'search_query':$(this).val()});
+
+  });
+ $('#showall').on('click',function() {
+   Main.init({'showall':true});
+ });
+ $('#myworkonly').on('click',function() {
+        var myworkonly=($(this).prop('checked'));
+        Main.init({'myworkonly':myworkonly});
+
+ });
     
 
 });

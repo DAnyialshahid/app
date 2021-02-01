@@ -1,5 +1,25 @@
+  #popular_coupons .title{
+        font-size: 30px;
+    }
+    .fa-thumbs-up:hover{
+        font-size: 18px !important;
+        color:blue !important;
+
+    }
+@media only screen and (max-width : 600px) { 
+    #popular_coupons .title{
+        font-size: 10px;
+    }
+
+}
+
 .btn,.card {
     border-radius: 0
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+   
+    background-color: #c0392b !important;
+    border-color: #c0392b !important;
 }
 
 #menu li,#menu li a {
@@ -3890,7 +3910,7 @@ a.btn-offer {
     }
 
     a.btn-coupon,a.btn-offer {
-        left: 16%
+        left: 0%
     }
 
     .cboxsq-btn a.btn-coupon {

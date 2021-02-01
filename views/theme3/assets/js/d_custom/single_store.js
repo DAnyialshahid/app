@@ -13,6 +13,7 @@ var app= Vue.createApp({
 	 relative_stores: [  ],
 	 coupons: [  ],
 	 comeFrom: 'store',
+	  configs: [  ],
 	 initCouponBox: function(coupon) { 
 	 	c(coupon);
 	 	coupon_box.box_data=coupon; 

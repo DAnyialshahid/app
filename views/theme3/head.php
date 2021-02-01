@@ -8,8 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="<?=theme_base_url?>/assets/css/bootstrap.css" type="text/css" media="all">
         <!-- <meta content="width=640, initial-scale=0.47, maximum-scale=1.0, user-scalable=1" name="viewport"> -->
-        <link rel="stylesheet" href="<?=theme_base_url?>/assets/css/style.css" media="all" />
-        <link rel="stylesheet" href="<?=theme_base_url?>/assets/css/d-style.css" media="all" />
+        <!-- <link rel="stylesheet" href="<?=theme_base_url?>/assets/css/style.css" media="all" /> -->
+        <link rel="stylesheet" href="<?=theme_base_url?>/assets/css/d-style.css?s" media="all" />
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">

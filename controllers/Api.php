@@ -34,49 +34,13 @@ public $login_user;
 						 }
 			}
 
-
-
-		//$this->load->model('admin/Taxonomies_model');
-				//registered_webOptions();
-		//control_panelAuthentication();
-	//	print_r($_SESSION);
-
-	
-	  
-	     		 
-			// if ($this->input->post('token')) {
-			// 	$token=$this->db->order_by('id','desc')->get_where('users_tokens',[
-			// 			'token'=>$this->input->post('token')
-			// 	])->first_row();
-			// 	if (empty($token)) {
-			// 		  echo json_encode(['success'=>'no','response'=>'Invalid Token']);
-			// 			exit();
-			// 	}else{
-			// 		if (strtotime($token->expire_date) <= strtotime('now') ) {
-			// 			echo json_encode(['success'=>'no','response'=>'OAuth Expired']);
-			// 			exit(); 
-			// 		}else{
-
-			// 			$this->login_user=$this->db->get_where('users',[
-			// 					'id'=>$token->user_id
-			// 				])->first_row(); 
-
-			// 		}
-			// 	}
-			// }else{
-				
-			
-			// }
 			
 		 if( $this->session->userdata('loggedIn')!=1 && 	(!isset($_GET['development']) ) ){ 
 				 		echo json_encode(['success'=>'no','response'=>'OAuth Failed']);
 						exit(); 
 				 		 
 				 	  }
-		// if ($this->input->post('token') && empty($this->session->userdata('user_active_site')) ) { 
-		// 	$this->session->set_userdata('user_active_site',$this->login_user->site_id);
-	
-		// }
+
 
 			
 
@@ -87,6 +51,36 @@ public $login_user;
 	}
 
 	
+public function getNotifications()
+	{
+					$this->db->limit(20);
+					$this->db->order_by('id','desc');
+					$notifications=$this->db->get_where('notifications',[
+							'to_user_id'=>$this->session->userdata('user_id')
+					])->result();
+					if ($notifications) {
+						foreach ($notifications as  $row) {
+										if ( $row->status=='unread') {
+											$this->db->set('status','notified')->where('id',$row->id)->update('notifications');
+										}
+							
+							}
+					}
+					
+	return $notifications;
+  }
+
+public function getIntervals()
+	{
+
+				
+					
+		      echo json_encode(['success'=>'yes','response'=>[
+		      	'notifications'=>$this->getNotifications(),
+	 
+		      	]]);
+ exit();
+  }
 public function getClipboard()
 	{
 
@@ -357,9 +351,21 @@ public function getBotDetails($where=null,$return=false)
 		
 	public function getStores($where=null,$return=false)
 	{ 
-
+				$limit=$this->input->post('limit');
+				$search_query=$this->input->post('search_query');
+				$myworkonly=$this->input->post('myworkonly');
+					if ($limit) {
+						$this->db->limit($limit);
+					}
+					if ($search_query) {
+						$this->db->like('name',$search_query);
+					}
+					if ($myworkonly) {
+						$this->db->where('id in','(select store_id from stores_task where to_user_id='.$this->session->userdata('user_active_site').' )',false);
+					}
 			$this->load->model('admin/stores_model');
 			$stores=$this->stores_model->get_all($where); 
+			//echo $this->db->last_query();
 			if($return){return $stores;}
 		echo json_encode(['success'=>'yes','response'=>$stores]);
 		exit();
@@ -1064,6 +1070,21 @@ if(!empty($_FILES['feature_image']['name'])){
 			echo json_encode(['success'=>'yes','response'=>$this->f_model->update_settings($logo,$favicon)]);
 			exit();
 	}
+
+		public function tasksAssignToUsers()
+	{
+			$store_id=$this->input->post('store_id');
+			$status=$this->input->post('status');
+			$users=$this->input->post('users');
+			$this->load->model('admin/stores_model'); 
+				$this->load->model('admin/notification_model'); 
+			$response=$this->stores_model->task_assign($store_id,$status,$users);
+
+		
+			echo json_encode(['success'=>'yes','response'=>$response]);
+			exit();
+	}
+
 
 	public function network_add()
 	{

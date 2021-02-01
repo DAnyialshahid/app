@@ -48,6 +48,7 @@
 <?php endif;?>
 
 
+<?php if($this->session->userdata('role')=='admin'):?> 
 			<!--begin::Dropdown-->
 <div class="dropdown dropdown-inline mr-2">
 	<button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -97,7 +98,7 @@
 	<!--end::Dropdown Menu-->
 </div>
 <!--end::Dropdown-->
-
+<?php endif;?>
 <!--begin::Button-->
 <a href="#"  onclick="Route.go('stores','create')" class="btn btn-primary font-weight-bolder">
     <span class="svg-icon svg-icon-md"><!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -133,8 +134,11 @@
                         <span><i class="flaticon2-search-1 text-muted"></i></span>
                     </div>
                 </div>
+
+
+
                     <?php if($this->session->userdata('role')=='admin'):?> 
-                          <div class="col-md-4 my-2 my-md-0">
+                          <div class="col-md-3 my-2 my-md-0">
                                 <div class="d-flex align-items-center">
                                     <label class="mr-3 mb-0 d-none d-md-block">Type:</label>
                                     <div class="dropdown bootstrap-select form-control">
@@ -146,8 +150,10 @@
                                     </select> 
                                 </div>
                                 </div>
-                            </div> <?php endif;?>
-                            <div class="col-md-4 my-2 my-md-0">
+                            </div>
+
+                             <?php endif;?>
+                            <div class="col-md-3 my-2 my-md-0">
                                 <div class="d-flex align-items-center">
                                     <label class="mr-3 mb-0 d-none d-md-block">Status:</label>
                                     <div class="dropdown bootstrap-select form-control">
@@ -167,6 +173,18 @@
                                 </div>
                                 </div>
                             </div>
+                     <?php if($this->session->userdata('role')!='admin'):?> 
+   <div class="col-md-3 my-2 my-md-0">
+                      <label class="checkbox">
+                    <input type="checkbox"  id="myworkonly"/> &nbsp;
+                    <span></span>  &nbsp; &nbsp; My Work only
+                </label>
+            </div>
+                     <?php endif;?>
+   <div class="col-md-2 my-2 my-md-0"><a href="#" id="showall">Show All</a>      </div>
+
+
+
                 
                     </div>
         </div> 

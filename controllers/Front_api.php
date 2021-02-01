@@ -130,7 +130,8 @@ class front_api extends Theme_Controller{
 
 			$data['name']=$category->name;  
 			$data['id']=$category->id;  
-			$data['feature_image']=$category->feature_image?$cateogry->feature_image:'blank.png';  
+			$data['feature_image']=$category->feature_image?$category->feature_image:'blank.png';  
+			$data['icon']=$category->icon;  
 				$this->side_bar_where_coditions();
 			$data['coupons'] = $this->db->get_where('coupons',[])->result();  
 			foreach ($data['coupons'] as $key => &$coupon) { 

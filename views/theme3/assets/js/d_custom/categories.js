@@ -6,7 +6,9 @@ var app= Vue.createApp({
     return {
     api_url: api_url, 
     base_url: base_url, 
-	categories: [  ] 
+	categories: [  ] ,
+	
+	  configs: [  ],
     }
 }
 }).mount('#categories');

@@ -16,13 +16,13 @@
                 <div class="clipClass copy-button mcopy waves-effect waves-light tooltipped" id="copy-button"  d-redirect="no"  :d-coupon_id="box_data.id" data-clipboard-target="#copy-me"  onclick="this.innerHTML='Copied'" >COPY</div>
             </div>
      
-            <div class="mstore-go">
+            <div   class="mstore-go">
                 <a target="blank" rel="nofollow" :href="base_url+'store/'+store.custom_url" >
  <img :src="api_url+'/assets/uploads/stores/'+store.feature_image" style="width: 95px" class="responsive-img" />
                 Go To {{store.name}}<i class="fa fa-long-arrow-right bounce"></i></a>
             </div>
-<div class="mstore-go"> <span class="m-x-1">Did This Offer Work?</span> 
-                        <span dusk="coupon-feedback-positive" class="m-x-1 text-primary   rating-thumb show-voting up" onclick="$(this).parent().hide(1000)"><i class="fa fa-thumbs-up" ></i></span>
+<div class="mstore-go"> <span class="m-x-1">Did This Offer Work?</span> &nbsp;
+                        <span class="vote_up" dusk="coupon-feedback-positive" class="m-x-1 text-primary   rating-thumb show-voting up" onclick="$(this).parent().hide(1000)"><i class="fa fa-thumbs-up" ></i> </span>&nbsp;
                         <span dusk="coupon-feedback-negative" class="m-x-1 text-primary   rating-thumb show-voting down" onclick="$(this).parent().hide(1000)"><i class="fa fa-thumbs-down" ></i></span>
 
                     </div>

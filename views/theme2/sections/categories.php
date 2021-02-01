@@ -32,7 +32,7 @@
                                             <img 
                                             class="img-responsive "
                                             v-if="category.feature_image"  
-                                            v-bind:src="api_url+'/assets/uploads/stores/'+category.feature_image" 
+                                            v-bind:src="api_url+'/assets/uploads/categories/'+category.feature_image" 
                                             v-bind:alt="category.name" 
                                             style="width: 52px;/* height: 50px;*/" 
                                             />

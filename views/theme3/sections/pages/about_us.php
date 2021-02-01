@@ -1,4 +1,5 @@
- <div  id="about_us">
+ 
+ <div  id="about_us" style="background:#e8e8e8" > 
 <section class="pages-breadcumb">
     <div class="container">
         <div class="row">
@@ -10,17 +11,17 @@
     </div>
 </section>
 
-<section class="main-content content-section contact-section"   >
+<section class=" col s12 l6"   >
   
    <div class="container">
         <div class="row">
             <div class="article">
                 <div class="col-md-9 col-sm-12 col-xs-12 pull-right">
                         <div class="contact-form-area">
-                                                                <div class="content_wrapper"> 
+                                   <div class="content_wrapper"> 
 
-                                                                </div>
-                                                            </div>
+                                        </div>
+                           </div>
 
                 </div>
             </div>

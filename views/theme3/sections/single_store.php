@@ -8,8 +8,9 @@
         <div class="store-head">
     <div class="container">
         <div class="store-logo-container card hoverable">
-            <img :src="api_url+'/assets/uploads/stores/'+row.feature_image" style="width: 95px" class="responsive-img" />
-            
+            <img v-if="comeFrom=='store'"   :src="api_url+'/assets/uploads/stores/'+row.feature_image" style="width: 95px" class="responsive-img" />
+            <img  v-if="comeFrom=='category' && (row.feature_image != 'blank.png' )"     v-bind:src="api_url+'/assets/uploads/categories/'+row.feature_image"  style="width: 95px" class="responsive-img" />
+        <i    v-if="comeFrom=='category' &&  (row.feature_image == 'blank.png' ) "  :class="'fa fa-'+row.icon " style="font-size: 40px; "></i>
 <hr style="margin: 1px">            
              
       <div class="vote-count">Coupon codes: {{row.count.coupons}}</div>
@@ -27,61 +28,7 @@
 
                  
             <h1 itemprop="about">{{row.name}} Coupons {{new Date().toLocaleString('default', { month: 'long' })+' ' + new Date().getFullYear() }}</h1>
-<div class="top-desc">
-
-
-<table class="bordered">
-        <thead>
-            <tr>
-                <td>Amazon Offers Today</td>
-                <td>Online Sale Promo Code</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Mobiles</td>
-                <td>Rs.5000 OFF</td>
-            </tr>
-            <tr>
-                <td>Electronics</td>
-                <td>Upto 70% OFF</td>
-            </tr>
-            <tr>
-                <td>Kitchen &amp; Home Appliances</td>
-                <td>Upto 40% OFF</td>
-            </tr>
-            <tr>
-                <td>Furniture Clearance Sale</td>
-                <td>Upto 60% Off </td>
-            </tr>
-            <tr>
-                <td>Fashion</td>
-                <td>Get 80% Discount Code</td>
-            </tr>
-            <tr>
-                <td>Used &amp; Refurbished Store</td>
-                <td>Upto 50% Discount</td>
-            </tr>
-            <tr>
-                <td>Laptops</td>
-                <td>Upto Rs.8000 Cashback</td>
-            </tr>
-            <tr>
-                <td>Baby Products</td>
-                <td>Uptp 75% OFF</td>
-            </tr>
-            <tr>
-                <td>Beauty, Health &amp; Groceries</td>
-                <td>Upto 65% Discount</td>
-            </tr>
-                         <tr>
-                <td>First Time Order Users</td>
-                <td>Upto 80% Off</td>
-            </tr>
-        </tbody>
-    </table>
-
-<p> At couponchaska.com, you will get latest amazon online shopping offers offers such as amazon smartphone sale, offers &amp; coupons, amazon mobile sale coupons &amp; offers 2017, amazon electronics sale, amazon electronics promo code, amazon fashion sale, amazon fashion promo code &amp; offers, amazon large appliances offers, amazon home furnishing coupons &amp; offers and many more. Amazon India Shopping is offering great discount on all products during amazon great indian festival sale. Today the online shopping giant amazon.in, deals in various categories like mobile phones (xiaomi redmi series mobiles, samsung mobiles, apple iphones, one plus series, Nokia Mobiles, Honor Mobiles, lenovo Mobiles), electronics, large appliances (television, air conditioner, refrigerator, BYJU'S Preparation Tablet, washing machine, microwave ovens, dishwashers, chimneys), kitchen &amp; home appliances (air coolers, water purifiers, fans, mixer grinders) cameras &amp; dslr, laptops (dell laptops, lenovo laptops, asus laptops, hp laptops, apple macbooks), clothing for men, women &amp; kids, shoes, patanjali products, grocery, amazon pantry, fmcg, books and many more. As far as festive seasons are concerned, Amazon brings great offers and discount coupons on its upcoming sale season like <a href="https://www.couponchaska.com/amazon-great-indian-festival-sale-online-offers/">Amazon Great Indian Festival Sale 2017 Online Offers</a>, Republic Day Sale, Independence day sale, Holi offer sale, Eid offers, Diwali sale, New Year 2018 Sale, Christmas Offer, Durga Puja Offers, Rakshabandhan Offer, Valentine Day Offer, Great Indian Sale 2018 and many more.  In addition to being one of the renowned brand names in India, Amazon has also launched some new products &amp; categories and gives huge offers on them such as amazon exchange offer on mobiles, tablets, tv &amp; large appliances, amazon Fire TV Stick, kindle eReader devices, Kindle eBooks, used &amp; refurbished mobiles &amp; electronics, used books, global Store and groceries. What keep it always on top is the splendid array of upcoming amazon app offers and coupons in combination with amazon online shopping discount.</p></div>
+ 
                     </div>
     </div>
 </div>
@@ -383,15 +330,8 @@
                     <div class="sidebox similar-store">
                         <h4>Similar Stores</h4>
                         <ul>
-                                                            <li><a href="https://www.couponchaska.com/store/flipkart-coupons/" title="Flipkart Offers, Sale and Coupons">Flipkart</a></li>
-                                                            <li><a href="https://www.couponchaska.com/store/snapdeal-coupons/" title="Snapdeal Promo Code and Coupons ">Snapdeal</a></li>
-                                                            <li><a href="https://www.couponchaska.com/store/homeshop18-coupons/" title="Homeshop18 Coupons and Offers">Homeshop18</a></li>
-                                                            <li><a href="https://www.couponchaska.com/store/tata-cliq-coupons-code-offers/" title="Tata CLiQ Coupons and Offers">Tata CLiQ</a></li>
-                                                            <li><a href="https://www.couponchaska.com/paytm-shopping-mall-coupons-offers/" title="Paytm Mall Coupons &amp; Offers For Online Shopping">Paytm Mall </a></li>
-                                                            <li><a href="https://www.couponchaska.com/store/2gud-Flipkart-refurbished-mobiles-offers/" title="2GUD">2GUD</a></li>
-                                                            <li><a href="https://www.couponchaska.com/store/shopclues-coupons/" title="Shopclues Coupons and Offers">Shopclues</a></li>
-                                                            <li><a href="https://www.couponchaska.com/store/gadgets360-coupons-offers/" title="Gadgets360.com Coupons and Offers">Gadgets360.com</a></li>
-                                                            <li><a href="https://www.couponchaska.com/store/paytm-coupons/" title="Paytm Coupons and Offers">Paytm</a></li>
+                                                            <li><a href="#" >T
+                                                            est Store</a></li> 
                                                     </ul>
                     </div>
                     

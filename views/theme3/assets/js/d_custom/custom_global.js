@@ -68,6 +68,8 @@ function init() {
                                     footer.configs=data.response.configs; 
                                     menu_bar.configs=data.response.configs;
                                     if (typeof contact_us!='undefined'){contact_us.configs=data.response.configs;}
+                                    if (typeof home!='undefined'){home.configs=data.response.configs;}
+                                    if (typeof app!='undefined'){app.configs=data.response.configs;}
 
  
                                     //menu_list
@@ -286,10 +288,10 @@ $('#search_input').typeahead(null, {
         'unable to find any Best Picture winners that match the current query',
       '</div>'
     ].join('\n'),
-    suggestion: Handlebars.compile('<div class="hover:tw-bg-grey-light tw-border-b tw-p-1"><a href="'+base_url+'store/{{custom_url}}" class="tw-block"><img width="50px" src="'+api_url+'/assets/uploads/stores/{{feature_image}}" class="tw-mr-2 tw-h-auto tw-rounded-sm">{{name}}</a></div>')
+    suggestion: Handlebars.compile('<div class="typeahead_single_div"><a href="'+base_url+'store/{{custom_url}}" > <img width="50px" src="'+api_url+'/assets/uploads/stores/{{feature_image}}" ><span>{{name}}</span> </a></div>')
   }
 });
-$('#search_input').val('a').trigger('change');
+// $('#search_input').val('a').trigger('change');
  
 
 
