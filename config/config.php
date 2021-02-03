@@ -30,8 +30,8 @@ if (env=='development') {
 	 $config['api_url'] =$protocol.'affiliateplatform.itworld.com.pk/';
 }	
 
-print_r($_SERVER['HTTP_X_FORWARDED_PROTO']? "https://" : "http://"));
-exit($protocol);
+// print_r($_SERVER['HTTP_X_FORWARDED_PROTO']? "https://" : "http://"));
+// exit($protocol);
 
 $root=$protocol.$_SERVER['HTTP_HOST'];
 
