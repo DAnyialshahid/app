@@ -11,8 +11,12 @@ $config['local_whitelist'] = array(
     '::1'
 ); 
 
-
+if ($_SERVER['HTTP_X_FORWARDED_PROTO']) {
+    # code...
+ $protocol=$_SERVER['HTTP_X_FORWARDED_PROTO'];
+}else{
 $protocol=(isset($_SERVER['HTTPS']) ? "https://" : "http://");
+}
 if(in_array($_SERVER['REMOTE_ADDR'],$config['local_whitelist'])){
 	 define('env','development');  
 }else{
@@ -26,7 +30,7 @@ if (env=='development') {
 	 $config['api_url'] =$protocol.'affiliateplatform.itworld.com.pk/';
 }	
 
-print_r($_SERVER);
+print_r($_SERVER['HTTP_X_FORWARDED_PROTO']? "https://" : "http://"));
 exit($protocol);
 
 $root=$protocol.$_SERVER['HTTP_HOST'];
