@@ -100,8 +100,8 @@ class front_api extends Theme_Controller{
 		 				$this->db->where_in('type',$side_bar_post['offer_type']);
 		 			}
 		 			 
-		 			
-		 			 
+		 		
+			 			 
 		 			if (isset($side_bar_post['seasonal_type'])) {
 		 				$this->db->where_in('seasonal_type',$side_bar_post['seasonal_type']);
 		 			}

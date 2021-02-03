@@ -107,9 +107,11 @@ $this->db->trans_start();
 			   		$this->db->insert('coupons',$coupon);	
 
 			   	}
+			   	unset($coupons); 
 			   	 // $this->db->insert_batch('coupons',$coupons);	    
 
 $this->db->trans_complete();
+unset($store); 
 		 	
 	}
 } 
