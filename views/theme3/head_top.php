@@ -2,8 +2,8 @@
  <div class="navbar-fixed">
     <nav class="nav-shrink">
         <div class="wrapper nav-wrapper container">
-            <a href="/" class="brand-logo left">
-              <img  :src="base_url+'/assets/uploads/sites/'+configs.logo"   style="height: 69px;width: auto;"   class="responsive-img">
+            <a href="/" class="brand-logo left" style="display: flex;height: 100%">
+              <img  :src="base_url+'/assets/uploads/sites/'+configs.logo"  class="responsive-img">
             </a>
             <ul id="menu" class="clearfix right">
     <li class="top-stores hide-on-med-and-down"><a href="#" onclick="$('.top-category-mega').hide();$('.top-stores-mega').toggle();" class="">Stores</a></li>

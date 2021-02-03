@@ -6,8 +6,8 @@
  
 
 <div class="row">
-    <div class="col l3 s12">
-        <h5>CouponChaska</h5>
+    <div class="col-xs-6 col-md-2 l3 s12">
+        <h5>{{configs.site_name}}</h5>
         <p v-html="configs.description"> </p>
 
         <div class="footer-social"> 
@@ -22,21 +22,21 @@
        
     </div>
 
-    <div class="col l2 s12">
+    <div class=" col-xs-6 col-md-2  l2 s12">
         <h5>Top Stores</h5>
         <ul >
                 <li  v-for="store in popular_stores.slice(0, 7)"  >   <a :href="base_url+'store/'+store.custom_url">{{store.name}}</a> </li>  
         </ul>
     </div>
 
-    <div class="col l2 s12">
+    <div class=" col-xs-6 col-md-2  l2 s12">
         <h5>Top Categories</h5>
         <ul>
                  <li  v-for="cat in popular_categories.slice(0, 7)"  >   <a :href="base_url+'category/'+cat.slug">{{cat.name}}</a> </li>       
           </ul>
     </div>
 
-    <div class="col l2 s12">
+    <div class=" col-xs-6 col-md-2  l2 s12">
         <h5>Company</h5>
         <ul>
 
@@ -52,7 +52,7 @@
         </ul>
     </div>
         
-    <div class="col l3 s12">
+    <div class=" col-xs-6 col-md-2  l3 s12">
         <h5>Newsletters</h5>
        <div class="form-group">
                         <div class=" row ">

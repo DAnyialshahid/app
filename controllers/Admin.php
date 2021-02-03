@@ -26,12 +26,12 @@ header("Expires: 0"); // Proxies.
 
 	     if(!$this->session->userdata('loggedIn')){
 
-	  
+	   
 
 	     		if (!($this->uri->segment(1)=='admin' && $this->uri->segment(2)=='login') ) {
 	   
 	     			 // redirect('authentication/login_panel');
-	     					exit('Redirecting to login <script>window.location.href=\''.$this->config->item('api_url').'authentication/login_panel\'</script>');
+	     					exit('Redirecting to login <script>window.location.href=\''.str_ireplace('https:', 'http:', $this->config->item('api_url')).'authentication/login_panel\'</script>');
 	     		}
 		
 			exit('Redirect to login');
@@ -42,10 +42,19 @@ header("Expires: 0"); // Proxies.
 	public function index($type='',$id='')
 	{
 
+	$configs_rows =$this->db->where(['site_id'=>null])->get('configs')->result();  
+			$configs =[] ;
+			foreach ($configs_rows as $key => $value) {
+				$configs[$value->name]=$value->value;
+			}
+ 
+		 
+
  backend_page($this,'index.php',[
 			 	'content_page'=>'sections/ajax',
 			 	'js'=>'ajax', 
 			 	'title'=>'Home',
+			 	'configs'=>json_encode($configs),
 			 ]); 
 	}
 

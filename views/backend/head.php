@@ -3,6 +3,7 @@
         <title><?=isset($title)?$title:'ITWORLD Coupons System'?></title>
         <meta name="description" content="Updates and statistics"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="extension_installed" content="0"/>
 
         <!--begin::Fonts-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>        <!--end::Fonts-->
@@ -30,6 +31,7 @@
     var token='<?=$this->session->userdata("token")?>';
     var role='<?=$this->session->userdata('role')?>';
     var cookie='<?=$_COOKIE["ci_session"]?>';
+    var configs=JSON.parse('<?=($configs)?>');
 
 </script>
 

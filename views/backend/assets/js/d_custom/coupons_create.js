@@ -38,8 +38,38 @@ var Main = function() {
  
       return false;
         },
+          pasteExtensionData: async function() {  
+//danyial_extension_data=>eyJkYXRhX3R5cGUiOiJkZWFsIiwiZGF0YV9jb2RlIjoidW5kZWZpbmVkIiwiZGF0YV90aXRsZSI6IiQ1IExpbmV1cDogMiBPciBNb3JlIFNlbGVjdCBNZW51IEl0ZW1zIEZvciAkNSBFYWNoICIsImRhdGFfZGVzYyI6InVuZGVmaW5lZCIsInNob3J0X3RpdGxlMSI6Ik9OTFkiLCJzaG9ydF90aXRsZTIiOiIkNSJ9
+            const text = await navigator.clipboard.readText();
+if(text.indexOf('danyial_extension_data=>')!=-1){
+
+var base=text.replace('danyial_extension_data=>','');
+var jsonString=atob(base);
+var copy_data=JSON.parse(jsonString);
+console.log(copy_data);
+
+  // 'data_title':$(this).attr('data_title'),
+  // 'data_code':$(this).attr('data_code'),
+  // 'data_type':$(this).attr('data_type'),
+  // 'data_desc':$(this).attr('data_desc'),
+  // 'short_title1':$(this).attr('short_title1'),
+  // 'short_title2':$(this).attr('short_title2'),
+
+$('[name="name"]').val(copy_data.data_title);
+$('[name="coupon_code"]').val(copy_data.data_code);
+$('[name="short_title"]').val(copy_data.short_title1+' '+copy_data.short_title2);
+window.ckeditor_box.setData(copy_data.data_desc)
+// $('[name="affiliate_link"]').val(copy_data.data_desc);
+
+
+}else{
+         Swal.fire('Error','Copied Data Not Found','error');
+}
+
+
+        },
         fillUpdate: function(id) {  
-          
+           
              jQuery.ajax({
                      type : "post",
                      data:{'token':token}, headers: { 'x-cookie': cookie },  

@@ -14,9 +14,20 @@
                                 -------------
                                 <span class="d-block text-muted pt-2 font-size-sm"> management made easy</span>
                             </h3>
+
                         </div>
                         <div class="card-toolbar">
+              
                             <!--begin::Button-->
+                            <a  href="#" onclick="Main.pasteExtensionData()" class="btn btn-warning font-weight-bolder">
+                                <span class="svg-icon svg-icon-md">
+                                    <span class="la la-paste"></span>
+                                </span>
+                                Paste
+                            </a> &nbsp
+                            <!--end::Button-->  
+
+                             <!--begin::Button-->
                             <a  href="#" onclick="Route.go('coupons','list')" class="btn btn-primary font-weight-bolder">
                                 <span class="svg-icon svg-icon-md">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Text\Bullet-list.svg-->
@@ -240,7 +251,7 @@
 
         <div class="col-md-6 col-xl-6 col-xxl-6">
             <!--begin::Group-->
-            <div class="form-group row">
+            <div class="form-group row"> 
                 <label class="col-xl-3 col-lg-3 col-form-label"> Coupon Meta title </label>
                 <div class="col-lg-9 col-xl-9">
                     <input class="form-control form-control-solid form-control-lg" name="seo_coupon_meta_title" type="text" value="" />

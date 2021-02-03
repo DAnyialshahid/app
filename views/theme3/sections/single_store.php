@@ -78,7 +78,7 @@
         </div>
         <div class="col s12 m12 l5 sbox-form-container">
             <div id="mc_embed_signup">
-                <form target="_blank" action="https://www.couponchaska.com/newsletter/subscribe" method="POST" accept-charset="utf-8">
+                <form target="_blank" action="#" method="POST" accept-charset="utf-8">
                     <input type="email" value="" name="subscribe_email" class="email" id="email" placeholder="Enter Your Email" required="">
         
                     <button class="sbox-btn" type="button" onclick="subscribes_email();" name="action"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>

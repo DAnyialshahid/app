@@ -213,7 +213,7 @@ var Main = function() {
 
                      jQuery.ajax({
                     type : "post",
-                     data:{'id':id,'token':token}, 
+                     data:{'id':id,'limit':prompt('please enter rows limit . or skip this msg for all rows'),'offset':prompt('please enter Offset for limit '),'token':token}, 
                      headers: { 'x-cookie': cookie },  
                      dataType : "json",
                      url : api_base_url+"/runAjaxBotPHP", 

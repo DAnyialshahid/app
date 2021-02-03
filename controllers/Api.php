@@ -241,7 +241,11 @@ public function getClipboard()
 
 	public function runAjaxBotPHP($bot_id=null,$last_position=null)
 	{
-		
+		$limit=$this->input->post('limit');
+		$offset= $this->input->post('offset');
+		if ($limit && $offset) {
+				$this->db->limit($limit,$offset);
+		}
 		$bot_stores=$this->db->select('id')->get_where('bots_stores',['bot_id'=>$this->input->post('id'),'status'=>'not fetch'])->result();
 // dd($bot_stores);
 		foreach ($bot_stores as  $store) {

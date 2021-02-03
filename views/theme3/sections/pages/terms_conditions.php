@@ -2,7 +2,7 @@
 
 
 
-  <div  id="terms_conditions">
+  <div  id="terms_conditions" style="background:#e8e8e8">
 <section class="pages-breadcumb">
     <div class="container">
         <div class="row">
@@ -17,7 +17,7 @@
 <section class="main-content content-section contact-section"   >
   
    <div class="container">
-        <div class="row">
+        <div class="row"  style="background: white; border-radius: 5px; padding: 10px; ">
             <div class="article">
                 <div class="col-md-9 col-sm-12 col-xs-12 pull-right">
                         <div class="contact-form-area">

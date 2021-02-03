@@ -1,14 +1,25 @@
   #popular_coupons .title{
-        font-size: 30px;
+        font-size: 40px;
     }
     .fa-thumbs-up:hover{
         font-size: 18px !important;
         color:blue !important;
 
     }
+
+    .brand-logo img{
+        height: 48px !important;
+    width: auto !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    }
 @media only screen and (max-width : 600px) { 
     #popular_coupons .title{
         font-size: 10px;
+    }
+     .brand-logo img{
+        height: 30px !important;
+    width: auto !important;
     }
 
 }

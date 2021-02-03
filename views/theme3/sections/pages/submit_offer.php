@@ -1,4 +1,4 @@
-<section class="pages-breadcumb">
+<section class="pages-breadcumb" style="background:#e8e8e8">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -9,9 +9,9 @@
     </div>
 </section>
 
-<section class="main-content content-section contact-section"  id="contact">
+<section class="main-content content-section contact-section"  id="contact" style="background:#e8e8e8">
     <div class="container">
-        <div class="row">
+        <div class="row"  style="background: white; border-radius: 5px; padding: 10px; ">
             <div class="article">
                 <div class="col-md-9 col-sm-12 col-xs-12 pull-right">
                     <div class="contact-form-area">

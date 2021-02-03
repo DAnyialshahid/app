@@ -14,9 +14,8 @@
 <section class=" col s12 l6"   >
   
    <div class="container">
-        <div class="row">
-            <div class="article">
-                <div class="col-md-9 col-sm-12 col-xs-12 pull-right">
+        <div class="row" style="background: white; border-radius: 5px; padding: 10px; "> 
+            <div class="article"> <div class="col-md-9 col-sm-12 col-xs-12 pull-right">
                         <div class="contact-form-area">
                                    <div class="content_wrapper"> 
 

@@ -1,5 +1,14 @@
+var isAdminPanel=true;
+ if ($('meta[name=extension_installed]').attr('content')=='0') {
+    $('body').html('Please Install Extension'+
+    ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' );
+ }else if (parseFloat($('meta[name=extension_installed]').attr('content')) < parseFloat(configs.lastest_extention_version)) {
+    $('body').html('Please Update your  Extension new version is '+configs.lastest_extention_version+
+    ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' 
 
-
+      );
+ }
+  
 var F = function() {
     
 
@@ -677,9 +686,10 @@ if (callback) { callback();}
  
 
 $(document).ready(function(){
+
+
   F.getNotifications();
   setInterval(function() {
-
     F.getNotifications();
   },20000);
 
