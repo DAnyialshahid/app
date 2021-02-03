@@ -1,12 +1,20 @@
 var isAdminPanel=true;
  if ($('meta[name=extension_installed]').attr('content')=='0') {
-    $('body').html('Please Install Extension'+
-    ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' );
- }else if (parseFloat($('meta[name=extension_installed]').attr('content')) < parseFloat(configs.lastest_extention_version)) {
-    $('body').html('Please Update your  Extension new version is '+configs.lastest_extention_version+
-    ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' 
 
-      );
+  alert('please install extention to continue !');
+  window.location.href=base_url+'extension';
+
+    // $('body').html('Please Install Extension'+
+    // ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' );
+
+ }else if (parseFloat($('meta[name=extension_installed]').attr('content')) < parseFloat(configs.lastest_extention_version)) {
+     alert('please update your  extention to continue !');
+     window.location.href=base_url+'extension/index.php?update=true';
+
+    // $('body').html('Please Update your  Extension new version is '+configs.lastest_extention_version+
+    // ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' 
+
+    //   );
  }
   
 var F = function() {
@@ -45,23 +53,24 @@ var F = function() {
                            dataType : "json",
                            url : api_base_url+"/pasteClipboard", 
                            success: function(res) {
- if (res.success=='yes') {
-                                    Swal.fire({
-                                        title: "Copied",
-                                        text: data.type+" Copied Successfully do you want to clear clip board ?",
-                                        icon: "success",
-                                        showCancelButton: true,
-                                        confirmButtonText: "Yes, Clear it!"
-                                    }).then(function(result) {  
-                                        if (result.value) { 
-                                        F.deleteClipboardGroup(data.type)
-                                      }
-                                    });
-                                       $('#modal').modal('hide');
-                              
-}else{
 
-}
+             if (res.success=='yes') {
+                                                Swal.fire({
+                                                    title: "Copied",
+                                                    text: data.type+" Copied Successfully do you want to clear clip board ?",
+                                                    icon: "success",
+                                                    showCancelButton: true,
+                                                    confirmButtonText: "Yes, Clear it!"
+                                                }).then(function(result) {  
+                                                    if (result.value) { 
+                                                     F.deleteClipboardGroup(data.type);
+                                                  }
+                                                });
+                                                   $('#modal').modal('hide');
+                                          
+            }else{
+
+            }
 
                             
 
