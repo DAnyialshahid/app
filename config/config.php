@@ -10,17 +10,23 @@ $config['local_whitelist'] = array(
     '127.0.0.4',
     '::1'
 ); 
-dd($_SERVER[);
-if (@$_SERVER['HTTP_X_FORWARDED_PROTO']) {
-    # code...
- $protocol=$_SERVER['HTTP_X_FORWARDED_PROTO'].'://';
+ 
+if (@getallheaders()['from_site_protocol']) {
+
+  $protocol= getallheaders()['from_site_protocol'].'://';
+
+
+}else if (@$_SERVER['HTTP_X_FORWARDED_PROTO']) {
+
+     $protocol=$_SERVER['HTTP_X_FORWARDED_PROTO'].'://';
+     
 }else{
 $protocol=(isset($_SERVER['HTTPS']) ? "https://" : "http://");
 }
 if(in_array($_SERVER['REMOTE_ADDR'],$config['local_whitelist'])){
-	 define('env','development');  
+     define('env','development');  
 }else{
-	 define('env','production'); 
+     define('env','production'); 
 }
 
 

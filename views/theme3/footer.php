@@ -80,7 +80,7 @@
 
 </div>
 
-               <script src="<?=theme_base_url?>/asssets/js/materialize.min.js"></script>
+               <script src="<?=theme_base_url?>/assets/js/materialize.min.js"></script>
     <script src="<?=theme_base_url?>/assets/js/vendor.min.js"></script>
     <script src="<?=theme_base_url?>/assets/js/app-d925701f8e.min.js"></script>
 
