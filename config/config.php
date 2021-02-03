@@ -13,7 +13,7 @@ $config['local_whitelist'] = array(
 
 if ($_SERVER['HTTP_X_FORWARDED_PROTO']) {
     # code...
- $protocol=$_SERVER['HTTP_X_FORWARDED_PROTO'];
+ $protocol=$_SERVER['HTTP_X_FORWARDED_PROTO'].'://';
 }else{
 $protocol=(isset($_SERVER['HTTPS']) ? "https://" : "http://");
 }
