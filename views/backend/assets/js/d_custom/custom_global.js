@@ -1,21 +1,5 @@
 var isAdminPanel=true;
- if ($('meta[name=extension_installed]').attr('content')=='0') {
 
-  alert('please install extention to continue !');
-  window.location.href=base_url+'extension';
-
-    // $('body').html('Please Install Extension'+
-    // ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' );
-
- }else if (parseFloat($('meta[name=extension_installed]').attr('content')) < parseFloat(configs.lastest_extention_version)) {
-     alert('please update your  extention to continue !');
-     window.location.href=base_url+'extension/index.php?update=true';
-
-    // $('body').html('Please Update your  Extension new version is '+configs.lastest_extention_version+
-    // ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' 
-
-    //   );
- }
   
 var F = function() {
     
@@ -695,6 +679,25 @@ if (callback) { callback();}
  
 
 $(document).ready(function(){
+
+var extension=$('meta[name=extension_installed]').attr('content');
+ if (extension=='0') {
+ 
+  alert('please install extention to continue !');
+  // window.location.href=base_url+'extension';
+
+    // $('body').html('Please Install Extension'+
+    // ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' );
+
+ }else if (parseFloat(extension) < parseFloat(configs.lastest_extention_version)) {
+     alert('please update your  extention to continue !');
+    window.location.href=base_url+'extension/index.php?update=true';
+
+    // $('body').html('Please Update your  Extension new version is '+configs.lastest_extention_version+
+    // ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' 
+
+    //   );
+ }
 
 
   F.getNotifications();
