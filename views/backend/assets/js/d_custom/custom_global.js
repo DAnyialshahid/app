@@ -684,7 +684,7 @@ var extension=$('meta[name=extension_installed]').attr('content');
  if (extension=='0') {
  
   alert('please install extention to continue !');
-  // window.location.href=base_url+'extension';
+  window.location.href=base_url+'extension';
 
     // $('body').html('Please Install Extension'+
     // ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' );
