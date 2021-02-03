@@ -26,7 +26,7 @@ if (env=='development') {
 	 $config['api_url'] =$protocol.'affiliateplatform.itworld.com.pk/';
 }	
 
-
+print_r($_SERVER);
 exit($protocol);
 
 $root=$protocol.$_SERVER['HTTP_HOST'];
