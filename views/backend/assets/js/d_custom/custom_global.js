@@ -296,13 +296,13 @@ console.log(notification);
                                  if ((v.status=='unread' || v.status=='notified' ) && (!$('#notifications_panel .dropdown-menu-lg').hasClass('show'))) { 
 
                                   if (v.type=='success') {
-                                    v.type='la la-check text-success';
+                                    v.type1='la la-check text-success';
                                   }else if (v.type=='info') {
-                                    v.type='la la-sticky-note-o text-warning';
+                                    v.type1='la la-sticky-note-o text-warning';
                                   }else if (v.type=='warning') {
-                                    v.type='la la-info text-info';
+                                    v.type1='la la-info text-info';
                                   }else if (v.type=='error') {
-                                    v.type='la la-warning text-danger';
+                                    v.type1='la la-warning text-danger';
                                   } 
                           
                              var item=' <!--begin::Item-->\
@@ -364,6 +364,8 @@ console.log(notification);
                                   if (v.type=='info') { toastr.info(v.title);}
                                   if (v.type=='warning') { toastr.warning(v.title);}
                                   if (v.type=='error') { toastr.error(v.title);}
+
+console.log(v.type);
                                 }
                              
                              
@@ -703,7 +705,7 @@ var extension=$('meta[name=extension_installed]').attr('content');
   F.getNotifications();
   setInterval(function() {
     F.getNotifications();
-  },20000);
+  },7000);
 
        F.getClipboard();
 $('#sites_list').selectpicker();
