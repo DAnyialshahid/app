@@ -10,7 +10,7 @@ $config['local_whitelist'] = array(
     '127.0.0.4',
     '::1'
 ); 
-
+dd($_SERVER[);
 if (@$_SERVER['HTTP_X_FORWARDED_PROTO']) {
     # code...
  $protocol=$_SERVER['HTTP_X_FORWARDED_PROTO'].'://';
