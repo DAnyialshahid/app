@@ -9,7 +9,7 @@ class extension_api extends CI_Controller{
 	{
 
 		ignore_user_abort(true);
-		sleep(3);
+		// sleep(3);
 		parent::__construct();
   
 		if (!( ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
