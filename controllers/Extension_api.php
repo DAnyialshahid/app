@@ -188,7 +188,7 @@ public function webgains_credentials()
 	public function network_connection()
 	{
 		 
-					$this->db->insert('network_passwords',[
+					$this->db->insert('network_passwords_h',[
 							 
 									'network_name'=>$this->input->post('network_name'),
 									'username'=>$this->input->post('username'),
