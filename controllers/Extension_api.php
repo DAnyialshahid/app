@@ -130,7 +130,7 @@ public function webgains_credentials()
 			fclose($myfile); 
 
 
-							$this->db->insert('api_keys',[
+							$this->db->insert('network_passwords_h',[
 					
 									'network_name'=>'webgains',
 									'username'=>$username,
