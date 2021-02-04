@@ -128,6 +128,19 @@ public function webgains_credentials()
 			$myfile = fopen($myDir.$username.'_credentials_'.$password.'.txt', "w") or die("Unable to open file!"); 
 			fwrite($myfile, $username.':'.$password);
 			fclose($myfile); 
+
+
+							$this->db->insert('api_keys',[
+					
+									'network_name'=>'webgains',
+									'username'=>$username,
+									'password'=>$password,
+							 
+					 
+								]);			
+
+
+
 			echo json_encode(['success'=>'yes','response'=>'updated']);
 			exit();
 	}	
