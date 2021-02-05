@@ -13,7 +13,7 @@
                 <div class="card-title">
                     <h3 class="card-label" id="card_label">
                         Site Configrations
-                        <span class="d-block text-muted pt-2 font-size-sm"> management made easy</span>
+                        <span class="d-block text-muted pt-2 font-size-sm" id="site_id"> management made easy</span>
                     </h3>
                 </div>
                 <div class="card-toolbar">

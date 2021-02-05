@@ -82,6 +82,7 @@ var Main = function() {
                         console.log(data);
                         if(data.success === "yes" ) { 
                           var row=data.response; 
+                                        $('#site_id').html('#ID '+row.site_id);
 
                                           //input
                                         $('[name=facebook]').val(row.facebook);

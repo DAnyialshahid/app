@@ -50,6 +50,7 @@ class F_model extends MY_Model{
 			foreach ($configs_rows as $key => $value) {
 				$configs[$value->name]=$value->value;
 			}
+			$configs['site_id']=encrypt($this->session->userdata('user_active_site'),'no_one_can_decrypt');
 			return $configs;
 		
 		return $data; 
