@@ -51,6 +51,7 @@ public $login_user;
 	}
 
 	
+
 public function getNotifications()
 	{
 					$this->db->limit(20);
@@ -1147,12 +1148,56 @@ if(!empty($_FILES['feature_image']['name'])){
 			$this->load->model('admin/networks_model'); 
 			echo json_encode(['success'=>'yes','response'=>$this->networks_model->recaptcha__en()]);
 			exit();
-	}public function test()
+	}
+	public function test()
 	{
  
  			
 			$this->load->model('admin/networks_model'); 
 			echo json_encode(['success'=>'yes','response'=>$this->networks_model->recaptcha__en()]);
+			exit();
+	}
+
+	public function olx_auth()
+	{
+ 
+ 			
+			$this->load->model('admin/olx/olx_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->olx_model->auth($this->input->post('id'))]);
+			exit();
+	}
+	public function olx_sign_up()
+	{
+ 
+ 			
+			$this->load->model('admin/olx/olx_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->olx_model->sign_up($this->input->post('id'))]);
+			exit();
+	}
+public function olx_sign_up_verifiy_pin()
+	{
+ 
+ 			
+			$this->load->model('admin/olx/olx_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->olx_model->sign_up_verifiy_pin($this->input->post('id'),$this->input->post('pin'))]);
+			exit();
+	}
+
+	public function olx_post_ads()
+	{
+ 
+ 			
+			$this->load->model('admin/olx/olx_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->olx_model->post_ads($this->input->post('id'))]);
+			exit();
+	}
+
+	public function getOlxAccounts()
+	{
+ 
+ 			
+			$this->load->model('admin/olx/olx_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->olx_model->get_all()]);
 			exit();
 	}
 

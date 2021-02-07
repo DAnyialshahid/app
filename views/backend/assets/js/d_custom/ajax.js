@@ -152,6 +152,16 @@ var Route = function() {
                 }else{
                   Route.E_404(page,type);
                 }
+          }else if (page=='olx') {
+                if (type=='clear_site') {
+                  // Ajax.loadPage('Clear Site Data','sections/bot_clear_site','bot_clear_site'); 
+                }else if (type=='page') {
+                   Ajax.loadPage('OLX home','sections/olx/olx_page','olx/olx_page');  
+                }else if (type=='details') {
+                   // Ajax.loadPage('Bot','sections/bot_details','bot_details',id);  
+                }else{
+                  Route.E_404(page,type);
+                }
           }else if (page=='config') {
                 if (type=='site' || type=='') {
                   Ajax.loadPage('Configurations','sections/config/site_config','/config/site_config'); 
