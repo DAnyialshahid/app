@@ -4,7 +4,7 @@
             <div class="article">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div  >
-                                   <h1 >Coupons, Promo Codes &amp; Deals by A Stores </h1> 
+                                   <h1 >Coupons, Promo Codes &amp; Deals by Stores alphabets</h1> 
 
                         <hr class="border-line" />
                         <div class="col-xs-12 wrapper clearfix">
