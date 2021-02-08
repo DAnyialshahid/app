@@ -10,17 +10,19 @@
   <li class="top-category hide-on-med-and-down"><a href="#" onclick="$('.top-stores-mega').hide();$('.top-category-mega').toggle();">Categories</a></li>
                                 <li>
                     <div id="ccsearch" class="ccsearch">
-    <form action="#" class="ccsearch-form">
-        <input   type="search" placeholder="Search ..."  class="ccsearch-input typeahead"  id="search_input" >
-        <button class="ccsearch-submit" type="submit">Search</button>
-    </form>
-    <div class="ccsearch-content ">
-        <div class="autosuggest-result">
-            
-        </div>
-    </div>
-    <span class="ccsearch-close"></span>
-</div>                </li>
+                        <form action="#" class="ccsearch-form">
+                            <input   type="search" placeholder="Search ..."  class="ccsearch-input typeahead"  id="search_input" >
+                            <button class="ccsearch-submit" type="submit">Search</button>
+                        </form>
+                        <div class="ccsearch-content ">
+                            <div class="autosuggest-result">
+                                
+                            </div>
+                        </div>
+                        <span class="ccsearch-close"></span>
+                    </div>               
+
+                     </li>
                 <li class="login-navi hide-on-med-and-down">
                                             <a rel="nofollow"  :href="base_url+'/page/submit_offer'"  data-activates="slide-out" class="button-collapse btn login-btn">Add Offer</a>
                                     </li>
