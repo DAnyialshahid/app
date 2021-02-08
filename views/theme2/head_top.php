@@ -13,7 +13,7 @@
               <div class="col-md-3 col-xs-12 text-center">
                     <a :href="base_url" class="tw-block img-responsive" style=" display: inline-block;width: 236px;" ><img src="<?=theme_base_url?>/assets/images/logo-white.png" alt="" /></a>
               </div>
-        <div class="col-md-4 col-xs-4 ">
+        <div class="col-md-4 col-xs-12 ">
               <ul class="tw-list-reset tw-flex tw-justify-between tw-w-full tw-my-4">
                 <li class="nav-item dropdown">
                     <a   class="nav-link dropdown-toggle tw-text-grey-lightest hover:tw-text-blue tw-font-normal tw-pr-2"  data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Stores</a>
@@ -35,7 +35,7 @@
             </ul> 
           </div>
 
-            <div class="col-md-4 col-xs-4">
+            <div class="col-md-4 col-xs-12">
               <div dusk="merchant-search" class="col-xs-12 nav-search tw-relative tw-w-full tw-z-20">
                   <div class="tw-flex">
                     <div class="tw-flex tw-flex-grow tw-rounded-l-sm tw-text-grey-darker tw-p-2">
