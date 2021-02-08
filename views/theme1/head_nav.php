@@ -1,5 +1,13 @@
+<nav class="header-nav hidden-lg hidden-md hidden-sm "  style="z-index:3"   id="search_mobile" >
+    <div class="container">
+          <div class="form-group"> 
+            <input type="text" class="form-control" autocomplete="off" id="search_input_mobile"  placeholder="Search "> 
+         </div>
+    </div>
+</nav>
 
-<nav class="header-nav" style="z-index:3" >
+
+<nav class="header-nav" style="z-index:2" >
     <div class="container">
         <ul class="nav links clearfix" id="top_menu_bar">
             <li>
@@ -29,11 +37,3 @@
         </ul>
     </div>
 </nav>
-<nav class="header-nav hidden-lg hidden-md hidden-sm "  style="z-index:2"   id="search_mobile" >
-    <div class="container">
-          <div class="form-group"> 
-            <input type="text" class="form-control" autocomplete="off" id="search_input_mobile"  placeholder="Search "> 
-         </div>
-    </div>
-</nav>
-
