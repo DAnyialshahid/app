@@ -24,7 +24,7 @@ public $login_user;
 	 
 		  flush(); 
 
-		  	if (!( ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+		  	if (!( ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') ) {
 		   				 if(strpos($_SERVER['HTTP_ACCEPT'], 'json') !== false){  
 						 }else{
 						 	if (!isset($_GET['development'])) {
@@ -1199,6 +1199,15 @@ public function olx_sign_up_verifiy_pin()
 			$this->load->model('admin/olx/olx_model'); 
 			echo json_encode(['success'=>'yes','response'=>$this->olx_model->get_all()]);
 			exit();
+	}
+
+	public function getOlxScript()
+	{
+ 
+ 			
+			$this->load->model('admin/olx/olx_model'); 
+	
+			exit($this->olx_model->script_get());
 	}
 
 	

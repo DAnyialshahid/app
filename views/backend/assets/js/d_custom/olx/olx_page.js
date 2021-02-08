@@ -50,6 +50,25 @@ var Main = function() {
              {
                 field: 'name',
                 title: 'title'
+            }, 
+             {
+                field: 'hasPhone',
+                title: 'Phone Verifired',    
+                template: function(row) {
+                    var label='';
+                    switch(row.hasPhone){
+                        case '1':
+                        label='label-light-primary';
+                        row.hasPhone='YES';
+                        break;
+                          default:
+                          label='label-light-danger';
+                             row.hasPhone='NO';
+                          break;
+
+                    }
+                    return '  <span class="label label-inline '+label+' font-weight-bold">'+row.hasPhone+'</span>';
+                }
             }, {
                 field: 'status',
                 title: 'Status',    
@@ -125,7 +144,8 @@ var Main = function() {
                      data:{'token':token}, headers: { 'x-cookie': cookie },  
                      dataType : "json",
                      url : api_base_url+"/getOlxAccounts", 
-                     success: function(data) { 
+                     success: function(data) {
+
                         if(data.success === "yes") { 
                                    if( $('#kt_datatable').html()!=""){      $('#kt_datatable').KTDatatable().destroy();}
                       
@@ -149,17 +169,23 @@ var Main = function() {
                 confirmButtonText: "Yes, resign  it!"
             }).then(function(result) {
                 if (result.value) { 
-
+                      KTApp.block('tr:has([data-field="id"][aria-label="'+id+'"])',{ state: 'danger', message: 'Signing ...', size: 'lg'}); 
                      jQuery.ajax({
                     type : "post",
-                     data:{'id':id,'token':token}, 
+                     data:{'id':id,'sensor_data':getData(),'token':token}, 
                      headers: { 'x-cookie': cookie },  
                      dataType : "json",
                      url : api_base_url+"/olx_auth", 
-                     success: function(data) { 
+                     success: function(data) {
+                     KTApp.unblock('tr:has([data-field="id"][aria-label="'+id+'"])'); 
                         if(data.success === "yes") { 
                             // Route.go('olx','details',id);
-                                      // Main.init();
+                              Swal.fire(
+                                            "Account Sign Successfully !",
+                                            'Now you can post your ads',
+                                            "success"
+                                        ) ;
+                                       Main.init();
 
                         }
                         else {
@@ -189,17 +215,24 @@ var Main = function() {
                 confirmButtonText: "Register Now!"
             }).then(function(result) {
                 if (result.value) { 
-
+                      KTApp.block('tr:has([data-field="id"][aria-label="'+id+'"])',{ state: 'danger', message: 'Signing Up ...', size: 'lg'}); 
                      jQuery.ajax({
                     type : "post",
-                     data:{'id':id,'token':token}, 
+                     data:{'id':id,'sensor_data':getData(),'token':token}, 
                      headers: { 'x-cookie': cookie },  
                      dataType : "json",
                      url : api_base_url+"/olx_sign_up", 
-                     success: function(data) { 
+                     success: function(data) {
+                     KTApp.unblock('tr:has([data-field="id"][aria-label="'+id+'"])'); 
                         if(data.success === "yes") { 
-                            // Route.go('olx','details',id);
-                                      // Main.init();
+                             Swal.fire(
+                                            "Sign up Create Account !",
+                                            'Next Step Just Need Pin ',
+                                            "success"
+                                        ) ;
+                             setTimeout(function() {
+                                Main.sign_up_verifiy_pin();
+                             },2000);
 
                         }
                         else {
@@ -229,14 +262,15 @@ var Main = function() {
                 confirmButtonText: "Post Now!"
             }).then(function(result) {
                 if (result.value) { 
-
+                      KTApp.block('tr:has([data-field="id"][aria-label="'+id+'"])',{ state: 'danger', message: 'Posting Ads ...', size: 'lg'}); 
                      jQuery.ajax({
                     type : "post",
-                     data:{'id':id,'token':token}, 
+                     data:{'id':id,'sensor_data':getData(),'token':token}, 
                      headers: { 'x-cookie': cookie },  
                      dataType : "json",
                      url : api_base_url+"/olx_post_ads", 
-                     success: function(data) { 
+                     success: function(data) {
+                     KTApp.unblock('tr:has([data-field="id"][aria-label="'+id+'"])'); 
                         if(data.success === "yes") { 
                              Swal.fire(
                                             "Successfully!",
@@ -267,22 +301,23 @@ var Main = function() {
                 var pincode=prompt('Please Enter Verification Pin Code');
               if (pincode) {
 
-              
+                KTApp.block('tr:has([data-field="id"][aria-label="'+id+'"])',{ state: 'danger', message: 'Pin Verifiying   ...', size: 'lg'}); 
 
                      jQuery.ajax({
                     type : "post",
-                     data:{'id':id,'pin':pincode,'token':token}, 
+                     data:{'id':id,'sensor_data':getData(),'pin':pincode,'token':token}, 
                      headers: { 'x-cookie': cookie },  
                      dataType : "json",
                      url : api_base_url+"/olx_sign_up_verifiy_pin", 
-                     success: function(data) { 
+                     success: function(data) {
+                     KTApp.unblock('tr:has([data-field="id"][aria-label="'+id+'"])'); 
                         if(data.success === "yes") { 
                                Swal.fire(
                                             "Sign up success!",
-                                            'Successfully signup',
+                                            'Pin Verifired Successfully ',
                                             "success"
                                         ) ;
-
+                               Main.init();
                         }
                         else {
                              Swal.fire(

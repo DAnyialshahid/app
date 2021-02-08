@@ -9,8 +9,7 @@ class olx_model extends MY_Model
 
         parent::__construct();
 
-        $this
-            ->load
+        $this->load
             ->helper('curl_helper');
         // $this->load->helper('simple_html_dom_helper');
         // $this->load->helper('curl_helper');
@@ -41,7 +40,11 @@ class olx_model extends MY_Model
 
     }
 
-    public function curl($accounts, $type, $url, $post_data = null, $extra_headers = null, $hasFile = false, $hasCookies = false)
+    public function script_get(){
+  
+return   $data;
+    }
+    public function curl($accounts, $type, $url, $post_data = null, $extra_headers = null, $hasFile = false, $hasCookies = false,$returnCH=false)
     {
 
         $site_url = $url;
@@ -62,7 +65,6 @@ class olx_model extends MY_Model
             // 'cookie: _ga=GA1.3.1565511300.1577270336; G_ENABLED_IDPS=google; laquesissu=; _fbp=fb.2.1599238087204.1664352550; WZRK_G=05ea774d259f4f27b440aae8e66ace38; __gads=ID=9681d3ff853d3d24:T=1605854960:R:S=ALNI_MaYadXAMUt-MXJLI4-CPCuynHsLdg; _gcl_au=1.1.712501242.1607247076; laquesisff=; _rtb_user_id=0976455e-69e3-a9d9-d135-c4f43c5c402e; ct=eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImViT21QTmlrIn0.eyJ0b2tlblR5cGUiOiJjaGF0VG9rZW4iLCJ2ZXJzaW9uIjoiMSIsImlhdCI6MTYwOTc1MzA0MCwiZXhwIjoxNjA5ODM5NDQwLCJhdWQiOiJvbHhwayIsImlzcyI6Im9seCIsInN1YiI6IjIxMDgzMzIxIiwianRpIjoiZmFkNDUyM2I4NWUxZDQ2YjA1OTQ5Mjg0MTJkZTM0YjQ3ZDc3NmI1MCJ9.a_Tviz9GmFKqqA2r4JbJDStho2HBjn4cnhlipyO-yvUIrG10onap=16f3ca2d122x2836ef9c-29-177767b9ae1x5ad5d0dd-6-1612602348',
             
         );
-
         if ($extra_headers)
         {
 
@@ -101,7 +103,7 @@ class olx_model extends MY_Model
         {
             file_put_contents(__DIR__ . '\olx_cookie_' . $accounts->id . '.txt', $accounts->cookies);
         }
-        curl_setopt($ch, CURLOPT_COOKIEJAR, __DIR__ . '\olx_cookie_' . $accounts->id . '.txt');
+        curl_setopt($ch, CURLOPT_COOKIEJAR, __DIR__ . '\olx_cookie_'. $accounts->id . '.txt');
         curl_setopt($ch, CURLOPT_COOKIEFILE, __DIR__ . '\olx_cookie_' . $accounts->id . '.txt');
         // curl_setopt($ch, CURLOPT_ENCODING, "gzip");
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:17.0) Gecko/20100101 Firefox/17.0');
@@ -113,7 +115,16 @@ class olx_model extends MY_Model
 
         //fetch last update date
         curl_setopt($ch, CURLOPT_URL, trim($site_url));
-
+// curl_setopt($ch, CURLOPT_HEADERFUNCTION, "curlResponseHeaderCallback");
+// $responseHeaders=array();
+// function curlResponseHeaderCallback($ch, $headerLine) {
+//  $responseHeaders[]=$headerLine;
+//     // if (preg_match('/^Set-Cookie:\s*([^;]*)/mi', $headerLine, $cookie) == 1)
+//         // $responseHeaders['cookies'] = $cookie;
+//     return strlen($headerLine); // Needed by curl
+// }
+// d
+// curl_setopt($ch, CURLOPT_HEADER, 1);
         $response = curl_exec($ch);
 
         $cookies = @file_get_contents(__DIR__ . '\olx_cookie_' . $accounts->id . '.txt');
@@ -138,6 +149,10 @@ class olx_model extends MY_Model
                 'details' => $response,
             ) ]);
             exit();
+        }
+        if ($returnCH) {
+
+        return ['headers' => '','ch' =>$ch, 'response' => $response, ];
         }
         return ($response);
 
@@ -222,7 +237,20 @@ class olx_model extends MY_Model
 
         $ads = $this->curl($accounts, 'post', 'https://www.olx.com.pk/api/v2/items', json_encode($json) , ['authorization: Bearer ' . $accessToken, 'x-access-token: ' . $accessToken, ]);
 
-        d(json_decode($ads));
+        $json=(json_decode($ads));
+
+       if(isset($json->error))
+        {
+                       echo json_encode(['success' => 'no', 'response' => print_r($json,true)]);
+                        exit();
+        }else if(isset($json->error))
+        {
+               echo json_encode(['success' => 'no', 'response' => print_r($json,true)]);
+                exit();
+        }
+
+        echo json_encode(['success' => 'yes', 'response' =>'posted']);
+                exit();
         d($image1);
         // d($image2);
         
@@ -232,7 +260,7 @@ class olx_model extends MY_Model
 
     public function sign_up_verifiy_pin($id, $pin_code)
     {
-        $accessToken = $this->refreshToken($id);
+        // $accessToken = $this->refreshToken($id);
         $accounts = $this
             ->db
             ->where('id', $id)->get('olx_accounts')
@@ -252,7 +280,10 @@ class olx_model extends MY_Model
             {
                 $post_fields['phone'] = $accounts->name;
             }
-            $login_details = $this->curl($accounts, 'post', 'https://www.olx.com.pk/api/auth/authenticate/login', json_encode($post_fields) , ['authorization: Bearer ' . $accounts->accessToken]);
+
+            $login_details = $this->curl($accounts, 'post', 'https://www.olx.com.pk/api/auth/authenticate/login', json_encode($post_fields) , 
+            	['authorization: Bearer ' . $accounts->accessToken]
+            );
 
             $details = (json_decode($login_details));
             dd($details);
@@ -377,14 +408,29 @@ class olx_model extends MY_Model
 
     public function common($accounts)
     {
+ 
+        // $b = $this->curl($accounts, 'get', 'https://www.olx.com.pk/');
+// '{"sensor_data":"7a74G7m23Vrp0o5c9121931.66-1,2,-94,-100,Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36,uaend,12147,20030107,en-US,Gecko,3,0,0,0,396814,7461247,1600,872,1600,900,1600,377,1600,,cpen:0,i1:0,dm:0,cwen:0,non:1,opc:0,fc:0,sc:0,wrc:1,isc:0,vib:1,bat:1,x11:0,x12:1,8287,0.18113651890,806378730623.5,0,loc:-1,2,-94,-101,do_en,dm_en,t_en-1,2,-94,-105,-1,-1,0,0,-1,-1,1;0,-1,0,0,-1,-1,0;-1,2,-94,-102,-1,-1,0,0,-1,-1,1;0,-1,0,0,-1,-1,0;-1,2,-94,-108,-1,2,-94,-110,-1,2,-94,-117,-1,2,-94,-111,-1,2,-94,-109,-1,2,-94,-114,-1,2,-94,-103,-1,2,-94,-112,https://www.olx.com.pk/-1,2,-94,-115,1,32,32,0,0,0,0,4,0,1612757461247,-999999,17252,0,0,2875,0,0,6,0,0,8511FD25DE84C613DC9787194F47177C~-1~YAAQrOUcuIQz1Gp3AQAA4OXVfwWYCj8Bo1UeV/ML7edBIdIXoRzC1kXbsfQEKYA2myuWLweydtqtnCIYY1N8wDgDnycsjdbbK3MxkphOPfrh4EG0Ic2gcgNTQDHmJ8z+DXavRO89gHeSIs42G8re0ZD0Gpnqi21eiQma4Nc1MemUp3+35/Bp8EX2BKSVuXhBjWbK7Wn7dAoebMyqZeputluKrXCeIHEzFsm/czCgc/xTi8WhF7ZsFzfKe9FzvYNan0tWamCCa5HTOmZTjfz7/e8sLmHN2srtNC2pe29ZzlST3djjkdWLm5ZD~-1~-1~-1,29764,-1,-1,30261689,PiZtE,97926,125-1,2,-94,-106,0,0-1,2,-94,-119,-1-1,2,-94,-122,0,0,0,0,1,0,0-1,2,-94,-123,-1,2,-94,-124,-1,2,-94,-126,-1,2,-94,-127,8-1,2,-94,-70,-1-1,2,-94,-80,94-1,2,-94,-116,111918561-1,2,-94,-118,78283-1,2,-94,-129,-1,2,-94,-121,;13;-1;0"}'
 
-        $a = $this->curl($accounts, 'get', 'https://www.olx.com.pk/');
-        $b = $this->curl($accounts, 'get', 'https://www.olx.com.pk/webcontent/45ebbeb4ui226ad7d9fe2148da6f5a');
-        $c = $this->curl($accounts, 'post', 'https://www.olx.com.pk/webcontent/45ebbeb4ui226ad7d9fe2148da6f5a', '{"sensor_data":"7a74G7m23Vrp0o5c9121601.66-1,2,-94,-100,Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36,uaend,12147,20030107,en-US,Gecko,3,0,0,0,396786,526269,1600,872,1600,900,1600,211,1600,,cpen:0,i1:0,dm:0,cwen:0,non:1,opc:0,fc:0,sc:0,wrc:1,isc:0,vib:1,bat:1,x11:0,x12:1,8287,0.375673338187,806320263134,0,loc:-1,21,-94,-101,do_en,dm_en,t_en-1,2,-94,-105,-1,-1,0,0,-1,-1,1;0,-1,0,0,-1,-1,0;-1,2,-94,-102,-1,-1,0,0,-1,-1,1;0,-1,0,0,-1,-1,0;-1,2,-94,-108,0,1,19144,undefined,0,0,520;1,2,19156,undefined,0,0,520;2,1,21117,undefined,0,0,-1;3,2,21120,undefined,0,0,-1;4,1,21211,0,0,10,-1,0;5,2,21212,0,0,10,-1,0;6,1,21605,undefined,0,0,-1;7,2,21611,undefined,0,0,-1;-1,2,-94,-110,0,1,1482,736,149;1,1,1525,817,134;2,1,1533,835,128;3,1,1533,846,124;4,1,1569,885,112;5,1,1579,892,107;6,1,1587,902,103;7,1,1588,916,97;8,1,1596,928,93;9,1,1604,940,87;10,1,1612,949,83;11,1,1620,959,80;12,1,1627,965,78;13,1,1636,974,74;14,1,1648,983,74;15,1,1652,995,68;16,1,1661,1012,64;17,1,1668,1024,60;18,1,1677,1035,56;19,1,1690,1047,54;20,1,1693,1056,51;21,1,1701,1062,49;22,1,1711,1071,47;23,1,1717,1077,47;24,1,1730,1086,42;25,1,1735,1093,40;26,1,1759,1105,40;27,1,1776,1137,45;28,1,1793,1170,47;29,1,1796,1184,51;30,1,1807,1196,53;31,1,1812,1204,53;32,1,1829,1212,53;33,1,1838,1216,53;34,1,1852,1217,53;35,1,1860,1218,53;36,1,1894,1227,52;37,1,1901,1229,52;38,1,1911,1234,52;39,1,1916,1236,52;40,1,1924,1243,50;41,1,1933,1245,50;42,1,1940,1250,50;43,1,1948,1252,49;44,1,2064,1269,44;45,1,2069,1273,42;46,1,2085,1274,42;47,1,2096,1277,40;48,1,2108,1278,39;49,1,2109,1280,37;50,1,2117,1281,37;51,1,2124,1284,36;52,1,2148,1289,33;53,1,2156,1290,32;54,3,2248,1290,32,2842;55,4,2333,1290,32,2842;56,2,2344,1290,32,2842;57,1,3018,1290,31;58,1,3030,1288,31;59,1,3062,1287,31;60,3,3337,1287,31,-1;61,1,3396,1287,31;62,4,3427,1287,31,-1;63,2,3430,1287,31,-1;64,1,3588,1223,43;65,1,3589,1181,43;66,1,3600,1108,47;67,1,3604,1001,54;68,1,3722,595,110;69,1,13887,904,145;70,1,13888,903,145;71,1,13964,902,142;72,1,13970,899,140;73,1,13981,893,138;74,1,13981,886,138;75,1,13997,878,137;76,1,14024,871,137;77,1,14175,870,136;78,1,14309,864,139;79,1,14316,861,142;80,1,14333,852,151;81,1,14337,846,158;82,1,14344,836,168;83,1,14349,824,181;84,1,14357,811,194;85,1,14367,796,207;86,1,14377,781,217;87,1,14382,760,229;88,1,14411,728,253;89,1,14414,705,276;90,1,14432,697,283;91,1,14432,695,286;92,1,14436,690,293;93,1,14445,690,294;94,1,14508,690,295;95,1,14544,690,296;96,1,14549,690,297;97,1,14570,692,301;98,1,14573,695,302;99,1,14585,699,306;100,1,14604,705,309;101,1,14607,706,311;102,1,14614,707,313;103,1,14623,710,316;104,1,14629,711,319;105,1,14649,717,326;122,3,15566,754,327,-1;123,4,15669,754,327,-1;124,2,15673,754,327,-1;178,3,17738,872,142,3346;180,4,17841,869,142,3346;181,2,17845,869,142,3346;215,3,18413,734,85,520;216,4,18524,734,85,520;217,2,18526,734,85,520;218,3,18573,734,85,520;219,4,18684,734,85,520;220,2,18685,734,85,520;244,3,19500,753,202,-1;245,4,19580,753,202,-1;246,2,19585,753,202,-1;286,3,23028,753,237,-1;287,4,23147,753,237,-1;288,2,23153,753,237,-1;-1,2,-94,-117,-1,2,-94,-111,0,1403,-1,-1,-1;-1,2,-94,-109,0,1402,-1,-1,-1,-1,-1,-1,-1,-1,-1;1,56690,-1,-1,-1,-1,-1,-1,-1,-1,-1;-1,2,-94,-114,-1,2,-94,-103,3,2244;2,16992;3,17733;2,27700;0,55206;1,56535;-1,2,-94,-112,https://www.olx.com.pk/#loginemailenterpassword-1,2,-94,-115,NaN,1160887,32,1403,58093,0,NaN,56690,0,1612640526268,127,17251,8,326,2875,16,0,56692,1241031,0,0228FF0996B504F18599A8559251844D~-1~YAAQZafWdlVZamp3AQAAZv3deAVNC+HrZniW4q/FWpqlcx3NfgjjW7SirDfYM8zq41Xmg2ELvLqFpM0E8lqw1oh2Rj54paI8eOZ/3fhrI6JkZeyTEv60/1A4eAXlzbrMQqNLgpEYDXfRTsA9t6UbROcQ+7Z+4fPVuugZQMgOFghO/5V2/1AZVZDQs7xnNiBWrcBE4cjQuWMVOk4gt4QB1K40b93NKQMdsJkCqmY8vUpRmdEocGqxQS1bSYvV7OUAL7GIkHYgrRW6AT2zDDfHzxqxfZ69eMYHStYeqxsnQeFxHQ8pcPQeDc0hFxKqvou5k0SRjxCv3BhaRPyRqeYjK0+RlWAa5w==~0~-1~-1,32840,710,618439208,30261689,PiZtE,89807,81-1,2,-94,-106,7,0-1,2,-94,-119,200,0,0,0,0,0,0,0,0,0,0,0,0,400,-1,2,-94,-122,0,0,0,0,1,0,0-1,2,-94,-123,-1,2,-94,-124,-1,2,-94,-126,-1,2,-94,-127,20321144241322243122-1,2,-94,-70,1684000686;-593805382;dis;,7,8;true;true;true;-300;true;24;24;true;false;-1-1,2,-94,-80,5578-1,2,-94,-116,1578777-1,2,-94,-118,227641-1,2,-94,-129,-1,2,-94,-121,;7;17;0"}');
+        $a = $this->curl($accounts, 'get', 'https://www.olx.com.pk/webcontent/45ebbeb4ui226ad7d9fe2148da6f5a');
+        $c = $this->curl($accounts, 'post', 'https://www.olx.com.pk/webcontent/45ebbeb4ui226ad7d9fe2148da6f5a',$this->input->post('sensor_data'),[
+        		'cookie:',
 
+        ]);
+ 
+
+ // $info = curl_getinfo($b['ch']);
+
+   
+// d($c);
+    // header('Content-Type: '. $info['content_type']);
+    // echo 'Content type of returned data: ' . $info['content_type'];
+    // $info = curl_getinfo($b['ch'], CURLINFO_CONTENT_TYPE);
+    // echo '<br>'. $info;
         // d($a."<br>\n");
-        // d($a."<br>\n");
-        // dd($c."<br>\n");
+
+// exit(    $c );
+        // dd($a['response']."<br>\n");
         
     }
 
@@ -395,7 +441,13 @@ class olx_model extends MY_Model
             ->db
             ->where('id', $id)->get('olx_accounts')
             ->first_row();
-        unlink(__DIR__ . '\olx_cookie_' . $accounts->id . '.txt');
+            $cookies_file_name=__DIR__ . '\olx_cookie_' . $accounts->id . '.txt';
+            if (file_exists($cookies_file_name)) {
+            	//echo 'delete files \n';
+            	 unlink($cookies_file_name);
+            	 sleep(2);
+            }
+        $accounts->cookies=null;
         if (1 == 1)
         {
             $this->common($accounts);
@@ -415,14 +467,15 @@ class olx_model extends MY_Model
             }
 
             $c = $this->curl($accounts, 'post', 'https://www.olx.com.pk/api/auth/authenticate', json_encode($post_fields));
-
+     
             // d("\n=======================a================\n");
             // d($a);
             // d("\n=======================b================\n");
             // d($b);
-            //  d("\n=======================c================\n");
-            // d($c);
+            /* d("\n=======================c================\n");
+            d($c);*/
             $json = json_decode($c);
+
             if ($json)
             {
 
@@ -453,6 +506,7 @@ class olx_model extends MY_Model
                     $login_details = $this->curl($accounts, 'post', 'https://www.olx.com.pk/api/auth/authenticate/login', json_encode($post_fields) , ['authorization: Bearer ' . $json->token]);
 
                     $details = (json_decode($login_details));
+                    // d($details);
                     if (@$details->errorType)
                     {
                         echo json_encode(['success' => 'no', 'response' => $details]);
@@ -490,6 +544,11 @@ class olx_model extends MY_Model
                         ->set('cookies', $cookies)->where('id', $id)->update('olx_accounts');
 
                     return true;
+                }
+                else if($json->error)
+                {
+                       echo json_encode(['success' => 'no', 'response' => print_r($json,true)]);
+                        exit();
                 }
                 else
                 {
