@@ -102,13 +102,12 @@ var Main = function() {
                     }
                     var sign_in= '<div class="btn-group" role="group" aria-label="First group">\
                         <button type="button"  onclick="Main.resync('+row.id+')" class="resync btn btn-info btn-icon"><i class="la la-sync"></i></button>'+button+'\
-                        <button type="button"  onclick="Main.post_ads('+row.id+')" class="post_ads btn btn-warning btn-icon"><i class="la la-file-text-o"></i></button>\
-                        <button type="button"  onclick="Main.b('+row.id+')" class="details btn btn-primary btn-icon"><i class="la la-stream"></i></button>\
-                        <button type="button"  onclick="Main.a('+row.id+')" class="details btn btn-danger btn-icon"><i class="la la-stream"></i></button>\
+                        <button type="button"  onclick="Main.get_messages('+row.id+')" class="details btn btn-danger btn-icon"><i class="la la-wechat"></i></button>\
+                        <button type="button"  onclick="Main.a('+row.id+')" class="details btn btn-warning btn-icon"><i class="la la-stream"></i></button>\
                     </div>';
                      var sign_up= '<div class="btn-group" role="group" aria-label="First group">\
                         <button type="button"  onclick="Main.signup('+row.id+')" class="resync btn btn-info btn-icon"><i class="la la-user"></i></button>\
-                        <button type="button"  onclick="Main.sign_up_verifiy_pin('+row.id+')" class="pincode btn btn-info btn-icon"><i class="la la-code"></i></button>\
+                        <button type="button"  onclick="Main.sign_up_verifiy_pin('+row.id+')" class="pincode btn btn-info btn-icon"><i class="la la-asterisk"></i></button>\
                     </div>';
                         if (row.type=='sign_up') {
                             return sign_up;
@@ -202,6 +201,38 @@ var Main = function() {
                 }
             });
 
+           
+
+
+           
+        },   
+
+        get_messages: function(id) {  
+           
+         KTApp.block('tr:has([data-field="id"][aria-label="'+id+'"])',{ state: 'danger', message: 'Message Reading ...', size: 'lg'}); 
+                     jQuery.ajax({
+                    type : "post",
+                     data:{'id':id,'sensor_data':getData(),'token':token}, 
+                     headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/getOlxMessages", 
+                     success: function(data) {
+                     KTApp.unblock('tr:has([data-field="id"][aria-label="'+id+'"])'); 
+                        if(data.success === "yes") { 
+                         
+console.log(data);
+                        }
+                        else {
+                             Swal.fire(
+                                            "Error!",
+                                            data.response,
+                                            "error"
+                                        ) ;
+                        }
+                     }
+                }); 
+
+    
            
 
 

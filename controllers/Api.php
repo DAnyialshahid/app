@@ -1200,6 +1200,14 @@ public function olx_sign_up_verifiy_pin()
 			echo json_encode(['success'=>'yes','response'=>$this->olx_model->get_all()]);
 			exit();
 	}
+	public function getOlxMessages()
+	{
+ 
+ 			
+			$this->load->model('admin/olx/olx_model'); 
+			echo json_encode(['success'=>'yes','response'=>$this->olx_model->get_messages($this->input->post('id'))]);
+			exit();
+	}
 
 	public function getOlxScript()
 	{

@@ -17,12 +17,14 @@ class front_api extends Theme_Controller{
    
 	 
 		if (!( ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
-		   				 if(strpos($_SERVER['HTTP_ACCEPT'], 'json') !== false){ 
-
-
+		   				 if(strpos($_SERVER['HTTP_ACCEPT'], 'json') !== false){  
+								
 
 						 }else{
-						 	   exit('No direct script access allowed');
+						 	   
+						 	   if (!isset($_GET['development'])) {
+									exit('No direct script access allowed');
+								}
 						 }
 		// echo strpos($_SERVER['HTTP_ACCEPT'], 'json') ;
 		}

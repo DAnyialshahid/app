@@ -207,12 +207,72 @@ return   $data;
         dd(json_decode($my_ads));
 
     }
-    public function post_ads($id)
+    public function get_notifications($id)
     {
-        $accounts = $this
-            ->db
-            ->where('id', $id)->get('olx_accounts')
-            ->first_row();
+    		  $accounts = $this ->db ->where('id', $id)->get('olx_accounts') ->first_row();
+
+    	
+ $messages = $this->curl($accounts, 'get', 'https://www.olx.com.pk/api/notification-hub/messages?limit=10',null ,
+    	 	   []
+    	 	);
+exit(    	$messages );
+dd($messages);
+    }
+
+      public function get_messages($id)
+    {
+
+    	$id=29;
+    	 //$this->get_notifications($id);
+
+    		  $accounts = $this ->db ->where('id', $id)->get('olx_accounts') ->first_row();
+ 
+    	
+ $messages = $this->curl($accounts, 'post', 'https://xchat.olx.com.pk/user/messages','[{"peer_id":"100847182","ad_id":"1027746903","time":0}]' , [
+	// 'authorization: Bearer ' . $accounts->accessToken, 
+	':authority: www.olx.com.pk
+:method: GET
+:path: /api/notification-hub/messages?limit=10
+:scheme: https
+accept: */*
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: laquesis=pan-37312@a#pan-46706@b; ldTd=true; _ga=GA1.3.1264802347.1612757465; _gid=GA1.3.1123821014.1612757465; _rtb_user_id=7fd5a9eb-7431-dc6b-835e-3ffa5ed14898; _fbp=fb.2.1612757465758.1463430223; _gcl_au=1.1.1872245759.1612757466; _hjTLDTest=1; _hjid=bacfcccb-bcc3-47ba-992f-0b9b459bac5c; laquesisff=; laquesissu=; __gads=ID=db722cd0313ce43a:T=1612757465:S=ALNI_MYRzVlZqREJ-Rr8-B0zW8hQPktC4A; G_ENABLED_IDPS=google; reply_restriction=false; kyc_reply_count=0; lf=1; user=j%3A%7B%22id%22%3A%2221083321%22%2C%22name%22%3A%22Danyial%22%7D; WZRK_G=05ea774d259f4f27b440aae8e66ace38; lqstatus=1612782905||||; onap=1777fd5e359xad467d8-3-17781358203x62fb7a46-34-1612784238; t=eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImViT21QTmlrIn0.eyJncmFudFR5cGUiOiJlbWFpbCIsImNsaWVudFR5cGUiOiJ3ZWIiLCJ0b2tlblR5cGUiOiJhY2Nlc3NUb2tlbiIsImlzTmV3VXNlciI6ZmFsc2UsImlhdCI6MTYxMjc4ODEwMywiZXhwIjoxNjEyNzg5MDAzLCJhdWQiOiJvbHhwayIsImlzcyI6Im9seCIsInN1YiI6IjIxMDgzMzIxIiwianRpIjoiYWI4ZGEwNTFkYjhjMGM1NDIwZDAxMTE3MjlkNTRiOGExODZiNzFlMCJ9.SEKxPUrE4c-mvPKOmms5gVVoHdhuMdiHrAxvzENpjaHrACkqRHbPFTMfh2tg1M2VbLD9k1qGie-k1WZ3uCbauy3oDRtBjiJm-yxUQzBBbFh-U598yPpjMzLe6JiaiggAoGWQLG9cSdIJPaltu17ym4-T3IYYK9GLEaLV_uAEef8e8WXPkgA661Qu9DtM-1YwuxqIaLZ9a4046aAqxgKHdvI4hr30pLablteBGzeQwKTrmGyiQcwY7wI-ILcWiWKzrX4FuMQ0b5SKvVUBAfqQTg2cYRclutfSclvdGxw84kqQ2DiIjGNG1WrRo3guZy_ImNjcuN1Gzj-WIABdz_J1Cg; rt=eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImViT21QTmlrIn0.eyJncmFudFR5cGUiOiJlbWFpbCIsImNsaWVudFR5cGUiOiJ3ZWIiLCJ0b2tlblR5cGUiOiJyZWZyZXNoVG9rZW4iLCJyZWFjdGl2YXRlZCI6ZmFsc2UsImlhdCI6MTYxMjc4ODEwMywiZXhwIjoxNjIwODIzMzAzLCJhdWQiOiJvbHhwayIsImlzcyI6Im9seCIsInN1YiI6IjIxMDgzMzIxIiwianRpIjoiYWI4ZGEwNTFkYjhjMGM1NDIwZDAxMTE3MjlkNTRiOGExODZiNzFlMCJ9.V0mUJW73RYHSvczo3swxh5Q7T2E4NX8aa6JHAIS9R6zqXmSrDv4pytwqfZiolOTpfA-hZvaVGw1-K6l6rS0R_MU1Nb-UYBgO14DVFFko4ziCz1zw0X6uw5qwkLJmGf697vXN2PTaatd0TfETP1hbUW-ztlYVD0epnLV257dpSlIzA2ua8T2QlNzpKw7Eih7pRAF66Xt250HwBQMsAMivbiXRvHWY1R0RiYf_G_0bZWXzh3NbtsiSMMHPS2R7wiJm14VHolpZgtIHpItSSfMe0P34oHsr8c_d2IMQCiHA44raIedsfjlevgKkYdTUkpm7x3kJnLLmj-sB5YXPvD6Xwg; ct=eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImViT21QTmlrIn0.eyJ0b2tlblR5cGUiOiJjaGF0VG9rZW4iLCJ2ZXJzaW9uIjoiMSIsImlhdCI6MTYxMjc4ODEwMywiZXhwIjoxNjEyODc0NTAzLCJhdWQiOiJvbHhwayIsImlzcyI6Im9seCIsInN1YiI6IjIxMDgzMzIxIiwianRpIjoiYWI4ZGEwNTFkYjhjMGM1NDIwZDAxMTE3MjlkNTRiOGExODZiNzFlMCJ9.UArqvJvxeIou16rTUIkbsMOFoKek71RjhK4-vchBKZZg9MYnWoQoryNUhUNV6L4L1rqnuY2EaYl0L4nD2yoEBaH_Y5thN9T3Ik3eP1ONiV1udo1zlQyTWPW9188ouOHVu3BTfNwVWcXAMey-Fk_ztP3PvNpT5PVHJiKk7F0zzc8bSpIWnkwQ0H8vLfKyNc8DSyRyz6qv_YlNZ7ztlBGzWjciK3Z6AK1TM20MrT2FW5e82ZGNKuiwChVqMEuH09zgdKP11_9mtItAGSyeZosN1Z9m_vZa8vav1U_uDiIbiyE3HxCFPfodzQbcTYA-SRUzAooI_-aOkNpjgOzJiog4Ug; nt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTI3ODgxMDMsImJyYW5kIjoib2x4IiwiY291bnRyeUNvZGUiOiJwayIsInVzZXJJZCI6MjEwODMzMjF9.oxwxacejwnewY7FfCFVkcJaJq67SyGCwXU27J_R5zjc; ak_bmsc=EEFF562624B660C9CF37B1277F866C62B81CE57E74060000B7302160A58D012E~pl2zxAs4IVWgN2iLK50gEp0AHxvTzdVCtC3h9ZNMunOitclXmbm4hPgsfLylGHGxQ79Gc0iJZeJJHQv/dyeDx2mmJAW3KXUqduH9S96M1gpqkOTI1eomHG4hRvFuJtMav1fJoEj+m23OduTKMAbFj6EJ7bS1j+wHfCFFWAP8Wg3tv4qmlGb9F04aiBcndQNdiiOaIuONte+mrswRFT4DCKa87NCuN/o74WRRci42MHMhFz/SWr9s/jT9FlqYT4TpAc; bm_mi=585948E6CAF32163B602E89746135106~pwchDQRx04JDXHoOYPr8FLBUs2VkJbGRuXPikdBlOziq3qhwpDFHOXCdm3OA2DQb/FRh5ZG5JVSKgrUFAB0kSE5brotaEqjBv0Ydvs0XAG1qZgzu+0miJCA7+/+3IrUNK45vWP3W16G1VR7jz04vo7CyuGGAHEjlfk4+ZMPGNy8oWV0lwoxbGdzahT3KgGtPaE962WdwJIRR2gCKJ3JNlwARVCK0Bwr+iVYeKsPDgIuM8WAynPWRReGJIRzxSldY; bm_sz=EFD5B75100AC3D8283918EB1746EE923~YAAQtOUcuFBmgHt3AQAA092qgQrg9G1rrpavW9KxgrF9Oi0IbUjGuaBJWQoBp57msb4Qz2rVH3vgHY4gXkytlsESO6Z7tSBwDA4SLFN3fIy7nLigKQwnLfna1AUrCUgHCAOS3VdXPXb99Snnacvw/g7ypwMSv3Wlz+4VFg069jSa0ol/0oDkU+UPbgFwl3jd; _abck=8511FD25DE84C613DC9787194F47177C~0~YAAQ7OUcuGk+T2p3AQAAnRG0gQXPnDvG2LD7EG1Dovq53y+nES9+lv5pbqBEmRMGbgFZMwrlGhD56D8o7bd3QfhNob1dtUVGB1N24pKUwG8SB0b5Srs9irUelUoZg8cS/t1zvm7Duol/yRV3wE0M494GIcZ1qBS5TV43X4T8mvFulS9RLPnYcx6tOWTGv/lpIM7BmZCTlse55EZ2FUjtVPtxsKmeru5U7DvnwlHk2B7LYPETi/6jcVuFjNLVUPMiNiYlsHAL1W0mmvnnZeJ1S8TA5TRX0bZ0Dh5s4b6Kz92g3zP9jHafMBLdpUDKXwXqSZHPF1Bdu0r/2PUtX/EJKRLkaUU5Sg==~-1~||-1||~-1; bm_sv=916D0BF428D7BA0BA053F72B1B43BE43~GZvexVpoOxs3sZprAhs6Uq1ykesRRlmCp2RnC/lthBXwOgXbDdkdnnrRVeZ4+Mm75TC8DHuU2R/SChTy8C6stVh3Z4qO9J0JvlQ2T5j3HK2qlUyQSZ6VFp+Xb6vjyj9idTq35aXRvEJtKGPKEbY3J6Qg/kIR9M5oMCDubMvXAww=
+referer: https://www.olx.com.pk/nf/chat/user/100847182/1027746903
+sec-ch-ua: "Chromium";v="88", "Google Chrome";v="88", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+sec-fetch-dest: empty
+sec-fetch-mode: cors
+sec-fetch-site: same-origin
+user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36
+x-newrelic-id: VQMGU1ZVDxABU1lbBgMDUlI=
+x-panamera-fingerprint: 47e1ead1503d33d344418840ab71b0d0#1611861177612'
+ ] ); 
+ exit(    '66'	.$messages );
+
+
+
+    		  $accounts = $this ->db ->where('id', $id)->get('olx_accounts') ->first_row();
+    		        //  $accounts->accessToken = $this->refreshToken($id);
+    		      // $this->common($accounts);
+
+    	 	  $messages = $this->curl($accounts, 'post', 'https://xchat.olx.com.pk/user/messages', '[{"peer_id":"100847182","ad_id":"1027746903","time":0}]' ,
+    	 	   [
+    	 	   	'authorization: Bearer ' . $accounts->accessToken, 
+    	 	  	 //'x-access-token: ' . $accounts->accessToken, 
+    	 	  	 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTI3ODY2OTcsImppZCI6IjIxMDgzMzIxX29seHBrQG9seHBrIn0.lht86g73bj3buUzhccLNOd0oEc_F2AgJauZGHagkxUI', 
+    	 	  	 'x-accept-version: 8', 
+    	 	  	 'Cookie: laquesis=pan-37312@a#pan-46706@b; ldTd=true; _ga=GA1.3.1264802347.1612757465; _gid=GA1.3.1123821014.1612757465; _fbp=fb.2.1612757465758.1463430223; _gcl_au=1.1.1872245759.1612757466; _hjTLDTest=1; _hjid=bacfcccb-bcc3-47ba-992f-0b9b459bac5c; laquesisff=; laquesissu=; __gads=ID=db722cd0313ce43a:T=1612757465:S=ALNI_MYRzVlZqREJ-Rr8-B0zW8hQPktC4A; bm_sz=EFDB4B10432870D5FCAEB7DB4A11FB59~YAAQfuUcuM980Gp3AQAAu/fOgAqcK1mGpWBcPHU3NkHHGJB46fzKwbqasEr7nctFjXlImI/2XaHmRPwYfck0PG/a1DkF177ugbgTGqg58UqskAwJOZBf19TOKvsrtrRky8mjQsD06m/PtCFqh/hyIBrYqYx1XYpjErEHMRZk2Ji+QRfE+SzGzJtEsRhfKdk2; _abck=8511FD25DE84C613DC9787194F47177C~0~YAAQh+UcuMHQZmp3AQAAGjn2gAWxSy0EjFpgswlMue4PICR1Y86/E+EyGCPRuXWjrhHPBGiwBEoHOmLDjp+9QfVAFCE/xEy1Zt9cCzLfkViimS4ipomoru+uYbObsOQS7hCuFoLHyle0lktnvUw3yNVzxm/p4Cu2C8rKFi6yG3xo5kYvu8nXCozQAXh6Adq7FK+V9s0zT0ekhngGCiuEtfhGz/ZX9Gr7zvavCGprF8iGVe9i4zscQLRP/F6OAE9ygCjUc1u5k6qP15Nwd/HTS20peM2oHE00SH0FNXa88zdYNglV3U5lVNzKOzMFTvZQ6PpTeq0NFxpgOQXfMlKHqeOrnlRCKw==~-1~-1~-1; WZRK_G=05ea774d259f4f27b440aae8e66ace38; ak_bmsc=77E41A909FF9A67DA19E3CE736D33FCFB81CE5AC26150000D51321609AC3816D~plWgkYpqT0rt8NnFIftJYQmjJLKkehE/5eXoveKEo/BEV1esq6iXNi6Kxlps1L4hjZSigMRHHwHH5ZdgNIMRUlGXC8LLzz4MgfbQfD3fd+1FAyOsl0Lw23X2lNWoP/SojNohI5S+vMEW2HhkH/7NISfwgitUMUkrhpRMomV3IE9qLhvAzEl9IVumRpdfVglmG22L2AmsCloDIXynOT7XOVgrxIde/3W95jIRGxf11NqQEZgu6v+IdZdFEYT5CK4v5n; lqstatus=1612782905||||; onap=1777fd5e359xad467d8-3-17781358203x62fb7a46-34-1612784238; bm_sv=10EDCF365D5742E2910053FD59D64539~ixl64EcDgUCpzEFWOsMbJmoiZ7rYBTqtPWlggbzMWuz1wtum1Ha9dVSKdjkwr4DJ+J1ubbwbvhk4XEl4jeoipkiEVa265AnqgPdT6GZb3Anwo0dMkOEslMOoQEbE20Zz+0+qq4cZbJxowATKPKqnYMEWpbySE5ETj3Apwz/my2I=', 
+    	 	]
+    	 	);
+    	    echo json_encode(['success' => 'yes', 'response' =>json_decode($messages)]);
+                exit();
+    	
+    }  
+
+     public function post_ads($id)
+    {
+        $accounts = $this ->db ->where('id', $id)->get('olx_accounts') ->first_row(); 
         $accessToken = $this->refreshToken($id);
         $image1 = $this->add_image($accounts, $accessToken, realpath(__DIR__ . '/1.jpg'));
         $image2 = $this->add_image($accounts, $accessToken, realpath(__DIR__ . '/2.jpg'));
@@ -513,14 +573,9 @@ return   $data;
                         exit();
                     }
                     $cookies = file_get_contents(__DIR__ . '\olx_cookie_' . $accounts->id . '.txt');
-                    $this
-                        ->db
-                        ->set('status', 'active')
-                        ->set('refreshToken', $details->refreshToken)
-                        ->set('accessToken', $details->accessToken)
-                        ->set('notificationHubId', $details->notificationHubId)
-                        ->set('chatToken', $details->chatToken)
-                        ->set('hasPhone', $details
+
+                    if (isset($details->user->id)) {
+                    	$this->db->set('hasPhone', $details
                         ->user
                         ->hasPhone)
                         ->set('user_id', $details
@@ -540,8 +595,16 @@ return   $data;
                         ->nameProvided)
                         ->set('verificationStatus', $details
                         ->user
-                        ->verificationStatus)
+                        ->verificationStatus);
+                    }
+                    	$this->db->set('status', 'active') 
+                    	->set('refreshToken', $details->refreshToken)
+                        ->set('accessToken', $details->accessToken)
+                        ->set('notificationHubId', $details->notificationHubId)
+                        ->set('chatToken', $details->chatToken)
+                       
                         ->set('cookies', $cookies)->where('id', $id)->update('olx_accounts');
+                        // d($details);
 
                     return true;
                 }
