@@ -1,4 +1,13 @@
-<nav class="header-nav" >
+<nav class="header-nav hidden-lg hidden-md hidden-sm "  style="z-index:2"   id="search_mobile" >
+    <div class="container">
+          <div class="form-group"> 
+            <input type="text" class="form-control" autocomplete="off" id="search_input_mobile"  placeholder="Search "> 
+         </div>
+    </div>
+</nav>
+
+
+<nav class="header-nav" style="z-index:1" >
     <div class="container">
         <ul class="nav links clearfix" id="top_menu_bar">
             <li>
@@ -23,6 +32,7 @@
              
              
             <li><a  :href="base_url+'page/submit_offer'" >Submit Offer</a></li>
+            <li><a  :href="base_url+'page/contact_us'" >Contact</a></li>
             <!-- <li><a href="#" target="_blank">Blog</a></li> -->
         </ul>
     </div>

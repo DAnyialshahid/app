@@ -289,6 +289,25 @@ $('#search_input').typeahead(null, {
       <img src="'+api_url+'/assets/uploads/stores/{{feature_image}}" style="border: solid 1px #988b8942; margin: 4px;width: 50px;" class="img-responsive" />\
       </div><div class="store-info"><div class="store-name"><h4> {{name}} </h4><p><span class="tt-hint-domain">{{custom_url}}</p></div><div class="store-offers-available"><span>50</span> offer<strong class="tt-highlight">s</strong> available</div></div></a></div> <div class="hover:tw-bg-grey-light tw-border-b tw-p-1">') }
 });
+
+
+$('#search_input_mobile').typeahead(null, {
+  name: 'best-pictures',
+  display: 'value',
+  source: bestPictures,
+  templates: {
+    empty: [
+      '<div class="empty-message">',
+        'unable to find any Best Picture winners that match the current query',
+      '</div>'
+    ].join('\n'),
+    suggestion: Handlebars.compile('<div  class="store-logo" >\
+       <a class="" style="display:;"  href="'+base_url+'store/{{custom_url}}"  style="border: solid 1px #716c6b42;padding-top: 0px;padding-bottom: 0px;" >\
+             <img src="'+api_url+'/assets/uploads/stores/{{feature_image}}" style="display: inline;border: solid 1px #988b8942; margin: 4px;width: 50px;" class="img-responsive" />\
+             <h4 style="display: inline; "> {{name}} </h4></a>\ </div>') }
+});
+
+
 //$('#search_input').val('a').trigger('change');
  
 
