@@ -302,7 +302,7 @@ $('#search_input_mobile').typeahead(null, {
       '</div>'
     ].join('\n'),
     suggestion: Handlebars.compile('<div  class="store-logo" >\
-       <a class="" style="display:;"  href="'+base_url+'store/{{custom_url}}"  style="border: solid 1px #716c6b42;padding-top: 0px;padding-bottom: 0px;" >\
+       <a class="" style="display:;"  href="'+base_url+'store/{{custom_url}}"  style="padding-top: 0px;padding-bottom: 0px;" >\
              <img src="'+api_url+'/assets/uploads/stores/{{feature_image}}" style="display: inline;border: solid 1px #988b8942; margin: 4px;width: 50px;" class="img-responsive" />\
              <h4 style="display: inline; "> {{name}} </h4></a>\ </div>') }
 });
