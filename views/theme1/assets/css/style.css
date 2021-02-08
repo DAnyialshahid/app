@@ -16623,7 +16623,7 @@ body.body-store .store-stats.mobile .df-close {
   margin: -10px 0 0 0;
   padding: 0;
   position: relative;
-  z-index: 99;
+  z-index: 1;
 }
 
 @media (min-width:768px) {
