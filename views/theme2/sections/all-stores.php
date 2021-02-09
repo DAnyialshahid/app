@@ -49,8 +49,8 @@
                                <li  v-for="store in allStores"  class="col-xs-3 col-sm-4 col-md-4 col-lg-4 mb-1 " style="margin-bottom:6px" >
                                    <a :href="base_url+'store/'+store.custom_url" class="row" title=" ">
                                        
-                                            <img   v-bind:src="api_url+'/assets/uploads/stores/'+store.feature_image" 
-                                                   v-bind:alt="store.name"
+                                            <img    v-bind:src="api_url+'/assets/uploads/stores/'+store.feature_image" 
+                                       v-bind:alt="store.name"
                                                 class="col-xs-12 col-md-3 lazy-load img-responsive"
                                                 style="border-radius: 7px;box-shadow: rgb(0 0 0 / 4%) 0px 0px 11px 1px;" 
                                                  

@@ -239,7 +239,8 @@ class front_api extends Theme_Controller{
 		$alphabet=$this->input->post('alphabet');
 		$site_id=$this->input->post('site_id');
 		if($alphabet=='0-9'){
-					 	  $this->db->where('name REGEXP', '^[0-9].*'); 
+					 	  $this->db->where('name REGEXP', '^[0-9].*');  
+					 	  $this->db->order_by('name', 'asc'); 
 		}else if($alphabet){
 			 			  $this->db->like('name', $alphabet, 'after'); 
 					  	  $this->db->order_by('name', 'asc'); 
@@ -254,7 +255,10 @@ class front_api extends Theme_Controller{
 
 		if(isset( $with) && in_array('coupons', $with) && isset($stores)){
 			foreach ($stores as $key=>&$store) { 
-						$store->feature_image=$store->feature_image?$store->feature_image:'blank.png';  
+
+
+				//$store->feature_image=$store->feature_image?$store->feature_image:'blank.png';  
+
 				 $store->coupons=$this->getCoupons($store->id,$site_id,true);
 				 // echo $this->db->last_query();
 				  $thisStore=$this->db->where(['site_id'=>$site_id,'id'=>$store->id])->get('stores')->first_row() ; 
