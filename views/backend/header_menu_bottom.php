@@ -74,7 +74,7 @@
                                                 </a>
                                             </li>
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('stores','list')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('stores','list')" class="menu-link">
                                                     <span class="svg-icon menu-icon"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Text\Bullet-list.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <rect x="0" y="0" width="24" height="24"/>
@@ -145,7 +145,7 @@
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('categories','create')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('categories','create')" class="menu-link">
                                                     <span class="svg-icon menu-icon">
                                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
                                                         <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Code\Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -161,7 +161,7 @@
                                                 </a>
                                             </li>
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('categories','list')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('categories','list')" class="menu-link">
                                                     <span class="svg-icon menu-icon"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Text\Bullet-list.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <rect x="0" y="0" width="24" height="24"/>
@@ -201,7 +201,7 @@
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('coupons','create')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('coupons','create')" class="menu-link">
                                                     <span class="svg-icon menu-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                     <rect x="0" y="0" width="24" height="24"/>
@@ -215,7 +215,7 @@
                                                 </a>
                                             </li>
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('coupons','list')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('coupons','list')" class="menu-link">
                                                     <span class="svg-icon menu-icon"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Text\Bullet-list.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <rect x="0" y="0" width="24" height="24"/>
@@ -252,7 +252,7 @@
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('sliders','create')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('sliders','create')" class="menu-link">
                                                     <span class="svg-icon menu-icon">
                                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
                                                         <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Code\Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -268,7 +268,7 @@
                                                 </a>
                                             </li>
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('sliders','list')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('sliders','list')" class="menu-link">
                                                     <span class="svg-icon menu-icon"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Text\Bullet-list.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <rect x="0" y="0" width="24" height="24"/>
@@ -294,7 +294,7 @@
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('pages','create')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('pages','create')" class="menu-link">
                                                     <span class="svg-icon menu-icon">
                                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
                                                         <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Code\Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -310,7 +310,7 @@
                                                 </a>
                                             </li>
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('pages','list')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('pages','list')" class="menu-link">
                                                     <span class="svg-icon menu-icon"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Text\Bullet-list.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <rect x="0" y="0" width="24" height="24"/>
@@ -334,7 +334,7 @@
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('users','create')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('users','create')" class="menu-link">
                                                     <span class="svg-icon menu-icon">
                                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
                                                         <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Code\Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -350,7 +350,7 @@
                                                 </a>
                                             </li>
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('users','list')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('users','list')" class="menu-link">
                                                     <span class="svg-icon menu-icon"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo7\dist/../src/media/svg/icons\Text\Bullet-list.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <rect x="0" y="0" width="24" height="24"/>
@@ -413,7 +413,7 @@
 
 
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('bot','page')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('bot','page')" class="menu-link">
                                                      
                                                     <span class="svg-icon menu-icon la la-robot"></span>
                                                     <span class="menu-text">Bot</span>
@@ -422,10 +422,17 @@
                                             
 
                                             <li class="menu-item" aria-haspopup="true">
-                                                <a target="" href="#" onclick="Route.go('olx','page')" class="menu-link">
+                                                <a  href="#" onclick="Route.go('olx','page')" class="menu-link">
                                                      
                                                     <span class="svg-icon menu-icon la la-users"></span>
                                                     <span class="menu-text">OLX</span>
+                                                </a> 
+                                            </li>
+                                               
+                                             <li class="menu-item" aria-haspopup="true">
+                                                <a  href="#" onclick="Route.go('bot','clear_site')"  class="menu-link">
+                                                    <span class="svg-icon menu-icon la la-trash"></span>
+                                                    <span class="menu-text">Clear Site Data</span>
                                                 </a> 
                                             </li>
                                                

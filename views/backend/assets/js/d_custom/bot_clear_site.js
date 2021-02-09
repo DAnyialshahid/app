@@ -58,7 +58,7 @@ var Main = function() {
                     return '\
                             <div class="dropdown dropdown-inline">\
                                 <a href="javascript:;"  onclick="Main.cleanthissite('+row.id+')"  class="btn btn-sm btn-clean btn-icon mr-1" data-toggle="dropdown">\
-                                   <i class="la la-play"></i><i class="la la-trash"></i>\
+                                   </i><i class="la la-trash label-danger"></i>\
                                 </a>\
                             </div>\
                         ';
