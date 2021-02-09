@@ -80,12 +80,12 @@ class Bots_model extends MY_Model{
 	ignore_user_abort(true);
 	set_time_limit(0);
 
-	$stores=$this->db->limit(2)->get_where('bots_stores',[
+	$stores=$this->db->get_where('bots_stores',[
 'bot_id'=>$bot_id,
 ])->result();
 
 
-$site_stores=$this->db->limit(2)->get_where('stores',[
+$site_stores=$this->db->get_where('stores',[
 'site_id'=>$site_id,
 ])->result();
 
