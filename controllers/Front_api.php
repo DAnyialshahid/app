@@ -238,10 +238,12 @@ class front_api extends Theme_Controller{
 //dd($side_bar_post);
 		$alphabet=$this->input->post('alphabet');
 		$site_id=$this->input->post('site_id');
-		if($alphabet){
-					  $this->db->like('name', $alphabet, 'after'); 
+		if($alphabet=='0-9'){
+					 	  $this->db->where('name REGEXP', '^[0-9].*'); 
+		}else if($alphabet){
+			 			  $this->db->like('name', $alphabet, 'after'); 
 					  	  $this->db->order_by('name', 'asc'); 
-		} 
+		}
 		$limit=$this->input->post('limit');
 		if($where){$this->db->where($where);}
 		$page_no=$this->input->post('page_no')?$this->input->post('page_no'):1; 
