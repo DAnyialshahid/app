@@ -85,23 +85,28 @@ class Bots_model extends MY_Model{
 ])->result();
 
 
-$site_stores_slugs=[];
-foreach ($site_stores_slugs as $key => $store) {
-	$site_stores_slugs[]=$store->custom_url;
-}
-unset($stores);
 
 $site_stores=$this->db->get_where('stores',[
 'site_id'=>$site_id,
 ])->result();
+
+$site_stores_slugs=[];
+foreach ($site_stores_slugs as $key => $store) {
+	$site_stores_slugs[]=$store->custom_url;
+}
+unset($site_stores);
+
 
 if (!empty($stores)) {
 	foreach ($stores as $store) {
 
 if (in_array($store->custom_url, $site_stores_slugs))
   {
+  	// echo '1';
+
   	continue;
   }
+// echo 'p';
 $this->db->trans_start();
 		 		$store_id=$store->id;
 		 	   unset($store->id);
