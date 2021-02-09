@@ -256,8 +256,8 @@ class front_api extends Theme_Controller{
 		if(isset( $with) && in_array('coupons', $with) && isset($stores)){
 			foreach ($stores as $key=>&$store) { 
 
-
-				//$store->feature_image=$store->feature_image?$store->feature_image:'blank.png';  
+				
+				$store->feature_image=$store->feature_image?$store->feature_image:'blank.png';  
 
 				 $store->coupons=$this->getCoupons($store->id,$site_id,true);
 				 // echo $this->db->last_query();
