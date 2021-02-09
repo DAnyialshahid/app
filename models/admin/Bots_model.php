@@ -80,33 +80,34 @@ class Bots_model extends MY_Model{
 	ignore_user_abort(true);
 	set_time_limit(0);
 
-	$stores=$this->db->get_where('bots_stores',[
+	$stores=$this->db->limit(2)->get_where('bots_stores',[
 'bot_id'=>$bot_id,
 ])->result();
 
 
-
-$site_stores=$this->db->get_where('stores',[
+$site_stores=$this->db->limit(2)->get_where('stores',[
 'site_id'=>$site_id,
 ])->result();
 
 $site_stores_slugs=[];
-foreach ($site_stores_slugs as $key => $store) {
-	$site_stores_slugs[]=$store->custom_url;
+foreach ($site_stores as $key => $store) {
+	$site_stores_slugs[]=$store->name;
 }
+// echo $this->db->last_query();
+
 unset($site_stores);
 
 
 if (!empty($stores)) {
 	foreach ($stores as $store) {
-
-if (in_array($store->custom_url, $site_stores_slugs))
+ 
+if (in_array($store->name, $site_stores_slugs))
   {
-  	// echo '1';
+
 
   	continue;
   }
-// echo 'p';
+
 $this->db->trans_start();
 		 		$store_id=$store->id;
 		 	   unset($store->id);
