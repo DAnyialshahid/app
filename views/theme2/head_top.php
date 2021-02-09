@@ -18,6 +18,7 @@
                 <li class="nav-item dropdown">
                     <a   class="nav-link dropdown-toggle tw-text-grey-lightest hover:tw-text-blue tw-font-normal tw-pr-2"  data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Stores</a>
                     <div class="dropdown-menu row">
+                      <div class="s-popover--arrow" style="position: absolute; left: 0px; transform: translate(99px, 0px);"></div>
                           <div   class="col-xs-12">
                              <a class="dropdown-item" :href="base_url+'stores'">View All Stores</a> 
                           </div>

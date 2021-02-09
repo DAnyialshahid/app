@@ -42,22 +42,22 @@
                 </div>
             </div>
         </div>
-        <div class="stores-list">
+   
            
                           <ul class="stores-list row">
 
-                               <li  v-for="store in allStores"  class="col-xs-6 col-md-6 col-lg-4" >
+                               <li  v-for="store in allStores"  class="col-xs-3 col-sm-4 col-md-4 col-lg-4 mb-1 " style="margin-bottom:6px" >
                                    <a :href="base_url+'store/'+store.custom_url" class="row" title=" ">
-                                        <div class="img-container " style="margin-top: 8px;align-items: center;display: flex;">
+                                       
                                             <img   v-bind:src="api_url+'/assets/uploads/stores/'+store.feature_image" 
                                                    v-bind:alt="store.name"
-                                                class="col-xs-3 lazy-load img-responsive"
-                                                style="border-radius: 7px;box-shadow: 0px 0px 11px 1px #0000001a;" 
+                                                class="col-xs-12 col-md-3 lazy-load img-responsive"
+                                                style="border-radius: 7px;box-shadow: rgb(0 0 0 / 4%) 0px 0px 11px 1px;" 
                                                  
                                              
                                             />
-                                              <span  class="col-xs-9 " >{{store.name}}</span>
-                                        </div>
+                                              <span  class="col-xs-8 hidden-xs" >{{store.name}}</span>
+                                       
                                       
                                     </a>
                                     
@@ -67,7 +67,7 @@
                           </ul>
 
              
-        </div>
+     
         <center>
         <ul class="pagination">
                 <li class="active">

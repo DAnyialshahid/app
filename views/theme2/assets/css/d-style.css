@@ -14,3 +14,62 @@
 .tt-dataset{
 background: white;
 }
+
+ .pagination .active a{
+ 	  color: white !important;
+}
+ 
+
+
+.pagination>li>a, .pagination>li>span {
+ 
+    border: 1px solid #dddddd8c !important;
+}
+.nav-item  a.dropdown-item,.pagination  a,.stores-list a{
+
+  color: #333 !important;
+}
+
+.nav-item .dropdown-item:hover{
+     color: #3097d1 !important;
+}
+
+
+a.nav-link:focus {
+    color: #dfe783 !important;
+}
+.stores-list:hover{
+
+    color: #3097d1;
+}
+
+.s-popover--arrow:before {
+    content: '';
+    transform: rotate(
+45deg
+);
+}
+
+/*arraw*/
+.dropdown-menu:before {
+    border-bottom: 9px solid rgba(0, 0, 0, 0.2);
+    border-left: 9px solid rgba(0, 0, 0, 0);
+    border-right: 9px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    left: 5%; /* position */
+    position: absolute;
+    top: -8px;
+}
+
+.dropdown-menu:after {
+    border-bottom: 8px solid #FFFFFF;
+    border-left: 9px solid rgba(0, 0, 0, 0);
+    border-right: 9px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    left: 5%; /* position */
+    position: absolute;
+    top: -7px;
+}
+ 
