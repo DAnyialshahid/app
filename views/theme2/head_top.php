@@ -19,13 +19,13 @@
                     <a   class="nav-link dropdown-toggle tw-text-grey-lightest hover:tw-text-blue tw-font-normal tw-pr-2"  data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Stores</a>
                     <div class="dropdown-menu row">
                       <div class="s-popover--arrow" style="position: absolute; left: 0px; transform: translate(99px, 0px);"></div>
-                          <div   class="col-xs-12">
-                             <a class="dropdown-item" :href="base_url+'stores'">View All Stores</a> 
-                          </div>
+                          
                         <div v-for="store in popular_stores"  class="col-xs-12">
                       <a class="dropdown-item" :href="base_url+'store/'+store.custom_url">{{store.name}}</a> 
                       </div>
-
+<div   class="col-xs-12">
+                             <a class="dropdown-item" :href="base_url+'stores'" style="color:#3097d1 !important">View All Stores</a> 
+                          </div>
                     </div>
                   </li>
                

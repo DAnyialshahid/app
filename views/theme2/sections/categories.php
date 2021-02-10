@@ -1,7 +1,7 @@
 
 
 
-  <div  id="categories"> 
+  <div  id="categories" style="background: #f5f5f5"> 
 
 <section class="main-content " >
     <div class="container">
@@ -16,14 +16,14 @@
         </div>
     </div>
 </section>
-        <div class="stores-list">
-           
+        <div class="stores-list text-center">
+                   <center>
                           <ul class="stores-list row">
 
-                               <li  v-for="category in categories"  class="col-xs-6 col-md-6 col-lg-4" >
+                               <li  v-for="category in categories"  class="col-xs-6 col-md-6 col-lg-2" style="background: white;margin: 10px" >
 
-                              <center>                                   
-                                <a :href="base_url+'category/'+category.slug"  class="row" title=" ">
+                                                
+                                <a :href="base_url+'category/'+category.slug"  class="text-center" title=" ">
                                         <div class="img-container " style="margin-top: 8px;">
 
                                            <div   v-if="!category.feature_image" class="col-xs-12" > 
@@ -34,20 +34,20 @@
                                             v-if="category.feature_image"  
                                             v-bind:src="api_url+'/assets/uploads/categories/'+category.feature_image" 
                                             v-bind:alt="category.name" 
-                                            style="width: 52px;/* height: 50px;*/" 
+                                            style="width: 141px; height: 92px;" 
                                             />
                                         </center>
-                                              <span  class="col-xs-12 " >{{category.name}}</span>
+                                              <span  class="col-xs-12 " style="overflow: hidden;height: 29px;    text-transform: uppercase;" >{{category.name}}</span>
                                         </div>
                                       
                                     </a>
-                                    </center>
+                     
                                </li>
                                
 
                           </ul>
 
-             
+             </center>
         </div>
          
     </div>

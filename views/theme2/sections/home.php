@@ -161,34 +161,37 @@
          <h2 class="title">Popular Categories</h2>  `
              <p class="sub-heading">
                  Check out curated deals from some of the most popular categories  
-                 </p> 
-        <ul class="stores-list row">
-          <li  v-for="category in popular_categories"  class="col-xs-2 " >
+                 </p>      
 
-                              <center>                                   
-                                <a :href="base_url+'category/'+category.slug"  class="row" title=" ">
-                                        <div class="img-container " style="margin-top: 8px;">
+              <center>   
+                  <ul class="stores-list row">
+                    <li  v-for="category in popular_categories"  class="col-xs-3 col-md-2 " style="background: #f5f5f5;margin: 10px" >
 
-                                           <div   v-if="!category.feature_image" class="col-xs-12" > 
-                                             <i   :class="'fa fa-'+category.icon " style="font-size: 40px; "></i> </div>
-                                          <center>    
-                                            <img 
-                                            class="img-responsive "
-                                            v-if="category.feature_image"  
-                                            v-bind:src="api_url+'/assets/uploads/stores/'+category.feature_image" 
-                                            v-bind:alt="category.name" 
-                                     style="width: 50px" 
-                                            />
-                                        </center>
-                                              <span  class="col-xs-12 " >{{category.name}}</span>
-                                        </div>
-                                      
-                                    </a>
-                                    </center>
-                               </li>
+                                                                   
+                                          <a :href="base_url+'category/'+category.slug"  class="row" title=" ">
+                                                  <div class="img-container " style="margin-top: 8px;">
 
-        </ul>
-         
+                                                     <div   v-if="!category.feature_image" class="col-xs-12" > 
+                                                       <i   :class="'fa fa-'+category.icon " style="font-size: 40px; "></i> </div>
+                                                    <center>    
+                                                      <img 
+                                                      class="img-responsive "
+                                                      v-if="category.feature_image"  
+                                                      v-bind:src="api_url+'/assets/uploads/categories/'+category.feature_image" 
+                                                      v-bind:alt="category.name" 
+                                               style="width: 75px;height:  52px;" 
+                                                      />
+                                                  </center>
+                                            
+                                                               <span  class="col-xs-12 " style="overflow: hidden;height: 29px;    text-transform: uppercase;" >{{category.name}}</span>
+                                                  </div>
+                                                
+                                              </a>
+                                            
+                                         </li>
+
+                  </ul>
+       </center>
         <div class="action"><i class="view-more"></i></div>
     </div>
 </section>

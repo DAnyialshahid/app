@@ -281,7 +281,7 @@ $('#search_input').typeahead(null, {
     suggestion: Handlebars.compile('<div class="hover:tw-bg-grey-light tw-border-b tw-p-1"><a href="'+base_url+'store/{{custom_url}}" class="tw-block"><img width="50px" src="'+api_url+'/assets/uploads/stores/{{feature_image}}" class="tw-mr-2 tw-h-auto tw-rounded-sm">{{name}}</a></div>')
   }
 });
-$('#search_input').val('a').trigger('change');
+// $('#search_input').val('a').trigger('change');
  
 
 

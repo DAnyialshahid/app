@@ -57,7 +57,10 @@ var Main = function() {
                 template: function(row) {
                     return '\
                             <div class="dropdown dropdown-inline">\
-                                <a href="javascript:;"  onclick="Main.cleanthissite('+row.id+')"  class="btn btn-sm btn-clean btn-icon mr-1" data-toggle="dropdown">\
+                                <a href="javascript:;" title="Clean All Site" onclick="Main.cleanthissite('+row.id+')"  class="btn btn-sm btn-clean btn-icon mr-1" data-toggle="dropdown">\
+                                   </i><i class="la la-trash label-danger"></i>\
+                                </a>\
+                                 <a href="javascript:;" title="Insert Dummy Categories" onclick="Main.insertDummyCategories('+row.id+')"  class="btn btn-sm btn-clean btn-icon mr-1" data-toggle="dropdown">\
                                    </i><i class="la la-trash label-danger"></i>\
                                 </a>\
                             </div>\
@@ -149,6 +152,44 @@ var delete_all_data=!q.value;
             });
 
       });
+
+
+           
+        }, insertDummyCategories: function(id) {  
+             Swal.fire({
+                title: "Want you want to delete old Categories & Insert Dummy?",
+                text: "You won't be able to revert this!",
+                icon: "question",
+                showCancelButton: true,
+                cancelButtonText: "Cancle",
+                confirmButtonText: "Delete and add dummy"
+            }).then(function(result) {
+
+                if (result.value) { 
+
+                      jQuery.ajax({
+                    type : "post",
+                     data:{'id':id,'token':token}, headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/insertDummyCategories/"+id, 
+                     success: function(data) { 
+                        if(data.success === "yes") {  
+                                   Swal.fire(
+                                            "Deleted and inserted !",
+                                            "Dummy Categories Added  Successfully",
+                                            "success"
+                                        ) 
+
+                        }
+                        else {
+                          Swal.fire('Failed To Delete',data.response,'error');
+                        }
+                     }
+                }); 
+
+                }
+            });
+ 
 
 
            

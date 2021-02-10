@@ -4,7 +4,7 @@
                         <button class="save-coupon" aria-label="Save Coupon"><i class="df-save-o"></i></button>
                         <div class="odata">
                             <div class="otype">
-                                <a href="#" title="Ikonick coupons" class="store-logo">
+                                <a href="#" title="" class="store-logo">
                                     <img
                                         v-if="coupon.feature_image" :src="api_url+'/assets/uploads/coupons/'+coupon.feature_image" class="lazy-load img-responsive"
                                          />

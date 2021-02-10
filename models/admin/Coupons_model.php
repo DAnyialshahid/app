@@ -150,6 +150,42 @@ public function sort($store_id,$coupon_ids){
 	
 
 
+public function add_dummy_categories_stores($site_id){
+$this->db->set('category_id',null)->where('site_id',$site_id)->update('stores'); 
+$categories=$this->db->get_where('categories',['site_id'=>$site_id])->result();
+foreach ($categories as $category) {
+		$this->db
+		->set('category_id',$category->id)
+		->set('popular','round(RAND()*1)',false)
+		->set('show_in_home','round(RAND()*1)',false)
+		->where('site_id',$site_id)->limit(15)->order_by('RAND()',null,FALSE)->update('stores'); 
+		//dd($this->db->last_query());
+	
+}
+
+}
+
+
+public function add_dummy_categories_coupons($site_id){
+$this->db->set('category_id',null)->where('site_id',$site_id)->update('coupons'); 
+
+$categories=$this->db->get_where('categories',['site_id'=>$site_id])->result();
+foreach ($categories as $category) {
+		$this->db->set('category_id',$category->id)
+		->set('verified','round(RAND()*1)',false)
+		->set('featured','round(RAND()*1)',false)
+		->set('exclusive','round(RAND()*1)',false)
+		->set('popular','round(RAND()*1)',false)
+		->set('show_in_home','round(RAND()*1)',false)
+		->set('top','round(RAND()*1)',false)
+		->where('site_id',$site_id)->limit(25)->order_by('RAND()',null,FALSE)->update('coupons'); 
+		//dd($this->db->last_query());
+	
+}
+
+}
+
+
 public function paste($items){
 		$rows=[];
 

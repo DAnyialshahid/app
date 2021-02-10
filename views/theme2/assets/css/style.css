@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@500;700&display=swap');
 body, * {
-    font-family: 'Hind',sans-serif !important;
+    font-family: 'Hind',sans-serif ;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,400,500,700,900|Lato:300,400,700);@font-face {
@@ -1942,7 +1942,7 @@ img.img-responsive.img-searchResult {
 }
 
 .stores-list {
-    padding-left: 0;
+    /*padding-left: 0;*/
     list-style: none;
     line-height: 35px;
     margin: 20px 0 30px
@@ -6675,6 +6675,7 @@ img {
 }
 
 .lato {
+    overflow: hidden;;
     font-family: Lato,sans-serif!important
 }
 

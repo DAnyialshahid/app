@@ -357,6 +357,21 @@ public function getBotDetails($where=null,$return=false)
 			echo json_encode(['success'=>'yes','response'=>$stores]);
 			exit();
 	}
+
+	public function insertDummyCategories()
+	{
+
+			$this->load->model('admin/categories_model');
+			$this->load->model('admin/coupons_model');
+			$this->categories_model->add_dummy_categories($this->input->post('id')); 
+			$this->coupons_model->add_dummy_categories_stores($this->input->post('id')); 
+			$this->coupons_model->add_dummy_categories_coupons($this->input->post('id')); 
+		
+			echo json_encode(['success'=>'yes','response'=>true]);
+			exit();
+	}
+
+	
 	public function getSlides($where=null,$return=false)
 	{
 

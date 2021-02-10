@@ -4,7 +4,12 @@
                             <div class="tw-rounded-sm tw-shadow tw-bg-white sm:tw-p-4 tw-p-2 sm:tw-mb-4 tw-mb-2 xl:tw-h-full1">
                                 <div class="tw-flex lato tw-h-full1">
                                     <div class="tw-text-center xl:tw-w-1/6 tw-w-1/4 xl:tw-min-w-1/6 tw-min-w-1/4">
-                                     <p v-if="comeFrom=='category'" class="tw-text-grey sm:tw-text-base tw-text-xs lato">    {{coupon.store.name}} </p>
+
+                                       <a  v-if="comeFrom=='category'"  :href="base_url+'store/'+coupon.store.custom_url">     <p class="tw-text-grey sm:tw-text-base tw-text-xs lato">    
+                                   {{coupon.store.name}}
+
+                                      </p></a>
+
                                        <div    v-if="coupon.short_title"   class="coupon-label-context coupon roboto-slab tw-font-bold tw-leading-tight tw-my-0 ">
                                             <div class="tw-inline-block cdroboto-slab tw-text-orange sm:tw-text-5xl tw-text-4xl">
                                                 {{coupon.short_title.split(' ')[0]}}
@@ -40,7 +45,7 @@
                                             <div v-if="coupon.featured" class="col-xs-2 tw-text-orange sm:tw-border sm:tw-border-orange sm:tw-text-orange sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Featured </div> 
                                           </div>
 
-                                                <p class="tw-text-grey sm:tw-text-base tw-text-xs lato">    {{coupon.store.name}} </p>
+                                                <!-- <p class="tw-text-grey sm:tw-text-base tw-text-xs lato">    {{coupon.store.name}} </p> -->
                                             <a dusk="coupon-card-label" href="/go/1210607" rel="nofollow" class="tw-text-grey-darker sm:tw-text-xl tw-text-lg tw-font-medium hover:tw-text-blue lato">
                                                {{coupon.name}}
                                             </a>
