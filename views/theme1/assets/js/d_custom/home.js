@@ -93,9 +93,12 @@ function getTopStores(){
  var data={
   		top:1,
   		show_in_home:1,
-  };
+  }; 
 		getCoupons(data,10,function (response) {
+			 
+		 
 			            home.recommended_coupons=response;
+			            			//console.log(  home.recommended_coupons);
 		});
  }
 

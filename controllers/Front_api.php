@@ -367,7 +367,7 @@ class front_api extends Theme_Controller{
 	//$this->db->limit(1);	
 
 		$coupons=$this->getCoupons(null,$site_id,true);
-				d('s=>'.$site_id);
+	 
 		 // echo $this->db->last_query();
 		// d(	$coupons);
 
