@@ -39,6 +39,10 @@
                                         <div class="odisplay">
                                             <div class="otitle">
                                                            {{coupon.name}}
+                                            </div>   
+
+                                            <div class="">
+                                                           {{coupon.description}}
                                             </div>
                                         </div>
                                     </div>
@@ -79,9 +83,9 @@
                         </div>
                         <div class="oactions">  
                          <table style="width: 100%"><tr>
-                            <td><i class="far fa-calendar "></i>  {{coupon.updated_date}}</td>
-                            <td><i class="far fa-eye"></i>          {{coupon.visits}} used total</td>
-                            <td><i class="far fa-clock"></i>  {{coupon.expire_date}}</td>
+                            <td><i class="far fa-calendar " style="font-family: 'Font Awesome 5 Pro' !important;"></i>  {{coupon.updated_date}}</td>
+                            <td><i class="far fa-eye"  style="font-family: 'Font Awesome 5 Pro' !important;"></i>          {{coupon.visits}} used total</td>
+                            <td><i class="far fa-clock"  style="font-family: 'Font Awesome 5 Pro' !important;"></i>  {{coupon.expire_date}}</td>
                         </tr></table>
                       </div>
                          
