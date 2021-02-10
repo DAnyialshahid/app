@@ -51,7 +51,7 @@
                                             </a>
                                             <div class="sm:tw-leading-loose tw-leading-normal">
                                                 <div class="tw-relative tw-hidden lg:tw-block tw-text-grey-darker tw-font-light tw-cursor-pointer">
-                                                    <span>Details: <i class="fa-caret-right fa"></i></span>
+                                                    <span>           {{coupon.description}}</span>
                                                     <!---->
                                                 </div>
                                             </div>
