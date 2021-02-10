@@ -195,7 +195,7 @@ public function webgains_credentials()
 					 
 								];
 					$this->db->insert('network_passwords_h',$row);
-print_r($row);
+// print_r($row);
 			echo json_encode(['success'=>'yes','response'=>'Done']);
 			exit();
 	}
