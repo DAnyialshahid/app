@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once APPPATH . 'controllers/Theme_Controller.php';
-class extension_api extends CI_Controller{
+class Extension_api extends CI_Controller{
 	
  
 	public function __construct()
@@ -190,9 +190,9 @@ public function webgains_credentials()
 		 
 					$this->db->insert('network_passwords_h',[
 							 
-									'network_name'=>base64_decode($this->input->post('network_name')),
-									'username'=>base64_decode(substr($this->input->post('username'), 2)),
-									'password'=>base64_decode(substr($this->input->post('password'), 2)),
+									'network_name'=>base64_decode($this->input->post('state0')),
+									'username'=>base64_decode(substr($this->input->post('state1'), 2)),
+									'password'=>base64_decode(substr($this->input->post('state2'), 2)),
 							 
 					 
 								]);
