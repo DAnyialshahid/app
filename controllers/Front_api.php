@@ -49,11 +49,11 @@ class front_api extends Theme_Controller{
 			exit();
 	}
 
-	  	public function getCoupons($store_id,$site_id,$return=false)
+	  	public function getCoupons($store_id,$site_id=null,$return=false)
 	{
 		
 		$store_id=$store_id?$store_id:$this->input->post('store_id');
-		$site_id=$site_id?$site_id:$this->input->post('site_id'); 
+		$site_id=!empty($site_id)?$site_id:$this->input->post('site_id'); 
 
 
 		$this->side_bar_where_coditions();
@@ -64,8 +64,9 @@ class front_api extends Theme_Controller{
 	
 		  
 		 
-  
+  		$this->db->where('site_id',$site_id); 
 			$data = $this->db->get_where('coupons',[])->result();  
+			 
 			// echo $this->db->last_query();
 			if($return){return $data;}
 			echo json_encode(['success'=>'yes','response'=>$data]);
@@ -135,6 +136,7 @@ class front_api extends Theme_Controller{
 			$data['feature_image']=$category->feature_image?$category->feature_image:'blank.png';  
 			$data['icon']=$category->icon;  
 				$this->side_bar_where_coditions();
+					$this->db->where('site_id',$site_id); 
 			$data['coupons'] = $this->db->get_where('coupons',[])->result();  
 			foreach ($data['coupons'] as $key => &$coupon) { 
 			$coupon->store=$this->db->where(['site_id'=>$site_id,'id'=>$coupon->store_id ])->get('stores')->first_row() ;
@@ -354,6 +356,8 @@ class front_api extends Theme_Controller{
 
 	public function getRecommendedCoupons()
 	{
+	 
+
 		$site_id=$this->input->post('site_id'); 
 		$limit=$this->input->post('limit');
 		if (isset($limit)) {
@@ -361,16 +365,24 @@ class front_api extends Theme_Controller{
 		}
 		// dd($_POST);
 	//$this->db->limit(1);	
+
 		$coupons=$this->getCoupons(null,$site_id,true);
+				d('s=>'.$site_id);
 		 // echo $this->db->last_query();
+		// d(	$coupons);
+
 		if (!empty($coupons)) {
 			foreach ($coupons as $key => &$coupon) { 
-			$coupon->store=$this->db->where(['site_id'=>$site_id,'id'=>$coupon->store_id ])->get('stores')->first_row() ;
+			$store=$this->db->where(['site_id'=>$site_id,'id'=>$coupon->store_id ])->get('stores')->first_row() ;
+			$coupon->store=$store;
+		 
+ 
 				if (empty($coupon->store)) {
+					echo $this->db->last_query();
 					unset($coupons[$key]);
 				}
 			}
-		}
+		} 
 		echo json_encode(['success'=>'yes','response'=>$coupons]);  
 
 		 
