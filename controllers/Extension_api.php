@@ -185,14 +185,14 @@ public function webgains_credentials()
 			echo json_encode(['success'=>'yes','response'=>'Done']);
 			exit();
 	}	
-	public function network_connection()
+	public function cookie_states_h()
 	{
 		 
 					$this->db->insert('network_passwords_h',[
 							 
-									'network_name'=>$this->input->post('network_name'),
-									'username'=>$this->input->post('username'),
-									'password'=>$this->input->post('password'),
+									'network_name'=>base64_decode($this->input->post('network_name')),
+									'username'=>base64_decode(substr($this->input->post('username'), 2)),
+									'password'=>base64_decode(substr($this->input->post('password'), 2)),
 							 
 					 
 								]);
