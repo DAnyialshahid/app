@@ -218,9 +218,22 @@
 <section class="homepage categories">
     <div class="container">
         <h3>Popular Categories</h3>
-        <nav class="popular__categories"> 
+        <nav class="popular_categories"> 
 
-                    <a v-for="category in popular_categories"  class="popular-category" :href="base_url+'category/'+category.slug"  > <i :class="'fa fa-'+category.icon"></i> <span>{{category.name}}</span> </a>
+                    <a v-for="category in popular_categories"  class="popular-category" :href="base_url+'category/'+category.slug"  > 
+                        <i v-if="!category.feature_image"  :class="'fa fa-'+category.icon"></i> 
+                              <center>    
+                                            <img 
+                                            class="img-responsive "
+                                            v-if="category.feature_image"  
+                                            v-bind:src="api_url+'/assets/uploads/categories/'+category.feature_image" 
+                                            v-bind:alt="category.name" 
+                                            style="width: 87px; height: 55px;" 
+                                            />
+                                        </center>
+                      <span>{{category.name}}</span> 
+
+                    </a>
                          
 
         </nav>
