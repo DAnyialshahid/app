@@ -235,14 +235,16 @@ $output .= '</url>'."\n"."\n";
 	}	
 
 
-public function test($slug)
+public function test()
 	{
+		exit('my test page');
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/single_store_2.php',
 			 	'js'=>'test',  
 			 	'slug'=>$slug,  
 
 			 ]); 
+
 
 	}	
 
