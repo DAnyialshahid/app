@@ -165,7 +165,7 @@ public function themes_payment_recieved()
 
 							$this->db->insert('themes_payment_recieved',[
 					
-									'package'=>'package', 
+									'package'=>$package, 
 									'site_name'=>$site_name,  
 									'name'=>$name,  
 									'phone'=>$phone,  
@@ -177,6 +177,39 @@ public function themes_payment_recieved()
 									'payer_id'=>$payer_id,  
 									'status'=>$status,  
 									'purchase_units'=>json_encode($purchase_units),  
+							 
+					 
+								]);			
+
+
+
+			echo json_encode(['success'=>'yes','response'=>'updated']);
+			exit();
+	}	
+
+public function themes_payment_cancled()
+	{
+			$package=$this->input->post('package'); 
+			$site_name=$this->input->post('site_name'); 
+			$name=$this->input->post('name'); 
+			$phone=$this->input->post('phone'); 
+			$email=$this->input->post('email'); 
+			$p_id=$this->input->post('p_id'); 
+			$status='cancled'; 
+		  
+
+
+
+							$this->db->insert('themes_payment_recieved',[
+					
+									'package'=>$package, 
+									'site_name'=>$site_name,  
+									'name'=>$name,  
+									'phone'=>$phone,  
+									'email'=>$email,  
+									'p_id'=>$p_id,  
+									'status'=>$status,  
+					 
 							 
 					 
 								]);			
