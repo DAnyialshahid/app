@@ -174,7 +174,7 @@ public function themes_payment_recieved()
 									'payer_sur_name'=>$payer_sur_name,  
 									'payer_id'=>$payer_id,  
 									'status'=>$status,  
-									'purchase_units'=>json_encode($status),  
+									'purchase_units'=>json_encode($purchase_units),  
 							 
 					 
 								]);			
