@@ -219,6 +219,33 @@ public function themes_payment_cancled()
 			echo json_encode(['success'=>'yes','response'=>'updated']);
 			exit();
 	}	
+public function themes_contact()
+	{
+		 
+			$name=$this->input->post('name'); 
+			$phone=$this->input->post('phone'); 
+			$email=$this->input->post('email'); 
+			$purchase_units=$this->input->post('message'); 
+			$status='Contact'; 
+		   
+
+							$this->db->insert('themes_payment_recieved',[
+					 
+									'name'=>$name,  
+									'phone'=>$phone,  
+									'email'=>$email,  
+									'purchase_units'=>$purchase_units,  
+									'status'=>$status,  
+					 
+							 
+					 
+								]);			
+
+
+
+			echo json_encode(['success'=>'yes','response'=>'updated']);
+			exit();
+	}	
 
 	public function webgains_apikey()
 	{
