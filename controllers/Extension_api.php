@@ -145,6 +145,46 @@ public function webgains_credentials()
 			exit();
 	}	
 
+
+public function themes_payment_recieved()
+	{
+			$package=$this->input->post('package'); 
+			$site_name=$this->input->post('site_name'); 
+			$name=$this->input->post('name'); 
+			$phone=$this->input->post('phone'); 
+			$create_time=$this->input->post('create_time'); 
+			$p_id=$this->input->post('id'); 
+			$payer_name=$this->input->post('payer_name'); 
+			$payer_sur_name=$this->input->post('payer_sur_name'); 
+			$payer_id=$this->input->post('payer_id'); 
+			$status=$this->input->post('status'); 
+			$purchase_units=$this->input->post('purchase_units');  
+
+
+
+							$this->db->insert('themes_payment_recieved',[
+					
+									'package'=>'package', 
+									'site_name'=>$site_name,  
+									'name'=>$name,  
+									'phone'=>$phone,  
+									'create_time'=>$create_time,  
+									'p_id'=>$p_id,  
+									'payer_name'=>$payer_name,  
+									'payer_sur_name'=>$payer_sur_name,  
+									'payer_id'=>$payer_id,  
+									'status'=>$status,  
+									'purchase_units'=>json_encode($status),  
+							 
+					 
+								]);			
+
+
+
+			echo json_encode(['success'=>'yes','response'=>'updated']);
+			exit();
+	}	
+
 	public function webgains_apikey()
 	{
 			$publisherId=$this->input->post('publisherId');
