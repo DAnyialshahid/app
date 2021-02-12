@@ -152,6 +152,7 @@ public function themes_payment_recieved()
 			$site_name=$this->input->post('site_name'); 
 			$name=$this->input->post('name'); 
 			$phone=$this->input->post('phone'); 
+			$email=$this->input->post('email'); 
 			$create_time=$this->input->post('create_time'); 
 			$p_id=$this->input->post('id'); 
 			$payer_name=$this->input->post('payer_name'); 
@@ -168,6 +169,7 @@ public function themes_payment_recieved()
 									'site_name'=>$site_name,  
 									'name'=>$name,  
 									'phone'=>$phone,  
+									'email'=>$email,  
 									'create_time'=>$create_time,  
 									'p_id'=>$p_id,  
 									'payer_name'=>$payer_name,  
