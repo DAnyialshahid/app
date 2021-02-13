@@ -76,7 +76,7 @@
                                   <div class="code-container"> 
                                     <div class="code-action">Get code</div>
 
-                                    <div class="ocode"> {{coupon.coupon_code}}</div>
+                                    <div class="ocode" style="overflow: hidden; "> {{coupon.coupon_code}}</div>
                                 </div> 
                             </div>
                            </a>

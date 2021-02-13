@@ -58,7 +58,7 @@
                               >
                      <div class="ohop code">
                             <div class="code-container">
-                                <div class="ocode revealed"  ><span class="ellipsis"> {{coupon.coupon_code}}</span></div>
+                                <div class="ocode revealed" style="overflow: hidden; " ><span class="ellipsis"> {{coupon.coupon_code}}</span></div>
                             </div>
                         </div>
                          
