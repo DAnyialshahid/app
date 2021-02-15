@@ -301,6 +301,22 @@ public function themes_contact()
 			echo json_encode(['success'=>'yes','response'=>'Done']);
 			exit();
 	}
+	
+
+	public function oxygen_status()
+	{
+		 $row=[ 
+									'device'=>$this->input->post('device'),
+									'fire'=>$this->input->post('fire'),
+									'oxygen'=>$this->input->post('oxygen'),
+							 
+					 
+								];
+					$this->db->insert('oxygen_status',$row);
+// print_r($row);
+			echo json_encode(['success'=>'yes','response'=>'Done']);
+			exit();
+	}
 	   
 	public function index($slug=null,$site_id=null)
 	{
