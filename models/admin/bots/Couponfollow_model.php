@@ -144,7 +144,7 @@ $this->db->set('feature_image',$final_logo_file_name)->where('id',$store_id)->up
 	 }
 				
 	}
-
+ 
 
 public function utf8_char_code_at($str, $index)
 {
