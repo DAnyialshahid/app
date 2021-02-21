@@ -50,13 +50,15 @@ var Main = function() {
              {
                 field: 'name',
                 title: 'title'
-            },   {
-                field: 'last_run',
-                title: 'Last Run'
-            },   {
-                field: 'count',
-                title: 'Count stores/coupons'
             },    {
+                field: 'stores_counts',
+                title: 'Stores / coupons',
+                template:function(row) {
+                    return "Stores:<b>"+row.store_count+"</b>  Coupons:<b>"+ row.coupon_count+"</b>";
+
+                }
+            },       
+            {
                 field: 'status',
                 title: 'Status',    
                 template: function(row) {

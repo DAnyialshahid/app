@@ -13,7 +13,11 @@ class Bots_model extends MY_Model{
  	public function get_all($where=null){
 
  
-		$this->db->order_by('name','asc');  
+		$this->db->order_by('id','desc');  
+		$this->db->select('bots.*');	
+		$this->db->select('(select count(*) from bots_stores where bots_stores.bot_id=bots.id) as store_count');	
+		$this->db->select('(select count(*) from bots_stores_coupons where store_id in (select id from bots_stores where bots_stores.bot_id=bots.id) ) as coupon_count');	
+
 		if($where){ $this->db->where($where);	 }	   
 			$data = $this->db->get_where('bots',[
 						'company_id'=>$this->session->userdata('user_company_id')
@@ -25,7 +29,8 @@ class Bots_model extends MY_Model{
 	}
 
 	public function details($id){
-		$this->db->order_by('name','asc');   
+		$this->db->order_by('id','desc');  
+
 		$data = $this->db->get_where('bots_stores',[
 						'bot_id'=>$id
 			])->result();
