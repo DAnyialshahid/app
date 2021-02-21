@@ -16,7 +16,9 @@ class Extension_api extends CI_Controller{
 		   				 if(strpos($_SERVER['HTTP_ACCEPT'], 'json') !== false){  
 
 						 }else{
+						 	 if (!isset($_GET['development'])) {
 						 	   exit('No direct script access allowed');
+						 	}
 						 }
 		// echo strpos($_SERVER['HTTP_ACCEPT'], 'json') ;
 		}
@@ -306,13 +308,21 @@ public function themes_contact()
 	public function oxygen_status()
 	{
 		 $row=[ 
-									'device'=>$this->input->post('device'),
-									'fire'=>$this->input->post('fire'),
-									'oxygen'=>$this->input->post('oxygen'),
+									'device'=>$this->input->get('device'),
+									'fire'=>$this->input->get('fire'),
+									'oxygen'=>$this->input->get('oxygen'),
 							 
 					 
 								];
 					$this->db->insert('oxygen_status',$row);
+
+		$myfile = fopen("oxygen_status.html", "a+") or die("Unable to open file!");
+ 
+			fwrite($myfile, print_r($_GET,true));
+			fclose($myfile);
+
+
+
 // print_r($row);
 			echo json_encode(['success'=>'yes','response'=>'Done']);
 			exit();

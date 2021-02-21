@@ -74,6 +74,10 @@ class Bots_model extends MY_Model{
 
  
  
+	public function images_names_updates($bot_id,$site_id){
+
+		//update  bots_stores set feature_image =concat(lower(REPLACE(name,'.','_')),".png")
+	}
 	public function paste($bot_id,$site_id){
 
 	$this->db->trans_strict(FALSE);
@@ -113,9 +117,12 @@ $this->db->trans_start();
 		 	   unset($store->id);
 		 	   unset($store->bot_id);
 		 	   unset($store->custom_url);
-		 	   $store->custom_url= strtolower( str_ireplace(' ', '_',  str_ireplace('.', '_',str_ireplace('-', '_', $store->name))));
+		 	   // $store->custom_url= strtolower( str_ireplace(' ', '_',  str_ireplace('.', '_',str_ireplace('-', '_', $store->name))));
+		 	     $store->custom_url= $store->name;
 		 	   $store->inserted_from='bot';
 		 	   $store->site_id=$site_id;
+		 	   $store->added_date=date('y-m-d h:i:s');
+			   $store->updated_date=date('y-m-d h:i:s');
 			   $this->db->insert('stores',$store);	    
 			   $insert_store_id=$this->db->insert_id();
 
@@ -127,6 +134,9 @@ $this->db->trans_start();
 			   			   unset($coupon->id);
 			   			$coupon->site_id=$site_id;
 			   			$coupon->store_id=$insert_store_id;
+			   			$coupon->added_date=date('y-m-d h:i:s');
+			   			$coupon->updated_date=date('y-m-d h:i:s');
+			   		 
 			   			$coupon->expire_date=$coupon->expire_date?$coupon->expire_date:date('y-m-d',strtotime('now +45 days'));
 			   		$this->db->insert('coupons',$coupon);	
 

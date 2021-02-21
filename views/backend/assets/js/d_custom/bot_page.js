@@ -80,20 +80,114 @@ var Main = function() {
                 overflow: 'visible',
                 autoHide: false,
                 template: function(row) {
-                    var button='';
-                    if (row.status!='running') {
-                        button='<button type="button"  onclick="Main.play('+row.id+')" class="play btn btn-primary  btn-icon"><i class="la la-play"></i></button>';
-                    }else{
-                        button='<button type="button"  onclick="Main.pause('+row.id+')" class="pause btn btn-success btn-icon"><i class="la la-pause"></i></button> ';
-                    }
-                    return '<div class="btn-group" role="group" aria-label="First group">'+button+
-                        '<button type="button"  onclick="Main.resync('+row.id+')" class="resync btn btn-info btn-icon"><i class="la la-sync"></i></button>\
-                        <button type="button"  onclick="Main.paste('+row.id+')" class="paste btn btn-warning btn-icon"><i class="la la-file-text-o"></i></button>\
-                        <button type="button"  onclick="Main.details('+row.id+')" class="details btn btn-primary btn-icon"><i class="la la-stream"></i></button>\
-                        <button type="button"  onclick="Main.runAjaxBotPHP('+row.id+')" class="details btn btn-danger btn-icon"><i class="la la-stream"></i></button>\
-                    </div>';
+                   
+            
                 },
-            }],
+            }, {
+                field: 'Actions2',
+                title: 'Actions2',
+                sortable: false,
+                width: 160,
+                overflow: 'visible',
+                autoHide: false,
+                template: function(row) {
+                    var li='';
+
+               
+             if (row.status!='running') {
+                    li+='<li class="navi-item">\
+                                    <a href="#" class="navi-link" onclick="Main.play('+row.id+')">\
+                                        <span class="navi-icon"><i class="la la-print"></i></span>\
+                                        <span class="navi-text">Print</span>\
+                                    </a>\
+                                </li>';
+
+                            }else{
+                    li+='<li class="navi-item">\
+                                    <a href="#" class="navi-link" onclick="Main.pause('+row.id+')">\
+                                        <span class="navi-icon"><i class="la la-print"></i></span>\
+                                        <span class="navi-text">Pause</span>\
+                                    </a>\
+                                </li>';
+
+                            }
+
+                    
+ 
+
+                    li+='<li class="navi-item">\
+                        <a href="#" class="navi-link"  onclick="Main.resync('+row.id+')">\
+                            <span class="navi-icon"><i class="la la-sync"></i></span>\
+                            <span class="navi-text">Resync data </span>\
+                        </a>\
+                    </li>';
+                    li+='<li class="navi-item">\
+                        <a href="#" class="navi-link" onclick="Main.paste('+row.id+')">\
+                            <span class="navi-icon"><i class="la la-paste"></i></span>\
+                            <span class="navi-text">Paste to this site</span>\
+                        </a>\
+                    </li>';
+                    li+='<li class="navi-item">\
+                        <a href="#" class="navi-link" onclick="Main.details('+row.id+')">\
+                            <span class="navi-icon"><i class="la la-stream"></i></span>\
+                            <span class="navi-text">details</span>\
+                        </a>\
+                    </li>';
+                    li+='<li class="navi-item">\
+                        <a href="#" class="navi-link" onclick="Main.runAjaxBotPHP('+row.id+')">\
+                            <span class="navi-icon"><i class="la la-space-shuttle"></i></span>\
+                            <span class="navi-text">Bot Run at server side</span>\
+                        </a>\
+                    </li>';
+                    li+='<li class="navi-item">\
+                        <a href="#" class="navi-link" onclick="Main.botFetchStoresImages('+row.id+')">\
+                            <span class="navi-icon"><i class="la la-image"></i></span>\
+                            <span class="navi-text">Store Images Fetch</span>\
+                        </a>\
+                    </li>';
+
+                            
+
+                     return '\
+                    <div class="dropdown dropdown-inline">\
+                        <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
+                            <span class="svg-icon svg-icon-md">\
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\
+                                        <rect x="0" y="0" width="24" height="24"/>\
+                                        <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#000000"/>\
+                                    </g>\
+                                </svg>\
+                            </span>\
+                        </a>\
+                        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
+                            <ul class="navi flex-column navi-hover py-2">\
+                                <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">\
+                                    Choose an action:\
+                                </li>\
+                                '+li+'\
+                            </ul>\
+                        </div>\
+                    </div>\
+                    <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">\
+                        <span class="svg-icon svg-icon-md">\
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\
+                                    <rect x="0" y="0" width="24" height="24"/>\
+                                    <path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"/>\
+                                    <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"/>\
+                                </g>\
+                            </svg>\
+                        </span>\
+                    </a>\
+                ';
+
+                },
+            }
+
+
+
+            ],
         });
 
         $('#kt_datatable_search_status').on('change', function() {
@@ -182,6 +276,41 @@ var Main = function() {
                      headers: { 'x-cookie': cookie },  
                      dataType : "json",
                      url : api_base_url+"/pasteBotDataToSite", 
+                     success: function(data) { 
+                        if(data.success === "yes") { 
+                                       Main.init();
+
+                        }
+                        else {
+                            alert("Folder not created");
+                        }
+                     }
+                }); 
+
+              
+                }
+            });
+
+           
+
+
+           
+        },   botFetchStoresImages : function(id) {  
+             Swal.fire({
+                title: "Are you want to past this  bot data into this site? ?",
+                text: "Sure!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, Past bot data!"
+            }).then(function(result) {
+                if (result.value) { 
+
+                     jQuery.ajax({
+                    type : "post",
+                     data:{'id':id,'token':token}, 
+                     headers: { 'x-cookie': cookie },  
+                     dataType : "json",
+                     url : api_base_url+"/botFetchStoresImages", 
                      success: function(data) { 
                         if(data.success === "yes") { 
                                        Main.init();
