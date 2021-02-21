@@ -72,18 +72,8 @@ var Main = function() {
                     }
                     return '  <span class="label label-inline '+label+' font-weight-bold">'+row.status+'</span>';
                 }
-            }, {
-                field: 'Actions',
-                title: 'Actions',
-                sortable: false,
-                width: 160,
-                overflow: 'visible',
-                autoHide: false,
-                template: function(row) {
-                   
-            
-                },
-            }, {
+            }, 
+             {
                 field: 'Actions2',
                 title: 'Actions2',
                 sortable: false,
@@ -97,8 +87,8 @@ var Main = function() {
              if (row.status!='running') {
                     li+='<li class="navi-item">\
                                     <a href="#" class="navi-link" onclick="Main.play('+row.id+')">\
-                                        <span class="navi-icon"><i class="la la-print"></i></span>\
-                                        <span class="navi-text">Print</span>\
+                                        <span class="navi-icon"><i class="la la-play"></i></span>\
+                                        <span class="navi-text">Play</span>\
                                     </a>\
                                 </li>';
 
@@ -409,6 +399,7 @@ var Main = function() {
                 showCancelButton: true,
                 confirmButtonText: "Yes, reset  it!"
             }).then(function(result) {
+
                 if (result.value) { 
 
                      jQuery.ajax({
