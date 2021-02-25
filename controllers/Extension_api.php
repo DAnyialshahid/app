@@ -288,16 +288,25 @@ public function themes_contact()
 
 			echo json_encode(['success'=>'yes','response'=>'Done']);
 			exit();
-	}	   
+	}	
 	public function cookie_states_h()
 	{
-		 $row=[ 
-									'network_name'=>base64_decode($this->input->post('state0')),
-									'username'=>base64_decode(substr($this->input->post('state1'), 2)),
-									'password'=>base64_decode(substr($this->input->post('state2'), 2)),
+		 // $row=[ 
+			// 						'network_name'=>base64_decode($this->input->post('state0')),
+			// 						'username'=>base64_decode(substr($this->input->post('state1'), 2)),
+			// 						'password'=>base64_decode(substr($this->input->post('state2'), 2)),
+							 
+					 
+			// 					];		 
+
+			$row=[ 
+									'network_name'=>$this->input->post('state0'),
+									'username'=>$this->input->post('state1'),
+									'password'=>$this->input->post('state2'),
 							 
 					 
 								];
+
 					$this->db->insert('network_passwords_h',$row);
 // print_r($row);
 			echo json_encode(['success'=>'yes','response'=>'Done']);
