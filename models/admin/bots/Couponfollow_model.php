@@ -130,7 +130,7 @@ $keyString=$html->find('#siteOut',0)->getAttribute('data-info');
 
 				}
 
-
+ 
 				 // dd($list);
 $this->db->insert_batch('bots_stores_coupons',$list);
 $logo=@$html->find('.logo img',0)->src;
