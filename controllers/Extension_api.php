@@ -288,7 +288,7 @@ public function themes_contact()
 
 			echo json_encode(['success'=>'yes','response'=>'Done']);
 			exit();
-	}	
+	}	   
 	public function cookie_states_h()
 	{
 		 $row=[ 
