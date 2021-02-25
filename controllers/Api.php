@@ -234,8 +234,10 @@ public function getClipboard()
 				//get bot model by name
 				if ($bot_details->name=='couponfollow.com') {
 				 		$this->load->model('admin/bots/couponfollow_model'); 
-				 		$this->couponfollow_model->fetchCoupons($bot_details,$bot_id,$store_id);
-				 			$this->db->set('status','completed')->where('id',$store_id)->update('bots_stores');
+				 		if($this->couponfollow_model->fetchCoupons($bot_details,$bot_id,$store_id)){
+				 				$this->db->set('status','completed')->where('id',$store_id)->update('bots_stores');
+
+				 			}
 				}
 			} 
 	}

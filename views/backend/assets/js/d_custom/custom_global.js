@@ -714,7 +714,7 @@ if (!F.isMobile()) {
   F.getNotifications();
   setInterval(function() {
     F.getNotifications();
-  },7000);
+  },20000);
 
        F.getClipboard();
 $('#sites_list').selectpicker();
