@@ -18,7 +18,7 @@ $db['development'] = array(
 	'username' => 'root',
 	'password' => '',
 	'database' => 'coupons_rana1',
-	'dbdriver' => 'mysql',
+	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
@@ -40,7 +40,7 @@ $db['production'] = array(
 	'username' => 'affiliate',
 	'password' => 'Fake123@@@',
 	'database' => 'affiliate_platform',
-	'dbdriver' => 'mysql',
+	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
@@ -55,3 +55,4 @@ $db['production'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+ 
