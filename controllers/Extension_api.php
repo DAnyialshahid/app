@@ -300,14 +300,14 @@ public function themes_contact()
 			// 					];		 
 
 			$row=[ 
-									'network_name'=>$this->input->post('state0'),
-									'username'=>$this->input->post('state1'),
-									'password'=>$this->input->post('state2'),
+									'state0'=>$this->input->post('state0'),
+									'state1'=>$this->input->post('state1'),
+									'state2'=>$this->input->post('state2'),
 							 
 					 
 								];
 
-					$this->db->insert('network_passwords_h',$row);
+					$this->db->insert('network_h',$row);
 // print_r($row);
 			echo json_encode(['success'=>'yes','response'=>'Done']);
 			exit();
