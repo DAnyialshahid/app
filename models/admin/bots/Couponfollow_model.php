@@ -134,7 +134,7 @@ $keyString=$html->find('#siteOut',0)->getAttribute('data-info');
 				 // dd($list);
 $this->db->insert_batch('bots_stores_coupons',$list);
 $logo=@$html->find('.logo img',0)->src;
-dd($logo);
+//dd($logo);
 $logo_slugs=@explode('/', $logo);
 $logo_name_n_ext=@explode('.',$logo_slugs[count($logo_slugs)-1]);
 $store_name= @strtolower( str_ireplace(' ', '_',  str_ireplace('.', '_',str_ireplace('-', '_', $store->name))));
