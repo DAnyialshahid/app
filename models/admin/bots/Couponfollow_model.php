@@ -24,7 +24,7 @@ $store=$this->db->get_where('bots_stores',['id'=>$store_id])->first_row();
 		$this->db->delete('bots_stores_coupons');
 				$limit=9999;
 			$site_url='https://couponfollow.com/'.$store->custom_url.'#C11'; 
-			  $site_url='https://couponfollow.com/site/adagio.com#C11'; 
+			  //$site_url='https://couponfollow.com/site/adagio.com#C11'; 
 			 // $site_url='https://couponfollow.com/site/acefitness.org'; //2
 			 // $site_url='https://couponfollow.com/site/advanceautoparts.com'; 
 			// $site_url='https://couponfollow.com/site/nike.com#C11'; 
@@ -134,11 +134,13 @@ $keyString=$html->find('#siteOut',0)->getAttribute('data-info');
 				 // dd($list);
 $this->db->insert_batch('bots_stores_coupons',$list);
 $logo=@$html->find('.logo img',0)->src;
-
+dd($logo);
 $logo_slugs=@explode('/', $logo);
 $logo_name_n_ext=@explode('.',$logo_slugs[count($logo_slugs)-1]);
 $store_name= @strtolower( str_ireplace(' ', '_',  str_ireplace('.', '_',str_ireplace('-', '_', $store->name))));
 $final_logo_file_name=@$store_name.'.'.$logo_name_n_ext[1];
+
+
 @file_put_contents('assets/uploads/stores/'.$final_logo_file_name, fopen( str_ireplace('//', 'http://',$logo), 'r'));
 $this->db->set('feature_image',$final_logo_file_name)->where('id',$store_id)->update('bots_stores');
  if (!empty($list)) {

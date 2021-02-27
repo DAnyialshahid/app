@@ -48,12 +48,14 @@ var KTLogin = function() {
                 }
             }
         );
- $('[type=password],[type=username]').on('keydown', function (e) {
-      if (e.code=="Enter" || e.code == "NumpadEnter" ) {
+ $('[name=password],[name=username]').on('keydown', function (e) {
+      if (e.key=="Enter" || e.key == "NumpadEnter" ) {
                 $('#kt_login_signin_submit').trigger('click');
       }
 
         });
+
+
         $('#kt_login_signin_submit').on('click', function (e) {
             e.preventDefault();
 
