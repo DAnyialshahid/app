@@ -1062,11 +1062,12 @@ $categories=[
 
 ];
 
-foreach ($categories as $key => $category) {
+foreach ($categories as  &$category) {
 	$category['site_id']=$site_id;
 	$category['status']='active';
-$this->db->insert('categories',$category); 
+
 }
+$this->db->insert_batch('categories',$categories); 
 return true;
 
 

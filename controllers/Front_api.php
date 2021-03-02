@@ -564,6 +564,33 @@ if (empty($category) && $return==false) {
 
 
 
+  public function notification()
+	{  
+ 			$site_id=$this->input->post('site_id');
+ 			$coupon_id=$this->input->post('coupon_id');
+
+ 					$store=$this->db->where('id','(select store_id from coupons where coupons.id="'.$coupon_id.'")',false)->get('stores')->first_row();
+ 
+ 			$this->load->model('admin/notification_model'); 
+
+ 			 	 $this->notification_model->add([
+				'title'=>$store->name.' don\'t have affialiate link  !',
+				'type'=>'error',
+				'from_user_id'=>1,
+				'to_user_id'=>1,
+				'status'=>'unread',
+				'close_button'=>'0',
+				'progress_bar'=>'0',
+				'reason'=>'aff_link_error',
+				'reason_details'=>json_encode(['store_id'=>$store->id,'coupon_id'=>$coupon_id]),
+				'position'=>'toast-bottom-left',
+				'site_id'=>$site_id,
+		]);
+	echo json_encode(['success'=>'yes','response'=>'submited']);
+			exit();
+
+ 	}
+
   public function search($site_id,$query)
 	{  
  			  
