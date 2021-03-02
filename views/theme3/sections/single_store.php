@@ -45,7 +45,7 @@
     </div>
     <div class="container" style="height: auto !important;">
         <div class="row" style="height: auto !important;">
-            <div class="content col s12 m12 l9 push-l3" data-type="store" style="height: auto !important; min-height: 0px !important;">
+            <div class="content col s12 m12 l9 push-l3" data-type="store" style="height: auto !important; min-height: 0px !important;" id="single_store_container" style="display: none;">
                 
 
 

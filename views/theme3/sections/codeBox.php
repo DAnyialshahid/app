@@ -18,8 +18,8 @@
      
             <div   class="mstore-go">
                 <a target="blank" rel="nofollow" :href="base_url+'store/'+store.custom_url" >
- <img :src="api_url+'/assets/uploads/stores/'+store.feature_image" style="width: 95px" class="responsive-img" />
-                Go To {{store.name}}<i class="fa fa-long-arrow-right bounce"></i></a>
+ <!-- <img :src="api_url+'/assets/uploads/stores/'+store.feature_image" style="width: 95px" class="responsive-img" /> -->
+                Go To  {{store.name}}  <i class="fa fa-long-arrow-right bounce"></i></a>
             </div>
 <div class="mstore-go"> <span class="m-x-1">Did This Offer Work?</span> &nbsp;
                         <span class="vote_up" dusk="coupon-feedback-positive" class="m-x-1 text-primary   rating-thumb show-voting up" onclick="$(this).parent().hide(1000)"><i class="fa fa-thumbs-up" ></i> </span>&nbsp;
