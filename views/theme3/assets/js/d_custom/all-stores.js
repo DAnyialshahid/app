@@ -26,7 +26,8 @@ var currentAlphabet="";
 });*/
  init();
 $(document).ready(function() {
-		loadData(null);
+		currentAlphabet='A';
+		loadData($('.sitemap-letters a').first());
 	});
 
 function setCurrentAlphabet(element,alphabet=''){
@@ -48,12 +49,13 @@ function loadData(element,page_no=''){
 		$(element).closest('ul').find('li').removeClass('active');
 		$(element).closest('li').addClass('active');
 }
+ app.allStores=[];
 	 $.ajax({
 	                     type : "post",
 	                     dataType : "json",
 	                     url : api_url+"/front_api/getStores/", 
 	                     data:{
-	                     	'limit':20,
+	                     	'limit':3000,
 	                     	'alphabet':currentAlphabet,
 	                     	'page_no':page_no,
 	                     	'site_id':site_id,

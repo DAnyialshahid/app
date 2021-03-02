@@ -18,7 +18,7 @@
         
         <div class="container all-stores">
             <div class="row">
-                                    <div class="col s12">
+                                    <div class="col s12" style="display: none">
                         <ul class="tabs" style="width: 100%;">
                                                             <li class="tab col s3"><a href="#list" onclick="setCurrentAlphabet(this,'A')" class="active">A</a></li>
                                                             <li class="tab col s3"><a href="#list" onclick="setCurrentAlphabet(this,'B')">B</a></li>

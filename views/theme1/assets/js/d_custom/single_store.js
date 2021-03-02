@@ -98,11 +98,11 @@ function loadStore(visit){
 	                                	 		                }
 	                              		  } 
 	                                }
-
+	                                $('#single_store_container').show();
 	                              //  loadCoupons(app.row.id);
 	                        }
 	                        else {
-	                        	alert("404 or empty");
+	                        	//alert("404 or empty");
 	                        	if (type=="single_store") {
 	                        		  window.location.href=base_url+"stores"; 	
 	                        	}	else if (type=="single_category") {
@@ -112,6 +112,9 @@ function loadStore(visit){
 	                        		                      }
 	                        }
 	                     }
+
+
+
 	                }); 
 	}
 	

@@ -103,7 +103,7 @@ function loadStore(visit){
 	                              //  loadCoupons(app.row.id);
 	                        }
 	                        else {
-	                        	alert("404 or empty");
+	                        	//alert("404 or empty");
 	                        	if (type=="single_store") {
 	                        		  window.location.href=base_url+"stores"; 	
 	                        	}	else if (type=="single_category") {

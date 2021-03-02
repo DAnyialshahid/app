@@ -39,7 +39,7 @@
                                     <div class="tw-text-center xl:tw-w-1/6 tw-w-1/4 xl:tw-min-w-1/6 tw-min-w-1/4">
                                    <a :href="base_url+'store/'+coupon.store.custom_url" class="row" title=" ">
                                        <div    v-if="coupon.short_title"   class="coupon-label-context coupon roboto-slab tw-font-bold tw-leading-tight tw-my-0 ">
-                                            <div class="tw-inline-block cdroboto-slab tw-text-orange sm:tw-text-5xl tw-text-4xl">
+                                            <div class="tw-inline-block cdroboto-slab tw-text-orange sm:tw-text-4xl  ">
                                                 {{coupon.short_title.split(' ')[0]}}
                                             </div>
                                             <div class="off__label">   {{coupon.short_title.split(' ')[1]}}</div>
@@ -207,7 +207,7 @@
                                     <div class="tw-text-center xl:tw-w-1/6 tw-w-1/4 xl:tw-min-w-1/6 tw-min-w-1/4">
                                    <a :href="base_url+'store/'+coupon.store.custom_url" class="row" title=" ">
                                        <div    v-if="coupon.short_title"   class="coupon-label-context coupon roboto-slab tw-font-bold tw-leading-tight tw-my-0 ">
-                                            <div class="tw-inline-block cdroboto-slab tw-text-orange sm:tw-text-5xl tw-text-4xl">
+                                            <div class="tw-inline-block cdroboto-slab tw-text-orange sm:tw-text-4xl  ">
                                                 {{coupon.short_title.split(' ')[0]}}
                                             </div>
                                             <div class="off__label">   {{coupon.short_title.split(' ')[1]}}</div>

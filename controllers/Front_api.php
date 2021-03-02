@@ -124,13 +124,17 @@ class front_api extends Theme_Controller{
 		$site_id=$site_id?$site_id:$this->input->post('site_id'); 
 
 			$category=$this->db->select('*')->where('slug',$category_slug)->where('site_id',$site_id)->get('categories')->first_row();
+if (empty($category) && $return==false) {
+	 	echo json_encode(['success'=>'no','response'=>'category not found']);
+			exit();
+}
 			$category_id=$category->id;
 
 		 	// $store_ids=$this->db->select('group_concat(id,",") as ids')->where('category_id',$category_id)->where('site_id',$site_id)->get('stores')->first_row()->ids;
 
 			$this->db->where('category_id',$category_id);  
 			$data = [];  
-
+	
 			$data['name']=$category->name;  
 			$data['id']=$category->id;  
 			$data['feature_image']=$category->feature_image?$category->feature_image:'blank.png';  
@@ -142,7 +146,9 @@ class front_api extends Theme_Controller{
 			$coupon->store=$this->db->where(['site_id'=>$site_id,'id'=>$coupon->store_id ])->get('stores')->first_row() ;
 				# code...
 			}
+
 			$data['affiliate_link']=$category->id;  
+
 			$data['popular_stores'] =$this->db->where(['site_id'=>$site_id,'category_id'=>$category->id,'popular'=>1 ])->limit(10)->get('stores')->result(); 
 		    $data['relative_stores'] =$this->db->where(['site_id'=>$site_id,'category_id'=>$category->id, ])->limit(10)->get('stores')->result(); 
 
@@ -173,6 +179,7 @@ class front_api extends Theme_Controller{
 		
 
 			if($return){return $data;}
+			//dd($data);
 			echo json_encode(['success'=>'yes','response'=>$data ]);
 			exit();
 	}
@@ -320,8 +327,16 @@ class front_api extends Theme_Controller{
 	
 		$store=$this->getStores([
 				'custom_url'=>$slug,
-		],['coupons','popular_stores','relative_stores','counts'],true)[0];
+		],['coupons','popular_stores','relative_stores','counts'],true);
+
+		if (empty($store) ) {
+			 	echo json_encode(['success'=>'no','response'=>'Store not found']);
+					exit();
+		}
+
+		$store=$store[0];
 		echo json_encode(['success'=>'yes','response'=>$store]);  
+
 
 		$visit=$this->input->post('visit');
 		$coupon_id=$this->input->get('coupon_id');

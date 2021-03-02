@@ -69,7 +69,7 @@
              
      
         <center>
-        <ul class="pagination">
+        <ul class="pagination" style="display: none">
                 <li class="active">
                     <a href="#" onclick="loadData(this,'1')">
                         1

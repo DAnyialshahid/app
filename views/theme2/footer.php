@@ -13,8 +13,8 @@
                         </div>
                     </div>
                 <div class="footer-social">
-                    <a href="https://facebook.com/CouponCause" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://instagram.com/thecouponcause" target="_blank"><i class="fa fa-instagram"></i></a>
-                    <a href="https://twitter.com/thecouponcause" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a> <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
                 </div>
                 <h4 class="disclaimertitle">Disclaimer</h4>
                  <b v-html="configs.description" ></b> 
@@ -56,12 +56,12 @@
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <p class="text-center">
-                        Use of CouponCause.com is subject to <a href="/terms-and-conditions-for-use-of-couponcause-com/"><b>Terms &amp; Conditions</b></a>
+                        Use of  <b v-html="configs.site_name" ></b>  is subject to <a :href="base_url+'page/terms_conditions'"><b>Terms &amp; Conditions</b></a>
                     </p>
                 </div>
                 <div class="col-md-3 col-sm-3">
                     <p class="text-right">
-                        View our <a href="/privacy-policy/"><b>Privacy Policy</b></a>
+                        View our <a  :href="base_url+'page/privacy_policy'"><b>Privacy Policy</b></a>
                     </p>
                 </div>
             </div>

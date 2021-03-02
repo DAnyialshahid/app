@@ -73,3 +73,12 @@ a.nav-link:focus {
     top: -7px;
 }
  
+
+ .coupon-label-context {
+
+    overflow: hidden !important;
+ }
+ .coupon-card {
+
+  height: 97px !important;
+ }
