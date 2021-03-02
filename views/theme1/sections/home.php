@@ -41,7 +41,7 @@
                         <div class="obody">
                             <div class="otop">
                                 <div class="ostats">
-                                    <div class="ostore"><a :href="base_url+'store/'+coupon.store.custom_url"  >   {{coupon.store.custom_url}}  {{coupon.store.name}} </a></div>
+                                    <div class="ostore"><a :href="base_url+'store/'+coupon.store.custom_url"  >     {{coupon.store.name}} </a></div>
                                 </div>
                                 <div class="odisplay">
                                     <div class="otitle">
