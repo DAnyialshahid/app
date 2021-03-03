@@ -6,6 +6,7 @@
 <!-- <meta content="width=640, initial-scale=0.47, maximum-scale=1.0, user-scalable=1" name="viewport"> -->
         <link rel="stylesheet" href="<?=theme_base_url?>/assets/css/style.css?v=1" media="all" />
 		<script type="text/javascript" src="<?=theme_base_url?>/assets/js/jquery.js"></script>
+          <script type="text/javascript" src="<?=theme_base_url?>/assets/js/jquery.ajax-retry.min.js"></script>
         <script type="text/javascript" src="<?=theme_base_url?>/assets/js/vue.js"></script> 
         <script type="text/javascript" src="<?=theme_base_url?>/assets/js/typeahead.bundle.js"></script>
         <script type="text/javascript" src="<?=theme_base_url?>/assets/js/handlebars.js"></script>

@@ -170,7 +170,18 @@ function notification_coupon_link_expire(coupon_id,callback){
   (function () {
 
 
-
+// $(document).ajaxSuccess(function(a,b,c) {
+//   if (b.status=='404') {
+//         console.log('404 ajax');
+//   }
+//   if (b.status=='200') {
+//     console.log('success');
+//   }
+// console.error(a);
+// console.error(b);
+// console.error(c);
+ 
+// });
 
 var allbtns=new ClipboardJS('.clipClass');
 allbtns.on('success', function(e) {

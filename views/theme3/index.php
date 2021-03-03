@@ -1,3 +1,4 @@
+<html>
 <?php  add_page($this,'header');?>
 
 
@@ -10,3 +11,5 @@
 <?php  //add_page($this,'sections/contact');?>
 <?php  //add_page($this,'sections/terms');?>
 <?php  add_page($this,'footer');?>
+
+</html>

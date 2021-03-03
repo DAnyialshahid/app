@@ -1,4 +1,4 @@
-  <link rel="stylesheet" href="<?=theme_base_url?>/assets/css/bootstrap.css" type="text/css" media="all">
+
   <?php //exit(base_url());?>
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -19,6 +19,7 @@
         </style>
          
     <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">  
+
   <!-- Owl Stylesheets -->
     <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css">
@@ -29,6 +30,7 @@
 
     
 		<script type="text/javascript" src="<?=theme_base_url?>/assets/js/jquery.js"></script>
+        <script type="text/javascript" src="<?=theme_base_url?>/assets/js/jquery.ajax-retry.min.js"></script>
         <script type="text/javascript" src="<?=theme_base_url?>/assets/js/vue3.js"></script>  
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         

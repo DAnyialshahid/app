@@ -390,6 +390,8 @@ if (empty($category) && $return==false) {
 			foreach ($coupons as $key => &$coupon) { 
 			$store=$this->db->where(['site_id'=>$site_id,'id'=>$coupon->store_id ])->get('stores')->first_row() ;
 			$coupon->store=$store;
+			$coupon->name=html_entity_decode($coupon->name);
+			$coupon->short_title=html_entity_decode($coupon->short_title);
 		 
  
 				if (empty($coupon->store)) {
