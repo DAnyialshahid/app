@@ -1,4 +1,4 @@
-  
+   
  var home = new Vue({
   el: '#home',
    errorCaptured: function(err) {
@@ -52,7 +52,7 @@
  init();
 $(document).ready(function() {
  
-		//getSlides();
+		 getSlides();
 		getTopStores();
 		getRecommendedCoupons();
 		getPopularCoupons();
@@ -215,14 +215,17 @@ function getSlides(data,limit,callback){
 	                     },
 	                     success: function(data) { 
 	                        if(data.success === "yes") { 
-	                        	home.slides=data.response;
-	                        	  $('.owl-carousel').owlCarousel({
-									    items:1,
-									    lazyLoad:true,
-									    loop:true,
-									    margin:10,autoHeight:1
-									});
-	                    
+	                        	home.slides=data.response; 
+	                    		
+							  setTimeout(function() {
+							  		  $('.owl-carousel').owlCarousel({
+							                      items:1,
+							                      lazyLoad:true,
+							                      loop:true,
+							                      margin:10,autoHeight:1
+							                  });
+
+							  },1000);
 	                        }
 	                        else {
 	                            alert("Error");

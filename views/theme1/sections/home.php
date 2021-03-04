@@ -2,14 +2,20 @@
 <div id="home">
 <section class="homepage banners bg-white" >
     <div class="container">
-        <a href="#">
+      <div class="owl-carousel owl-theme">
+
+            <a v-for="slide in slides"  :href="slide.link">
+              <img class="owl-lazy"   :data-src="api_url+'/assets/uploads/slides/'+slide.file_name"   alt="" style="height: 320px">
+             </a>
+            </div>
+        <!-- <a href="#">
             <img
                 src="https://static.dontpayfull.com/static/images/banners/amazon-discount-finder-desktop.png"
                 srcset="https://static.dontpayfull.com/static/images/banners/amazon-discount-finder-desktop@2x.png"
                 class="img-responsive"
                 alt="Amazon Discount Finder Banner"
             />
-        </a>
+        </a> -->
     </div>
 </section>
 <section class="homepage featured">

@@ -23,8 +23,8 @@
  <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
   <!-- Owl Stylesheets -->
-    <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
 
 		<script type="text/javascript" src="<?=theme_base_url?>/assets/js/jquery.js"></script>
@@ -49,9 +49,8 @@
 
 
         </script>
-
-
-
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <script type="text/javascript" src="<?=theme_base_url?>/assets/js/typeahead.bundle.js"></script>
         <script type="text/javascript" src="<?=theme_base_url?>/assets/js/handlebars.js"></script>
 

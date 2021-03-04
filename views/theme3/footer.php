@@ -84,7 +84,7 @@
     <script src="<?=theme_base_url?>/assets/js/vendor.min.js"></script>
     <script src="<?=theme_base_url?>/assets/js/app-d925701f8e.min.js"></script>
 
-                     <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
+                     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.jss"></script>
             
                             <script src="<?=script_attach(theme_base_url,'/assets/js/clipboard.min.js')?>"></script>
                                         <!--begin::Page Scripts(used by this page)-->

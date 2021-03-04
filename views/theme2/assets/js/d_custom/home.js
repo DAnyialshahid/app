@@ -1,4 +1,4 @@
-  
+   
 var home= Vue.createApp({
   data() {
     return {

@@ -79,8 +79,7 @@
 
 </div>
 
-                     <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
-            
+                  
                             <script src="<?=script_attach(theme_base_url,'/assets/js/clipboard.min.js')?>"></script>
                                         <!--begin::Page Scripts(used by this page)-->
 

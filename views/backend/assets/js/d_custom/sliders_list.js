@@ -233,7 +233,7 @@ var Main = function() {
                     type : "post",
                      data:{'token':token}, headers: { 'x-cookie': cookie },  
                      dataType : "json",
-                     url : api_base_url+"/deleteCategory/"+id, 
+                     url : api_base_url+"/deleteSlider/"+id, 
                      success: function(data) { 
                         if(data.success === "yes") {  
                                         Swal.fire(
