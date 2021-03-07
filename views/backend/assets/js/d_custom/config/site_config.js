@@ -143,8 +143,8 @@ var Main = function() {
                                         $('[name=seo_page_meta_description]').val(row.seo_page_meta_description);
                                         
                                   //image
- $('#kt_image_1 .image-input-wrapper').css('background-image','url("'+base_url+"/assets/uploads/sites/"+row.logo+'")');
- $('#kt_image_2 .image-input-wrapper').css('background-image','url("'+base_url+"/assets/uploads/sites/"+row.favicon+'")');
+ $('#kt_image_1 .image-input-wrapper').css('background-size','100% 100%').css('background-image','url("'+base_url+"/assets/uploads/sites/"+row.logo+'")');
+ $('#kt_image_2 .image-input-wrapper').css('background-size','100% 100%').css('background-image','url("'+base_url+"/assets/uploads/sites/"+row.favicon+'")');
 
                         }
                         else {

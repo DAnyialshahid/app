@@ -100,6 +100,16 @@ var Route = function() {
                 }else{
                   Route.E_404(page,type);
                 }
+          }else if (page=='categories_group') {
+                if (type=='list') {
+                  Ajax.loadPage('Categories Group List','sections/categories_group_list','categories_group_list'); 
+                }else if (type=='create') {
+                   Ajax.loadPage('New Category Group','sections/categories_group_create','categories_group_create');  
+                }else if (type=='edit') {
+                   Ajax.loadPage('Edit Category Group','sections/categories_group_create','categories_group_create',id);  
+                }else{
+                  Route.E_404(page,type);
+                }
           }else if (page=='sliders') {
                 if (type=='list') {
                   Ajax.loadPage('Sliders List','sections/sliders_list','sliders_list'); 

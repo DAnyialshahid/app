@@ -237,6 +237,36 @@ if (empty($category) && $return==false) {
 
 
 
+	public function getCategoriesByGroups($where=null,$with=null,$return=false)
+	{
+
+	 
+		$site_id=$this->input->post('site_id');
+		$limit=$this->input->post('limit');
+		 
+		$categories_groups=$data = $this->db->get_where('categories_group',[
+				'site_id'=>$site_id
+		])->result(); 
+	 
+		foreach ($categories_groups as   &$group) {
+					$this->db->limit($limit);
+					$categories=$this->db->get_where('categories',[
+								'categories_group_id'=>$group->id,
+								'site_id'=>$site_id,
+						])->result();
+			 	$group->categories=$categories; 
+			 	$group->count=count($categories); 
+
+		}
+
+		 
+			if($return){return $data;}
+		echo json_encode(['success'=>'yes','response'=>$categories_groups]);
+		exit();
+	}
+
+
+
 
 		
 	public function getStores($where=null,$with=null,$return=false)
@@ -310,6 +340,20 @@ if (empty($category) && $return==false) {
 
 				}
 		}	 
+		if(isset( $with) &&  in_array('counts2', $with) && isset($stores)){
+
+			foreach ($stores as &$store) { 
+
+$totalCoupons=$this->db->select('count(*) as count','',false)->where('type','coupon')->where('store_id',$store->id)->get('coupons')->first_row()->count;
+$totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal')->where('store_id',$store->id)->get('coupons')->first_row()->count;
+ 
+					$store->count=new stdClass;
+					$store->count->coupons=$totalCoupons;
+
+					$store->count->deals=$totalDeals;
+				 
+				}
+		}	 
 
 
 		// d($stores);
@@ -359,6 +403,25 @@ if (empty($category) && $return==false) {
 		$stores=$this->getStores([
 				'top'=>1,
 				'show_in_home'=>'1',
+				'site_id'=>$site_id,
+		],[],true);
+		echo json_encode(['success'=>'yes','response'=>$stores]);   
+		 
+
+		exit();
+	}
+	
+
+//show only check if popular =1 
+	public function getPopularStores()
+	{
+
+	 
+		$site_id=$this->input->post('site_id'); 
+
+		$stores=$this->getStores([
+				'popular'=>1,
+			 
 				'site_id'=>$site_id,
 		],[],true);
 		echo json_encode(['success'=>'yes','response'=>$stores]);   
@@ -608,7 +671,7 @@ if (empty($category) && $return==false) {
  
 		$stores=$this->getStores([ 
 				 
-		],[],true);
+		],['counts2'],true);
 
 // echo $this->db->last_query();
 		echo json_encode($stores);

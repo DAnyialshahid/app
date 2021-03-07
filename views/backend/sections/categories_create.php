@@ -79,6 +79,20 @@
                             </div>
                             <!--end::Group--> 
 
+
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label">Category Group</label>
+                                <div class="col-lg-9 col-xl-9">
+                                    <!-- <input class="form-control form-control-solid form-control-lg  " name="icon"  id="icon" type="text" value="" /> -->
+                                    <select class="form-control selectpicker" id="categories_group_id" name="categories_group_id">
+
+                                                   
+                                    </select>
+                                </div>
+                            </div>
+                            <!--end::Group--> 
+
                             <!--begin::Group-->
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label text-left">Category  Image</label>

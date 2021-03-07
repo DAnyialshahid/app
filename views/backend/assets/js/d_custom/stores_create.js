@@ -73,7 +73,7 @@ var Main = function() {
  
                                         // $('[name=store_name]').val(row.store_name);
                                           //image 
-                            $('#kt_image_1 .image-input-wrapper').css('background-image','url("'+base_url+"/assets/uploads/stores/"+row.feature_image+'")');
+                            $('#kt_image_1 .image-input-wrapper').css('background-size','100% 100%').css('background-image','url("'+base_url+"/assets/uploads/stores/"+row.feature_image+'")');
 
 
                         }

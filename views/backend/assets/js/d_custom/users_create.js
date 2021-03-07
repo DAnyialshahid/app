@@ -83,7 +83,7 @@ var Main = function() {
                                         $('[name=description]').val(row.description);
 
                                         //image 
-                                        $('#kt_image_1 .image-input-wrapper').css('background-image','url("'+base_url+"/assets/uploads/Users/"+row.feature_image+'")');
+                                        $('#kt_image_1 .image-input-wrapper').css('background-size','100% 100%').css('background-image','url("'+base_url+"/assets/uploads/Users/"+row.feature_image+'")');
 
                         }
                         else {

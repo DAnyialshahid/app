@@ -121,7 +121,7 @@ window.ckeditor_box.setData(copy_data.data_desc)
                                         $('[name=seo_coupon_meta_description]').val(row.seo_coupon_meta_description);
 
                                         //image 
-                                        $('#kt_image_1 .image-input-wrapper').css('background-image','url("'+base_url+"/assets/uploads/coupons/"+row.feature_image+'")');
+                                        $('#kt_image_1 .image-input-wrapper').css('background-size','100% 100%').css('background-image','url("'+base_url+"/assets/uploads/coupons/"+row.feature_image+'")');
 
                         }
                         else {

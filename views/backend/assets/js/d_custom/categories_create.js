@@ -51,7 +51,7 @@ var Main = function() {
                         if(data.success === "yes" ) { 
                           var row=data.response;
 
-                                          //input
+                                          //input 
                                         $('[name=name]').val(row.name);
                                         $('[name=slug]').val(row.slug);
                                         $('[name=seo_category_meta_title]').val(row.seo_category_meta_title);
@@ -59,6 +59,7 @@ var Main = function() {
                                         // $('[name=icon]').val(row.icon);      
                                           //selectpicker
                                         $('[name=category_id]').val(row.category_id).selectpicker('refresh');
+                                        $('[name=categories_group_id]').val(row.categories_group_id).selectpicker('refresh');
                                         $('[name=type]').val(row.type).selectpicker('refresh');
                                         $('[name=status]').val(row.status).selectpicker('refresh');
                                         $('[name=icon]').val(row.icon).selectpicker('refresh');
@@ -72,7 +73,7 @@ var Main = function() {
                                         $('[name=seo_category_meta_description]').val(row.seo_category_meta_description);
                                         
                                   //image
-                                $('#kt_image_1 .image-input-wrapper').css('background-image','url("'+base_url+"/assets/uploads/categories/"+row.feature_image+'")');
+                                $('#kt_image_1 .image-input-wrapper').css('background-size','100% 100%').css('background-image','url("'+base_url+"/assets/uploads/categories/"+row.feature_image+'")');
 
                         }
                         else {
@@ -119,7 +120,7 @@ var Main = function() {
 
 jQuery(document).ready(function() { 
 
-    //F.fillSelectAjax('#select_category','getCategories');
+F.fillSelectAjax('#categories_group_id','getCategoriesGroups');
 
 defaultForm=FormValidation.formValidation(
     document.getElementById('default'),

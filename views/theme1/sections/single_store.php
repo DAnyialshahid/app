@@ -1,7 +1,16 @@
 <script type="text/javascript">
-    var slug='<?=$slug?>';
-    var type='<?=$type?>';
+    var url_slug=window.location.pathname.split('/');
+    var slug = url_slug[2];
+    var type =  url_slug[1];
+    if (type=='store') {
+        type='single_store';
+    }else if(type=='category'){
+         type='single_category';
+
+    }
 </script>
+
+
 <div class="container main-container" id="d_single_store">
     <div class="row">
         <div class="col-md-9 col-xs-12 main pull-md-right clearfix" id="single_store_container" style="display: none;">

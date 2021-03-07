@@ -368,6 +368,15 @@ public function getBotDetails($where=null,$return=false)
 				if($return){return $stores;}
 			echo json_encode(['success'=>'yes','response'=>$stores]);
 			exit();
+	}	
+	public function getCategoriesGroups($where=null,$return=false)
+	{
+
+			$this->load->model('admin/categories_model');
+			$stores=$this->categories_model->get_all_groups($where); 
+				if($return){return $stores;}
+			echo json_encode(['success'=>'yes','response'=>$stores]);
+			exit();
 	}
 
 	public function insertDummyCategories()
@@ -501,6 +510,25 @@ public function getBotDetails($where=null,$return=false)
 	{
 
 			$category=$this->getCategories([
+					'id'=>$id
+			],true);
+			if(!empty($category)){
+				$category=$category[0];
+					echo json_encode(['success'=>'yes','response'=>$category]);
+						exit();
+			}else{
+
+					echo json_encode(['success'=>'no','response'=>'Item Not found ID '.$id]);
+						exit();
+
+			}
+	
+	}	
+
+	public function getCategoryGroup($id)
+	{
+
+			$category=$this->getCategoriesGroups([
 					'id'=>$id
 			],true);
 			if(!empty($category)){
@@ -711,6 +739,18 @@ echo json_encode(['success'=>'yes','response'=>'Clear Group Successfully']);
 		exit();
 
 	}
+	public function deleteCategoryGroup($id)
+	{
+		   $this->load->model('admin/categories_model');
+			$delete=$this->categories_model->delete_group($id); 
+			if($delete==true){ 
+					echo json_encode(['success'=>'yes','response'=>$delete]);
+			}else if(is_array($delete)){
+					echo json_encode(['success'=>'no','response'=>$delete->error]);
+			}
+		exit();
+
+	}
 
 	public function deleteCoupon($id)
 	{
@@ -775,6 +815,18 @@ echo json_encode(['success'=>'yes','response'=>'Clear Group Successfully']);
 				$this->createCategory(true,$this->input->post('id'));
 		}
 	}
+		public function updateCategoryGroup()
+	{
+		// d($_FILES);
+		// d($_SERVER['REQUEST_METHOD']);
+		// d(getallheaders());
+		// // dd($_POST);
+
+		if($this->input->post('id')){
+				$this->createCategoryGroup(true,$this->input->post('id'));
+		}
+	}
+	
 	public function updateSlide()
 	{
 		if($this->input->post('id')){
@@ -863,6 +915,52 @@ $uploaded_file['file_name']='';
  
 			$this->load->model('admin/categories_model');
 			$add=$this->categories_model->add($uploaded_file['file_name'],$update,$id); 
+			if($add){
+						echo json_encode(['success'=>'yes','response'=>$add]);
+			}else{
+						echo json_encode(['success'=>'no','response'=>$add]);
+			}
+
+			
+	
+		exit();
+	}
+
+
+	public function createCategoryGroup($update=false,$id=null)
+	{
+
+
+if(!empty($_FILES['feature_image']['name'])){
+
+	   $config['upload_path']          = './assets/uploads/categories/';
+   	   $config['allowed_types']        = 'gif|jpg|png';
+     		    // $config['max_size']             = 100;
+           //      $config['max_width']            = 1024;
+           //      $config['max_height']           = 768;
+    $this->load->library('upload');
+	$this->upload->initialize($config);
+                if ( ! $this->upload->do_upload('feature_image'))
+                {
+                            $error = array('error' => $this->upload->display_errors());
+                			echo json_encode(['success'=>'no','response'=>$error['error']]);
+                			exit();
+ 
+                }
+                else
+                {
+                        $uploaded_file =$this->upload->data();
+ 
+                }
+
+ // dd(   $uploaded_file);
+}else{
+
+$uploaded_file['file_name']='';
+}
+ 
+			$this->load->model('admin/categories_model');
+			$add=$this->categories_model->add_group($uploaded_file['file_name'],$update,$id); 
 			if($add){
 						echo json_encode(['success'=>'yes','response'=>$add]);
 			}else{
