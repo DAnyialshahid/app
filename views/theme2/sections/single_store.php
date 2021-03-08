@@ -158,7 +158,7 @@
                         <div class="widget-content text-left">
                             <h3 class="widget-title"><span class="offer-count">{{row.count.coupons+row.count.deals}}</span> Offers Available</h3>
                             <div class="row">
-                                <div class="content" id="d_sidebar_serialize">
+                                <div class="content " id="d_sidebar_serialize">
                                     <div class="facets" data-sid="8" style="padding: 10px;">
                                         <b> Show Only</b>
                                         <div class="facet-group" style="margin-left: 50px;">

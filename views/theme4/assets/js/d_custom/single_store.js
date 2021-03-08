@@ -54,7 +54,19 @@ $(document).ready(function() {
 
 	});
 
- 
+ function filture(type){
+		$('#d_sidebar_serialize input[type=checkbox]').prop('checked',false);
+	if (type=='all') {
+ 			$('#offer_type_code').trigger('change');
+	}else if (type=='deal') {
+		$('#offer_type_deal').prop('checked',true).trigger('change')
+	}else if (type=='coupon') {
+		$('#offer_type_code').prop('checked',true).trigger('change')
+	} 
+
+
+}
+
 function getAllCoupons(){
 return app.coupons;
 }

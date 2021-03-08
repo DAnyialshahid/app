@@ -47,61 +47,22 @@ var home= Vue.createApp({
 	 },
 
   }
-  }
+ },
+mounted: function () {
+  this.$nextTick(function () {
+
+  })
+}
+
+
 }).mount('#home');
 
-/*
- var home = new Vue({
-  el: '#home',
-   errorCaptured: function(err) {
-      console.log('Caught error', err.message);
- 				alert();
-      return false;
-    },
-  data: {
-    api_url: api_url, 
-    base_url: base_url, 
-    comeFrom: 'home', 
-	  slides: [  ],
-	  show_in_home_stores: [  ],
-	  recommended_coupons: [  ],
-	  popular_coupons: [  ],
-	  popular_categories: [  ],
-	  popular_stores: [  ],
-
-	 initCouponBox: function(coupon) { 
-	 	coupon_box.box_data=coupon; 
-		showCouponBox();
-	 },
-
-	 loadCouponAffilate: function(coupon) { 
-	 	c(coupon);
-	  
-
-	 	visitCoupon(coupon.id,function() {
-	 		
-	 if(coupon.affiliate_link){
-	 			window.location.href=coupon.affiliate_link;
-	 	}else if(coupon.store.affiliate_link){
-
-	 				window.location.href=coupon.store.affiliate_link;
-	 	}else{
-
-	 			notification_coupon_link_expire(coupon.id,function() {
-	 							window.location.href='';
-	 			});
-	 			
-	 	}
-	 	
-
-
-	 	})
-	 	
-	 },
-
-  },
-});*/
+ 
  init();
+$(document).on('footer_loaded',function() {
+
+
+});
 $(document).ready(function() {
 	
 		getSlides();
@@ -110,10 +71,39 @@ $(document).ready(function() {
 		getPopularCoupons();
 		getPopuplarCategories();
 		getPopuplarStores();
-		 
+
+	
 	});
 
  
+ function flicky_recommended_slider(){
+ 		$('.recommended-coupon-carousel').flickity({
+		  // options
+		  cellAlign: 'left',
+		  	   pageDots: false,	
+		  contain: true
+		});
+		 
+ }  
+
+ function flicky_top_store(){
+ 		$('.hot-stores').flickity({
+		  // options
+		  cellAlign: 'left',
+		  pageDots: false,	
+		  contain: true
+		});
+		 
+ } 
+ function flicky_popular_slider(){
+ 		$('.popular-coupon-carousel').flickity({
+		  // options
+		  cellAlign: 'left',
+		   pageDots: false,
+		  contain: true
+		});
+		 
+ }
  function getAllCoupons(){
 return home.recommended_coupons.concat(home.popular_coupons);
 }
@@ -132,6 +122,11 @@ function getTopStores(){
 	                     success: function(data) { 
 	                        if(data.success === "yes") { 
 	                                home.show_in_home_stores=data.response;
+
+	                    		setTimeout(function() {
+									flicky_top_store();
+							                         
+								},300);
 	                        }
 	                        else {
 	                            alert("Error");
@@ -149,6 +144,10 @@ function getTopStores(){
   };
 		getCoupons(data,10,function (response) {
 			            home.recommended_coupons=response;
+			            setTimeout(function() {
+									flicky_recommended_slider();
+							                         
+								},300);
 		});
  }
 
@@ -161,6 +160,16 @@ function getTopStores(){
   };
 		getCoupons(data,20,function (response) {
 			            home.popular_coupons=response;
+
+	  
+
+	     setTimeout(function() {
+									flicky_popular_slider();
+							                         
+								},300);
+
+
+
 		});
  }
 
@@ -237,14 +246,9 @@ function getPopuplarStores(data,limit,callback){
 	                     success: function(data) { 
 	                        if(data.success === "yes") { 
 	                        	home.popular_stores=data.response;
-	                        	 
-	                        	 $('.owl-carousel').owlCarousel({
-									    items:1,
-									    lazyLoad:true,
-									    loop:true,
-									    margin:10,autoHeight:1 
-									});
-	                    
+	                        	
+
+
 	                        }
 	                        else {
 	                            alert("Error");
@@ -272,8 +276,18 @@ function getSlides(data,limit,callback){
 	                     success: function(data) { 
 	                        if(data.success === "yes") { 
 	                        	home.slides=data.response;
-	                        	 
-	                    
+	                        	 		setTimeout(function() {
+			 $('.owl-carousel').owlCarousel({
+									    items:1,
+									    lazyLoad:true,
+									    loop:true,
+									    margin:10,
+									    autoHeight:1 
+									});
+	                         
+		},300);
+	                    		 
+	                        	
 	                        }
 	                        else {
 	                            alert("Error");

@@ -23,9 +23,11 @@
             </div>
             <div class="inpage-search hidden-md hidden-lg clearfix">
                 <div class="store-filters filters-type pull-left">
-                    <label data-filter="all" class="active"> All <span></span> </label> <label data-filter="coupon"> Coupons <span></span> </label> <label data-filter="deal"> Deals <span></span> </label>
-                    <label data-filter="freeshipping"> Free Shipping <span></span> </label>
-                    <label data-filter="verified" class="pull-right">
+                    <label data-filter="all" class="active" onclick="filture('all')"> All <span></span> </label> 
+                    <label data-filter="coupon" onclick="filture('coupon')"> Coupons <span></span> </label> 
+                    <label data-filter="deal" onclick="filture('deal')"> Deals <span></span> </label>
+                    <label data-filter="freeshipping"  onclick="filture('freeshipping')"> Free Shipping <span></span> </label>
+                    <label data-filter="verified" onclick="filture('verified')" class="pull-right">
                         Verified
                     </label>
                 </div>

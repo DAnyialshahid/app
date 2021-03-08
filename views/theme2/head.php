@@ -3,6 +3,7 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Home</title>
+        <?=head($page_name,(isset($slug)?$slug:null))?> 
         <meta name="description" content="2+ active Dame Products coupons,  promo codes &amp; deals for Nov. 2020. Most popular: 10% Off Vibrators" />
         <meta name="keywords" content="-" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">

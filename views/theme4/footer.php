@@ -81,9 +81,11 @@
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  />
        <!-- <script src="<?=theme_base_url?>/assets/js/materialize.min.js"></script> -->
 
-
+   <!-- owl  JavaScript -->
                      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-                    
+                    <!-- Flickity  JavaScript -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
                             <script src="<?=script_attach(theme_base_url,'/assets/js/clipboard.min.js')?>"></script>
                                         <!--begin::Page Scripts(used by this page)-->
 
@@ -93,7 +95,9 @@
                            <?php endif;?>
                         <!--end::Page Scripts-->
 
-                        <!--end::Page Scripts-->
+                  <script type="text/javascript">
+                  $(document).trigger('footer_loaded');
+                  </script>
 
 
 </body></html>

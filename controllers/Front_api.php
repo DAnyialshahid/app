@@ -170,8 +170,10 @@ if (empty($category) && $return==false) {
 						}
 
 					$count=new stdClass;
-					$count->coupons=$totalCoupons;
-					$count->deals=$totalDeals;
+					$count->coupons=intval($totalCoupons);
+					$count->deals=intval($totalDeals);
+					$count->all=intval($totalCoupons)+intval($totalDeals);
+
 					$count->last_update=date('d-M-yy',$last_update); 
 					 $data['count']=$count;
 
@@ -334,8 +336,9 @@ if (empty($category) && $return==false) {
 							 }
 						}
 					$store->count=new stdClass;
-					$store->count->coupons=$totalCoupons;
-					$store->count->deals=$totalDeals;
+					$store->count->coupons=intval($totalCoupons);
+					$store->count->deals=intval($totalDeals);
+					$store->count->all=intval($totalCoupons)+intval($totalDeals);
 					$store->count->last_update=date('d-M-yy',$last_update); 
 
 				}
@@ -348,9 +351,10 @@ $totalCoupons=$this->db->select('count(*) as count','',false)->where('type','cou
 $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal')->where('store_id',$store->id)->get('coupons')->first_row()->count;
  
 					$store->count=new stdClass;
-					$store->count->coupons=$totalCoupons;
+					$store->count->coupons=intval($totalCoupons);
 
-					$store->count->deals=$totalDeals;
+					$store->count->deals=intval($totalDeals);
+					$store->count->all=intval($totalCoupons)+intval($totalDeals);
 				 
 				}
 		}	 
@@ -404,7 +408,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 				'top'=>1,
 				'show_in_home'=>'1',
 				'site_id'=>$site_id,
-		],[],true);
+		],['counts2'],true);
 		echo json_encode(['success'=>'yes','response'=>$stores]);   
 		 
 
@@ -423,7 +427,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 				'popular'=>1,
 			 
 				'site_id'=>$site_id,
-		],[],true);
+		],['counts2'],true);
 		echo json_encode(['success'=>'yes','response'=>$stores]);   
 		 
 

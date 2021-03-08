@@ -28,6 +28,8 @@
           <!-- Owl Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+
     
     
 		<script type="text/javascript" src="<?=theme_base_url?>/assets/js/jquery.js"></script>
@@ -37,6 +39,8 @@
          <!-- <script type="text/javascript" src="https://momentjs.com/downloads/moment.js"></script> -->
           <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
+    <!-- Flickity CSS -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
         
         

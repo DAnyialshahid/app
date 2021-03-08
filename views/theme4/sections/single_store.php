@@ -55,9 +55,9 @@
                         <div class="store-filteration">
                         <ul>
 
-                            <li><a href="#" class="border" data-sort="all">All Offers ( {{row.count.coupons+row.count.deals}})</a></li>
-                            <li><a href="#" data-sort="code">Codes ({{row.count.coupons}})</a></li>
-                            <li><a href="#" data-sort="deal">Deals ({{row.count.deals}})</a></li>
+                            <li><a href="#" class="border" data-sort="all"  onclick="filture('all')">All Offers ( {{row.count.coupons+row.count.deals}})</a></li>
+                            <li><a href="#" data-sort="code" onclick="filture('coupon')">Codes ({{row.count.coupons}})</a></li>
+                            <li><a href="#" data-sort="deal"  onclick="filture('deal')">Deals ({{row.count.deals}})</a></li>
                         </ul>
                       </div>
                     </div>
@@ -136,7 +136,7 @@
                         <div class="panel with-border related-categories">
                             <h2 class="panel-title">Filtures </h2>
                              
-                             <div class="sidebox filter"  id="d_sidebar_serialize">
+                             <div id="d_sidebar_serialize" class="sidebox filter social-widgets " style="text-align: left;"  >
  
          
       
