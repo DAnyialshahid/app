@@ -1,6 +1,6 @@
 
          <li  v-for="coupon in coupons" v-if="new Date()<new Date(coupon.expire_date)"  class="obox code clearfix" id="c66886695" data-id="66886695" data-sid="8" data-coupon="yes" data-deal="no" data-freeshipping="no" data-verified="no" data-page="" data-type="c" data-otype="code" style="">
-                        <div class="ocontent">
+                        <div class="ocontent" style="max-height: 185px;">
                             <button class="save-coupon" aria-label="Save Coupon"><i class="df-save-o"></i></button>
                             <div class="odata">
                                 <div class="otype">
