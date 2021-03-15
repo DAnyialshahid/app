@@ -12,16 +12,16 @@ class Extension_api extends CI_Controller{
 		// sleep(3);
 		parent::__construct();
   
-		if (!( ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
-		   				 if(strpos($_SERVER['HTTP_ACCEPT'], 'json') !== false){  
+		// if (!( ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+		//    				 if(strpos($_SERVER['HTTP_ACCEPT'], 'json') !== false){  
 
-						 }else{
-						 	 if (!isset($_GET['development'])) {
-						 	   exit('No direct script access allowed');
-						 	}
-						 }
-		// echo strpos($_SERVER['HTTP_ACCEPT'], 'json') ;
-		}
+		// 				 }else{
+		// 				 	 if (!isset($_GET['development'])) {
+		// 				 	   exit('No direct script access allowed');
+		// 				 	}
+		// 				 }
+		// // echo strpos($_SERVER['HTTP_ACCEPT'], 'json') ;
+		// }
 	// $_POST['limit']=1;
 		if(isset($_GET['debuger']) && $_GET['debuger']){ 
 	        $this->output->enable_profiler(TRUE);
