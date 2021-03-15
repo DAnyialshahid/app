@@ -140,13 +140,13 @@
                             </div>
                             <ul>
                                 <li class="facet-toggle form-group checkbox">
-                                    <input type="checkbox" name="offer_type[]" value="deal" />
+                                    <input id="offer_type_deal" type="checkbox" name="offer_type[]" value="deal" />
                                     <label for="fc_deal">
                                         Deal
                                     </label>
                                 </li>
                                 <li class="facet-toggle form-group checkbox">
-                                    <input type="checkbox" name="offer_type[]" value="coupon" />
+                                    <input id="offer_type_code"  type="checkbox" name="offer_type[]" value="coupon" />
                                     <label for="fc_coupon">
                                         Coupon
                                     </label>
