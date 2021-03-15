@@ -41,7 +41,7 @@
                                                            {{coupon.name}}
                                             </div>   
 
-                                            <div class="">
+                                            <div style="max-height: 37px;overflow-y: auto; min-height: 44px;">
                                                            {{coupon.description}}
                                             </div>
                                         </div>

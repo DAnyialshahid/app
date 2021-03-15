@@ -271,7 +271,7 @@ if (empty($category) && $return==false) {
 
 
 		
-	public function getStores($where=null,$with=null,$return=false)
+	public function getStores($where=null,$with=['counts2'],$return=false)
 	{
 
 	 
