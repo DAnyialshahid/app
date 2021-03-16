@@ -277,8 +277,8 @@ public function themes_contact()
 	public function webgains_callbacks()
 	{
 			$data='<pre>'."\n";
-			$data=$this->input->post(); 
-			$data.=$this->input->get(); 
+			$data=print_r($this->input->post(),true); 
+			$data.=print_r($this->input->get(),true); 
 			$data='</pre>'."\n";
 			$myDir="./assets/uploads/extension/webgains/callbacks/";
 			if (!is_dir($myDir)) {
