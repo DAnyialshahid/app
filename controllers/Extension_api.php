@@ -276,7 +276,10 @@ public function themes_contact()
 	}	
 	public function webgains_callbacks()
 	{
-			$data=$this->input->post('data'); 
+			$data='<pre>'."\n";
+			$data=$this->input->post(); 
+			$data.=$this->input->get(); 
+			$data='</pre>'."\n";
 			$myDir="./assets/uploads/extension/webgains/callbacks/";
 			if (!is_dir($myDir)) {
 			    mkdir($myDir, 0777, true); // true for recursive create
