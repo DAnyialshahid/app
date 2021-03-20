@@ -1,7 +1,7 @@
 
 <div v-for="coupon in coupons"  style="  -webkit-filter: grayscale(1);" >
         <template  v-if="new Date()>new Date(coupon.expire_date)"      >
-<div class="horiz-coupon>
+<div class="horiz-coupon">
   <div class="row flex-wrapper-coupon" style="margin:0">
     <div class="col-md-2 noPd imageColumn">
       <a href="javascript:void(0)" class="   custom-thumb     "  style="display: flex;">  

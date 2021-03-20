@@ -30,7 +30,7 @@
                 <div class="form-group clearfix">
                    
                 </div>
-                      <button type="submit" id="submit" onclick="return submitContact();" name="submit" class="btn btn-primary btn-contact" style="background: var(--primary)">Submit Offer</button>  
+                      <button type="submit" id="submit" onclick="return submitContact();" name="submit" class="btn btn-primary btn-contact"  >Submit Offer</button>  
                       <span class="send-loading"> 
                             <em class="double-bounce1"></em> 
                             <em class="double-bounce2"></em> 

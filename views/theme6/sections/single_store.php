@@ -337,6 +337,29 @@
        <h2 class="store-h2 hide-on-filter">{{row.name}} Expired Coupons</h2>
                  
                                 <?php  add_page($this,'sections/single_coupons_expired');?>
+
+                <h3 class="title no-toggle">Top <strong>{{row.name}}</strong> Coupons or Promo codes {{new Date().toLocaleString('default', { month: 'long' })+' ' + new Date().getFullYear() }} </h3>
+                <div class="content no-padding">
+                    <table class="table table-responsive table-hover" style="margin: 0;">
+                        <thead>
+                            <tr>
+                                <th>Offer Description</th>
+                                <th>Expires</th>
+                                <th>Code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  v-for="coupon in coupons.slice(0,5)" >
+                                <td>{{coupon.name}}</td>
+                                <td>{{ (new Date(coupon.expire_date)+'').substr(0,15)   }}</td>
+                                <td v-if="coupon.type=='deal'">**DEAL**</td>
+                                <td v-if="coupon.type=='coupon'">{{coupon.coupon_code.substr(0,4)}}*****</td>
+                            </tr> 
+                        </tbody>
+                    </table>
+                </div>
+
+
 </div>
         
       </div>
@@ -348,11 +371,11 @@
  
   
 
- <input type="email" value="" name="subscribe_email" class="email" id="email" placeholder="Enter Your Email" required="">
-        
-                    <button class="sbox-btn" type="button" onclick="subscribes_email();" name="action"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+    <!--  <input type="email" value="" name="subscribe_email" class="email" id="email" placeholder="Enter Your Email" required="">
+            
+                        <button class="sbox-btn" type="button" onclick="subscribes_email();" name="action"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
 
- 
+      -->
 
 
 

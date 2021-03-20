@@ -85,27 +85,4 @@
   </div>
 </div>
 
-<div  >
-          
-           <!-- <div class="modal-footer" style="visibility: hidden;"><button type="button" data-dismiss="modal" class="btn btn-default">Close</button> <button type="button" class="btn btn-primary">Save changes</button></div> -->
-
-
-    <div class="modal-content">
-
-        <div class="modal-content-up">
-             
-<div class="mstore-go"> <span class="m-x-1">Did This Offer Work?</span> &nbsp;
-                        <span  dusk="coupon-feedback-positive" class="m-x-1 text-primary   rating-thumb show-voting up" ><i class="fa fa-thumbs-up" ></i> </span>&nbsp;
-
-
-                        <span dusk="coupon-feedback-negative" class="m-x-1 text-primary   rating-thumb show-voting down" ><i class="fa fa-thumbs-down" ></i></span>
-
-                    </div>
-        </div>
  
-
-           
-
-
-    </div>
-</div>

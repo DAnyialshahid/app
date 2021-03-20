@@ -306,6 +306,8 @@ if (empty($category) && $return==false) {
 					foreach ($store->coupons as   &$coupon) { 
 					 $coupon->store=$thisStore;	 
 					 $coupon->name=html_entity_decode($coupon->name);	 
+					 $coupon->short_title=html_entity_decode($coupon->short_title);	 
+					 $coupon->description=html_entity_decode($coupon->description);	 	 
 
 						}
 				}

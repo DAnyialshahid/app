@@ -8993,9 +8993,12 @@ a.list-group-item:hover {
     font-size: 14px
 }
 
+/*.search-input {
+	color:var(--primary);;
+}*/
 .form-control:focus {
     box-shadow: none;
-    border: 1px solid #ff846c
+    border: 1px solid var(--primary);
 }
 
 .category-title.box {

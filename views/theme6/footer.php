@@ -66,7 +66,7 @@
                 <div >
                       <h4>Our Newsletter</h4>
                   <input  type="email"   name="subscribe_email"   placeholder="Email" style="    padding: 5px;color:black;">
-                <button type="submit" aria-label="Sign up" onclick='subscribes_email();'  style="    padding: 5px;color: black">Subscribe</button></div>
+                <button type="submit" aria-label="Sign up" onclick='subscribes_email();'  style="    padding: 5px;width:100px;" class="btn-primary">Subscribe</button></div>
                 </div>
             </div>
 
