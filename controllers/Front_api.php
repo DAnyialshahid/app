@@ -305,6 +305,8 @@ if (empty($category) && $return==false) {
 				  $thisStore=$this->db->where(['site_id'=>$site_id,'id'=>$store->id])->get('stores')->first_row() ; 
 					foreach ($store->coupons as   &$coupon) { 
 					 $coupon->store=$thisStore;	 
+					 $coupon->name=html_entity_decode($coupon->name);	 
+
 						}
 				}
 		}

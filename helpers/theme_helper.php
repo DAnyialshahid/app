@@ -167,6 +167,10 @@ function backend_page($context,$page,$params=[]){
       $front_base_url=  $url;
      DEFINE('front_base_url',$front_api_base_url);  
 
+
+    $logo=  $url.'assets/uploads/sites/'.setting('logo');
+     DEFINE('logo',$logo);  
+
     //function.php
      $link=dirname(__FILE__).'\\..\\views\\'.setting('theme').'\\functions.php';
     if (realpath($link)) {include( $link);}
