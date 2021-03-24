@@ -98,15 +98,15 @@
                         </a>
 
                               <a  v-if="coupon.type=='coupon'"   target="_blank" 
-                                     class=" "
+                                     class="clipClass"
                                      :data-clipboard-text="coupon.coupon_code" 
                                      v-on:click="loadCouponAffilate(coupon)"
                                      :href="base_url+'?coupon_id='+coupon.id"
                                      :coupon_id="coupon.id"
                                      style="bottom:auto" 
                                       >
-                                       <div class="tw-bg-grey-lighter tw-border tw-text-grey-dark tw-text-right tw-w-full tw-p-2">{{coupon.coupon_code}}</div> 
-                                                <div class="tw-absolute tw-pin-t tw-pin-l tw-bg-blue hover:tw-bg-blue-dark tw-border tw-border-blue tw-text-center tw-text-white tw-min-w-5/6 tw-p-2">Show Code
+                                       <!-- <div class="tw-bg-grey-lighter tw-border tw-text-grey-dark tw-text-right tw-w-full tw-p-2">{{coupon.coupon_code}}</div>  -->
+                                                <div class=" tw-pin-t tw-pin-l tw-bg-blue hover:tw-bg-blue-dark tw-border tw-border-blue tw-text-center tw-text-white tw-min-w-5/6 tw-p-2">Show Code
                                                 </div>
 
 
@@ -266,7 +266,7 @@
                         </a>
 
                               <a  v-if="coupon.type=='coupon'"   target="_blank" 
-                                     class=" "
+                                     class="clipClass"
                                      :data-clipboard-text="coupon.coupon_code" 
                                      v-on:click="loadCouponAffilate(coupon)"
                                      :href="base_url+'?coupon_id='+coupon.id"
@@ -274,7 +274,7 @@
                                      style="bottom:auto" 
                                       >
                                        <div class="tw-bg-grey-lighter tw-border tw-text-grey-dark tw-text-right tw-w-full tw-p-2">{{coupon.coupon_code}}</div> 
-                                                <div class="tw-absolute tw-pin-t tw-pin-l tw-bg-blue hover:tw-bg-blue-dark tw-border tw-border-blue tw-text-center tw-text-white tw-min-w-5/6 tw-p-2">Show Code
+                                                <div class=" tw-pin-t tw-pin-l tw-bg-blue hover:tw-bg-blue-dark tw-border tw-border-blue tw-text-center tw-text-white tw-min-w-5/6 tw-p-2">Show Code
                                                 </div>
 
 

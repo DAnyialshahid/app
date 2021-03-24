@@ -3,7 +3,18 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
        
-        <?=head($page_name,(isset($slug)?$slug:null))?> 
+      <!---d-->
+<script type="text/javascript">
+    var url=window.location.pathname.split('/');
+    var global_page_name=url[1];
+    var global_page_slug=url[2];
+</script>
+ <title id="meta_title"></title>
+ <meta  id="meta_description" name="description" content="">
+ <meta  id="meta_keywords" name="keywords" content="">
+
+<?=head($page_name,(isset($slug)?$slug:null))?> 
+<!---/d-->
     
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="<?=theme_base_url?>/assets/css/bootstrap.css" type="text/css" media="all">

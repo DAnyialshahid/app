@@ -1,3 +1,8 @@
+:root{
+--primary:#05213a;
+--primary_2:#104b80;
+
+};
 html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%
@@ -2501,7 +2506,7 @@ a {
 }
 
 .section.footer {
-    background-color: #29303b
+    background-color: var(--primary)
 }
 
 .section.cut-border {
@@ -2527,7 +2532,7 @@ a {
     content: "";
     width: 15px;
     height: 15px;
-    border: 1px solid #aa3552;
+    border: 1px solid var(--primary_2);
     margin-right: 15px
 }
 
@@ -2561,7 +2566,7 @@ a {
 }
 
 .primary-header {
-    background-color: #29303b;
+    background-color: var(--primary);
     padding: 20px 0 0 0
 }
 
@@ -2616,12 +2621,12 @@ a {
 .search-bar .icon-bar .svg-icon {
     width: 25px;
     height: 100%;
-    fill: #29303b
+    fill: var(--primary)
 }
 
 .grad-color {
-    background: linear-gradient(-45deg,#ec5252 0,#6e1a52 100%);
-    height: 6px
+    background: linear-gradient(-45deg ,#42918f 0,#2c76b9 100%); 
+    height: 6px;
 }
 
 .btn-category {
@@ -2720,7 +2725,7 @@ a {
 }
 
 .slider-thumbnails .thumbnail-box.active {
-    border-color: #aa3552
+    border-color: var(--primary_2)
 }
 
 .slider-thumbnails .thumbnail-box.active:before {
@@ -2914,9 +2919,9 @@ a {
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
-    background-color: #aa3552;
+    background-color: var(--primary_2);
     -webkit-tap-highlight-color: #ad2732;
-    box-shadow: 0 4px 0 0 #842940,transparent 0 0 0
+    box-shadow: 0 4px 0 0 var(--primary),transparent 0 0 0
 }
 
 .action-cta:not(.deal):before {
@@ -2924,7 +2929,7 @@ a {
     content: "";
     width: 30px;
     height: 4px;
-    background: #842940;
+    background: var(--primary);
     position: absolute;
     z-index: 2;
     right: -20px;
@@ -2940,7 +2945,7 @@ a {
     width: 100%;
     height: 40px;
     line-height: 39px;
-    border: 2px solid #29303b;
+    border: 2px solid var(--primary);
     border-radius: 4px;
     background-color: #f4f3f8;
     text-align: right;
@@ -2956,7 +2961,7 @@ a {
 }
 
 .offer_single.opened .action-cta-code {
-    border: 2px dashed #29303b;
+    border: 2px dashed var(--primary);
     text-align: center;
     margin: 0;
     font-weight: 700;
@@ -2975,7 +2980,7 @@ a {
     transition: transform .2s,background-position .2s;
     -webkit-transform: rotateZ(22deg) translate(6px,-13px) scaleX(.9);
     transform: rotateZ(22deg) translate(6px,-13px) scaleX(.9);
-    background: linear-gradient(38deg,#29303b 0,#29303b 49%,rgba(255,150,0,0) 50%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(38deg,var(--primary) 0,var(--primary) 49%,rgba(255,150,0,0) 50%,rgba(255,255,255,0) 100%);
     background-position: 0 4px;
     background-repeat: no-repeat;
     z-index: 1
@@ -3065,7 +3070,7 @@ hr.sepertor {
 }
 
 .dbyd-stores-list li a.active {
-    border-left: 4px solid #29303b
+    border-left: 4px solid var(--primary)
 }
 
 .offers-list {
@@ -3210,7 +3215,7 @@ hr.sepertor {
 }
 
 .likeandcomments span svg:active {
-    fill: #aa3552;
+    fill: var(--primary_2);
     width: 19px
 }
 
@@ -3240,7 +3245,7 @@ hr.sepertor {
 }
 
 .likeandcomments .likebtn.liked svg {
-    fill: #aa3552
+    fill: var(--primary_2)
 }
 
 .likeandcomments .commentbtn {
@@ -3517,8 +3522,8 @@ footer {
 }
 
 .social-widgets li .fa-globe {
-    border-color: #29303b!important;
-    background-color: #29303b!important
+    border-color: var(--primary)!important;
+    background-color: var(--primary)!important
 }
 
 .social-widgets li .fa-pinterest {
@@ -3618,7 +3623,7 @@ footer {
     margin-left: 20px;
     background-color: #fff;
     box-shadow: 0 1px 1px rgba(5,27,44,.4),0 2px 4px rgba(5,27,44,.05);
-    background-color: #29303b;
+    background-color: var(--primary);
     color: #fff
 }
 
@@ -3806,7 +3811,7 @@ h2.panel-title {
     width: 22px;
     display: inline-block;
     border: 2px solid #f1f1f1;
-    border-top: 2px solid #aa3552;
+    border-top: 2px solid var(--primary_2);
     border-radius: 50%;
     animation: spin .5s linear infinite;
     position: absolute;
@@ -3960,7 +3965,7 @@ span.field-required p {
 }
 
 .alphabets-bar {
-    background-color: #29303b;
+    background-color: var(--primary);
     padding: 0 15px;
     border-radius: 3px;
     margin-bottom: 20px
@@ -3983,7 +3988,7 @@ span.field-required p {
  
  .alphabets-bar ul li a.active {
 	  background-color:#fff ;
-    color: #29303b;
+    color: var(--primary);
  
 }
 
@@ -4070,7 +4075,7 @@ h2.panel-title.small {
 }
 
 .pagination-links a[rel=next],.pagination-links a[rel=prev] {
-    background-color: #aa3552;
+    background-color: var(--primary_2);
     padding: 7px 15px;
     color: #fff;
     display: inline-block;
@@ -4199,7 +4204,7 @@ h2.panel-title.small {
 
 .ep_form .btn-send {
     outline: 0;
-    background-color: #29303b;
+    background-color: var(--primary);
     color: #fff;
     border-radius: 0
 }
@@ -4288,7 +4293,7 @@ h2.panel-title.small {
 }
 
 .code_bar {
-    border: .12em dashed #29303b;
+    border: .12em dashed var(--primary);
     padding: 7px 20px;
     background-color: #f8f9fa;
     display: flex;
@@ -4298,7 +4303,7 @@ h2.panel-title.small {
 }
 
 .code_bar.right-border {
-    border-right: .12em dashed #29303b
+    border-right: .12em dashed var(--primary)
 }
 
 .code_bar .code_text {
@@ -4403,7 +4408,7 @@ h2.panel-title.small {
 }
 
 .coupon_tooltip_text {
-    color: #aa3552;
+    color: var(--primary_2);
     font-weight: 500
 }
 
@@ -4474,7 +4479,7 @@ button.howtosaveBtn:hover {
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: #29303b;
+    background-color: var(--primary);
     padding: 12px 0
 }
 
@@ -4654,7 +4659,7 @@ button.howtosaveBtn:hover {
     align-self: center;
     text-align: center;
     width: 100%;
-    color: #29303b;
+    color: var(--primary);
     line-height: 1.2;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -4835,7 +4840,7 @@ a.action-disabled {
 #addOfferModal .modal-content {
     background: 0 0;
     height: 100%;
-    border-bottom: 4px solid #29303b;
+    border-bottom: 4px solid var(--primary);
     background-color: #f8f9fa
 }
 
@@ -4965,7 +4970,7 @@ a.action-disabled {
     width: 100px;
     display: inline-block;
     border: 7px solid #f1f1f1;
-    border-top: 7px solid #aa3552;
+    border-top: 7px solid var(--primary_2);
     border-radius: 50%;
     animation: spin .5s linear infinite;
     position: absolute;
@@ -5321,7 +5326,7 @@ a.action-disabled {
     align-self: center;
     text-align: center;
     width: 100%;
-    color: #29303b;
+    color: var(--primary);
     line-height: 1.2;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -5499,7 +5504,7 @@ a.action-disabled {
 
     .slider-thumbnails .thumbnail-box.active:before {
         top: 0;
-        border-top: 10px solid #aa3552
+        border-top: 10px solid var(--primary_2)
     }
 
     .md-resp-col-showmore {
@@ -6166,7 +6171,7 @@ a.action-disabled {
         line-height: 34px;
         font-size: 13px;
         font-size: 14px;
-        box-shadow: 0 4px 0 0 #842940,transparent 0 0 0
+        box-shadow: 0 4px 0 0 var(--primary),transparent 0 0 0
     }
 
     .action-cta-peel {

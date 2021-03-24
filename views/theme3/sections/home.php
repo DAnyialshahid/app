@@ -20,7 +20,9 @@
         <div class="row">
             <div class="col s12">
                 <ul class="tabs z-depth-1" style="width: 100%;">
-                 <li   v-for="category in popular_categories" class="tab col s2 waves-effect"><a rel="nofollow" :href="base_url+'category/'+category.slug"    >{{category.name}}</a></li>
+                 <li   v-for="category in popular_categories.slice(0,5)" class="tab col s2 waves-effect">
+                    <a rel="nofollow" :href="base_url+'category/'+category.slug"    >{{category.name}}</a>
+                </li>
 
                                                             <div class="indicator" style="right: 1097.14px; left: 0px;"></div></ul>
             </div>

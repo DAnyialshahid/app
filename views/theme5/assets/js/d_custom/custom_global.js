@@ -61,6 +61,8 @@ function init() {
                          data:{
                             'site_id':site_id,
                             [token_name]:token_hash,
+                            'page_name':global_page_name,
+                            'page_slug':global_page_slug,
                          },
                          success: function(data) { 
                             if(data.success === "yes") {   
@@ -80,7 +82,9 @@ function init() {
                                     footer.popular_categories=data.response.popular_categories; 
                                     footer.popular_stores=data.response.popular_stores; 
                                     //social
-                                     
+                                          $('title').html(data.response.seo.title);
+                                    $('#meta_description').attr('content',data.response.seo.description);
+                                    $('#meta_keywords').attr('content',data.response.seo.keywords);
 
                                 
                                  

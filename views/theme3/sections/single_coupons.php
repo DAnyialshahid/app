@@ -24,6 +24,7 @@
                         <span><i class="far fa-clock"></i>Expire  on {{coupon.expire_date}}</span>
         </div>
     </div>
+    <div  class="dcbtn ">
     <div class="cbtn">
 
 
@@ -58,6 +59,7 @@
                     <!-- <a rel="nofollow" class="btn go-cpn btn-offer waves-effect waves-light">View Offer</a> -->
 
 
+            </div>
             </div>
     <i class="fa fa-share-alt social-share waves-effect circle" aria-hidden="true"></i>
     <div class="clear"></div>

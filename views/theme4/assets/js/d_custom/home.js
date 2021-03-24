@@ -12,6 +12,8 @@ var home= Vue.createApp({
 	  popular_coupons: [  ],
 	  popular_categories: [  ],
 	  popular_stores: [  ],
+	  category_coupons: [  ],
+	  lastCategorySlug: [  ],
 	  store: [  ],
 	  configs: [  ],
 
@@ -64,19 +66,70 @@ $(document).on('footer_loaded',function() {
 
 });
 $(document).ready(function() {
-	
+			
 		getSlides();
 		getTopStores();
 		getRecommendedCoupons();
 		getPopularCoupons();
 		getPopuplarCategories();
+	//	getCouponsByCategory(0,'accessories');
 		getPopuplarStores();
 
 	
 	});
 
+
+filturing=false;
+var done=false;		
+ 	
+function getCouponsByCategory(visit,slug){ 
+	if (get('category_slug') && !done) {
+		slug=get('category_slug');
+		done=!done;
+	}
+	home.lastCategorySlug=slug;
+	 $.ajax({
+	                     type : "post",
+	                     dataType : "json",
+	                     url : api_url+"/front_api/getCouponsByCategory", 
+	                     data:{
+	                     	 'side_bar':'',
+	                     	'visit':visit,
+	                     	'type':'single_category',
+	                     	'slug':slug,
+	                     	'site_id':site_id,
+	                     	[token_name]:token_hash,
+	                     },
+	                     success: function(data) { 
+	                        if(data.success === "yes") {   
+	                        		home.category_coupons=data.response.coupons;
+	                    
+	                                  if(get('category_coupon_id')){  
+	                                	 for(i in home.category_coupons){ 
+	                                	 	if(get('category_coupon_id')==home.category_coupons[i].id && !filturing){  			
+	                                	 		                      home.initCouponBox(home.category_coupons[i]);
+	                                	 		                }
+	                              		  } 
+	                                }
+
+	                              //  loadCoupons(app.row.id);
+	                        }
+	                        else {
+	                        	
+	                        		  window.location.href=base_url+"categories"; 	
+	                        	
+	                        }
+	                     }
+	                }); 
+	}
+	
+ 
+
+
+
  
  function flicky_recommended_slider(){
+
  		$('.recommended-coupon-carousel').flickity({
 		  // options
 		  cellAlign: 'left',
@@ -221,6 +274,9 @@ function getPopuplarCategories(data,limit,callback){
 	                     success: function(data) { 
 	                        if(data.success === "yes") { 
 	                        	home.popular_categories=data.response;
+	                        	setTimeout(function() {
+	                        			$('.dbyd-stores-list li:first a').click();
+	                        	},200);
 	                        	 
 	                    
 	                        }

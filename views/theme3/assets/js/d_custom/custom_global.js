@@ -61,6 +61,8 @@ function init() {
                          data:{
                             'site_id':site_id,
                             [token_name]:token_hash,
+                            'page_name':global_page_name,
+                            'page_slug':global_page_slug,
                          },
                          success: function(data) { 
                             if(data.success === "yes") {   
@@ -81,6 +83,10 @@ function init() {
                                     footer.popular_stores=data.response.popular_stores; 
                                     //social
                                      
+
+                                    $('title').html(data.response.seo.title);
+                                    $('#meta_description').attr('content',data.response.seo.description);
+                                    $('#meta_keywords').attr('content',data.response.seo.keywords);
 
                                 
                                  
@@ -291,6 +297,22 @@ $('#search_input').typeahead(null, {
     suggestion: Handlebars.compile('<div class="typeahead_single_div"><a href="'+base_url+'store/{{custom_url}}" > <img width="50px" src="'+api_url+'/assets/uploads/stores/{{feature_image}}" ><span>{{name}}</span> </a></div>')
   }
 });
+
+$('#search_input_mobile').typeahead(null, {
+  name: 'best-pictures',
+  display: 'value',
+  source: bestPictures,
+  templates: {
+    empty: [
+      '<div class="empty-message">',
+        'unable to find any Best Picture winners that match the current query',
+      '</div>'
+    ].join('\n'),
+    suggestion: Handlebars.compile('<div class="typeahead_single_div"><a href="'+base_url+'store/{{custom_url}}" > <img width="50px" src="'+api_url+'/assets/uploads/stores/{{feature_image}}" ><span>{{name}}</span> </a></div>')
+  }
+});
+
+
 // $('#search_input').val('a').trigger('change');
  
 

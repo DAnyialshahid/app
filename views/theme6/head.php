@@ -2,22 +2,27 @@
   <?php //exit(base_url());?>
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 
-      <?=head($page_name,(isset($slug)?$slug:null))?> 
+<!---d-->
+<script type="text/javascript">
+    var url=window.location.pathname.split('/');
+    var global_page_name=url[1];
+    var global_page_slug=url[2];
+</script>
+ <title id="meta_title"></title>
+ <meta  id="meta_description" name="description" content="">
+ <meta  id="meta_keywords" name="keywords" content="">
 
-
+<?=head($page_name,(isset($slug)?$slug:null))?> 
+<!---/d-->
 
 <meta charset="utf-8">
  
  
 
 
-<meta name="theme-color" content="#009ed9">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
  
-        <link rel="canonical" href="#">
-
-
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  
    
 
 

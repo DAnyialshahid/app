@@ -13,7 +13,59 @@ body, * {
 --primary1_hover:#5fc4ea;
 
   }
+.coupon_labels{
+  display: inline-flex;
 
+}
+.coupon_labels span{
+ margin-left: 3px;
+ margin-right: 3px;
+
+}
+.obox .ocontent .ohop.code .code-container .code-action:hover {
+  background-color: transparent;
+  -moz-transition: all .25s ease-out;
+  -ms-transition: all .25s ease-out;
+  -webkit-transition: all .25s ease-out;
+  transition: all .25s ease-out;
+  width: 100%;
+}
+@media (max-width:768px) {
+  .obox .ocontent .ohop.code .code-container .code-action:hover {
+  background-color:none !important;
+  -moz-transition:none !important;
+  -ms-transition:none !important;
+  -webkit-transition:none !important;
+  transition:none !important;
+}
+  .obox .ocontent .ohop.code .code-container .code-action:hover{
+    color: inherit !important;
+    transition: none;
+
+  }  .obox .ocontent .ohop.deal .odeal:hover{
+    color: inherit !important;
+    transition: none;
+
+  }
+.hidden-mb{
+  display: none;
+}
+.obox .ocontent {
+    display: block !important;   
+  }
+  .obox .ocontent .ohop:hover {
+    background: var(--primary)  !important;
+    color: white  !important;
+
+  }
+  .obox .ocontent .ohop {
+        right: auto !important;
+    left: auto !important;
+    width: 87% !important;
+        border-radius: 3px !important;
+        font-size: 20px !important;
+  }
+}
 h1 {
    
     font-weight: 600 !important;;
@@ -12590,10 +12642,10 @@ th {
   line-height: 1;
   padding: 0;
   position: relative;
-  -moz-transition: all .25s ease-out;
+ /* -moz-transition: all .25s ease-out;
   -ms-transition: all .25s ease-out;
   -webkit-transition: all .25s ease-out;
-  transition: all .25s ease-out;
+  transition: all .25s ease-out;*/
   width: 100%;
 }
 
@@ -12611,14 +12663,7 @@ th {
   }
 }
 
-.obox .ocontent .ohop.code .code-container .code-action:hover {
-  background-color: transparent;
-  -moz-transition: all .25s ease-out;
-  -ms-transition: all .25s ease-out;
-  -webkit-transition: all .25s ease-out;
-  transition: all .25s ease-out;
-  width: 100%;
-}
+
 
 @media (min-width:768px) {
   .obox .ocontent .ohop.code .code-container .code-action:hover {

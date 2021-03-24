@@ -236,17 +236,24 @@ function backend_page($context,$page,$params=[]){
  
     }
     function head($page_name,$slug=null){ 
+
+ echo setting('header');
+           
+    
+   }
+
+    function head_javascript($page_name,$slug=null){ 
       $title='';
       $keywords='';
       $description='';
       $name='';
-      if ($page_name=='home') { 
+      if ($page_name=='home' || $page_name=='home') { 
          $title=setting('seo_home_meta_title');
          $keywords=setting('seo_home_meta_keywords');
          $description=setting('seo_home_meta_description');    
       }
 
-      if ($page_name=='single_store') { 
+      if ($page_name=='store') { 
          $title=setting('seo_store_meta_title');
          $keywords=setting('seo_store_meta_keywords');
          $description=setting('seo_store_meta_description');   
@@ -263,11 +270,11 @@ function backend_page($context,$page,$params=[]){
          } 
       }
 
-     if ($page_name=='single_category') { 
+     if ($page_name=='category') { 
         $title=setting('seo_category_meta_title');
          $keywords=setting('seo_category_meta_keywords');
          $description=setting('seo_category_meta_description');   
-
+// dd($slug);
          $CI=&get_instance();
          $category=$CI->db->select('*')->where('slug',$slug)->where('site_id',site_id)->get('categories')->first_row();
  
@@ -280,7 +287,7 @@ function backend_page($context,$page,$params=[]){
          } 
       }
 
-     if ($page_name=='dynamic_page' || $page_name=='constant_page') { 
+     if ($page_name=='page' || $page_name=='page') { 
         $title=setting('seo_page_meta_title');
          $keywords=setting('seo_page_meta_keywords');
          $description=setting('seo_page_meta_description');   
@@ -298,7 +305,7 @@ function backend_page($context,$page,$params=[]){
       }
 
  
-    if ($page_name=='catagories') { 
+    if ($page_name=='categories') { 
         $title=setting('seo_all_category_meta_title');
          $keywords=setting('seo_all_category_meta_keywords');
          $description=setting('seo_all_category_meta_description');   
@@ -343,14 +350,20 @@ function backend_page($context,$page,$params=[]){
   $description=str_replace('{day}', date('d'),$description);
 
 
+
+  return  [
+      'title'=>$title,
+      'keywords'=>$keywords,
+      'description'=>$description,
+    ];
  
 
-echo '
-      <title>'.$title.'</title>  
-      <meta name="keywords" content="'.$keywords.'">
-      <meta name="description" content="'.$description.'">
-      '.setting('header').'
-  ';
+// echo '
+//       <title>'.$title.'</title>  
+//       <meta name="keywords" content="'.$keywords.'">
+//       <meta name="description" content="'.$description.'">
+//       '.setting('header').'
+//   ';
            
     
    }

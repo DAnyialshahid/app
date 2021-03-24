@@ -37,7 +37,7 @@
                                        
                                     </div>
                                     <div class="tw-flex tw-leading-tight tw-w-5/6 sm:tw-ml-6 tw-ml-4">
-                                        <div class="tw-flex-grow tw-pr-4 coupon-card-inner-container">
+                                        <div class="sm:tw-flex-grow tw-pr-4 coupon-card-inner-container" style="    flex-basis: 52%;">
                                           <div class="row">
  
                                             <div v-if="coupon.verified==1" class="col-xs-2 tw-text-green sm:tw-border sm:tw-border-green sm:tw-text-green sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Verified </div>
@@ -46,7 +46,7 @@
                                           </div>
 
                                                 <!-- <p class="tw-text-grey sm:tw-text-base tw-text-xs lato">    {{coupon.store.name}} </p> -->
-                                            <a dusk="coupon-card-label" href="/go/1210607" rel="nofollow" class="tw-text-grey-darker sm:tw-text-xl tw-text-lg tw-font-medium hover:tw-text-blue lato">
+                                            <a dusk="coupon-card-label" href="#" rel="nofollow" class="tw-text-grey-darker sm:tw-text-xl  tw-font-medium hover:tw-text-blue lato">
                                                {{coupon.name}}
                                             </a>
                                             <div class="sm:tw-leading-loose tw-leading-normal">
@@ -56,7 +56,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tw-hidden md:tw-flex tw-items-start tw-whitespace-no-wrap tw-min-w-1/4">
+                                        <div class=" md:tw-flex tw-items-start tw-whitespace-no-wrap tw-min-w-1/4">
                                             <div rel="nofollow" class="tw-relative tw-rounded-sm tw-overflow-hidden tw-cursor-pointer tw-w-full lato">
 
 
@@ -85,8 +85,8 @@
                                      d-redirect="yes"
                                      style="bottom:auto" 
                                       >
-                                       <div class="tw-bg-grey-lighter tw-border tw-text-grey-dark tw-text-right tw-w-full tw-p-2">{{coupon.coupon_code}}</div> 
-                                                <div class="tw-absolute tw-pin-t tw-pin-l tw-bg-blue hover:tw-bg-blue-dark tw-border tw-border-blue tw-text-center tw-text-white tw-min-w-5/6 tw-p-2">Show Code
+                                       <!-- <div class="tw-bg-grey-lighter tw-border tw-text-grey-dark tw-text-right tw-w-full tw-p-2">{{coupon.coupon_code}}</div>  -->
+                                                <div class=" tw-pin-t tw-pin-l tw-bg-blue hover:tw-bg-blue-dark tw-border tw-border-blue tw-text-center tw-text-white tw-min-w-5/6 tw-p-2">Show Code
                                                 </div>
 
 
@@ -115,7 +115,7 @@
                                
                         <table style=" width: 100%">
                           <tr>
-                              <td><i class="far fa-calendar "></i>  {{coupon.updated_date.split(' ')[0]}}</td>
+                              <!-- <td><i class="far fa-calendar "></i>  {{coupon.updated_date.split(' ')[0]}}</td> -->
                               <td><i class="far fa-eye"></i>          {{coupon.visits}} used total</td>
                               <td><i class="far fa-clock"></i>  {{coupon.expire_date}}</td>
                           </tr>

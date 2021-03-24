@@ -1,16 +1,23 @@
 
   <?php //exit(base_url());?>
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<!---d-->
+<script type="text/javascript">
+    var url=window.location.pathname.split('/');
+    var global_page_name=url[1];
+    var global_page_slug=url[2];
+</script>
+ <title id="meta_title"></title>
+ <meta  id="meta_description" name="description" content="">
+ <meta  id="meta_keywords" name="keywords" content="">
 
-      <?=head($page_name,(isset($slug)?$slug:null))?> 
-
-
+<?=head($page_name,(isset($slug)?$slug:null))?> 
+<!---/d-->
 
 <meta charset="utf-8">
 <title>Vouchers and Discount Codes from vouchercloud</title>
 
-<meta name="description" content="Save money on your shopping with the UK's favourite voucher website. Discover savings online, or grab our app and get the best offers straight to your phone!">
-<meta name="author" content="Invitation Digital Ltd">
+ 
  
 <link rel="preload" as="style" crossorigin href="<?=theme_base_url?>/assets/css/fonts.vf044b18.css">
 

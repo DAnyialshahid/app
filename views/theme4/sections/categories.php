@@ -27,7 +27,7 @@
 
                 <div class="parent-category" v-for="group in categories_group" >
                   <div class="categories-list-thumbnail">
-                    <a href="https://www.verifieddeals.co.uk/category/fashion">
+                    <a href="#">
                       <div class="web_imagebox">
                         <img v-if="group.feature_image" v-bind:src="api_url+'/assets/uploads/categories/'+group.feature_image"  class="img-responsive">
                         <img v-if="!group.feature_image" :src="theme_base_url+'/assets/images/blank.png'" class="img-responsive">

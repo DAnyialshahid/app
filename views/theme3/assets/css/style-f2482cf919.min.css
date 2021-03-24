@@ -1,3 +1,23 @@
+@media only screen and (max-width: 600px)
+{
+
+ .store-head-content {
+     margin-left: 0px !important;;
+ }
+
+ .store-logo-container,.ccsearch{
+    display: none !important;
+ }
+
+    .cbox .dcbtn {
+       margin: auto !important;
+        width: 63%  !important;;
+    }
+
+
+ }
+
+
   #popular_coupons .title{
         font-size: 40px;
     }

@@ -1,7 +1,7 @@
 
          <li  v-for="coupon in coupons" v-if="new Date()<new Date(coupon.expire_date)"  class="obox code clearfix" id="c66886695" data-id="66886695" data-sid="8" data-coupon="yes" data-deal="no" data-freeshipping="no" data-verified="no" data-page="" data-type="c" data-otype="code" style="">
-                        <div class="ocontent" style="max-height: 165px;">
-                            <button class="save-coupon" aria-label="Save Coupon"><i class="df-save-o"></i></button>
+                        <div class="ocontent" >
+                            <!-- <button class="save-coupon" aria-label="Save Coupon"><i class="df-save-o"></i></button> -->
                             <div class="odata">
                                 <div class="otype">
                                      <div class="coupon-label">
@@ -23,18 +23,24 @@
                                 <div class="obody">
                                     <div class="otop">
                                         <div class="ostats">
+                                            <div class="olabel ">
+                                                {{coupon.store.name}} 
+                                            </div>
+                                            
                                             <div v-if="coupon.type=='coupon'" class="olabel code">
                                                 Code
                                             </div>     
                                             <div v-if="coupon.type=='deal'" class="olabel deal">
                                                 Deal
                                             </div> 
-                                            <div v-if="coupon.verified" class="overified" style="color:green;"> Verified </div>
-                                            <div v-if="coupon.exclusive" class="overified" style="color:red;"> Exclusive </div>
-                                            <div v-if="coupon.featured" class="overified" style="color:orange;"> Featured </div> 
-                                            <div class="olabel ">
-                                                {{coupon.store.name}} 
-                                            </div>
+
+                                            <span class="coupon_labels hidden-mb">
+                                                <span v-if="coupon.verified" class="overified" style="color:green;"> Verified </span> 
+                                                <span v-if="coupon.exclusive" class="overified" style="color:red;"> Exclusive </span>
+                                                <span v-if="coupon.featured" class="overified" style="color:orange;"> Featured </span> 
+                                            </span>
+
+                                            
                                         </div>
                                         <div class="odisplay">
                                             <div class="otitle">

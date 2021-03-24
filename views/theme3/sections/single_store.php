@@ -135,9 +135,7 @@
 
             </div>
             <div class="sidebar col s12 m12 l3 pull-l9" style="height: auto !important; min-height: 0px !important;">
-                <div class="filter-on-mob hide-on-large-only">
-    <a rel="nofollow" href="#" data-activates="filter-slide" class="filter-mob waves-effect waves-light "><i class="fa fa-filter"></i></a>
-</div>
+            
 <ul id="filter-slide">
 <div class="sidebox filter"  id="d_sidebar_serialize">
     <div class="filter-head-top row">

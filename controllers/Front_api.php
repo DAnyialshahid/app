@@ -191,7 +191,7 @@ if (empty($category) && $return==false) {
 	{
 		
 			
-		$site_id=$this->input->post('site_id'); 
+	     	$site_id=$this->input->post('site_id'); 
 
 			$data['popular_stores'] =$this->db->where(['site_id'=>$site_id,'popular'=>1 ])->limit(10)->get('stores')->result();  
 			$data['popular_categories'] =$this->db->where(['site_id'=>$site_id,'popular'=>1 ])->limit(10)->get('categories')->result();  
@@ -201,7 +201,9 @@ if (empty($category) && $return==false) {
 				$configs[$value->name]=$value->value;
 			}
 			$data['configs']=$configs;
-		 
+
+			$data['seo']=head_javascript($this->input->post('page_name'),$this->input->post('page_slug'));
+ 
 			echo json_encode(['success'=>'yes','response'=>$data]);
 			exit();
 	}

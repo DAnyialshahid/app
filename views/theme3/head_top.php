@@ -27,17 +27,32 @@
                                             <a rel="nofollow"  :href="base_url+'/page/submit_offer'"  data-activates="slide-out" class="button-collapse btn login-btn">Add Offer</a>
                                     </li>
             </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse-nav"><i class="fa fa-bars"></i></a>
+            <a href="#" data-activates="nav-mobile"  onclick="$('#nav-mobile').toggle(700);" class="button-collapse-nav"><i class="fa fa-bars"></i></a>
+            
         </div>
+
     </nav>
+
 </div>
-<ul id="nav-mobile" class="side-nav mobile-nav" style="transform: translateX(-100%);">
+ 
+   <div class="main  hide-on-large-only" style="    height: 37px; margin: 9px 0px; padding: 0px 10px;}">
+      <input  placeholder="Search ..."  class=" typeahead"  id="search_input_mobile" >
+     >
+
+    </div>               
+
+                     
+
+                     
+
+
+<ul id="nav-mobile" class="side-nav mobile-nav" style="transform: translateX(0%);display: none;">
     <div>
         <li>
             <div class="userView">
                 <div class="background"></div>
-                                    <a rel="nofollow" href="#"><img class="circle" src="https://www.couponchaska.com/img/user.png"></a>
-                    <a rel="nofollow" :href="base_url+'/submit_offer'" data-activates="slide-out" class="button-collapse login-mob-nav btn btn-flat waves-effect waves-light">Submit Offer</a>
+                           
+                    <a rel="nofollow" href="#"  onclick="$('#nav-mobile').toggle(700);"  data-activates="slide-out" class="button-collapse login-mob-nav btn btn-flat waves-effect waves-light"><i class="fa fa-arrow-left"></i></a>
                             </div>
         </li>
                     <li>
@@ -46,6 +61,7 @@
                         <div class="collapsible-body" style="">
                                     <ul> 
           <ul class="collapsible collapsible-accordion"> 
+            <li><a class=" waves-effect waves-red">aa</a> 
             <li><a class="collapsible-header waves-effect waves-red">Fashion</a> 
               <div class="collapsible-body" style=""> 
                 <ul> 
