@@ -531,7 +531,7 @@
         <p class="cboxsq-title text-center">{{coupon.name}} </p>
         <div class="cboxsq-btn"></div>
 
-                         <a class="row" title=" ">
+<a class="row" title=" ">
                                                    
 
 
@@ -560,7 +560,7 @@
   <div class="col-12"  v-for="coupon in popular_coupons"  >
     
     <div    class="card coupon cboxsq  hoverable promotion"  style="height:  156px" >
-                       <div class="ribbon ribbon1" v-if="coupon.exclusive"><span>Exclusive</span></div>
+            <div class="ribbon ribbon1" v-if="coupon.exclusive"><span>Exclusive</span></div>
             <div class="ribbon ribbon2" v-if="coupon.verified"><span style="background: #2bc089;">Verified</span></div>
             <div class="ribbon ribbon3" v-if="coupon.featured"><span style="background: #c0842b;">Featured</span></div>
     
@@ -626,7 +626,8 @@
                                                              
                                     </div>
     </div>
-</div>    <div class="container home-email-container">
+</div>    
+<div class="container home-email-container">
     <div class="home-email card hoverable">
         <div class="row">
             <div class="col s12 m12 l6 home-email-text-container valign-wrapper">

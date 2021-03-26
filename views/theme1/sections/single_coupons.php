@@ -47,8 +47,8 @@
                                                            {{coupon.name}}
                                             </div>   
 
-                                            <div style="max-height: 37px;overflow-y: auto; min-height: 44px;">
-                                                           {{coupon.description}}
+                                            <div style="max-height: 37px;overflow-y: hidden; min-height: 44px;" v-html="coupon.description">
+                                                       
                                             </div>
                                         </div>
                                     </div>
