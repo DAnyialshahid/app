@@ -3,7 +3,7 @@
                         <div class="ocontent" >
                             <!-- <button class="save-coupon" aria-label="Save Coupon"><i class="df-save-o"></i></button> -->
                             <div class="odata">
-                                <div class="otype">
+                                <div class=" ">
                                      <div class="coupon-label">
 
                                       <div    v-if="coupon.short_title"   class="coupon-label-context coupon">
@@ -89,9 +89,9 @@
                         </div>
                         <div class="oactions">  
                          <table style="width: 100%"><tr>
-                            <td><i class="far fa-calendar " style="font-family: 'Font Awesome 5 Pro' !important;"></i>  {{coupon.updated_date}}</td>
-                            <td><i class="far fa-eye"  style="font-family: 'Font Awesome 5 Pro' !important;"></i>          {{coupon.visits}} used total</td>
-                            <td><i class="far fa-clock"  style="font-family: 'Font Awesome 5 Pro' !important;"></i>  {{coupon.expire_date}}</td>
+                            <td><i class="far fa-calendar "  style="font-family: 'Font Awesome 5 Pro' !important;"></i>  {{coupon.updated_date}}</td>
+                            <td><i class="far fa-eye"        style="font-family: 'Font Awesome 5 Pro' !important;"></i>          {{coupon.visits}} used total</td>
+                            <td><i class="far fa-clock"      style="font-family: 'Font Awesome 5 Pro' !important;"></i>  {{coupon.expire_date}}</td>
                         </tr></table>
                       </div>
                          
