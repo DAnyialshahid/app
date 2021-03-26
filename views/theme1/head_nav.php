@@ -31,7 +31,7 @@
             </li>
              
              
-            <li><a  :href="base_url+'page/submit_offer'" >Submit Offer</a></li>
+            <!-- <li><a  :href="base_url+'page/submit_offer'" >Submit Offer</a></li> -->
             <li><a  :href="base_url+'page/contact_us'" >Contact</a></li>
             <!-- <li><a href="#" target="_blank">Blog</a></li> -->
         </ul>
