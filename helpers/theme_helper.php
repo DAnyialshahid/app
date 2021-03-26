@@ -241,7 +241,12 @@ function backend_page($context,$page,$params=[]){
             $uri=getallheaders()['domain_uri'];
             $uri=explode('/',  $uri);
             $type=$uri[1];
-            $slug=explode('?',  $uri[2])[0];
+            if (isset($uri[2])) {
+               $slug=explode('?',  $uri[2])[0];
+            }else{
+                 $slug='';
+            }
+           
           
              $metas_seo=head_javascript($type, $slug);
               echo '
@@ -280,7 +285,7 @@ var global_page_slug=url[2];
       $keywords='';
       $description='';
       $name='';
-      if ($page_name=='home' || $page_name=='home') { 
+      if ($page_name=='home' || $page_name=='') { 
          $title=setting('seo_home_meta_title');
          $keywords=setting('seo_home_meta_keywords');
          $description=setting('seo_home_meta_description');    
@@ -320,7 +325,7 @@ var global_page_slug=url[2];
          } 
       }
 
-     if ($page_name=='page' || $page_name=='page') { 
+     if ($page_name=='page' || $page_name=='pages') { 
         $title=setting('seo_page_meta_title');
          $keywords=setting('seo_page_meta_keywords');
          $description=setting('seo_page_meta_description');   
