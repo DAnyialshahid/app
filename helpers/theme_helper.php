@@ -237,6 +237,39 @@ function backend_page($context,$page,$params=[]){
     }
     function head($page_name,$slug=null){ 
 
+          if (@getallheaders()['is_crawler']=='true') {
+            $uri=getallheaders()['domain_uri'];
+            $uri=explode('/',  $uri);
+            $type=$uri[1];
+            $slug=explode('?',  $uri[2])[0];
+          
+             $metas_seo=head_javascript($type, $slug);
+              echo '
+
+                    <title>'.$metas_seo['title'].'</title>  
+                    <meta name="keywords" content="'.$metas_seo['keywords'].'">
+                    <meta name="description" content="'.$metas_seo['description'].'">
+                    '.setting('header').'
+                ';
+               
+                     
+          } else{
+
+                echo '
+<title id="meta_title"></title>
+<meta  id="meta_description" name="description" content="">
+<meta  id="meta_keywords" name="keywords" content="">
+
+
+<script type="text/javascript">
+var url=window.location.pathname.split(\'/\');
+var global_page_name=url[1];
+var global_page_slug=url[2];
+</script>
+ 
+                    ';
+          }
+
  echo setting('header');
            
     
@@ -348,8 +381,7 @@ function backend_page($context,$page,$params=[]){
   $description=str_replace('{month}', date('m'),$description);
   $description=str_replace('{Day}', date('D'),$description);
   $description=str_replace('{day}', date('d'),$description);
-
-
+ 
 
   return  [
       'title'=>$title,
@@ -357,15 +389,7 @@ function backend_page($context,$page,$params=[]){
       'description'=>$description,
     ];
  
-
-// echo '
-//       <title>'.$title.'</title>  
-//       <meta name="keywords" content="'.$keywords.'">
-//       <meta name="description" content="'.$description.'">
-//       '.setting('header').'
-//   ';
-           
-    
+ 
    }
 
 //defining theme base_url

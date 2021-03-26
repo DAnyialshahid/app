@@ -9,10 +9,13 @@ class Frontend extends Theme_Controller{
 	{
 	 	parent::__construct();
 		ob_clean(); 
+
+		// header("Title:"); // HTTP 1.1.
+
+
 // $config['base_url'] = 'APP_URL';
 	 // d($_COOKIE);
  
-	// d(getallheaders());
 	 // d($_SERVER);
  //dd(site_id);
 		if(isset($_GET['debuger']) && $_GET['debuger']){
