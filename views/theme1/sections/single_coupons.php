@@ -6,8 +6,7 @@
                                 <div class=" ">
                                      <div class="coupon-label">
 
-                                      <div    v-if="coupon.short_title"   class="coupon-label-context coupon">
-                                            <div class="value__label">
+                                      <div    v-if="coupon.short_title"   class="coupon-label-context coupon" style="justify-content: center; font-size: 29px; padding-right: 22px; color: #00a2e1; /* line-height: 1; */ margin: 10px; "> <div class="value__label">
                                                 {{coupon.short_title.split(' ')[0]}}
                                             </div>
                                             <div class="off__label">   {{coupon.short_title.split(' ')[1]}}</div>
