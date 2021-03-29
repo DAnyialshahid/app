@@ -168,7 +168,11 @@ class Categories_model extends MY_Model{
 
 	}
 	
- 
+ public function rand1()
+
+	return random_int(0,1);
+}
+
 	public function add_dummy_categories($site_id){
 $this->db->set('categories_group_id',null)->where('site_id',$site_id)->update('categories'); 
  $this->db->where('site_id',$site_id)->delete('categories_group');  
@@ -2518,10 +2522,7 @@ $categories=[
 	'group'=>22,
 	]
 ];
-function rand1()
 
-	return random_int(0,1);
-}
 foreach ($categories as  &$category) {
 	$group=$category['group'];
 	unset($category['group']);
