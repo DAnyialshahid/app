@@ -10,7 +10,7 @@
                 <h3>About {{configs.site_name}}</h3>
                 <div class="   ">
                     <a href="/" class="LogoLink">
-                        <img :src="base_url+'/assets/uploads/sites/'+configs.logo"  class="top-logo img-responsive">
+                        <img :src="base_url+'/assets/uploads/sites/'+configs.logo"  style="max-height: 200px;" class="top-logo img-responsive">
                     </a>
                 </div>
                 
