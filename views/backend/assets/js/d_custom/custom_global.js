@@ -287,7 +287,14 @@ console.log(notification);
                      url : api_base_url+"/getIntervals",
                      
                      success: function(data) { 
-                        if(data.success === "yes") { 
+                        if(data.success === "yes") {
+
+
+  setTimeout(function() {
+    F.getNotifications();
+  },20000);
+
+
                             var html="";
                         
                                 var n= $('#notifications_panel');
@@ -712,9 +719,8 @@ if (!F.isMobile()) {
 
 
   F.getNotifications();
-  setInterval(function() {
-    F.getNotifications();
-  },20000);
+
+
 
        F.getClipboard();
 $('#sites_list').selectpicker();
