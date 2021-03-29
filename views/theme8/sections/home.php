@@ -1,153 +1,273 @@
-<main class="container">
-  <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
-      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
-    </div>
-  </div>
+<div id="grad1">
+       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" style="fill:white;">
+            <path class="elementor-shape-fill" d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7 c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4 c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
+         </svg>
+  <div  class="text-center pb-2"> 
+      <h3 style="    font-weight: 700 !important;">  Popular Stores </h3>
+       <span>Search any product and gear up your needs with astounding deals</span>
+   </div>
+    
+   <div class="container">
+  <div class="row popular_stores d-flex justify-content-center">
 
-  <div class="row mb-2">
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">World</strong>
-          <h3 class="mb-0">Featured post</h3>
-          <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="stretched-link">Continue reading</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+<?php 
 
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Design</strong>
-          <h3 class="mb-0">Post title</h3>
-          <div class="mb-1 text-muted">Nov 11</div>
-          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="stretched-link">Continue reading</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+if (isset($data->popular_stores)){
+  foreach (array_slice($data->popular_stores,0,21) as $store ) { 
 
-        </div>
-      </div>
-    </div>
-  </div>
+?>
+      <div class="store col-md-2 col-sm-4 col-6 ">
+                  <a href="/<?=$store->custom_url?>">
+                     <p align="center" ><?=$store->name?> </p>
+                  </a>
+               </div>
 
-  <div class="row">
-    <div class="col-md-8">
-      <h3 class="pb-4 mb-4 fst-italic border-bottom">
-        From the Firehose
-      </h3>
+  <?php 
+    }
+  }
+?> 
+             <div class="store col-md-2 col-sm-4 col-6 ">
+                  <a href="/stores">
+                     <p align="center" >See All </p>
+                  </a>
+               </div>
 
-      <article class="blog-post">
-        <h2 class="blog-post-title">Sample blog post</h2>
-        <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
 
-        <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-        <hr>
-        <p>Yeah, she dances to her own beat. Oh, no. You could've been the greatest. 'Cause, baby, <a href="#">you're a firework</a>. Maybe a reason why all the doors are closed. Open up your heart and just let it begin. So très chic, yeah, she's a classic.</p>
-        <blockquote>
-          <p>Bikinis, zucchinis, Martinis, no weenies. I know there will be sacrifice but that's the price. <strong>This is how we do it</strong>. I'm not sticking around to watch you go down. You think you're so rock and roll, but you're really just a joke. I know one spark will shock the world, yeah yeah. Can't replace you with a million rings.</p>
-        </blockquote>
-        <p>Trying to connect the dots, don't know what to tell my boss. Before you met me I was alright but things were kinda heavy. You just gotta ignite the light and let it shine. Glitter all over the room <em>pink flamingos</em> in the pool. </p>
-        <h2>Heading</h2>
-        <p>Suiting up for my crowning battle. If you only knew what the future holds. Bring the beat back. Peach-pink lips, yeah, everybody stares.</p>
-        <h3>Sub-heading</h3>
-        <p>You give a hundred reasons why, and you say you're really gonna try. Straight stuntin' yeah we do it like that. Calling out my name. ‘Cause I, I’m capable of anything.</p>
-        <pre><code>Example code block</code></pre>
-        <p>Before you met me I was alright but things were kinda heavy. You just gotta ignite the light and let it shine.</p>
-        <h3>Sub-heading</h3>
-        <p>You got the finest architecture. Passport stamps, she's cosmopolitan. Fine, fresh, fierce, we got it on lock. Never planned that one day I'd be losing you. She eats your heart out.</p>
-        <ul>
-          <li>Got a motel and built a fort out of sheets.</li>
-          <li>Your kiss is cosmic, every move is magic.</li>
-          <li>Suiting up for my crowning battle.</li>
-        </ul>
-        <p>Takes you miles high, so high, 'cause she’s got that one international smile.</p>
-        <ol>
-          <li>Scared to rock the boat and make a mess.</li>
-          <li>I could have rewrite your addiction.</li>
-          <li>I know you get me so I let my walls come down.</li>
-        </ol>
-        <p>After a hurricane comes a rainbow.</p>
-      </article><!-- /.blog-post -->
+             </div>
+</div>
+    
+      
 
-      <article class="blog-post">
-        <h2 class="blog-post-title">Another blog post</h2>
-        <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+</div>
+ 
+<div  class="pt-4">
+ 
+  <div  class="text-center pb-2"> 
+      <h3 style="    font-weight: 700 !important;">  Popular Categories </h3>
+       <span>Search any product and gear up your needs with astounding deals</span>
+   </div>
+    
+   <div class="container">
+  <div class="row popular_stores d-flex justify-content-center">
 
-        <p>I am ready for the road less traveled. Already <a href="#">brushing off the dust</a>. Yeah, you're lucky if you're on her plane. I used to bite my tongue and hold my breath. Uh, She’s a beast. I call her Karma (come back). Black ray-bans, you know she's with the band. I can't sleep let's run away and don't ever look back, don't ever look back.</p>
-        <blockquote>
-          <p>Growing fast into a <strong>bolt of lightning</strong>. Be careful Try not to lead her on</p>
-        </blockquote>
-        <p>I'm intrigued, for a peek, heard it's fascinating. Oh oh! Wanna be a victim ready for abduction. She's got that international smile, oh yeah, she's got that one international smile. Do you ever feel, feel so paper thin. I’m gon’ put her in a coma. Sun-kissed skin so hot we'll melt your popsicle.</p>
-        <p>This is transcendental, on another level, boy, you're my lucky star.</p>
-      </article><!-- /.blog-post -->
+<?php 
 
-      <article class="blog-post">
-        <h2 class="blog-post-title">New feature</h2>
-        <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
+if (isset($data->popular_categories)){
+  foreach (array_slice($data->popular_categories,0,21) as $cat ) { 
 
-        <p>From Tokyo to Mexico, to Rio. Yeah, you take me to utopia. I'm walking on air. We'd make out in your Mustang to Radiohead. I mean the ones, I mean like she's the one. Sun-kissed skin so hot we'll melt your popsicle. Slow cooking pancakes for my boy, still up, still fresh as a Daisy.</p>
-        <ul>
-          <li>I hope you got a healthy appetite.</li>
-          <li>You're never gonna be unsatisfied.</li>
-          <li>Got a motel and built a fort out of sheets.</li>
-        </ul>
-        <p>Don't need apologies. Boy, you're an alien your touch so foreign, it's <em>supernatural</em>, extraterrestrial. Talk about our future like we had a clue. I can feel a phoenix inside of me.</p>
-      </article><!-- /.blog-post -->
+?>
+      <div class="store col-md-2 col-sm-4 col-6 ">
+                  <a href="/categories/<?=$cat->slug?>">
+                     <p align="center" ><?=$cat->name?> </p>
+                  </a>
+               </div>
 
-      <nav class="blog-pagination" aria-label="Pagination">
-        <a class="btn btn-outline-primary" href="#">Older</a>
-        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-      </nav>
+  <?php 
+    }
+  }
+?> 
+             <div class="cat col-md-2 col-sm-4 col-6 ">
+                  <a href="/categories">
+                     <p align="center" >See All Categories </p>
+                  </a>
+               </div>
 
-    </div>
 
-    <div class="col-md-4">
-      <div class="p-4 mb-3 bg-light rounded">
-        <h4 class="fst-italic">About</h4>
-        <p class="mb-0">Saw you downtown singing the Blues. Watch you circle the drain. Why don't you let me stop by? Heavy is the head that <em>wears the crown</em>. Yes, we make angels cry, raining down on earth from up above.</p>
-      </div>
+             </div>
+</div>
+    
+      
 
-      <div class="p-4">
-        <h4 class="fst-italic">Archives</h4>
-        <ol class="list-unstyled mb-0">
-          <li><a href="#">March 2014</a></li>
-          <li><a href="#">February 2014</a></li>
-          <li><a href="#">January 2014</a></li>
-          <li><a href="#">December 2013</a></li>
-          <li><a href="#">November 2013</a></li>
-          <li><a href="#">October 2013</a></li>
-          <li><a href="#">September 2013</a></li>
-          <li><a href="#">August 2013</a></li>
-          <li><a href="#">July 2013</a></li>
-          <li><a href="#">June 2013</a></li>
-          <li><a href="#">May 2013</a></li>
-          <li><a href="#">April 2013</a></li>
-        </ol>
+
+</div>
+
+
+
+
+
+
+<div id="grad1">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" style="fill:white;">
+            <path class="elementor-shape-fill" d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7 c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4 c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
+         </svg>
+         <div class="grad2" styled="background: url('https://www.sociablelabs.com/images/home-banner-bg.png') no-repeat;background-size: cover;height:450px;opacity:0.5;">
+            <div class="container">
+               <div class="row grad2_head" style="">
+                  <div class="col-xs-1 col-md-2"></div>
+                  <div class="col-xs-10 col-md-8">
+                     <div class="banner-detail-inner pt-5">
+                        <h1 class="text-white h2 grad2_h1" align="center" style=""> Save on everything you buy</h1>
+                        <p align="center" class="grad2_herotext" style=""><span>Search any product and gear up your needs with astounding deals</span></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-1 col-md-3"></div>
+                  <div class="col-xs-10 col-md-6">
+                     <form id="prdsearch" action="https://www.sociablelabs.com/search/result">
+                        <div class="row">
+                           <div class="col-xs-10 col-sm-11 no-padding"> <input type="search" name="qry" class="form-control no-border-radius no-outline home_search" id="rvwprdsearchhome" placeholder="What are you looking for?"> </div>
+                           <div class="col-xs-2 col-sm-1 no-padding"> <button type="submit" class="btn btn-default no-border-radius home_search_btn"> <i class="fa fa-search"></i> </button> </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+
       </div>
 
-      <div class="p-4">
-        <h4 class="fst-italic">Elsewhere</h4>
-        <ol class="list-unstyled">
-          <li><a href="#">GitHub</a></li>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">Facebook</a></li>
-        </ol>
-      </div>
-    </div>
 
-  </div><!-- /.row -->
 
-</main>
+
+
+
+
+
+
+
+
+
+      <section class="divc browse_box_head" style="background-color: #fff;padding-bottom:20px;">
+         <div class="container padtb20 home_container">
+            <div class="row">
+               <div class="col-md-6 col-xsm-12 col-xs-12">
+                  <div class="browse_box">
+                     <h2 align="center">Crush your competition</h2>
+                     <p align="center"> A Place with a wide range of amazon tools that help you own the competitive advantage accompanied by the best seller tools. We have converged a full suite of tools to promote your business to the next level. </p>
+                  </div>
+               </div>
+               <div class="col-md-6 col-xsm-12 col-xs-12">
+                  <div class="browse_box">
+                     <h2 align="center">Accomplish your website needs</h2>
+                     <p align="center"> Determine the best among various platforms available to meet your website needs from proxy services to web hosting services, themes, marketing Emails, and reports. Model your brand to be more reachable. </p>
+                  </div>
+               </div>
+               <div class="col-md-6 col-xsm-12 col-xs-12">
+                  <div class="browse_box">
+                     <h2 align="center">One-stop store for all products</h2>
+                     <p align="center"> Get the latest promos on a wide range of products over 1 Million from about 5,000+ categories. One-stop store to manage your needs while on the economy. We keep you informed with neutral information about products. </p>
+                  </div>
+               </div>
+               <div class="col-md-6 col-xsm-12 col-xs-12">
+                  <div class="browse_box">
+                     <h2 align="center">Augment shopper participation</h2>
+                     <p align="center"> Most of the retailers are struggling with the innovative ways that do the selling for their sites. We use the best ROI guided approaches to maximize the shopper participation and uplift the sales on ecommerce sites. </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+      <section class="sec_popcat">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h2 align="center" class="popcat_head"> Popular Stores </h2>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/trinny-london-coupons">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/trinny-london-coupons.png" /> </p>
+                        <p align="center" class="popcat_title">Trinny London</p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/camelback-mountain-coupons">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/camelback-mountain-coupons.png" /> </p>
+                        <p align="center" class="popcat_title">Camelback Mountain</p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/aero-coupons">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/aero-coupons.png" /> </p>
+                        <p align="center" class="popcat_title">Aero</p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/postmates-coupons">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/postmates-coupons.png" /> </p>
+                        <p align="center" class="popcat_title">Postmates</p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/tiff-s-treats-coupons">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/tiff-s-treats-coupons.png" /> </p>
+                        <p align="center" class="popcat_title">Tiff&#039;s Treats</p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/raising-cane-s-coupons">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/raising-cane-s-coupons.png" /> </p>
+                        <p align="center" class="popcat_title">Raising Cane&#039;s</p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/pax-coupons">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/pax-coupons.png" /> </p>
+                        <p align="center" class="popcat_title">PAX</p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/lus-brands-coupons">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/lus-brands-coupons.png" /> </p>
+                        <p align="center" class="popcat_title">LUS Brands</p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/function-of-beauty-coupons">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/function-of-beauty-coupons.png" /> </p>
+                        <p align="center" class="popcat_title">Function Of Beauty</p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/dope-coupons">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/dope-coupons.png" /> </p>
+                        <p align="center" class="popcat_title">Dope</p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/ledger-wallet-coupons">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/ledger-wallet-coupons.png" /> </p>
+                        <p align="center" class="popcat_title">Ledger Wallet</p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-md-2 col-xs-6">
+                  <a href="https://www.sociablelabs.com/puffco-discount-code">
+                     <div class="pop_cat_block">
+                        <p align="center" class="popcat_img"> <img src="https://www.sociablelabs.com/images/store-logo/puffco-discount-code.png" /> </p>
+                        <p align="center" class="popcat_title">Puffco</p>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </section>
+
 
 
 <main class="main" id="home">

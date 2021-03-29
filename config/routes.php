@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'frontend/home';
 $route['stores'] = 'frontend/stores';
+$route['stores/(:any)'] = 'frontend/stores/$1';
 $route['categories'] = "frontend/catagories";
 $route['submit_offer'] = "frontend/submit_offer";
 $route['store/(:any)'] = "frontend/single_store/$1";

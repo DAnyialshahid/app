@@ -3,16 +3,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once APPPATH . 'controllers/Theme_Controller.php';
 class front_api extends Theme_Controller{
-	
+	public $direct_access=false;
  
-	public function __construct()
+	public function __construct($direct_access=false,$call_by_controller=false)
 	{
 		
 		parent::__construct();
 		if (isset($_POST['site_id'])) {
 				$_POST['site_id']=site_id;
 		}
- 
+$this->direct_access=$direct_access;
   flush(); 
    
 	 
@@ -23,7 +23,9 @@ class front_api extends Theme_Controller{
 						 }else{
 						 	   
 						 	   if (!isset($_GET['development'])) {
-									exit('No direct script access allowed');
+							 	   if ($call_by_controller ==false) {
+										exit('No direct script access allowed');
+									}
 								}
 						 }
 		// echo strpos($_SERVER['HTTP_ACCEPT'], 'json') ;
@@ -32,6 +34,7 @@ class front_api extends Theme_Controller{
 		if(isset($_GET['debuger']) && $_GET['debuger']){ 
 	        $this->output->enable_profiler(TRUE);
 	    }
+
 	}
 
 	   
@@ -45,7 +48,12 @@ class front_api extends Theme_Controller{
 
 		 			 
 			$data = $this->db->get('pages')->first_row();   
-			echo json_encode(['success'=>'yes','response'=>$data]);
+			$data=(['success'=>'yes','response'=>$data]);
+			if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 	}
 
@@ -69,7 +77,12 @@ class front_api extends Theme_Controller{
 			 
 			// echo $this->db->last_query();
 			if($return){return $data;}
-			echo json_encode(['success'=>'yes','response'=>$data]);
+			$data=(['success'=>'yes','response'=>$data]);
+			if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 	}
 	   
@@ -125,7 +138,12 @@ class front_api extends Theme_Controller{
 
 			$category=$this->db->select('*')->where('slug',$category_slug)->where('site_id',$site_id)->get('categories')->first_row();
 if (empty($category) && $return==false) {
-	 	echo json_encode(['success'=>'no','response'=>'category not found']);
+	 	$data=(['success'=>'no','response'=>'category not found']);
+	 	if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 }
 			$category_id=$category->id;
@@ -182,7 +200,12 @@ if (empty($category) && $return==false) {
 
 			if($return){return $data;}
 			//dd($data);
-			echo json_encode(['success'=>'yes','response'=>$data ]);
+			$data=(['success'=>'yes','response'=>$data ]);
+			if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 	}
 
@@ -204,7 +227,12 @@ if (empty($category) && $return==false) {
 
 			$data['seo']=head_javascript($this->input->post('page_name'),$this->input->post('page_slug'));
  
-			echo json_encode(['success'=>'yes','response'=>$data]);
+			$data=(['success'=>'yes','response'=>$data]);
+			if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 	}
 
@@ -235,7 +263,12 @@ if (empty($category) && $return==false) {
 		}  
 		
 			if($return){return $data;}
-		echo json_encode(['success'=>'yes','response'=>$categories]);
+		$data=(['success'=>'yes','response'=>$categories]);
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 		exit();
 	}
 
@@ -265,7 +298,12 @@ if (empty($category) && $return==false) {
 
 		 
 			if($return){return $data;}
-		echo json_encode(['success'=>'yes','response'=>$categories_groups]);
+		$data=(['success'=>'yes','response'=>$categories_groups]);
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 		exit();
 	}
 
@@ -368,7 +406,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 		// d($stores);
 			if($return){return $stores;}
-		echo json_encode(['success'=>'yes','response'=>$stores]);
+		$data=(['success'=>'yes','response'=>$stores]);
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 		exit();
 	}
 		
@@ -384,12 +427,22 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		],['coupons','popular_stores','relative_stores','counts'],true);
 
 		if (empty($store) ) {
-			 	echo json_encode(['success'=>'no','response'=>'Store not found']);
+			 	$data=(['success'=>'no','response'=>'Store not found']);
+			 	if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 					exit();
 		}
 
 		$store=$store[0];
-		echo json_encode(['success'=>'yes','response'=>$store]);  
+		$data=(['success'=>'yes','response'=>$store]);  
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 
 
 		$visit=$this->input->post('visit');
@@ -415,7 +468,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 				'show_in_home'=>'1',
 				'site_id'=>$site_id,
 		],['counts2'],true);
-		echo json_encode(['success'=>'yes','response'=>$stores]);   
+		$data=(['success'=>'yes','response'=>$stores]);   
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 		 
 
 		exit();
@@ -434,7 +492,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 			 
 				'site_id'=>$site_id,
 		],['counts2'],true);
-		echo json_encode(['success'=>'yes','response'=>$stores]);   
+		$data=(['success'=>'yes','response'=>$stores]);   
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 		 
 
 		exit();
@@ -473,7 +536,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 				}
 			}
 		} 
-		echo json_encode(['success'=>'yes','response'=>$coupons]);  
+		$data=(['success'=>'yes','response'=>$coupons]);  
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 
 		 
 
@@ -496,7 +564,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 			'site_id'=>$site_id,
 	])->result();
 		 
-		echo json_encode(['success'=>'yes','response'=>$coupons]);  
+		$data=(['success'=>'yes','response'=>$coupons]);  
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 
 		 
 
@@ -519,7 +592,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 			'site_id'=>$site_id,
 		])->result();
 		 
-		echo json_encode(['success'=>'yes','response'=>$slider]);  
+		$data=(['success'=>'yes','response'=>$slider]);  
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 
 		 
 
@@ -542,7 +620,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 			'site_id'=>$site_id,
 	])->result();
 		 
-		echo json_encode(['success'=>'yes','response'=>$stores]);  
+		$data=(['success'=>'yes','response'=>$stores]);  
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 
 		 
 
@@ -554,7 +637,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 	{
 
 			$this->load->model('admin/f_model'); 
-			echo json_encode(['success'=>'yes','response'=>$this->f_model->get_sites()]);
+			$data=(['success'=>'yes','response'=>$this->f_model->get_sites()]);
+			if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 	}
 
@@ -562,14 +650,24 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 	{
 
 			$this->load->model('admin/f_model'); 
-			echo json_encode(['success'=>'yes','response'=>$this->f_model->get_roles()]);
+			$data=(['success'=>'yes','response'=>$this->f_model->get_roles()]);
+			if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 	}
 	public function votecoupon()
 	{
 
 		 
-			echo json_encode(['success'=>'yes','response'=>'y']);
+			$data=(['success'=>'yes','response'=>'y']);
+			if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 	}
 	public function contact_us_details()
@@ -583,7 +681,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 		$this->db->set('name',$name)->set('email',$email)->set('question',$question)->set('message',$message)->set('site_id',$site_id)->insert('contacts'); 
  
-		echo json_encode(['success'=>'yes','response'=>'submited']);
+		$data=(['success'=>'yes','response'=>'submited']);
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 
 	}	
@@ -600,7 +703,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 		$this->db->set('name',$name)->set('email',$email)->set('store',$store)->set('coupon_title',$coupon_title)->set('coupon_code',$coupon_code)->set('message',$message)->set('site_id',$site_id)->insert('submit_offers'); 
  
-		echo json_encode(['success'=>'yes','response'=>'submited']);
+		$data=(['success'=>'yes','response'=>'submited']);
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 
 	}		
@@ -613,7 +721,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 		$this->db->set('email',$subscribe_email)->set('site_id',$site_id)->insert('subscribes'); 
  
-		echo json_encode(['success'=>'yes','response'=>'submited']);
+		$data=(['success'=>'yes','response'=>'submited']);
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 
 	}	
@@ -626,7 +739,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		 
 		$this->db->where(['id'=>$reffrence_id, ])->set('visits','visits+1',false)->update('coupons'); 
 		$this->visit($site_id,$reffrence_id,$type);
-		echo json_encode(['success'=>'yes','response'=>'y']);
+		$data=(['success'=>'yes','response'=>'y']);
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 
 	}
@@ -661,7 +779,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 				'position'=>'toast-bottom-left',
 				'site_id'=>$site_id,
 		]);
-	echo json_encode(['success'=>'yes','response'=>'submited']);
+	$data=(['success'=>'yes','response'=>'submited']);
+	if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			exit();
 
  	}
@@ -684,7 +807,12 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		],['counts2'],true);
 
 // echo $this->db->last_query();
-		echo json_encode($stores);
+		$data=($stores);
+		if ($this->direct_access) {
+			return $data;
+		}else{
+			echo json_encode($data);
+		}
 			
 	}
 

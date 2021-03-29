@@ -1,15 +1,25 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once APPPATH . 'controllers/Theme_Controller.php';
-class Frontend extends Theme_Controller{
+  require_once APPPATH . 'controllers/Front_api.php';
+class Frontend extends front_api{
 	
  
-	
+	public $direct_access;
+ 
 	public function __construct()
 	{
-	 	parent::__construct();
-		ob_clean(); 
+ 
+ 
+		$this->direct_access=  getallheaders()['direct_access']=='true'?true:false;
 
+		if ($this->direct_access) {
+		
+		 $_POST['site_id']=site_id;
+		}
+	 	parent::__construct($this->direct_access,true); 
+		ob_clean(); 
+  
 		// header("Title:"); // HTTP 1.1.
 
 
@@ -25,23 +35,70 @@ class Frontend extends Theme_Controller{
 	}
 
 	 
+	public function direct_access_data($page_name)
+	{	 
+		if ($this->direct_access) {
+			if ($page_name=='home') {
+				 $_POST['limit']=10;
+				 $popular_stores=$this->getPopularStores()['response'];
+				 $_POST['limit']=10;
+				 $popular_categories=$this->getPopuplarCategories()['response'] ;
+		 		return (object)[
+		 			'popular_stores'=> $popular_stores, 
+		 			'popular_categories'=>$popular_categories, 
+		 		];
+			}			
+
+			if ($page_name=='stores') {
+				 $_POST['limit']=10;
+				 $popular_stores=$this->getPopularStores()['response'];
+			
+				 $_POST['limit']=9999999;
+				 $stores=$this->getStores()['response'] ;
+		 		return (object)[
+		 			'popular_stores'=> $popular_stores, 
+		 			'stores'=>$stores, 
+		 		];
+			}	
+
+			if ($page_name=='single_store') {
+				 
+				 $_POST['limit']=9999999;
+				 $store=$this->getStore()['response'] ;
+		 		return (object)[
+		 			 
+		 			'store'=>$store, 
+		 		];
+			}
+		}
+		
+ 
+	}
 	public function home()
 	{
+ 
+	  // dd($this->direct_access_data('home'));
+
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/home',
 			 	'js'=>'home',
 			 	'page_name'=>'home',
+			 	'data'=>$this->direct_access_data('home'),
 
 			 ]); 
 
 	}
 	 
-	public function stores()
+	public function stores($alphabet='a')
 	{
+		if ($this->direct_access && $alphabet!='all' && !empty($alphabet)) {
+				 $_POST['alphabet']=$alphabet;
+		}
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/all-stores',
 			 	'js'=>'all-stores',
 			 	'page_name'=>'stores',
+			 	'data'=>$this->direct_access_data('stores'),
 
 
 			 ]); 
@@ -61,12 +118,17 @@ class Frontend extends Theme_Controller{
 
 	public function single_store($slug)
 	{
+		if ($this->direct_access) {
+			$_POST['slug']=$slug;
+		}
+
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/single_store',
 			 	'js'=>'single_store',
 			 	'type'=>'single_store',
 			 	'slug'=>$slug,
 			 	'page_name'=>'single_store',
+			 	'data'=>$this->direct_access_data('single_store'),
 
 			 ]); 
 
