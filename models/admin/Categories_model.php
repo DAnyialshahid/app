@@ -168,7 +168,7 @@ class Categories_model extends MY_Model{
 
 	}
 	
- public function $this->rand1(){
+ public function rand1(){
 
 	return random_int(0,1);
 }
