@@ -7,15 +7,16 @@ class front_api extends Theme_Controller{
  
 	public function __construct($direct_access=false,$call_by_controller=false)
 	{
-		
+	
 		parent::__construct();
 		if (isset($_POST['site_id'])) {
 				$_POST['site_id']=site_id;
 		}
 $this->direct_access=$direct_access;
   flush(); 
-   
-	 
+   		
+
+	 	
 		if (!( ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
 		   				 if(strpos($_SERVER['HTTP_ACCEPT'], 'json') !== false){  
 								
@@ -31,9 +32,18 @@ $this->direct_access=$direct_access;
 		// echo strpos($_SERVER['HTTP_ACCEPT'], 'json') ;
 		}
 	// $_POST['limit']=1;
-		if(isset($_GET['debuger']) && $_GET['debuger']){ 
-	        $this->output->enable_profiler(TRUE);
+ 
+ 	if( isset($_GET['debugger']) && ($_GET['debugger']=='false') ) {
+	    	    $this->session->set_userdata('debugger','no');
 	    }
+
+		if( (isset($_GET['debugger']) && $_GET['debugger']=='true') ||  ($this->session->userdata('debugger')=='yes') ){ 
+	        $this->output->enable_profiler($this->config->item('profiler')); 
+	         $this->session->set_userdata('debugger','yes');
+	        echo 'Debugging <hr>'."\n";
+	    }
+ 
+	    
 
 	}
 
@@ -54,7 +64,7 @@ $this->direct_access=$direct_access;
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 	}
 
 	  	public function getCoupons($store_id,$site_id=null,$return=false)
@@ -83,7 +93,7 @@ $this->direct_access=$direct_access;
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 	}
 	   
 
@@ -144,7 +154,7 @@ if (empty($category) && $return==false) {
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 }
 			$category_id=$category->id;
 
@@ -206,7 +216,7 @@ if (empty($category) && $return==false) {
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 	}
 
 	 
@@ -233,7 +243,7 @@ if (empty($category) && $return==false) {
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 	}
 
 	 
@@ -269,7 +279,7 @@ if (empty($category) && $return==false) {
 		}else{
 			echo json_encode($data);
 		}
-		exit();
+		$this->exit2();
 	}
 
 
@@ -304,7 +314,7 @@ if (empty($category) && $return==false) {
 		}else{
 			echo json_encode($data);
 		}
-		exit();
+		$this->exit2();
 	}
 
 
@@ -412,7 +422,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}else{
 			echo json_encode($data);
 		}
-		exit();
+		$this->exit2();
 	}
 		
 
@@ -433,7 +443,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}else{
 			echo json_encode($data);
 		}
-					exit();
+					$this->exit2();
 		}
 
 		$store=$store[0];
@@ -453,7 +463,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 		} 
 
-		exit();
+		$this->exit2();
 	}
 	
 //show only check if show_in_home =1 
@@ -476,7 +486,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}
 		 
 
-		exit();
+		$this->exit2();
 	}
 	
 
@@ -500,7 +510,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}
 		 
 
-		exit();
+		$this->exit2();
 	}
 	
 
@@ -545,7 +555,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 		 
 
-		exit();
+		$this->exit2();
 	}
 	
 
@@ -573,7 +583,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 		 
 
-		exit();
+		$this->exit2();
 	}
 
 	public function getSlides()
@@ -601,7 +611,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 		 
 
-		exit();
+		$this->exit2();
 	}
 
 
@@ -629,7 +639,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 		 
 
-		exit();
+		$this->exit2();
 	}
 	
 
@@ -643,7 +653,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 	}
 
 	public function getRoles()
@@ -656,7 +666,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 	}
 	public function votecoupon()
 	{
@@ -668,7 +678,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 	}
 	public function contact_us_details()
 	{
@@ -687,7 +697,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 
 	}	
 	public function submit_offer_details()
@@ -709,7 +719,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 
 	}		
 
@@ -727,7 +737,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 
 	}	
 	public function visit_coupon()
@@ -745,7 +755,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 
 	}
 
@@ -785,7 +795,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}else{
 			echo json_encode($data);
 		}
-			exit();
+			$this->exit2();
 
  	}
 
@@ -816,6 +826,15 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 			
 	}
 
+
+  public function exit2()
+	{
+		if (($this->session->userdata('debugger')=='yes')) {
+			# code...
+		}else{
+			exit();
+		}
+	}
 	
 }
 

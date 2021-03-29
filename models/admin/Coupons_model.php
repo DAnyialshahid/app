@@ -158,7 +158,7 @@ foreach ($categories as $category) {
 		->set('category_id',$category->id)
 		->set('popular','round(RAND()*1)',false)
 		->set('show_in_home','round(RAND()*1)',false)
-		->where('site_id',$site_id)->limit(15)->order_by('RAND()',null,FALSE)->update('stores'); 
+		->where('site_id',$site_id)->limit(3)->order_by('RAND()',null,FALSE)->update('stores'); 
 		//dd($this->db->last_query());
 	
 }
@@ -178,7 +178,7 @@ foreach ($categories as $category) {
 		->set('popular','round(RAND()*1)',false)
 		->set('show_in_home','round(RAND()*1)',false)
 		->set('top','round(RAND()*1)',false)
-		->where('site_id',$site_id)->limit(25)->order_by('RAND()',null,FALSE)->update('coupons'); 
+		->where('site_id',$site_id)->limit(3)->order_by('RAND()',null,FALSE)->update('coupons'); 
 		//dd($this->db->last_query());
 	
 }
