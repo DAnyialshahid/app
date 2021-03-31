@@ -37,7 +37,7 @@
  
    <div class="main  hide-on-large-only" style="    height: 37px; margin: 9px 0px; padding: 0px 10px;}">
       <input  placeholder="Search ..."  class=" typeahead"  id="search_input_mobile" >
-     >
+
 
     </div>               
 

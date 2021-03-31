@@ -36,13 +36,13 @@
  
                                        
                                     </div>
-                                    <div class="tw-flex tw-leading-tight tw-w-5/6 sm:tw-ml-6 tw-ml-4">
+                                    <div class="r-flex tw-leading-tight tw-w-5/6 sm:tw-ml-6 tw-ml-4">
                                         <div class="sm:tw-flex-grow tw-pr-4 coupon-card-inner-container" style="    flex-basis: 52%;">
-                                          <div class="row">
+                                          <div class="row col-xs-12">
  
-                                            <div v-if="coupon.verified==1" class="col-xs-2 tw-text-green sm:tw-border sm:tw-border-green sm:tw-text-green sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Verified </div>
-                                            <div v-if="coupon.exclusive==1" class="col-xs-2 tw-text-blue sm:tw-border sm:tw-border-blue sm:tw-text-blue sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Exclusive </div>
-                                            <div v-if="coupon.featured==1" class="col-xs-2 tw-text-orange sm:tw-border sm:tw-border-orange sm:tw-text-orange sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Featured </div> 
+                                            <div v-if="coupon.verified==1" class="col-xs-6 col-md-3 col-sm-4 col-lg-3 tw-text-green sm:tw-border sm:tw-border-green sm:tw-text-green sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Verified </div>
+                                            <div v-if="coupon.exclusive==1" class="col-xs-6 col-md-3 col-sm-4 col-lg-3 tw-text-blue sm:tw-border sm:tw-border-blue sm:tw-text-blue sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Exclusive </div>
+                                            <div v-if="coupon.featured==1" class="col-xs-6 col-md-3 col-sm-4 col-lg-3 tw-text-orange sm:tw-border sm:tw-border-orange sm:tw-text-orange sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Featured </div> 
                                           </div>
 
                                                 <!-- <p class="tw-text-grey sm:tw-text-base tw-text-xs lato">    {{coupon.store.name}} </p> -->
@@ -67,10 +67,10 @@
                                  :href="base_url+comeFrom+'/'+slug+'?coupon_id='+coupon.id"
                                  :d-coupon_id="coupon.id"
                                  d-redirect="yes"
-                                 style="bottom:auto" 
+                                 style="bottom:auto;width: 100%" 
                                   >
                              <div v-if="coupon.type=='deal'" class="ohop deal">
-                                    <div class="tw-bg-blue hover:tw-bg-blue-dark tw-text-center tw-text-white tw-py-2 tw-px-4">Get Offer
+                                    <div class="r-button r-padding tw-bg-blue hover:tw-bg-blue-dark tw-text-center tw-text-white tw-py-2 tw-px-4">Get Offer
                                                 </div>
 
                             </div>
@@ -83,10 +83,10 @@
                                      :href="base_url+comeFrom+'/'+slug+'?coupon_id='+coupon.id"
                                      :d-coupon_id="coupon.id"
                                      d-redirect="yes"
-                                     style="bottom:auto" 
+                                     style="bottom:auto;width: 100%" 
                                       >
                                        <!-- <div class="tw-bg-grey-lighter tw-border tw-text-grey-dark tw-text-right tw-w-full tw-p-2">{{coupon.coupon_code}}</div>  -->
-                                                <div class=" tw-pin-t tw-pin-l tw-bg-blue hover:tw-bg-blue-dark tw-border tw-border-blue tw-text-center tw-text-white tw-min-w-5/6 tw-p-2">Show Code
+                                                <div class="r-button r-padding tw-pin-t tw-pin-l tw-bg-blue hover:tw-bg-blue-dark tw-border tw-border-blue tw-text-center tw-text-white tw-min-w-5/6 tw-p-2">Show Code
                                                 </div>
 
 
@@ -113,7 +113,7 @@
                                 </div>
 
                                
-                        <table style=" width: 100%">
+                        <table style=" width: 100%;margin: 5px auto;">
                           <tr>
                               <!-- <td><i class="far fa-calendar "></i>  {{coupon.updated_date.split(' ')[0]}}</td> -->
                               <td><i class="far fa-eye"></i>          {{coupon.visits}} used total</td>

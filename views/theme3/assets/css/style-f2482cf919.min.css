@@ -1,8 +1,16 @@
 @media only screen and (max-width: 600px)
 {
 
+
+
+.modal-content-up .mcoupon {
+ 
+    padding:5px 12px !important;
+        width: 100%;
+
+}
  .store-head-content {
-     margin-left: 0px !important;;
+     margin-left: 0px !important;
  }
 
  .store-logo-container,.ccsearch{
@@ -17,7 +25,10 @@
 
  }
 
-
+.btn.focus, .btn:focus, .btn:hover {
+    color: #fffca3;
+     background-color: #962317 !important;
+}
   #popular_coupons .title{
         font-size: 40px;
     }
@@ -1299,7 +1310,7 @@ footer.page-footer {
 .cboxsq {
     background-color: #fff;
     margin: 25px auto 0;
-    height: 325px;
+    /*height: 325px;*/
     padding: 24px
 }
 

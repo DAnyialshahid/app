@@ -27,7 +27,7 @@
         <div class="container">
             <div class="col-6">
                 <div class="article">
-                    <div class="col-md-9 col-sm-12 col-xs-12 pull-right">
+                    <div class="col-md-9 col-sm-12 col-xs-12 pull-right " style="padding:  0;">
                         <div class="item-bolcks"  id="single_store_container" style="display: none;">
                              
 

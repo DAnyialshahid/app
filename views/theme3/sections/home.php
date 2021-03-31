@@ -17,7 +17,7 @@
         
         <div class="offer-tabs">
     <div class="container">
-        <div class="row">
+        <div class="row"  style="display: none;">
             <div class="col s12">
                 <ul class="tabs z-depth-1" style="width: 100%;">
                  <li   v-for="category in popular_categories.slice(0,5)" class="tab col s2 waves-effect">
@@ -54,7 +54,7 @@
 
                 <div class="clear"></div>
         <p class="cboxsq-title text-center">{{coupon.name}} </p>
-        <div class="cboxsq-btn">
+        <div class="text-center">
             <a  v-if="coupon.type=='deal'"   target="_blank" 
                                   class="clipClass btn  go-cpn btn-offer waves-effect waves-light"
                                  :data-clipboard-text="'DEAL Activated'" 
@@ -104,7 +104,7 @@
       <h1 class="h3">Today's Most Popular Coupons & Deals</h1>
   <div class="col-12"  v-for="coupon in popular_coupons"  >
     
-    <div    class="card coupon cboxsq  hoverable promotion"  style="height:  156px" >
+    <div    class="row coupon cboxsq  hoverable promotion"   >
                        <div class="ribbon ribbon1" v-if="coupon.exclusive"><span>Exclusive</span></div>
             <div class="ribbon ribbon2" v-if="coupon.verified"><span style="background: #2bc089;">Verified</span></div>
             <div class="ribbon ribbon3" v-if="coupon.featured"><span style="background: #c0842b;">Featured</span></div>
@@ -124,13 +124,13 @@
           
 
                 <!-- <div class="clear"></div> -->
-        <div class="col-md-7  text-center">
+        <div class="col-md-7 col-xs-12 text-center ">
           <b class="title" style="font-size: 30px;">  {{coupon.name}}</b>
             <div  style="font-size: 15px;"> {{coupon.description}}</div>
 
          </div>
-        <div class="col-md-2">
-                      <div  v-if="coupon.short_title"  class="col-md-12  flow-text truncate"><span>    {{coupon.short_title.split(' ')[0]}}     {{coupon.short_title.split(' ')[1]}}
+        <div class="col-md-2  text-center">
+                      <div  v-if="coupon.short_title"  class="hidden-xs col-md-12  flow-text truncate"><span>    {{coupon.short_title.split(' ')[0]}}     {{coupon.short_title.split(' ')[1]}}
                   </span></div>
 
             <a  v-if="coupon.type=='deal'"   target="_blank" 
@@ -151,8 +151,11 @@
                                      style="bottom:auto" 
                                       >Get code</a>
 
+<div class="col-xs-12 text-center  " style="padding: 0px;">
  <span style="margin-left: auto;margin-right: auto;font-size:12px"><i class="far fa-eye"></i>{{coupon.visits}} Views </span> 
  <span style="margin-left: auto;margin-right: auto;font-size:12px"><i class="far fa-clock"></i>  Expire:{{coupon.expire_date}}</span>
+</div>
+
 
                     </div>
 
