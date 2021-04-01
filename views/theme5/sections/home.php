@@ -227,18 +227,11 @@
         <div class="col-lg-12">
             <h1 class="section-title">Today's Most Popular Coupons & Deals</h1>
 
-        <div class="popular-coupon-carousel hot-deals-carousel featured-coupon-carousel main-carousel flickity-enabled is-draggable">
+        <div class="owl-carousel owl-theme  flickity-enabled is-draggable" style="display: inline-flex; ">
 
-
-   <div v-for="coupon in popular_coupons"   class="featured-coupon offer_single carousel-cell"  >
+   <div v-for="coupon in popular_coupons"   class="grid tile r-boxes  carousel-cell"   >
    
-   <div class="section-carousel-item section-carousel-inline-item active" data-carousel-slide="">
-            <div class=" ">
-                <div class="section-carousel-content section-carousel-inline-content">
-                    
-
-<div class="grid tile tile-block tile-block-carousel" >
-    <div class="tile-block-inner">
+<div class="tile-block-inner">
 
         <div class="tile-block-content">
                 <a :href="base_url+'store/'+coupon.store.custom_url"class="tile-block-logo">
@@ -330,19 +323,6 @@
         </div>
 
     </div>
-</div>
-
-                </div>
-            </div>
-         
-        </div>
-
-
-
-<!-- {{coupon.short_title.split(' ')[0]}}     {{coupon.short_title.split(' ')[1]}}
- {{coupon.description}} 
- -->
-
 
                                      
 

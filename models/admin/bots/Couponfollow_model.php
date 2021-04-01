@@ -61,7 +61,11 @@ $store=$this->db->get_where('bots_stores',['id'=>$store_id])->first_row();
 			//  dd(	$response);
 				 if (stripos($response, "This is what we call a")  ) {
 return true;
-}if (stripos($response, "Object moved")  ) {
+}
+if (stripos($response, "Object moved")  ) {
+return true;
+}
+if (stripos($response, "been removed")  ) {
 return true;
 }
 

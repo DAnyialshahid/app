@@ -90,7 +90,7 @@ $(document).ready(function() {
  		$('.hot-stores').flickity({
 		  // options
 		  cellAlign: 'left',
-		  pageDots: false,	
+		  pageDots: true,	
 		  contain: true
 		});
 		 
@@ -99,7 +99,7 @@ $(document).ready(function() {
  		$('.popular-coupon-carousel').flickity({
 		  // options
 		  cellAlign: 'left',
-		   pageDots: false,
+		   pageDots: true,
 		  contain: true
 		});
 		 
