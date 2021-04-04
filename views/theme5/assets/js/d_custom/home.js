@@ -146,6 +146,8 @@ function getTopStores(){
 			            home.recommended_coupons=response;
 			            setTimeout(function() {
 									flicky_recommended_slider();
+
+									
 							                         
 								},300);
 		});

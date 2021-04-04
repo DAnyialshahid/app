@@ -1,5 +1,5 @@
 <main class="main" id="home">
-
+  <!--
     <div class="section bg slider-box">
     <div class="container">
          <div class="owl-carousel owl-theme">
@@ -23,7 +23,7 @@
 </div>
 
 
-  <div class="section bg">
+ <div class="section bg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -63,7 +63,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
     
@@ -76,17 +76,11 @@
         <div class="col-lg-12">
             <h1 class="section-title">Recommended Offers for You</h1>
 
-        <div class="recommended-coupon-carousel hot-deals-carousel featured-coupon-carousel main-carousel flickity-enabled is-draggable">
+ <div class="recommended-coupon-carousel   featured-coupon-carousel main-carousel flickity-enabled is-draggable" >
 
 
-   <div v-for="coupon in recommended_coupons"   class="featured-coupon offer_single carousel-cell"  >
-   
-   <div class="section-carousel-item section-carousel-inline-item active" data-carousel-slide="">
-            <div class="section-carousel-item-inner section-carousel-inline-item-inner">
-                <div class="section-carousel-content section-carousel-inline-content">
-                    
-
-<div class="grid tile tile-block tile-block-carousel" id="3312772">
+    <div  v-for="coupon in recommended_coupons"   class="col-3 col-xs-12 col-sm-4 col-lg-3 tile-inline"  >
+    <div  class=" grid tile tile-block tile-block-carousel"  >
     <div class="tile-block-inner">
 
         <div class="tile-block-content">
@@ -179,29 +173,7 @@
         </div>
 
     </div>
-</div>
-
-                </div>
-            </div>
-         
-        </div>
-
-
-
-<!-- {{coupon.short_title.split(' ')[0]}}     {{coupon.short_title.split(' ')[1]}}
- {{coupon.description}} 
- -->
-
-
-                                     
-
-
-     
- 
-   
-
-   
- 
+</div>  
 </div>  
 
 
@@ -221,13 +193,13 @@
 
 
 
-<div class="section bg">
+<div class="section bg" style="display: none;">
     <div class="container">
         <div class="row">
         <div class="col-lg-12">
             <h1 class="section-title">Today's Most Popular Coupons & Deals</h1>
 
-        <div class="owl-carousel owl-theme  flickity-enabled is-draggable" style="display: inline-flex; ">
+        <div class="flickity-enabled is-draggable" style="display: inline-flex; ">
 
    <div v-for="coupon in popular_coupons"   class="grid tile r-boxes  carousel-cell"   >
    
