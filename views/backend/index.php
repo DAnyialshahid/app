@@ -50,10 +50,10 @@
 			<!--end::Header-->
 
 				<!--begin::Content-->
-				<div class="content  d-flex flex-column flex-column-fluid" id="kt_content">
+				<div class="content ddddd" id="kt_content">
 
 					<!--begin::Entry-->
-	<div class="d-flex flex-column-fluid" id="content_page">
+	<div class=" container" id="content_page">
 		<!--begin::Container-->
 					<?php //backend_page($this,'dashboard')?>
                      <?php backend_page($this,$content_page)?>

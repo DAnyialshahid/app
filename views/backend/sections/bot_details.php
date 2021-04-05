@@ -1,5 +1,5 @@
 <input type="hidden" id="id" name="id"/>
-<div class="content  d-flex flex-column flex-column-fluid" id="kt_content">
+<div class="content ddddd" id="kt_content">
 											<!--begin::Subheader-->
 <div class="subheader py-2 py-lg-4  subheader-transparent " id="kt_subheader">
     <div class=" container  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">

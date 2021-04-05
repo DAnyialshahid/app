@@ -49,8 +49,8 @@
                             <ul class="menu-nav">
 
                                 
-                                <li class="menu-item  " aria-haspopup="true">
-                                    <a  href="#" onclick="Route.go('dashboard','')"><span class="menu-text">Dashboard</span></a>
+                                <li class="menu-item   " aria-haspopup="true">
+                                    <a  href="#" class="menu-link " onclick="Route.go('dashboard','')"><span class="menu-text">Dashboard</span></a>
                                 </li>
 
                                 <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
@@ -477,7 +477,7 @@
 
 <?php if($this->session->userdata('role')=='admin'):?>
 
-<li class="menu-item menu-item-submenu menu-item-rel"  style="width:200px"  data-menu-toggle="click" aria-haspopup="true">
+<li class="menu-item  m-auto"  style="width:200px"   aria-haspopup="true">
                                      
                                        <select class="form-control  " id="sites_list">
 

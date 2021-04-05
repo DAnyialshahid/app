@@ -301,7 +301,7 @@ var KTLogin = function() {
 
             validation.validate().then(function(status) {
                 if (status == 'Valid') {
-                    // Submit form
+                    // Submit formvalidation
                     KTUtil.scrollTop();
                 } else {
                     swal.fire({

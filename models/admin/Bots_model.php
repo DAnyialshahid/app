@@ -90,8 +90,8 @@ class Bots_model extends MY_Model{
 	set_time_limit(0);
 
 	$stores=$this->db->get_where('bots_stores',[
-'bot_id'=>$bot_id,
-])->result();
+		'bot_id'=>$bot_id,
+		])->result();
 
 
 $site_stores=$this->db->get_where('stores',[
@@ -111,9 +111,7 @@ if (!empty($stores)) {
 	foreach ($stores as $store) {
  
 if (in_array($store->name, $site_stores_slugs))
-  {
-
-
+  { 
   	continue;
   }
 
