@@ -51,6 +51,7 @@ var Main = function() {
              {
                 field: 'name',
                 title: 'Slider Name', 
+                      autoHide: false,
             }, {
                 field: 'updated_date',
                 title: 'Last Update',
@@ -59,7 +60,7 @@ var Main = function() {
             }, {
                 field: 'status',
                 title: 'status',
-                autoHide: false, 
+                autoHide: true, 
                 //'active','inactive','unknown','not_update','closed','error','sales_issue'
                 template: function(row) {
                     var status = {
@@ -83,7 +84,7 @@ var Main = function() {
                 sortable: false,
                 width: 160,
                 overflow: 'visible',
-                autoHide: false,
+                autoHide: true,
                 template: function(row) {
                     return '\
 							<div class="dropdown dropdown-inline">\

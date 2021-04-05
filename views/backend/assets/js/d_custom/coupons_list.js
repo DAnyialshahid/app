@@ -40,7 +40,7 @@ var Main = function() {
                 field: 'id',
                 title: '#',
                 sortable: false,
-                width: 20,
+                width: 10,
                 type: 'number',
                 selector: {
                     class: ''
@@ -49,6 +49,9 @@ var Main = function() {
             }, {
                 field: 'feature_image',
                 title: 'Image',
+                  autoHide: true,
+
+                    width: 50,
                 template: function(row) { 
               
                     if(Boolean(row.feature_image) ==false){row.feature_image='blank.png';}
@@ -57,10 +60,12 @@ var Main = function() {
             }, {
                 field: 'name',
                 title: 'Coupon Title', 
+                  autoHide: false,
+                    width: 150,
             },  {
                 field: 'type',
                 title: 'Type',
-                autoHide: false,
+                width: 80,
                 // callback function support for column rendering
                 template: function(row) {
                     var status = {
@@ -90,10 +95,12 @@ var Main = function() {
             },  {
                 field: 'store_name',
                 title: 'Store name', 
+                  autoHide: false,
+                    width: 100,
             }, {
                 field: 'status',
                 title: 'status',
-                autoHide: false, 
+               width: 80,
                 //'active','inactive','unknown','not_update','closed','error','sales_issue'
                 template: function(row) {
                     var status = {
@@ -121,7 +128,7 @@ var Main = function() {
                 sortable: false,
                 width: 190,
                 overflow: 'visible',
-                autoHide: false,
+         
                 template: function(row) {
 
                     var copy='<a href="javascript:;"  onclick="F.copyThis('+row.id+',\'copyCoupons\')" class="btn btn-sm btn-clean btn-icon mr-1" title="Copy this coupon">\

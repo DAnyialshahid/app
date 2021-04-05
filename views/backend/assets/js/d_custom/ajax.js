@@ -1,8 +1,69 @@
 
 
+var History = function() {
+  return {  
+      list:[],
+      back:function() {
+        var last_index=History.list.length-2;
+        
+       if (last_index>=0) {
+          var last_page=History.list[last_index];
+          Ajax.loadPage(last_page.title,last_page.page,last_page.js,last_page.id,true);
+          History.list.pop(last_index);
+          $('.menu-item-active').removeClass('menu-item-active');
+      }
+ 
+        if (last_index==0) {
+          $('#go_back_button').hide();
+        }else{
+          $('#go_back_button').show(); 
+        }
+
+         var previous_page=History.list[last_index-1];
+          if (typeof previous_page!=='undefined') {
+             $('#go_back_button .previous_text').html(previous_page.title);
+          }
+
+      },   
+     refresh:function() {
+        var last_index=History.list.length-1;
+        var last_page=History.list[last_index];
+        Ajax.loadPage(last_page.title,last_page.page,last_page.js,last_page.id,true);
+      },   
+
+      add:function(title,page,js,id) {
+
+        History.list.push({'title':title,'page':page,'js':js,'id':id}); 
+        var last_index=History.list.length-1;
+
+          var previous_page=History.list[last_index-1];
+          // console.log(last_index-1);
+          // console.log(previous_page);
+          if (typeof previous_page!=='undefined') {
+             $('#go_back_button .previous_text').html(previous_page.title);
+          }
+            
+
+         if (last_index==0) {
+          $('#go_back_button').hide();
+          }else{
+            $('#go_back_button').show();
+          }
+     
+      },
+    }}();
+
+
+
 var Ajax = function() {
   return {
-      loadPage:function(title,page,js,id) {
+      loadPage:function(title,page,js,id,callbyHistory=false) {
+        if (!callbyHistory) {
+            History.add(title,page,js,id);
+        }
+        
+
+        $('.burge-icon-active').click();
       $('title').html("Loading:".title);
    KTApp.blockPage({overlayColor: '#000000', state: 'danger', message: 'Loading Page...', size: 'lg'}); 
    setTimeout(function() {

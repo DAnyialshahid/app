@@ -730,12 +730,9 @@ $('#sites_list').selectpicker();
 
 
 $('.menu-subnav .menu-item').click(function() {
-
- 
   $('.menu-item').removeClass('menu-item-active');
   $(this).addClass('menu-item-active');
-  $(this).parent().closest('.menu-item').addClass('menu-item-active');;
-
+  $(this).parent().closest('.menu-item').addClass('menu-item-active');
 });
 
 
@@ -749,7 +746,7 @@ $('#sites_list').change(function() {
                      success: function(data) { 
                         if(data.success === "yes") { 
                               Swal.fire("Site Changed!", 'Success', "success");
-                              Route.go('dashboard','');
+                              History.refresh();
                                  //  window.location.href="";
                         }
                         else {

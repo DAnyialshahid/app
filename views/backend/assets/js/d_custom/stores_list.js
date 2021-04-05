@@ -42,7 +42,7 @@ var Main = function() {
                 field: 'id',
                 title: '#',
                 sortable: false,
-                width: 20,
+                width: 10,
                 type: 'number',
                 selector: {
                     class: ''
@@ -51,6 +51,8 @@ var Main = function() {
             }, {
                 field: 'feature_image',
                 title: 'Image',
+                  width: 50,
+                    autoHide: false,
                 template: function(row) {
                        if(Boolean(row.feature_image) ==false){row.feature_image='blank.png';}
                     return '<img class="img-responsive" style="width:50px" src="'+base_url+'/assets/uploads/stores/'+row.feature_image+'"  />';
@@ -58,10 +60,12 @@ var Main = function() {
             }, {
                 field: 'store_name',
                 title: 'Store Name', 
-                  autoHide: true,
+                  width: 150,
+                  autoHide: false,
             }, {
                 field: 'last_coupon_date',
                 title: 'Last Update',   
+                  width: 80,
                 template: function(row) {
                       
                     return moment(row.last_coupon_date).fromNow();
@@ -71,11 +75,16 @@ var Main = function() {
 
             }, {
                 field: 'views_n_click',
-                title: 'Views / Clicks',
+                title: 'V & C',
+                  width: 40,
             }, {
                 field: 'coupons_n_deals',
-                 title: 'Coupons / Deals',
+                 title: 'C / D',
+  width: 50,
+  template:function(row){
+    return row.views_n_click;
 
+  }
                 // // callback function support for column rendering
                 // template: function(row) {
                 //     var status = {
@@ -153,6 +162,7 @@ var Main = function() {
                 field: 'status',
                 title: 'status',
                 autoHide: true, 
+                      sortable: true,
                 //'active','inactive','unknown','not_update','closed','error','sales_issue'
                 template: function(row) {
                     var status = {
@@ -200,7 +210,7 @@ var Main = function() {
                 sortable: false,
                 width: 160,
                 overflow: 'visible',
-                autoHide: false,
+                autoHide: true,
                 template: function(row) {
                     var add_coupon=' <li class="navi-item">\
                                             <a onclick="Route.go(\'coupons\',\'create\',{store_id:'+row.id+'})" class="navi-link">\

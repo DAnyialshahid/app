@@ -61,6 +61,7 @@ var Main = function() {
             {
                 field: 'feature_image',
                 title: 'Image',
+                  autoHide: true,
                  width: 55,
                 template: function(row) {
                        if(Boolean(row.feature_image) ==false){row.feature_image='blank.png';}
@@ -70,6 +71,7 @@ var Main = function() {
             }, {
                 field: 'name',
                 title: 'Category Name', 
+                  autoHide: false,
             }, {
                 field: 'updated_date',
                 title: 'Last Update',
@@ -78,7 +80,7 @@ var Main = function() {
             }, {
                 field: 'status',
                 title: 'status',
-                autoHide: false, 
+          
                 //'active','inactive','unknown','not_update','closed','error','sales_issue'
                 template: function(row) {
                     var status = {
@@ -102,7 +104,7 @@ var Main = function() {
                 sortable: false,
                 width: 160,
                 overflow: 'visible',
-                autoHide: false,
+        
                 template: function(row) {
 
                       var copy='<a href="javascript:;"  onclick="F.copyThis('+row.id+',\'copyCategories\')" class="btn btn-sm btn-clean btn-icon mr-1" title="Copy this coupon">\

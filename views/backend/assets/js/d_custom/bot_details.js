@@ -49,7 +49,8 @@ var Main = function() {
             },
              {
                 field: 'name',
-                title: 'title'
+                title: 'title',
+                  autoHide: false,
             },   {
                 field: 'last_run',
                 title: 'Last Run'
@@ -75,7 +76,7 @@ var Main = function() {
                 sortable: false,
                 width: 160,
                 overflow: 'visible',
-                autoHide: false,
+                autoHide: true,
                 template: function(row) {
                     var button='';
                   

@@ -46,6 +46,7 @@ var Main = function() {
                 selector: {
                     class: ''
                 },
+
                 textAlign: 'center',
             }, {
                 field: 'feature_image',
@@ -58,9 +59,11 @@ var Main = function() {
             },  {
                 field: 'site_name',
                 title: 'Site', 
+                  autoHide: false,
             },{
                 field: 'username',
                 title: 'Username', 
+                  autoHide: false,
             },  {
                 field: 'password',
                 title: 'Password', 
@@ -76,7 +79,7 @@ var Main = function() {
             },       {
                 field: 'status',
                 title: 'status',
-                autoHide: false, 
+                autoHide: true, 
                 //'active','inactive','unknown','not_update','closed','error','sales_issue'
                 template: function(row) {
                     var status = {
@@ -100,7 +103,7 @@ var Main = function() {
                 sortable: false,
                 width: 160,
                 overflow: 'visible',
-                autoHide: false,
+                autoHide: true,
                 template: function(row) {
                     return '<a href="javascript:;"  onclick="Main.editThis('+row.id+')" class="btn btn-sm btn-clean btn-icon mr-1" title="Edit details">\
 	                            <span class="svg-icon svg-icon-md">\

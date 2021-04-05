@@ -49,14 +49,15 @@ var Main = function() {
                 textAlign: 'center',
             }, {
                 field: 'name',
-                title: 'title'
+                title: 'title',
+                  autoHide: false,
             }, {
                 field: 'Actions',
                 title: 'Actions',
                 sortable: false,
                 width: 160,
                 overflow: 'visible',
-                autoHide: false,
+                autoHide: true,
                 template: function(row) {
                     return '<a href="javascript:;"  onclick="Main.editThis('+row.id+')" class="btn btn-sm btn-clean btn-icon mr-1" title="Edit details">\
 	                            <span class="svg-icon svg-icon-md">\

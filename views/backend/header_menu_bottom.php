@@ -49,6 +49,20 @@
                             <ul class="menu-nav">
 
                                 
+                                <li class="menu-item" id="go_back_button" aria-haspopup="true">
+
+                                    <a  href="#" class="menu-link menu-item     " onclick="History.back()">
+
+                                     
+                                        <span class="svg-icon menu-icon la la-arrow-left"></span>
+                                        <span>
+                                            <span>Go Back</span>
+                                            <br>
+                                            <span class="previous_text form-text p-0 m-0" style="font-size: 9px; "></span> </span> 
+                                       
+                                    </a>
+                                </li>   
+
                                 <li class="menu-item   " aria-haspopup="true">
                                     <a  href="#" class="menu-link " onclick="Route.go('dashboard','')"><span class="menu-text">Dashboard</span></a>
                                 </li>
