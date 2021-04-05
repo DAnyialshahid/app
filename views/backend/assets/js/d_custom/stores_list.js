@@ -58,6 +58,7 @@ var Main = function() {
             }, {
                 field: 'store_name',
                 title: 'Store Name', 
+                  autoHide: true,
             }, {
                 field: 'last_coupon_date',
                 title: 'Last Update',   
@@ -112,7 +113,7 @@ var Main = function() {
             }, {
                 field: 'type',
                 title: 'type',
-                autoHide: false,
+                autoHide: true,
                 // visible:true,
 
                 // callback function support for column rendering
@@ -151,7 +152,7 @@ var Main = function() {
             }, {
                 field: 'status',
                 title: 'status',
-                autoHide: false, 
+                autoHide: true, 
                 //'active','inactive','unknown','not_update','closed','error','sales_issue'
                 template: function(row) {
                     var status = {
