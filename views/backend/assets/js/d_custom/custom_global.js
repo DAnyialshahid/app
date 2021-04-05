@@ -699,8 +699,8 @@ $(document).ready(function(){
 var extension=$('meta[name=extension_installed]').attr('content');
 
 if (!F.isMobile()) {
-    alert(navigator.userAgent);
-    return 1;
+    // alert(navigator.userAgent);
+    // return 1;
    if (extension=='0') {
    
     alert('please install extention to continue !');
