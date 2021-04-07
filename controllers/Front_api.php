@@ -474,9 +474,9 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		$site_id=$this->input->post('site_id'); 
 
 		$stores=$this->getStores([
-				'top'=>1,
-				'show_in_home'=>'1',
 				'site_id'=>$site_id,
+				'top'=>1,
+				'show_in_home'=>1,
 		],['counts2'],true);
 		$data=(['success'=>'yes','response'=>$stores]);   
 		if ($this->direct_access) {

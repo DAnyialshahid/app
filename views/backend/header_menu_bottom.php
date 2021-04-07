@@ -51,7 +51,7 @@
                                 
                                 <li class="menu-item" id="go_back_button" aria-haspopup="true">
 
-                                    <a  href="#" class="menu-link menu-item     " onclick="History.back()">
+                                    <a  href="#" class="menu-link menu-item " onclick="History.back()">
 
                                      
                                         <span class="svg-icon menu-icon la la-arrow-left"></span>
@@ -64,11 +64,12 @@
                                 </li>   
 
                                 <li class="menu-item   " aria-haspopup="true">
-                                    <a  href="#" class="menu-link " onclick="Route.go('dashboard','')"><span class="menu-text">Dashboard</span></a>
+
+                                    <a  href="#" class="menu-link " onclick="Route.go('dashboard','')"><span class="menu-text">    <span class=" la la-home">&nbsp;</span> Dashboard</span></a>
                                 </li>
 
                                 <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Store</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
+                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">  <span class=" la la-store-alt">&nbsp;</span>  Store</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item" aria-haspopup="true">
@@ -155,7 +156,9 @@
                                     </div>
                                 </li>
                                 <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Categories</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
+                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">
+                                        <span class=" la la-list">&nbsp;</span>
+                                    Categories</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item" aria-haspopup="true">
@@ -240,7 +243,9 @@
 
 
                                 <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Coupons</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
+                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">
+<span class=" la la-tags">&nbsp;</span>   
+                                    Coupons</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item" aria-haspopup="true">
@@ -291,7 +296,7 @@
                                     </div>
                                 </li>
                                 <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Sliders</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
+                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text"> <span class=" la la-images">&nbsp;</span>Sliders</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item" aria-haspopup="true">
@@ -333,7 +338,8 @@
 
 <?php if($this->session->userdata('role')=='admin'):?>
                                 <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Pages</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
+                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">
+                                        <span class=" la la-pager">&nbsp;</span> Pages</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item" aria-haspopup="true">
@@ -373,7 +379,7 @@
                                 </li>
 
                                 <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Users</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
+                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text"><span class=" la la-user-astronaut">&nbsp;</span>Users</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item" aria-haspopup="true">
@@ -450,7 +456,7 @@
 
 
                                 <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Tools</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
+                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text"> <span class=" la la-gear">&nbsp;</span>Tools</span><span class="menu-desc"></span><i class="menu-arrow"></i></a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
 
