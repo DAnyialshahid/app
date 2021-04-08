@@ -110,12 +110,16 @@ main {
 
 @media only screen and (max-width: 600px) {
     .modal {
-        width: 30rem;
+
+        
+     /*   width: 30rem;
             &__icon {
             margin-left: -105px;
             padding: 3rem 6rem 0 6rem;
             border-radius: 50%;
         }
+*/
+
     }
     
     .email-box {
