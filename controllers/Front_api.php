@@ -102,6 +102,7 @@ $this->direct_access=$direct_access;
 
 
 			 $side_bar_post = array();
+			 parse_str($this->input->post('side_bar'), $side_bar_post);
 
 					if (isset($side_bar_post['verified'])) {
 		 				$this->db->where('verified',1);
