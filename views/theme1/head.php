@@ -5,6 +5,7 @@
 
 
 <?=head($page_name,(isset($slug)?$slug:null))?> 
+<link rel="icon" href="<?=favicon?>">
 <!---/d-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <meta content="width=640, initial-scale=0.47, maximum-scale=1.0, user-scalable=1" name="viewport"> -->

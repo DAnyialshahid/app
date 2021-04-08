@@ -6,8 +6,9 @@
  <!---d-->
  
 <?=head($page_name,(isset($slug)?$slug:null))?> 
-<!---/d-->
 <link rel="icon" href="<?=favicon?>">
+<!---/d-->
+ 
       
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- <link rel="stylesheet" href="<?=theme_base_url?>/assets/css/bootstrap.css" type="text/css" media="all"> -->
