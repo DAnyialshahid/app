@@ -1,5 +1,5 @@
 <main class="main" id="home">
-  <!--
+  
     <div class="section bg slider-box">
     <div class="container">
          <div class="owl-carousel owl-theme">
@@ -27,24 +27,52 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="section-title">Hot Stores of the Week</h1>
-                <a href="#" class="showmore-expbtn">
-                    <i class="fa fa-arrow-right icon"></i>
-                    <span>Show more</span>
-                </a>
+                <h1 class="section-title">Top Merchants</h1>
+                 
             </div>
-            <div class="col-lg-10 col-md-10 md-resp-col-hotstores">
+            <div class="col-lg-12 col-md-12 md-resp-col-hotstores">
                 <div class="hot-stores   main-carousel run-carousel flickity-enabled is-draggable">
                
-               <div v-for="store in show_in_home_stores"   class="hot-store-box carousel-cell"  >
-                        <a :href="base_url+'store/'+store.custom_url">
-                            <div class="web_imagebox">                      
-                                <img    class="img-responsive lazyLoad lazy"  v-bind:src="api_url+'/assets/uploads/stores/'+store.feature_image"   v-bind:alt="store.name" >
-                            </div>
-                            <div class="store-name">{{store.name}}</div>
-                            <p class="offers-count">({{store.count.all}} Offers)</p>
-                        </a>
-                    </div>
+               <div  v-for="store in show_in_home_stores"   class="hot-store-box carousel-cell col-3 col-xs-12 col-sm-4 col-lg-3 tile-inline"    >
+    <div  class=" grid tile tile-block tile-block-carousel"  style="height: 200px !important; "> <div class="tile-block-inner">
+
+        <div class="tile-block-content">
+                <a :href="base_url+'store/'+store.custom_url" class="tile-block-logo">
+                    
+
+ 
+      <img    class="img-responsive lazyLoad lazy"  v-bind:src="api_url+'/assets/uploads/stores/'+store.feature_image"   v-bind:alt="store.name" >
+
+                </a>
+                        <h2 class="tile-block-title" > 
+ 
+    <!-- <span class="hover-over">{{store.name}}</span> -->
+
+            <!-- <p class="offers-count">({{store.count.all}} Offers)</p> -->
+
+
+            </h2>
+        </div>
+
+        <div class="tile-block-footer">
+            
+ 
+
+                 
+
+
+     
+
+        </div>
+
+    </div>
+</div>  
+</div>
+
+
+
+
+                
 
  
                 </div>
@@ -63,7 +91,7 @@
             </div>
         </div>
     </div>
-</div> -->
+</div> 
 
 
     
