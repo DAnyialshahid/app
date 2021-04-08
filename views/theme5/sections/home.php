@@ -317,12 +317,22 @@
 
  <div class="panel panel-vertical bg-colour-none">
     <div class="container">
-        <p class="intro-heading text-center">Popular brands</p>
+         <p class="intro-heading text-center">Popular brands</p>
+    <center class="row ">
+
+
+
+    <div class="col-2"   v-for="category in popular_categories" >
+     
       
-  <a   v-for="category in popular_categories"  :href="base_url+'category/'+category.slug"  title="ASOS" class="link link-light link-top-merchant-home">
+  <a  :href="base_url+'category/'+category.slug"  title="ASOS" class="link link-light link-top-merchant-home">
          {{category.name}}
         </a>
  
+    </div>
+
+
+    </center>
     </div>
 </div>
  
