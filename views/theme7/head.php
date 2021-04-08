@@ -7,7 +7,7 @@
 <?=head($page_name,(isset($slug)?$slug:null))?> 
 <!---/d-->
 
-
+<link rel="icon" href="<?=favicon?>">
 
 
 <meta charset="utf-8">

@@ -7,9 +7,8 @@
 <!---/d-->
 
 <meta charset="utf-8">
-<title>Vouchers and Discount Codes from vouchercloud</title>
-
  
+ <link rel="icon" href="<?=favicon?>">
  
 <link rel="preload" as="style" crossorigin href="<?=theme_base_url?>/assets/css/fonts.vf044b18.css">
 

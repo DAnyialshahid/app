@@ -169,7 +169,10 @@ function backend_page($context,$page,$params=[]){
 
 
     $logo=  $url.'assets/uploads/sites/'.setting('logo');
-     DEFINE('logo',$logo);  
+     DEFINE('logo',$logo);      
+
+     $favicon=  $url.'assets/uploads/sites/'.setting('favicon');
+     DEFINE('favicon',$favicon);  
 
     //function.php
      $link=dirname(__FILE__).'\\..\\views\\'.setting('theme').'\\functions.php';
