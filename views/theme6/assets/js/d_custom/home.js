@@ -348,6 +348,14 @@ function loadByAjax(){
 									flicky_recommended_slider();
 							                         
 								},100);
+			            
+			            	if(get('coupon_id')){ 
+	                                	 for(i in data.response.recommendedCoupons){ 
+	                                	 	if(get('coupon_id')==data.response.recommendedCoupons[i].id){  			
+	                                	 		                      home.initCouponBox(data.response.recommendedCoupons[i]);
+	                                	 		                }
+	                              		  } 
+	                                }
 
 			            //popular_coupons
 			            home.popular_coupons=data.response.popularCoupons;
@@ -355,6 +363,14 @@ function loadByAjax(){
 									flicky_popular_slider();
 							                         
 								},100);
+			               if(get('coupon_id')){ 
+	                                	 for(i in data.response.popularCoupons){ 
+	                                
+	                                	 	if(get('coupon_id')==data.response.popularCoupons[i].id){  			
+	                                	 		                      home.initCouponBox(data.response.popularCoupons[i]);
+	                                	 		                }
+	                              		  } 
+	                                }
 
 
 			              //popular_categories
