@@ -383,9 +383,9 @@ public function getBotDetails($where=null,$return=false)
 	{
 		set_time_limit(0);
 		
-			$this->load->model('admin/categories_model');
+		$this->load->model('admin/categories_model');
 			$this->load->model('admin/coupons_model');
-			$this->categories_model->add_dummy_categories($this->input->post('id')); 
+				$this->categories_model->add_dummy_categories($this->input->post('id')); 
 			$this->coupons_model->add_dummy_categories_stores($this->input->post('id')); 
 			$this->coupons_model->add_dummy_categories_coupons($this->input->post('id')); 
 		

@@ -153,33 +153,76 @@ public function sort($store_id,$coupon_ids){
 public function add_dummy_categories_stores($site_id){
 $this->db->set('category_id',null)->where('site_id',$site_id)->update('stores'); 
 $categories=$this->db->get_where('categories',['site_id'=>$site_id])->result();
-foreach ($categories as $category) {
-		$this->db
-		->set('category_id',$category->id)
-		->set('popular','round(RAND()*1)',false)
-		->set('show_in_home','round(RAND()*1)',false)
-		->where('site_id',$site_id)->limit(3)->order_by('RAND()',null,FALSE)->update('stores'); 
-		//dd($this->db->last_query());
-	
+$stores_ids=$this->db->get_where('stores',['site_id'=>$site_id])->result();
+$ids=[];
+foreach ($stores_ids as $key => $value) {
+	$ids[]=$value->id;
 }
+
+
+
+	foreach ($categories as $category) {
+
+		$counter=3;
+		$group_ids=[];
+		for ($i=1; $i <=$counter ; $i++) { 
+			$group_ids[]=$ids[rand(0, count($ids) - 1)];
+		}
+
+
+			$this->db
+			->set('category_id',$category->id)
+			->set('popular',rand(0,1),false)
+			->set('show_in_home',rand(0,1),false)
+			->set('top',rand(0,1),false)
+			->where('site_id',$site_id)->where_in('id',$group_ids)->update('stores'); 
+			//dd($this->db->last_query());
+		
+	}
 
 }
 
+ 
 
 public function add_dummy_categories_coupons($site_id){
+
+
+
 $this->db->set('category_id',null)->where('site_id',$site_id)->update('coupons'); 
+$coupons_ids=$this->db->select('id')->get_where('coupons',['site_id'=>$site_id])->result();
+$ids=[];
+foreach ($coupons_ids as $key => $value) {
+	$ids[]=$value->id;
+}
+
 
 $categories=$this->db->get_where('categories',['site_id'=>$site_id])->result();
 foreach ($categories as $category) {
+
+	// $time_start = microtime(true); 
+	$counter=4;
+	$group_ids=[];
+	for ($i=1; $i <=$counter ; $i++) { 
+		$group_ids[]=$ids[rand(0, count($ids) - 1)];
+	}
+
+ 
+ 
+// $time_end = microtime(true);
+// $execution_time = ($time_end - $time_start);
+// d(implode(',', $group_ids));
+
 		$this->db->set('category_id',$category->id)
-		->set('verified','round(RAND()*1)',false)
-		->set('featured','round(RAND()*1)',false)
-		->set('exclusive','round(RAND()*1)',false)
-		->set('popular','round(RAND()*1)',false)
-		->set('show_in_home','round(RAND()*1)',false)
-		->set('top','round(RAND()*1)',false)
-		->where('site_id',$site_id)->limit(3)->order_by('RAND()',null,FALSE)->update('coupons'); 
+		->set('verified',rand(0,1),false)
+		->set('featured',rand(0,1),false)
+		->set('exclusive',rand(0,1),false)
+		->set('popular',rand(0,1),false)
+		->set('show_in_home',rand(0,1),false)
+		->set('top',rand(0,1),false)
+		->where('site_id',$site_id)->where_in('id',$group_ids)->update('coupons'); 
+		// dd($this->db->last_query());
 		//dd($this->db->last_query());
+// dd( '<b>Total1 Execution Time:</b> '.$execution_time.' Mins');
 	
 }
 

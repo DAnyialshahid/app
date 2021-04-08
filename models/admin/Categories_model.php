@@ -175,7 +175,8 @@ class Categories_model extends MY_Model{
 
 	public function add_dummy_categories($site_id){
 $this->db->set('categories_group_id',null)->where('site_id',$site_id)->update('categories'); 
- $this->db->where('site_id',$site_id)->delete('categories_group');  
+$this->db->where('site_id',$site_id)->delete('categories_group');  
+
  $categories_groups=[
 	['name'=>'Fashion',
 	'slug'=>'fashion',
@@ -342,17 +343,6 @@ $this->db->set('category_id',null)->where('site_id',$site_id)->update('coupons')
 $this->db->where('site_id',$site_id)->delete('categories'); 
 $categories=[
 
-	[
-	'name'=>'Accessories',
-	'slug'=>'accessories',
-	'feature_image'=>'accessories.png',
-	'description'=>'',
-	'icon'=>'pencil-ruler',
-	'popular'=>$this->rand1(),
-	'show_in_home'=>$this->rand1(),
-	'top'=>$this->rand1(),
-	'group'=>1,
-	],
 	[
 	'name'=>'Accessories',
 	'slug'=>'accessories',
@@ -803,17 +793,6 @@ $categories=[
 	'show_in_home'=>$this->rand1(),
 	'top'=>$this->rand1(),
 	'group'=>7,
-	],
-	[
-	'name'=>'Coaches & Trains',
-	'slug'=>'coaches_and_trains',
-	'feature_image'=>'coaches_and_trains.png',
-	'description'=>'',
-	'icon'=>'pencil-ruler',
-	'popular'=>$this->rand1(),
-	'show_in_home'=>$this->rand1(),
-	'top'=>$this->rand1(),
-	'group'=>8,
 	],
 	[
 	'name'=>'Coaches & Trains',
