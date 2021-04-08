@@ -98,7 +98,10 @@ function loadStore(visit){
 	                     	[token_name]:token_hash,
 	                     },
 	                     success: function(data) { 
-	                        if(data.success === "yes") {   
+	                        if(data.success === "yes") {  
+	                        
+                                 $('#d-loading-image').hide();  
+                                 $('#d-hide_content').show(); 
 	                        	$('#single_store_container').show();
 	                             	app.row=data.response; 
 	                                coupon_box.store=data.response;  

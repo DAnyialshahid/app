@@ -7,6 +7,60 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
+/* allway on top */ 
+#d-loading-image{
+
+    display: flex;
+    height: 100%;
+}
+.d-lds-ring {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.d-lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #00ceff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #00ceff  transparent transparent transparent;
+}
+.d-lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.d-lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.d-lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*// allway on top */
+
+.img-center{
+    display: flex;
+}
+.img-center img{
+   margin: auto;
+}
  
 @white: #FFF;
 @black: #000;
@@ -21,7 +75,7 @@ main {
 }
 
 .modal {
-    background: @brand-color;
+   /* background: @brand-color;
     color: @white;
     width: 60rem;
     border-radius: @border-radius;
@@ -44,7 +98,7 @@ main {
         font-size: 2.6rem;
     }
     
-    p { font-size: 1.5rem; }
+    p { font-size: 1.5rem; }*/
 }
 
 .email-box {

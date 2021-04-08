@@ -1,7 +1,8 @@
  
  
 
-
+ $('#d-loading-image').hide();  
+ $('#d-hide_content').show();
 
 var contact_us= Vue.createApp({
   data() {
@@ -34,6 +35,7 @@ function submitContact(){
                          },
                          success: function(data) { 
                             if(data.success === "yes") {    
+                                
                             		$('.send-loading').html('<b>Coupon Submit</b>');
                             }
                             else {

@@ -27,7 +27,11 @@ init();
                          },
                          success: function(data) { 
                             if(data.success === "yes") {     
+                                
+                                 $('#d-loading-image').hide();  
+                                 $('#d-hide_content').show();
                                 if (data.response==null) {
+
                                      window.location.href=base_url+'404';  
                                 } 
                                       $('#terms_conditions .head_title').html(data.response.name); 

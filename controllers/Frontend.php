@@ -7,6 +7,7 @@ class Frontend extends front_api{
  
 	public $direct_access;
  
+ 
 	public function __construct()
 	{
  
@@ -14,8 +15,10 @@ class Frontend extends front_api{
 		$this->direct_access=  getallheaders()['direct_access']=='true'?true:false;
 
 		if ($this->direct_access) {
+			if (empty($_POST['site_id'])) {
+				 $_POST['site_id']=site_id;
+			}
 		
-		 $_POST['site_id']=site_id;
 		}
 	 	parent::__construct($this->direct_access,true); 
 		ob_clean(); 
@@ -39,25 +42,73 @@ class Frontend extends front_api{
 	{	 
 		if ($this->direct_access) {
 			if ($page_name=='home') {
+				
+
+				 $common=$this->getCommon()['response'] ;
+
+				 $slides=$this->getSlides()['response'] ;
+
+				 $_POST['limit']=10; 
+				  $_POST['side_bar']='top=1&show_in_home=1';
+				 $recommendedCoupons=$this->getRecommendedCoupons()['response'] ;
+
+ 
+
 				 $_POST['limit']=10;
-				 $popular_stores=$this->getPopularStores()['response'];
+				 $_POST['side_bar']='popular=1&show_in_home=1';
+				 $popularCoupons=$this->getRecommendedCoupons()['response'] ;
+
+	
+				 $popuplarCategories=$this->getPopuplarCategories()['response'] ;
+
 				 $_POST['limit']=10;
-				 $popular_categories=$this->getPopuplarCategories()['response'] ;
+				 $popularStores=$this->getPopularStores()['response'];
+
+				  $_POST['limit']=10;
+				  $topStores=$this->getTopStores()['response'] ;
+
+				 
 		 		return (object)[
-		 			'popular_stores'=> $popular_stores, 
-		 			'popular_categories'=>$popular_categories, 
+		 			'common'=> $common, 
+		 			'slides'=> $slides, 
+		 			'recommendedCoupons'=> $recommendedCoupons, 
+		 			'popularCoupons'=> $popularCoupons, 
+		 			'popuplarCategories'=>$popuplarCategories, 
+		 			'popularStores'=> $popularStores, 
+		 			'topStores'=> $topStores, 
 		 		];
 			}			
 
 			if ($page_name=='stores') {
+				 $common=$this->getCommon()['response'] ;
+
 				 $_POST['limit']=10;
-				 $popular_stores=$this->getPopularStores()['response'];
+				 $popularStores=$this->getPopularStores()['response'];
 			
 				 $_POST['limit']=9999999;
+
 				 $stores=$this->getStores()['response'] ;
+
+
 		 		return (object)[
-		 			'popular_stores'=> $popular_stores, 
+		 			'common'=> $common, 
+		 			'popularStores'=> $popularStores, 
 		 			'stores'=>$stores, 
+		 		];
+			}	
+
+			if ($page_name=='categories') {
+				 $common=$this->getCommon()['response'] ;
+
+				 $_POST['limit']=10;
+				 $categoriesByGroups=$this->getCategoriesByGroups()['response'];
+			
+			 
+
+		 		return (object)[
+		 			'common'=> $common, 
+		 			'categoriesByGroups'=> $categoriesByGroups, 
+		 		 
 		 		];
 			}	
 
@@ -74,6 +125,14 @@ class Frontend extends front_api{
 		
  
 	}
+
+	public function loadByAjax($pagename)
+	{
+		$this->direct_access=true;
+		echo json_encode(['success'=>'yes','response'=>$this->direct_access_data($pagename)]);
+	}
+
+
 	public function home()
 	{
  

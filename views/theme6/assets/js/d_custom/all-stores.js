@@ -25,11 +25,12 @@ var currentAlphabet="";
 
   },
 });*/
- init();
+ // init();
 $(document).ready(function() {
-		getPopularStores();
-		currentAlphabet='A';
-		loadData($('.sitemap-letters a').first());
+		// getPopularStores();
+		currentAlphabet='A'; 
+		loadByAjax();
+		// loadData($('.sitemap-letters a').first());
 	});
 
 function setCurrentAlphabet(element,alphabet=''){
@@ -112,3 +113,55 @@ function getPopularStores(){
 	                }); 
 	}
  
+ 
+function loadByAjax(){
+ 
+	 $.ajax({
+	                     type : "post",
+	                     dataType : "json",
+	                     url : api_url+"/frontend/loadByAjax/stores", 
+	                     data:{  
+	                     	'site_id':site_id,
+	                     	 'alphabet':currentAlphabet,
+	                     	 
+	                     	[token_name]:token_hash,
+	                     },
+	                     success: function(data) { 
+	                        if(data.success === "yes") { 
+	                        	 $('#d-loading-image').hide();	
+	                        	 $('#d-hide_content').show();
+
+	                        	//initCommon
+	                        	 initByAjax(data.response.common);
+
+	                        	 //popular_stores
+	                        	  app.popular_stores=data.response.popularStores;
+
+	                                setTimeout(function() {
+	                                	 $('.main-carousel').flickity({
+										  // options
+										  cellAlign: 'left',
+										  contain: true
+										});
+
+	                                },150);
+
+	                                // AllStores
+	                                 app.allStores=data.response.stores;
+
+ 		
+
+
+	 		console.log(data);
+	                        	
+	                        }
+	                        else {
+	                            alert("Error");
+	                        }
+	                     }
+	                }); 
+	}
+
+ 								
+
+

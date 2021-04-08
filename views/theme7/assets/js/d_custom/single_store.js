@@ -99,6 +99,8 @@ function loadStore(visit){
 	                     },
 	                     success: function(data) { 
 	                        if(data.success === "yes") {   
+	                        	 $('#d-loading-image').hide();	
+	                        	 $('#d-hide_content').show();
 	                        	$('#single_store_container').show();
 	                             	app.row=data.response; 
 	                                coupon_box.store=data.response;  

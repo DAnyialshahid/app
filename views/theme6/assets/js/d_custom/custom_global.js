@@ -55,6 +55,38 @@ var coupon_box=Vue.createApp({
 
  
 
+
+function initByAjax(common) { 
+ 
+                    
+                                    configs=common.configs;
+                                    footer.configs=common.configs; 
+                                    menu_bar.configs=common.configs;
+                                    if (typeof contact_us!='undefined'){contact_us.configs=common.configs;}
+                                    if (typeof home!='undefined'){home.configs=common.configs;}
+                                    if (typeof app!='undefined'){app.configs=common.configs;}
+
+ 
+                                    //menu_list
+                                    menu_bar.row=common; 
+                                    menu_bar.popular_categories=common.popular_categories; 
+                                    menu_bar.popular_stores=common.popular_stores;  
+                                    //Footer list 
+                                    footer.popular_categories=common.popular_categories; 
+                                    footer.popular_stores=common.popular_stores; 
+                                    //social
+                                     
+                                    $('title').html(common.seo.title);
+                                    $('#meta_description').attr('content',common.seo.description);
+                                    $('#meta_keywords').attr('content',common.seo.keywords);
+
+                                
+                       
+                         
+
+
+}
+
 function init() { 
  $.ajax({
                          type : "post",

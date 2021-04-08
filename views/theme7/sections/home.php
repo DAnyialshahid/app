@@ -98,7 +98,7 @@
     </div>
     <div class="row   recommended-coupon-carousel hot-deals-carousel featured-coupon-carousel main-carousel flickity-enabled is-draggable"> 
 
-      <div v-for="coupon in recommended_coupons"  class="col-xs-12 col-sm-6 col-md-3 colresponsivecoupons ">
+      <div v-for="coupon in recommended_coupons"  class="col-xs-12 col-sm-6 col-md-3  ">
                       
 
                         <!--    <span class="ribbon ribbon1" v-if="coupon.exclusive"><b>Exclusive </b></span>
@@ -114,7 +114,7 @@
               
               <div class="featured-content-box row">
                 <div class="col-md-3">
-                  <a :href="base_url+'store/'+coupon.store.custom_url" >   
+                  <a :href="base_url+'store/'+coupon.store.custom_url"  class="img-center">   
 
                    <img v-if="coupon.feature_image" :src="api_url+'/assets/uploads/coupons/'+coupon.feature_image"     class="img-responsive">
                   <img v-if="!coupon.feature_image && coupon.store.feature_image" :src="api_url+'/assets/uploads/stores/'+coupon.store.feature_image"      class="img-responsive">
@@ -212,7 +212,7 @@
       </div>
     </div>
     <div class="row   popular-coupon-carousel hot-deals-carousel featured-coupon-carousel main-carousel flickity-enabled is-draggable"> 
-            <div v-for="coupon in popular_coupons"  class="col-md-3 colresponsivecoupons ">
+            <div v-for="coupon in popular_coupons"  class="col-xs-12 col-sm-6 col-md-3  ">
                       
 
                         <!--    <span class="ribbon ribbon1" v-if="coupon.exclusive"><b>Exclusive </b></span>
@@ -228,7 +228,7 @@
               
               <div class="featured-content-box row">
                 <div class="col-md-3">
-                  <a :href="base_url+'store/'+coupon.store.custom_url" >   
+                  <a :href="base_url+'store/'+coupon.store.custom_url" class="img-center" >   
 
                    <img v-if="coupon.feature_image" :src="api_url+'/assets/uploads/coupons/'+coupon.feature_image"     class="img-responsive">
                   <img v-if="!coupon.feature_image && coupon.store.feature_image" :src="api_url+'/assets/uploads/stores/'+coupon.store.feature_image"      class="img-responsive">
@@ -314,7 +314,7 @@
                 <h2 style="color:white">Subscribe Our Newsletter !</h2>
             </div>
             <div class="col-md-12">
-                <div id="mc_embed_signup" style="width:364px;padding:10px;margin-left: auto; margin-right: auto;"> <div  style="height: 43px; " class="row">
+                <div id="mc_embed_signup" style="max-width:364px;padding:10px;margin-left: auto; margin-right: auto;"> <div  style="height: 43px; " class="row">
                       <input type="email" name="subscribe_email" class="email email col-xs-12 col-md-12 " id="email" placeholder="Enter Your Email" required="" style="     padding: 8px; height: 100%; background: #fffdfd; border: none; color: white; font-size: 24px; ">
                         <div class="col-xs-12"> <hr></div>
                       <span class="col-xs-12 col-md-12 " type="" onclick="subscribes_email();" name="action" style="padding: 8px;   height: 100%;cursor:pointer; background: white; border: none; color:var(--primary); font-size: 24px; ">

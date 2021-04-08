@@ -102,7 +102,6 @@ $this->direct_access=$direct_access;
 
 
 			 $side_bar_post = array();
-		 parse_str($this->input->post('side_bar'), $side_bar_post);
 
 					if (isset($side_bar_post['verified'])) {
 		 				$this->db->where('verified',1);
@@ -478,6 +477,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 				'top'=>1,
 				'show_in_home'=>1,
 		],['counts2'],true);
+		// dd($this->db->last_query());
 		$data=(['success'=>'yes','response'=>$stores]);   
 		if ($this->direct_access) {
 			return $data;

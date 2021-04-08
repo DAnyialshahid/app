@@ -58,19 +58,20 @@ mounted: function () {
 }).mount('#home');
 
  
- init();
+
 $(document).on('footer_loaded',function() {
 
 
 });
 $(document).ready(function() {
 	
-		getSlides();
-		getTopStores();
-		getRecommendedCoupons();
-		getPopularCoupons();
-		getPopuplarCategories();
-		getPopuplarStores();
+		loadByAjax();
+		// getSlides();
+		// getTopStores();
+		// getRecommendedCoupons();
+		// getPopularCoupons();
+		// getPopuplarCategories();
+		// getPopuplarStores();
 
 	
 	});
@@ -277,16 +278,93 @@ function getSlides(data,limit,callback){
 	                        if(data.success === "yes") { 
 	                        	home.slides=data.response;
 	                        	 		setTimeout(function() {
-			 $('.owl-carousel').owlCarousel({
-									    items:1,
-									    lazyLoad:true,
-									    loop:true,
-									    margin:10,
-									    autoHeight:1 
-									});
-	                         
-		},300);
-	                    		 
+												 $('.owl-carousel').owlCarousel({
+																		    items:1,
+																		    lazyLoad:true,
+																		    loop:true,
+																		    margin:10,
+																		    autoHeight:1 
+																		});
+										                         
+											},300);
+	                        }
+
+	                        else {
+	                            alert("Error");
+	                        }
+	                     }
+	                }); 
+	}
+
+ 								
+
+
+
+function loadByAjax(){
+ // $('body').hide();
+	 $.ajax({
+	                     type : "post",
+	                     dataType : "json",
+	                     url : api_url+"/frontend/loadByAjax/home", 
+	                     data:{  
+	                     	'site_id':site_id,
+	                     	[token_name]:token_hash,
+	                     },
+	                     success: function(data) { 
+	                        if(data.success === "yes") { 
+	                        	 $('#d-loading-image').hide();	
+	                        	 $('#d-hide_content').show();
+
+	                        	//initCommon
+	                        	 initByAjax(data.response.common);
+
+
+	                        	//Slides
+	                        	   	home.slides=data.response.slides;
+	                        	 		setTimeout(function() {
+												 $('.owl-carousel').owlCarousel({
+																		    items:1,
+																		    lazyLoad:true,
+																		    loop:true,
+																		    margin:10,
+																		    autoHeight:1 
+																		});
+										                         
+											},100);
+
+	                        	//topStores
+	                        		    home.show_in_home_stores=data.response.topStores; 
+					                    		setTimeout(function() {
+													flicky_top_store();
+											                         
+												},100);
+
+
+                		//recommended_coupons
+					    home.recommended_coupons=data.response.recommendedCoupons;
+			            setTimeout(function() {
+									flicky_recommended_slider();
+							                         
+								},100);
+
+			            //popular_coupons
+			            home.popular_coupons=data.response.popularCoupons;
+			              setTimeout(function() {
+									flicky_popular_slider();
+							                         
+								},100);
+
+
+			              //popular_categories
+	  						home.popular_categories=data.response.popuplarCategories;
+						
+						   //popular_stores
+	  						home.popular_stores=data.response.popularStores;
+
+	   
+
+
+ 
 	                        	
 	                        }
 	                        else {

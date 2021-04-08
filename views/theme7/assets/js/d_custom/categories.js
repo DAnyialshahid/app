@@ -14,9 +14,10 @@ var app= Vue.createApp({
 }
 }).mount('#categories');
  
- init();
+ // init();
 $(document).ready(function() {
-		loadData();
+		//loadData();
+		loadByAjax();
 	});
 
  
@@ -59,3 +60,60 @@ function loadData(page_no=''){
 	                }); 
 	}
  
+
+
+
+
+
+function loadByAjax(){
+ 
+	 $.ajax({
+	                     type : "post",
+	                     dataType : "json",
+	                     url : api_url+"/frontend/loadByAjax/categories", 
+	                     data:{  
+	                     	'site_id':site_id,
+	                     	 'alphabet':currentAlphabet,
+	                     	 
+	                     	[token_name]:token_hash,
+	                     },
+	                     success: function(data) { 
+	                        if(data.success === "yes") { 
+	                        	 $('#d-loading-image').hide();	
+	                        	 $('#d-hide_content').show();
+
+	                        	//initCommon
+	                        	 initByAjax(data.response.common); 
+
+
+	                        	 //popular_stores
+	                 
+	                         	 app.categories_group=data.response.categoriesByGroups;
+
+	                                setTimeout(function() {
+
+	                                	$('.grid').masonry({
+										  // options
+										  itemSelector: '.grid-item',
+										  columnWidth: 40,
+										  percentPosition: true,
+										  // horizontalOrder: true
+										});
+
+
+	                                },150);
+
+
+	 		console.log(data);
+	                        	
+	                        }
+	                        else {
+	                            alert("Error");
+	                        }
+	                     }
+	                }); 
+	}
+
+ 								
+
+

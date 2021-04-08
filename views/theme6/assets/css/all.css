@@ -1,26 +1,76 @@
-/*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-
-
- */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-
+ 
+ 
 :root{
 
-	--primary:#a54747;
-	--primary-dark:#753030;
-	--primary-light:#9f2323;
+    --primary:#a54747;
+    --primary-dark:#753030;
+    --primary-light:#9f2323;
 
 
-	--secondary:#ecea49;
-	--secondary-dark:#e7e68c;
-	--secondary-light:#fffd41;
+    --secondary:#ecea49;
+    --secondary-dark:#e7e68c;
+    --secondary-light:#fffd41;
 
 
-	--text-color-1:#505050;;
+    --text-color-1:#505050;;
 };
+ 
+/* allway on top */
+.d-loading-image {
+    display: flex !important;
+    height: 100%  !important;
+    
+}
+
+.d-lds-ring {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.d-lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #00ceff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #00ceff  transparent transparent transparent;
+}
+.d-lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.d-lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.d-lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*// allway on top */
+
+.img-center{
+    display: flex;
+}
+.img-center img{
+   margin: auto;
+}
+
 
 .btn-hover:hover{
 	background:var(--primary-dark) !important;

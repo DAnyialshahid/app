@@ -2,6 +2,8 @@
  
 
 
+                                 $('#d-loading-image').hide();  
+                                 $('#d-hide_content').show();
 
 var contact_us= Vue.createApp({
   data() {
