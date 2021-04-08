@@ -1,12 +1,4 @@
-/*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-
-
- */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-
+ 
 /* allway on top */ 
 #d-loading-image{
 
@@ -75,30 +67,7 @@ main {
 }
 
 .modal {
-   /* background: @brand-color;
-    color: @white;
-    width: 60rem;
-    border-radius: @border-radius;
-    text-align: center;
-    padding: 10rem 4rem 4rem 4rem;
-    position: relative;
-    
-    &__icon {
-        position: absolute;
-    top: -3rem;
-    left: 50%;
-    margin-left: -165px;
-    background: @brand-color;
-    padding: 3rem 12rem 0 12rem;
-    border-radius: 50%;
-    }
-    
-    &__heading {
-        text-transform: uppercase;
-        font-size: 2.6rem;
-    }
-    
-    p { font-size: 1.5rem; }*/
+  
 }
 
 .email-box {
