@@ -25,7 +25,7 @@ var currentAlphabet="";
 
   },
 });*/
- // init();
+ // init(); 
 $(document).ready(function() {
 		// getPopularStores();
 		currentAlphabet='A'; 
@@ -113,7 +113,7 @@ function getPopularStores(){
 	                }); 
 	}
  
- 
+
 function loadByAjax(){
  
 	 $.ajax({
