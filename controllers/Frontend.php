@@ -58,13 +58,13 @@ class Frontend extends front_api{
 				 $_POST['side_bar']='popular=1&show_in_home=1';
 				 $popularCoupons=$this->getRecommendedCoupons()['response'] ;
 
-	
+		         $_POST['limit']=15;
 				 $popuplarCategories=$this->getPopuplarCategories()['response'] ;
 
-				 $_POST['limit']=10;
+				 $_POST['limit']=15;
 				 $popularStores=$this->getPopularStores()['response'];
 
-				  $_POST['limit']=10;
+				  $_POST['limit']=15;
 				  $topStores=$this->getTopStores()['response'] ;
 
 				 
