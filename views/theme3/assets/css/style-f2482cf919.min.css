@@ -4281,8 +4281,15 @@ a.btn-offer {
         width: 90px
     }
 .cbox .offer-short {
-    width: 68px !important;
+    width: 79px !important;
+        overflow: hidden;
 }
+
+.cbox h3 {
+    font-size: 15px;
+    padding-left: 62px;
+}
+
     .cbox .offer-short,.modal-content-down {
         /*display: none*/
     }
