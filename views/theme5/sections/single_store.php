@@ -69,7 +69,7 @@
 
                 
 
-<star-rating props="{&quot;percentAverage&quot;:72,&quot;IsAuthenticated&quot;:false,&quot;hasVoted&quot;:false,&quot;totalVotes&quot;:244,&quot;labelValue&quot;:&quot;Rated 3.6 from 244 votes&quot;,&quot;MerchantId&quot;:142507,&quot;saveEndpoint&quot;:&quot;/account/vote&quot;,&quot;loginModal&quot;:&quot;/modal/authenticationmodals?step=Login\u0026redirectUrl=https%3A%2F%2Fwww.vouchercloud.com%2Fdeliveroo-vouchers&quot;}">
+<star-rating  >
     <div class="starrating"><div class="starrating-inner"><span class="starrating-value" style="width: 72%;" data-rating-value="true"></span><a href="/account/login" class="starrating-login" aria-label="login" data-modal-display="true" data-modal-url="/modal/authenticationmodals?step=Login&amp;redirectUrl=https%3A%2F%2Fwww.vouchercloud.com%2Fdeliveroo-vouchers"></a>
         </div><div class="starrating-label">Rated 3.6 from 244 votes</div>
     </div>
@@ -80,64 +80,7 @@
             </div>
         </div>
 
-        <div class="section-stickytoolbar" data-visibility-sticky="">
-    <div class="section-stickytoolbar-inner">
-
-        <div class="section-stickytoolbar-column">
-            
-
-
-    <div class="filter " data-visibility-toggle="" data-visibility-target="this" data-visibility-class="active">
-            <div class="filter-label lt-med-hide lrg-hide">
-                Filtered By:
-            </div>
-            <div class="filter-value" data-filter-label="offers">
-                All<span class="lt-sml-hide"> offers</span> <span class="filter-count">(13)</span>
-            </div>
-
-            <ul class="filter-list">
-                <li class="filter-list-item">
-                    <a class="filter-list-link" data-filter-link="offers" data-filter-text="this" data-filter-target="#offers" data-filter-element=".tile" data-filter-handle="type" data-filter-value="All" data-analytics-click="" data-analytics-event="merchant.filter" data-analytics-meta="{&quot;textValue&quot;:&quot;All&quot;}">
-                        All<span class="lt-sml-hide"> offers</span> (13)
-                    </a>
-
-
-                </li>
-                    <li class="filter-list-item">
-                        <a href="/deliveroo-vouchers" class="filter-list-link" data-filter-link="offers" data-filter-text="this" data-filter-target="#offers" data-filter-element=".tile" data-filter-handle="type" data-filter-value="OnlineCode" data-analytics-click="" data-analytics-event="merchant.filter" data-analytics-meta="{&quot;textValue&quot;:&quot;OnlineCode&quot;}">
-                                Codes (1)
-                        </a>
-                    </li>
-                    <li class="filter-list-item">
-                        <a href="/deliveroo-vouchers" class="filter-list-link" data-filter-link="offers" data-filter-text="this" data-filter-target="#offers" data-filter-element=".tile" data-filter-handle="type" data-filter-value="OnlineDeal" data-analytics-click="" data-analytics-event="merchant.filter" data-analytics-meta="{&quot;textValue&quot;:&quot;OnlineDeal&quot;}">
-                                Deals (12)
-                        </a>
-                    </li>
-            </ul>
-    </div>
-
-        </div>
-
-        <div class="section-stickytoolbar-column">
-            
-
-<form class="form-alert " action="/account/save-merchant/142507?nonInteraction=False" method="POST" data-setalert-form="142507" data-setalert-id="142507" data-setalert-interaction="false" data-setalert-analytics="False" data-analytics-event="merchant.followed" data-analytics-meta="{&quot;offerTitle&quot;:null,&quot;offerType&quot;:&quot;OnlineCode&quot;,&quot;merchantName&quot;:&quot;Deliveroo&quot;}" data-setalert-clone="{&quot;id&quot;:142507,&quot;merchantId&quot;:142507,&quot;brand&quot;:&quot;Deliveroo&quot;,&quot;isfave&quot;:false,&quot;follow&quot;:&quot;Set alert&quot;,&quot;followed&quot;:&quot;Alert Set&quot;,&quot;authed&quot;:{},&quot;offertitle&quot;:null,&quot;offertype&quot;:&quot;OnlineCode&quot;,&quot;image&quot;:&quot;&quot;,&quot;count&quot;:0,&quot;offers&quot;:&quot;offers&quot;,&quot;url&quot;:null}">
-
-    <input type="hidden" name="id" value="142507" data-setalert-input="">
-    <input type="hidden" name="name" value="Deliveroo" data-setalert-input="">
-
-
-    
-    <button class="button text-state form-alert-button" aria-label="Set alert" data-text="Set alert" data-text-swap="Alert Set" data-setalert-toggle="">
-            <i class="icon-favourites form-alert-icon"></i>
-    </button>
-
-</form>
-
-        </div>
-
-    </div>
-</div>
+         
 
     </div>
 </div>
@@ -159,7 +102,7 @@
             <div id="offers" class="section-tile-list"> 
 
 
-                <div class="page-merchant-offers-filter">
+                <div class="page-merchant-offers-filter mobile_filture" style="display: none">
                     
 
    <div class="filter-label ">
@@ -192,7 +135,26 @@
 
 
 
-            <div class="tile tile-signup" style="background-color: rgb(3, 170, 166);"><div class="tile-signup-inner"><picture class="tile-signup-logo"><source media="(min-width: 75em)" srcset="https://images.vouchercloud.com/image/upload/fl_strip_profile,w_100,f_auto,q_auto/deliveroo_logo_2.jpg"><source media="(min-width: 0em)" srcset="https://images.vouchercloud.com/image/upload/fl_strip_profile,w_82,f_auto,q_auto/deliveroo_logo_2.jpg"><img class="tile-signup-logo-image" src="https://images.vouchercloud.com/image/upload/fl_strip_profile,w_82,f_auto,q_auto/deliveroo_logo_2.jpg" width="82" height="82" alt="Deliveroo"></picture><p class="tile-signup-title">Never miss out <span>on exclusive food &amp; drink savings</span></p><newsletter-signup props="{&quot;signupModal&quot;:&quot;//www.vouchercloud.com/modal/authenticationmodals?step=RegisterStep2&quot;,&quot;showTerms&quot;:true,&quot;redemptionCount&quot;:399,&quot;tooltipContent&quot;:&quot;399 people have recently signed up&quot;}"><form class="form form-tilesignup "><div class="form-tilesignup-inner"><div class="form-row form-tilesignup-details"><label for="tilesignup-email" class="sr-only">Email</label><input id="tilesignup-email" type="email" class="input form-tilesignup-input" name="Email" placeholder="Email"></div><div class="form-row form-tilesignup-submit"><button type="submit" aria-label="Sign up" class="button">Sign up</button><span class="form-tilesignup-tooltip">399 people have recently signed up</span></div></div><div class="form-row form-tilesignup-terms">By signing up I agree to vouchercloud's <a href="/terms">Terms of Service</a>, <a href="/privacy">Privacy Policy</a> and consent to receive emails about offers</div></form></newsletter-signup></div></div>
+            <div class="row">
+
+
+ <div class="tile tile-signup" style="background-color: rgb(3, 170, 166);"><div class="tile-signup-inner">
+
+  <img class="tile-signup-logo-image"  :src="theme_base_url+'/assets/images/mail.png'" width="82" height="82" alt="Deliveroo">
+
+
+  <p class="tile-signup-title">Never miss out <span> Our Latest Updates</span></p><newsletter-signup  ><form class="form form-tilesignup "><div class="form-tilesignup-inner"><div class="form-row form-tilesignup-details"><label for="tilesignup-email" class="sr-only">Email</label><input name="subscribe_email" type="email" class="input form-tilesignup-input" name="Email" placeholder="Email"></div><div class="form-row form-tilesignup-submit"><button type="submit" class="button"  onclick="subscribes_email();" >Subscribe</button><span class="form-tilesignup-tooltip">45 people have recently Subscribe </span></div></div> 
+  </form></newsletter-signup></div></div>
+
+
+
+
+             
+             
+
+
+
+            </div>
 
 
             </div>

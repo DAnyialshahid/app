@@ -46,7 +46,7 @@ var coupon_box=Vue.createApp({
     return {
         box_data:[] , 
         store:[], 
-        api_url: api_url, 
+        api_url: api_url,  
         }    
     } 
 }).mount('#coupon_box');

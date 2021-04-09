@@ -371,46 +371,34 @@
  
 
 
-        
-  
-</div>    
-<div class="container home-email-container">
+         
+
+
+     
+ <div class="container home-email-container">
     <div class="home-email card hoverable">
         <div class="row">
-            <div class="col s12 m12 l6 home-email-text-container valign-wrapper">
-                <div class="valign">Subscribe Now !</div>
+
+
+ <div class="tile tile-signup" style="background-color: rgb(3, 170, 166);"><div class="tile-signup-inner">
+
+  <img class="tile-signup-logo-image"  :src="theme_base_url+'/assets/images/mail.png'" width="82" height="82" alt="Deliveroo">
+
+
+  <p class="tile-signup-title">Never miss out <span> Our Latest Updates</span></p><newsletter-signup  ><form class="form form-tilesignup "><div class="form-tilesignup-inner"><div class="form-row form-tilesignup-details"><label for="tilesignup-email" class="sr-only">Email</label><input name="subscribe_email" type="email" class="input form-tilesignup-input" name="Email" placeholder="Email"></div><div class="form-row form-tilesignup-submit"><button type="submit" class="button"  onclick="subscribes_email();" >Subscribe</button><span class="form-tilesignup-tooltip">45 people have recently Subscribe </span></div></div> 
+  </form></newsletter-signup></div></div>
+
+
+
+
+             
+             
+
+
+
             </div>
-            <div class="col s12 m12 l6 home-email-form-container valign-wrapper">
-                <div id="mc_embed_signup">
-                    <form class="valign" target="_blank" action="#" method="POST" accept-charset="utf-8">
-                        <input type="email" value="" name="subscribe_email" class="email" id="email" placeholder="Enter Your Email" required="">
-                  
-                        <button class="subs-home-btn" type="button"  onclick="subscribes_email();" name="action"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
-</div>    
-    <div id="browser-ext-dnld" class="container">
-    <div class="extension card hoverable hide-on-med-and-down">
-        <div class="row">
-            <div class="col s8 valign-wrapper">
-                <div class="extension-container valign">
-                    <div>Download {{configs.site_name}} Extension</div>
-                    <div>Never pay more. Get latest coupons and deals of your favourite online store.<br> Download {{configs.site_name}} BrowserExtension Now.</div>
-                    <div class="extension-btn">
-                        <a class="ext-chrome" rel="nofollow"><i class="fa fa-chrome"></i>Download for Chrome</a>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col s4 valign-wrapper"><img    :src="theme_base_url+'/assets/images/extension-back.png'"  class="valign"></div>
-        </div>
-    </div>
-</div>    <!-- About -->
- 
-<!-- END About --> 
+    </div> 
 
 
  

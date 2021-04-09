@@ -297,7 +297,7 @@ button,input {
 }
 
 input {
-    -webkit-appearance: none!important;
+    /*-webkit-appearance: none!important;*/
     border-radius: 0
 }
 

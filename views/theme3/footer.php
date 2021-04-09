@@ -6,7 +6,7 @@
  
 
 <div class="row">
-    <div class="col-xs-6 col-md-2 l3 s12">
+    <div class="col-xs-12 col-md-2 l3 s12">
         <h5>{{configs.site_name}}</h5>
         <p v-html="configs.description"> </p>
 
