@@ -2,7 +2,9 @@
 @media only screen and (max-width: 600px)
 {
 
-
+.brand-logo{
+    margin-left: 13vw !important;
+}
 
 .modal-content-up .mcoupon {
  
