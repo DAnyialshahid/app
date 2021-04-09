@@ -1,5 +1,5 @@
 
-<div   id="coupon_box"  tabindex="-1" class="modal  " style="display: none;z-index: 1003;  opacity: 1; transform: scaleX(1); top: 10%;background:none;border: none;box-shadow:none;"> 
+<div   id="coupon_box"  tabindex="-1" class="modal  " style="display: none;z-index: 1003;  opacity: 1; transform: scaleX(1); top: 10%;background:none;border: none;box-shadow:none;width: 100vw;"> 
 
 <div class="modal-dialog">
 
