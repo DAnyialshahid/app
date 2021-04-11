@@ -977,6 +977,8 @@ $uploaded_file['file_name']='';
 	{
 	
 $uploaded_files=[];
+if (!empty($this->input->post('slider_link'))) {
+	# code...
 
 foreach ($this->input->post('slider_link') as $i => $value) {
 						$links=$this->input->post('slider_link');
@@ -1018,10 +1020,17 @@ foreach ($this->input->post('slider_link') as $i => $value) {
 		$uploaded[]=['file_name'=>$uploaded_file['file_name'],'link'=>$links[$i]];
 
 }
-  
+
+}
+
+  if (!empty($uploaded)) {
+  		$this->load->model('admin/slider_model');
+		$add=$this->slider_model->add($uploaded,$update,$id); 
+  }else{
+  		$add='All Slides Empty';
+  }
  
- 			$this->load->model('admin/slider_model');
-			$add=$this->slider_model->add($uploaded,$update,$id); 
+ 		
 			if($add){
 						echo json_encode(['success'=>'yes','response'=>$add]);
 			}else{
