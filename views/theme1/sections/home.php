@@ -18,7 +18,7 @@
         </a> -->
     </div>
 </section>
-<section class="homepage featured">
+<section class="homepage featured" style="    padding: 12px 0;">
     <div class="container">
         <h3>Free Online Coupons and Promo Codes for the Store You Love!</h3>
         <nav>
@@ -28,10 +28,10 @@
         </nav>
     </div>
 </section>
-<section class="homepage offers">
+<section class="homepage offers" style="padding:   0;">
     <div class="container">
         <h1 class="h3">Recommended Offers for You</h1>
-        <ul id="recommneded-coupons" class="coupons-container two-cols"> 
+        <ul id="recommneded-coupons" class="coupons-container two-cols" style="margin:   0;"> 
         <li v-for="coupon in recommended_coupons"   class="obox deal clearfix"  >
                 <div class="ocontent">
                     <button class="save-coupon" aria-label="Save Coupon"><i class="df-save-o"></i></button>
@@ -125,7 +125,7 @@
         </ul>
     </div>
 </section>
-<section class="homepage offers">
+<section class="homepage offers" style="padding: 0px;">
     <div class="container">
         <h1 class="h3">Today's Most Popular Coupons &amp; Deals</h1>
         <ul id="homepage-coupons" class="coupons-container two-cols"> 
@@ -221,7 +221,7 @@
         </ul>
     </div>
 </section>
-<section class="homepage categories">
+<section class="homepage categories" style="    padding: 0px 0;">
     <div class="container">
         <h3>Popular Categories</h3>
         <nav class="popular_categories"> 

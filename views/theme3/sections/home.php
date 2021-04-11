@@ -152,7 +152,7 @@
                                       >Get code</a>
 
 <div class="col-xs-12 text-center  " style="padding: 0px;">
- <span style="margin-left: auto;margin-right: auto;font-size:12px"><i class="far fa-eye"></i>{{coupon.visits}} Views </span> 
+ <span style="margin-left: auto;margin-right: auto;font-size:12px"><i class="far fa-eye"></i>{{coupon.visits}} Views </span> <br>
  <span style="margin-left: auto;margin-right: auto;font-size:12px"><i class="far fa-clock"></i>  Expire:{{coupon.expire_date}}</span>
 </div>
 

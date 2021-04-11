@@ -29,7 +29,7 @@
 </section>
  
 
-<section class="main-content content-section homepage-section"  >
+<section class="main-content content-section homepage-section"  style="padding: 0px">
     <div class="container">
     <div class="row">
     <div class="article">
@@ -157,7 +157,7 @@
     </div>
 </section>
  
-<section class="homepage categories">
+<section class="homepage categories" style="padding: 0px">
    <div class="happy-hunting container">     
          <h2 class="title">Popular Categories</h2>  `
              <p class="sub-heading">
@@ -197,7 +197,7 @@
     </div>
 </section>
 
-<section class="main-content content-section homepage-section"  >
+<section class="main-content content-section homepage-section"  style="padding: 0px">
     <div class="container">
     <div class="row">
     <div class="article">
@@ -325,7 +325,7 @@
     </div>
 </section>
 
-<section class="homepage stores">
+<section class="homepage stores" style="padding: 0px">
 <div class="happy-hunting container">
   <h2 class="title">Popular Stores</h2> 
 
@@ -344,7 +344,5 @@
 
     </div>
 
- 
-
-</div>
+  
 </section>

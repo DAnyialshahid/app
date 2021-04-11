@@ -7,8 +7,7 @@
                 </a>
             </div>
             <div class="search">
-                <form action="#" id="top-search-form" class="store-search text-left">
-                    <div class="input-group input-group-lg search-wrap">
+                <form action="#" id="top-search-form" class="store-search text-left" style="margin-top: auto; margin-bottom: auto; "> <div class="input-group input-group-lg search-wrap">
                         <button type="submit" class="input-group-addon" aria-label="Search"><i class="df df-search"></i></button>
 
 
