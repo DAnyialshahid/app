@@ -1023,7 +1023,7 @@ foreach ($this->input->post('slider_link') as $i => $value) {
 
 }
 
-  if (!empty($uploaded)) {
+  if (!empty($uploaded)   ) {
   		$this->load->model('admin/slider_model');
 		$add=$this->slider_model->add($uploaded,$update,$id); 
   }else{
