@@ -35,9 +35,9 @@
                                         <div class="tw-flex-grow tw-pr-4 coupon-card-inner-container">
                                           <div class="row">
  
-                                            <div v-if="coupon.verified" class="col-xs-2 tw-text-green sm:tw-border sm:tw-border-green sm:tw-text-green sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Verified </div>
-                                            <div v-if="coupon.exclusive" class="col-xs-2 tw-text-blue sm:tw-border sm:tw-border-blue sm:tw-text-blue sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Exclusive </div>
-                                            <div v-if="coupon.featured" class="col-xs-2 tw-text-orange sm:tw-border sm:tw-border-orange sm:tw-text-orange sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Featured </div> 
+                                            <div v-if="coupon.verified!=0" class="col-xs-2 tw-text-green sm:tw-border sm:tw-border-green sm:tw-text-green sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Verified </div>
+                                            <div v-if="coupon.exclusive!=0" class="col-xs-2 tw-text-blue sm:tw-border sm:tw-border-blue sm:tw-text-blue sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Exclusive </div>
+                                            <div v-if="coupon.featured!=0" class="col-xs-2 tw-text-orange sm:tw-border sm:tw-border-orange sm:tw-text-orange sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Featured </div> 
                                           </div>
 
                                                 <p class="tw-text-grey sm:tw-text-base tw-text-xs lato">    {{coupon.store.name}} </p>

@@ -26,9 +26,9 @@
 
     </a>
 
-     <img  class="mobile-logo" :src="base_url+'/assets/uploads/sites/'+configs.logo" class="img-responsive" style=" ">
+     <img  class="mobile-logo"  src="<?=logo?>" class="img-responsive" style=" ">
 
-    <div class="header-inner" data-accordion-paddingcontainer  >
+    <div class="header-inner" style="overflow: hidden;"  >
         
 
 <nav class="header-main">
@@ -39,7 +39,7 @@
 
             <div  >
       
-                    <img  :src="base_url+'/assets/uploads/sites/'+configs.logo" class="img-responsive" style="width: auto; height: auto; float:left; padding:22.5px 10px 0px 10px; ">
+                    <img  src="<?=logo?>"  class="img-responsive" style="width: auto; height: auto; float:left; padding:22.5px 10px 0px 10px; ">
             </div>
             <svg class="header-logo-svg-2">
             

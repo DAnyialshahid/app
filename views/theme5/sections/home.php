@@ -1,5 +1,6 @@
 <main class="main" id="home">
-  
+  <br>
+  <br>
     <div class="section bg slider-box">
     <div class="container">
          <div class="owl-carousel owl-theme">
@@ -37,11 +38,8 @@
     <div  class=" grid tile tile-block tile-block-carousel"  style="height: 200px !important; "> <div class="tile-block-inner">
 
         <div class="tile-block-content">
-                <a :href="base_url+'store/'+store.custom_url" class="tile-block-logo">
-                    
-
- 
-      <img    class="img-responsive lazyLoad lazy"  v-bind:src="api_url+'/assets/uploads/stores/'+store.feature_image"   v-bind:alt="store.name" >
+                <a :href="base_url+'store/'+store.custom_url" class="tile-block-logo">  
+                 <img    class="img-responsive lazyLoad lazy"  v-bind:src="api_url+'/assets/uploads/stores/'+store.feature_image"   v-bind:alt="store.name" >
 
                 </a>
                         <h2 class="tile-block-title" > 
@@ -55,12 +53,8 @@
         </div>
 
         <div class="tile-block-footer">
-            
  
-
-                 
-
-
+ 
      
 
         </div>
@@ -107,7 +101,7 @@
  <div class="recommended-coupon-carousel   featured-coupon-carousel main-carousel flickity-enabled is-draggable" >
 
 
-    <div  v-for="coupon in recommended_coupons"   class="col-3 col-xs-12 col-sm-4 col-lg-3 tile-inline"  >
+    <div  v-for="coupon in recommended_coupons"   class="col-3 col-xs-12 col-sm-4 col-lg-2 tile-inline" style="margin: 0px;"  >
     <div  class=" grid tile tile-block tile-block-carousel"  >
     <div class="tile-block-inner">
 
@@ -129,9 +123,9 @@
 
 
    
-     <em class="exclusive ribbon ribbon1" v-if="coupon.exclusive"><b>Exclusive </b></em>
-            <em class="exclusive ribbon ribbon2" v-if="coupon.verified"><b style="color: #2bc089;">Verified </b></em>
-            <em class="exclusive ribbon ribbon3" v-if="coupon.featured"><b style="color: #c0842b;">Featured </b></em>
+          <em class="exclusive ribbon ribbon1"   v-if="coupon.exclusive!=0"><b>Exclusive </b></em>
+            <em class="exclusive ribbon ribbon2" v-if="coupon.verified!=0"><b style="color: #2bc089;">Verified </b></em>
+            <em class="exclusive ribbon ribbon3" v-if="coupon.featured!=0"><b style="color: #c0842b;">Featured </b></em>
 
 
 <br>
@@ -227,7 +221,7 @@
  <div class="popular-coupon-carousel   featured-coupon-carousel main-carousel flickity-enabled is-draggable" >
 
 
-    <div  v-for="coupon in popular_coupons"   class="col-3 col-xs-12 col-sm-4 col-lg-3 tile-inline"  >
+    <div  v-for="coupon in popular_coupons"   class="col-3 col-xs-12 col-sm-4 col-lg-3 tile-inline" style="margin: 0px;"    >
     <div  class=" grid tile tile-block tile-block-carousel"  >
     <div class="tile-block-inner">
 
@@ -249,9 +243,9 @@
 
 
    
-     <em class="exclusive ribbon ribbon1" v-if="coupon.exclusive"><b>Exclusive </b></em>
-            <em class="exclusive ribbon ribbon2" v-if="coupon.verified"><b style="color: #2bc089;">Verified </b></em>
-            <em class="exclusive ribbon ribbon3" v-if="coupon.featured"><b style="color: #c0842b;">Featured </b></em>
+     <em class="exclusive ribbon ribbon1" v-if="coupon.exclusive!=0"><b>Exclusive </b></em>
+            <em class="exclusive ribbon ribbon2" v-if="coupon.verified!=0"><b style="color: #2bc089;">Verified </b></em>
+            <em class="exclusive ribbon ribbon3" v-if="coupon.featured!=0"><b style="color: #c0842b;">Featured </b></em>
 
 
 <br>
@@ -345,7 +339,7 @@
 
  <div class="panel panel-vertical bg-colour-none">
     <div class="container">
-         <p class="intro-heading text-center">Popular brands</p>
+         <p class="intro-heading text-center">Popular Categories</p>
     <center class="row ">
 
 
@@ -382,7 +376,7 @@
 
  <div class="tile tile-signup" style="background-color: rgb(3, 170, 166);"><div class="tile-signup-inner">
 
-  <img class="tile-signup-logo-image"  :src="theme_base_url+'/assets/images/mail.png'" width="82" height="82" alt="Deliveroo">
+  <img class="tile-signup-logo-image"  :src="theme_base_url+'/assets/images/mail.png'" width="82" height="82"  >
 
 
   <p class="tile-signup-title">Never miss out <span> Our Latest Updates</span></p><newsletter-signup  ><form class="form form-tilesignup "><div class="form-tilesignup-inner"><div class="form-row form-tilesignup-details"><label for="tilesignup-email" class="sr-only">Email</label><input name="subscribe_email" type="email" class="input form-tilesignup-input" name="Email" placeholder="Email"></div><div class="form-row form-tilesignup-submit"><button type="submit" class="button"  onclick="subscribes_email();" >Subscribe</button><span class="form-tilesignup-tooltip">45 people have recently Subscribe </span></div></div> 
@@ -400,6 +394,6 @@
     </div>
     </div> 
 
-
+<br>
  
    </main>

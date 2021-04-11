@@ -117,9 +117,9 @@
     <span class="expired_date badge">
        
 
-            <span class="ribbon ribbon1" v-if="coupon.exclusive"><b>Exclusive </b></span>
-            <span class="ribbon ribbon2" v-if="coupon.verified"><b style="color: #2bc089;">Verified </b></span>
-            <span class="ribbon ribbon3" v-if="coupon.featured"><b style="color: #c0842b;">Featured </b></span>
+            <span class="ribbon ribbon1" v-if="coupon.exclusive!=0"><b>Exclusive </b></span>
+            <span class="ribbon ribbon2" v-if="coupon.verified!=0"><b style="color: #2bc089;">Verified </b></span>
+            <span class="ribbon ribbon3" v-if="coupon.featured!=0"><b style="color: #c0842b;">Featured </b></span>
 </div>  
 
 <div class="widgets">
@@ -253,9 +253,9 @@
                                <span v-if="coupon.type=='deal'"    style="font-size: 16px;color:#5858c7;"><b>Deal  </b></span>          
 
                           </span>
-                                  <span class="ribbon ribbon1" v-if="coupon.exclusive"><span style="color: #aa3552;"> Exclusive </span></span>
-                                  <span class="ribbon ribbon2" v-if="coupon.verified"><span style="color: #2bc089;"> Verified </span></span>
-                                  <span class="ribbon ribbon3" v-if="coupon.featured"><span style="color: #c0842b;"> Featured </span></span>
+                                  <span class="ribbon ribbon1" v-if="coupon.exclusive!=0"><span style="color: #aa3552;"> Exclusive </span></span>
+                                  <span class="ribbon ribbon2" v-if="coupon.verified!=0"><span style="color: #2bc089;"> Verified </span></span>
+                                  <span class="ribbon ribbon3" v-if="coupon.featured!=0"><span style="color: #c0842b;"> Featured </span></span>
 
                           </div>
                           <div class="offer-title copycodebtn" data-id="20427" data-clipboard-text="VIPBA">
@@ -385,9 +385,9 @@
     <span class="expired_date badge">
        
 
-            <span class="ribbon ribbon1" v-if="coupon.exclusive"><b>Exclusive </b></span>
-            <span class="ribbon ribbon2" v-if="coupon.verified"><b style="color: #2bc089;">Verified </b></span>
-            <span class="ribbon ribbon3" v-if="coupon.featured"><b style="color: #c0842b;">Featured </b></span>
+            <span class="ribbon ribbon1" v-if="coupon.exclusive!=0"><b>Exclusive </b></span>
+            <span class="ribbon ribbon2" v-if="coupon.verified!=0"><b style="color: #2bc089;">Verified </b></span>
+            <span class="ribbon ribbon3" v-if="coupon.featured!=0"><b style="color: #c0842b;">Featured </b></span>
 </div>  
 
 <div class="widgets">

@@ -25,15 +25,15 @@
 
 
     <span v-if="comeFrom=='category'"  >   <a :href="base_url+'store/'+coupon.store.custom_url"> {{coupon.store.name}} </a> </span>
-             <span class="ribbon ribbon1" v-if="coupon.exclusive"><span style="color: #aa3552;"> Exclusive </span></span>
-            <span class="ribbon ribbon2" v-if="coupon.verified"><span style="color: #2bc089;"> Verified </span></span>
-            <span class="ribbon ribbon3" v-if="coupon.featured"><span style="color: #c0842b;"> Featured </span></span>
+             <span class="ribbon ribbon1" v-if="coupon.exclusive!=0"><span style="color: #aa3552;"> Exclusive </span></span>
+            <span class="ribbon ribbon2" v-if="coupon.verified!=0"><span style="color: #2bc089;"> Verified </span></span>
+            <span class="ribbon ribbon3" v-if="coupon.featured!=0"><span style="color: #c0842b;"> Featured </span></span>
                 <br  v-if="comeFrom=='category'" >
 
 
-    <span class="hover-over" title="Click here to get this vouchercode and open the merchant's website">{{coupon.name}}</span>
+    <span class="hover-over coupon_title"  >{{coupon.name}}</span>
  <br />
-          <p>{{coupon.description}}</p>        
+          <p class="coupon_description">{{coupon.description}}</p>        
 
 
 

@@ -371,9 +371,9 @@ if (isset($data->popular_categories)){
       <div v-for="coupon in recommended_coupons"  class="col-xs-12 col-sm-6 col-md-3 colresponsivecoupons ">
                       
 
-                        <!--    <span class="ribbon ribbon1" v-if="coupon.exclusive"><b>Exclusive </b></span>
-            <span class="ribbon ribbon2" v-if="coupon.verified"><b style="color: #2bc089;">Verified </b></span>
-            <span class="ribbon ribbon3" v-if="coupon.featured"><b style="color: #c0842b;">Featured </b></span>
+                        <!--    <span class="ribbon ribbon1" v-if="coupon.exclusive!=0"><b>Exclusive </b></span>
+            <span class="ribbon ribbon2" v-if="coupon.verified!=0"><b style="color: #2bc089;">Verified </b></span>
+            <span class="ribbon ribbon3" v-if="coupon.featured!=0"><b style="color: #c0842b;">Featured </b></span>
 
  {{coupon.short_title.split(' ')[0]}}     {{coupon.short_title.split(' ')[1]}} 
  <span v-if="coupon.type=='coupon'"   style="font-size:12px;color:orange;">  <b> Code </b>  </span>
@@ -485,9 +485,9 @@ if (isset($data->popular_categories)){
             <div v-for="coupon in popular_coupons"  class="col-md-3 colresponsivecoupons ">
                       
 
-                        <!--    <span class="ribbon ribbon1" v-if="coupon.exclusive"><b>Exclusive </b></span>
-            <span class="ribbon ribbon2" v-if="coupon.verified"><b style="color: #2bc089;">Verified </b></span>
-            <span class="ribbon ribbon3" v-if="coupon.featured"><b style="color: #c0842b;">Featured </b></span>
+                        <!--    <span class="ribbon ribbon1" v-if="coupon.exclusive!=0"><b>Exclusive </b></span>
+            <span class="ribbon ribbon2" v-if="coupon.verified!=0"><b style="color: #2bc089;">Verified </b></span>
+            <span class="ribbon ribbon3" v-if="coupon.featured!=0"><b style="color: #c0842b;">Featured </b></span>
 
  {{coupon.short_title.split(' ')[0]}}     {{coupon.short_title.split(' ')[1]}} 
  <span v-if="coupon.type=='coupon'"   style="font-size:12px;color:orange;">  <b> Code </b>  </span>

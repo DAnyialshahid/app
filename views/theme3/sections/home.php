@@ -34,9 +34,9 @@
   <div class="col s12 m6 l4"  v-for="coupon in recommended_coupons"  >
     
     <div    class="card coupon cboxsq  hoverable promotion"  >
-                       <div class="ribbon ribbon1" v-if="coupon.exclusive"><span>Exclusive</span></div>
-            <div class="ribbon ribbon2" v-if="coupon.verified"><span style="background: #2bc089;">Verified</span></div>
-            <div class="ribbon ribbon3" v-if="coupon.featured"><span style="background: #c0842b;">Featured</span></div>
+                       <div class="ribbon ribbon1" v-if="coupon.exclusive!=0"><span>Exclusive</span></div>
+            <div class="ribbon ribbon2" v-if="coupon.verified!=0"><span style="background: #2bc089;">Verified</span></div>
+            <div class="ribbon ribbon3" v-if="coupon.featured!=0"><span style="background: #c0842b;">Featured</span></div>
                 <div class="cboxsq-img-container">
                  <a :href="base_url+'store/'+coupon.store.custom_url"   >
                 <img class="responsive-img" v-if="coupon.feature_image" :src="api_url+'/assets/uploads/coupons/'+coupon.feature_image"  >
@@ -105,9 +105,9 @@
   <div class="col-12"  v-for="coupon in popular_coupons"  >
     
     <div    class="row coupon cboxsq  hoverable promotion"   >
-                       <div class="ribbon ribbon1" v-if="coupon.exclusive"><span>Exclusive</span></div>
-            <div class="ribbon ribbon2" v-if="coupon.verified"><span style="background: #2bc089;">Verified</span></div>
-            <div class="ribbon ribbon3" v-if="coupon.featured"><span style="background: #c0842b;">Featured</span></div>
+                       <div class="ribbon ribbon1" v-if="coupon.exclusive!=0"><span>Exclusive</span></div>
+            <div class="ribbon ribbon2" v-if="coupon.verified!=0"><span style="background: #2bc089;">Verified</span></div>
+            <div class="ribbon ribbon3" v-if="coupon.featured!=0"><span style="background: #c0842b;">Featured</span></div>
     
 
      <div class="col-md-3 cboxsq-footer">

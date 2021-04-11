@@ -30,9 +30,9 @@
             <p class="abs">
              <i class="fa fa-user"></i> {{coupon.visits}}   Used 
                   <span v-if="comeFrom=='category'"  >   <a :href="base_url+'store/'+coupon.store.custom_url"> {{coupon.store.name}} </a> </span>
-                   <span class="ribbon1" v-if="coupon.exclusive" style="color: #aa3552;"> Exclusive</span>
-                  <span class="ribbon2" v-if="coupon.verified" style="color: #2bc089;"> Verified</span>
-                  <span class="ribbon3" v-if="coupon.featured" style="color: #c0842b;"> Featured</span>
+                   <span class="ribbon1" v-if="coupon.exclusive!=0" style="color: #aa3552;"> Exclusive</span>
+                  <span class="ribbon2" v-if="coupon.verified!=0" style="color: #2bc089;"> Verified</span>
+                  <span class="ribbon3" v-if="coupon.featured!=0" style="color: #c0842b;"> Featured</span>
 
            </p>
          

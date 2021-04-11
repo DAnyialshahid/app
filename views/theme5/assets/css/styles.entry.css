@@ -1,4 +1,16 @@
+.coupon_title{
+        margin-top: 10px;
+     display: block;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #2f2f2f;
+}
+.coupon_description{
+    margin-top: 10px;
+}
 
+/* ==== GRID SYSTEM ==== */
 
 .container {
   width: 90%;
@@ -93,9 +105,7 @@
 @media only screen and (min-width: 33.75em) {  /* 540px */
   .container {
     width: 80%;
-
   }
-
 }
 
 @media only screen and (min-width: 45em) {  /* 720px */
@@ -161,22 +171,6 @@
 
 
 
-
-
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-
-
 .tile-inline{
          display: inline-grid;
 }
@@ -184,13 +178,21 @@
            width: 92%;
        margin: auto auto;
        height: 350px !important;
-} 
-
+}  
 
 @media(max-width:600px){
+
+
+      .slider-box{
+            margin-top: 49px;
+        }
+
+
+
      .mobile_filture{
     display: block !important;
   }
+
 .col-xs-1 {width: 8.33% !important}
 .col-xs-2 {width: 16.66% !important}
 .col-xs-3 {width: 25%  !important}
@@ -1988,6 +1990,8 @@ picture {
 
 @media (max-width: 767px) {
     .header-inner {
+        display: none;
+        overflow: hidden;
         position:fixed;
         top: 0;
         left: 0;
@@ -2000,8 +2004,8 @@ picture {
         transition: -webkit-transform .4s;
         transition: transform .4s;
         transition: transform .4s,-webkit-transform .4s;
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%)
+        /*-webkit-transform: translateX(-100%);*/
+        /*transform: translateX(-100%)*/
     }
 
     .navigation-active .header-inner {
@@ -2071,8 +2075,8 @@ picture {
 }
 
 .navigation-active .header-toggle {
-    -webkit-transform: translateX(16.25rem);
-    transform: translateX(16.25rem)
+    /*-webkit-transform: translateX(16.25rem);*/
+    /*transform: translateX(16.25rem)*/
 }
 
 .header-toggle-icon {
@@ -2151,8 +2155,8 @@ picture {
     text-align: center;
     line-height: 3.75rem;
     text-decoration: none;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%)
+    /*-webkit-transform: translateX(-50%);*/
+    /*transform: translateX(-50%)*/
 }
 
 .navigation-active .header-mobile-logo {
@@ -4540,7 +4544,7 @@ body.au .tile-save-icon,body.gb .tile-save-icon,body.ie .tile-save-icon,body.mt 
     top: .9375rem;
     left: .9375rem;
     width: 4.6875rem;
-    height: 4.6875rem;
+    height: 6.6875rem;
     overflow: hidden;
     background: #cbcbcb
 }

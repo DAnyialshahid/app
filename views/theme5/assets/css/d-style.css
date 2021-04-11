@@ -1,8 +1,25 @@
+.flickity-prev-next-button.previous {
+    left: -20px !important; 
+}
+
+.flickity-prev-next-button.next {
+    right: -20px !important; 
+}
+
+@media (max-width: 768px) {
+.coupon_title {
+
+    font-size: 17px !important;
+}
+    .tile-list a h1{
+       font-size: 3vw !important;;
+    }
+}
 
 .tile-list a h1{
     color: white !important;
     
-        font-size: 4vw;
+        font-size: 3vw;
     text-align: center;
     vertical-align: middle;
         line-height: 49px;
@@ -191,18 +208,13 @@ width: 100% !important;
     top: 10px;
 }
 
-
-
-
-
-
-
+ 
 .search_resultbox {
-	width: 100%;
-    position: relative;
+     overflow-x: hidden;
+    position: absolute;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: 525px;
     margin-top: 7px;
     background-color: #fff;
     z-index: 999;

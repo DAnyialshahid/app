@@ -1,9 +1,9 @@
 
 <div v-for="coupon in coupons"    class="card coupon cbox hoverable promotion"  >
        <template v-if="new Date()<new Date(coupon.expire_date)"   >
-            <div class="ribbon ribbon1" v-if="coupon.exclusive"><span>Exclusive</span></div>
-            <div class="ribbon ribbon2" v-if="coupon.verified"><span style="background: #2bc089;">Verified</span></div>
-            <div class="ribbon ribbon3" v-if="coupon.featured"><span style="background: #c0842b;">Featured</span></div>
+            <div class="ribbon ribbon1" v-if="coupon.exclusive!=0"><span>Exclusive</span></div>
+            <div class="ribbon ribbon2" v-if="coupon.verified!=0"><span style="background: #2bc089;">Verified</span></div>
+            <div class="ribbon ribbon3" v-if="coupon.featured!=0"><span style="background: #c0842b;">Featured</span></div>
         <div class="offer-short">
                     <div>     {{coupon.short_title.split(' ')[0]}}      {{coupon.short_title.split(' ')[1]}}</div>
                                        <div v-if="coupon.type=='coupon'"   style="font-size: 16px;color:#e2a93f;">  <b> Code </b>  </div>

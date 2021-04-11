@@ -27,7 +27,13 @@
 
 
 @media (max-width: 767px){
-
+.search-overlay-inner{
+    padding: 0px !important;
+}
+.search_resultbox { 
+  width: 100% !important;
+  position: relative !important;
+}
  .mobile-logo{
     	display: block !important;
     }
@@ -36,7 +42,7 @@
  
  }
  .header{  
-     background: #2e3538;
+     background: #2a87cb;
      height: 73px;
   }
 

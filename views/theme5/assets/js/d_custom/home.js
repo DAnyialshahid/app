@@ -81,6 +81,8 @@ $(document).ready(function() {
 		  // options
 		  cellAlign: 'left',
 		  	   pageDots: false,	
+		  	   freeScroll: true,
+		  	   
 		  contain: true
 		});
 		 

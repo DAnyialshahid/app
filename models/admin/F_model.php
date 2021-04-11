@@ -70,6 +70,8 @@ class F_model extends MY_Model{
 		}
  
 
+				$settings['site_name']=$this->input->post('site_name');
+				
 				$settings['youtube']=$this->input->post('youtube');
 				$settings['contact_number']=$this->input->post('contact_number');
 				$settings['contact_address']=$this->input->post('contact_address');

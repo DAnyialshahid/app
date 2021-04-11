@@ -34,9 +34,9 @@
                                             </div> 
 
                                             <span class="coupon_labels hidden-mb">
-                                                <span v-if="coupon.verified" class="overified" style="color:green;"> Verified </span> 
-                                                <span v-if="coupon.exclusive" class="overified" style="color:red;"> Exclusive </span>
-                                                <span v-if="coupon.featured" class="overified" style="color:orange;"> Featured </span> 
+                                                <span v-if="coupon.verified!=0" class="overified" style="color:green;"> Verified </span> 
+                                                <span v-if="coupon.exclusive!=0" class="overified" style="color:red;"> Exclusive </span>
+                                                <span v-if="coupon.featured!=0" class="overified" style="color:orange;"> Featured </span> 
                                             </span>
 
                                             
