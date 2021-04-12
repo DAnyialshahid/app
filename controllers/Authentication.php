@@ -7,14 +7,13 @@ class Authentication extends Theme_Controller{
 	public function login_panel(){
 		
 		
-		//  if( $this->session->userdata('loggedIn')==1){
-		// 	echo 'SESSION DEACTIVATING ';
-		// 	$this->session->unset_userdata($array_items);
-			
-		// 	redirect('admin/login');
-		// }else{
-		//     	redirect('admin');
-		// }
+		 if( $this->session->userdata('loggedIn')==1){
+			echo 'Already Login redirecting';
+			//$this->session->unset_userdata($array_items); 
+		 redirect('admin');
+		}else{
+		    	//redirect('admin');
+		}
 	 
 		
 		 backend_page($this,'login.php',[

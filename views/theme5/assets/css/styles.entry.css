@@ -4515,7 +4515,7 @@ body.au .tile-save-icon,body.gb .tile-save-icon,body.ie .tile-save-icon,body.mt 
 }
 
 .tile-block-footer {
-    padding: 0 .9375rem .9375rem
+    padding: 0 .9375rem .9375rem 
 }
 
 @media (min-width: 768px) {

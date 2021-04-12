@@ -699,6 +699,22 @@ echo json_encode(['success'=>'yes','response'=>'Clear Group Successfully']);
 			}
 		exit();
 
+	}			
+	public function deleteSlider($id)
+	{
+
+		$this->load->model('admin/slider_model');
+		 
+
+		   $this->load->model('admin/pages_model');
+			$delete=$this->slider_model->delete($id); 
+			if($delete){ 
+					echo json_encode(['success'=>'yes','response'=>$delete]);
+			}else{
+					echo json_encode(['success'=>'no','response'=>$delete]);
+			}
+		exit();
+
 	}				
 	public function deleteStores($id)
 	{

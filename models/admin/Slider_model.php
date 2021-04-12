@@ -74,8 +74,12 @@ class Slider_model extends MY_Model{
 		
 		
 		 
+		$this->db->where('slide_id' , $id);
+		$this->db->delete('slider_slides' );
+
+		
 		$this->db->where('id' , $id);
-		if($this->db->delete('categories' )){
+		if($this->db->delete('slider' )){
 			return true;
 		}else{
 

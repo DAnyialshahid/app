@@ -92,7 +92,7 @@ $(document).ready(function() {
  		$('.hot-stores').flickity({
 		  // options
 		  cellAlign: 'left',
-		  pageDots: true,	
+		  pageDots: false,	
 		  contain: true
 		});
 		 
@@ -101,7 +101,7 @@ $(document).ready(function() {
  		$('.popular-coupon-carousel').flickity({
 		  // options
 		  cellAlign: 'left',
-		   pageDots: true,
+		   pageDots: false,
 		  contain: true
 		});
 		 
@@ -286,6 +286,7 @@ function getSlides(data,limit,callback){
 									    lazyLoad:true,
 									    loop:true,
 									    margin:10,
+									    dots:false,
 									    autoHeight:1 
 									});
 	                         

@@ -1,7 +1,7 @@
 <main class="main" id="home">
   <br>
   <br>
-    <div class="section bg slider-box">
+    <div class="section bg slider-box" v-if="slides.length!=0">
     <div class="container">
          <div class="owl-carousel owl-theme">
 
@@ -9,6 +9,8 @@
               <img class="owl-lazy"   :data-src="api_url+'/assets/uploads/slides/'+slide.file_name"   alt="" style="height: 320px">
              </a>
             </div>
+              <br>
+  <br>
     </div>
 </div>
 
@@ -17,22 +19,8 @@
   
 <div class="section bg seperator-wrapper">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12"><hr class="sepertor"></div>
-        </div>
-    </div>
-</div>
-
-
- <div class="section bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
                 <h1 class="section-title">Top Merchants</h1>
-                 
-            </div>
-            <div class="col-lg-12 col-md-12 md-resp-col-hotstores">
-                <div class="hot-stores   main-carousel run-carousel flickity-enabled is-draggable">
+        <div class="hot-stores   main-carousel run-carousel flickity-enabled is-draggable">
                
                <div  v-for="store in show_in_home_stores"   class="hot-store-box carousel-cell col-3 col-xs-12 col-sm-4 col-lg-3 tile-inline"    >
     <div  class=" grid tile tile-block tile-block-carousel"  style="height: 200px !important; "> <div class="tile-block-inner">
@@ -70,22 +58,17 @@
 
  
                 </div>
-
-                 
-            </div>
-            <div class="col-lg-2 col-md-2 md-resp-col-showmore">
-                <div class="show-more-box">
-                    <p class="show-more-wrapper">
-                        <a    :href="base_url+'stores'" >
+                <a    :href="base_url+'stores'" >
                             <span class="fa fa-arrow-right icon"></span>
                             <span class="text">Show more...</span>
                         </a>
-                    </p>
-                </div>
-            </div>
-        </div>
+
     </div>
-</div> 
+
+</div>
+
+
+   
 
 
     
@@ -94,8 +77,7 @@
 
   <div class="section bg">
     <div class="container">
-        <div class="row">
-        <div class="col-lg-12">
+      <div class="col-lg-12">
             <h1 class="section-title">Recommended Offers for You</h1>
 
  <div class="recommended-coupon-carousel   featured-coupon-carousel main-carousel flickity-enabled is-draggable" >
@@ -205,8 +187,7 @@
 
 </div>
 </div>
-
-</div>
+         
 </div>  
 </div>
 
@@ -214,8 +195,7 @@
 
 <div class="section bg">
     <div class="container">
-        <div class="row">
-        <div class="col-lg-12">
+         <div class="col-lg-12">
             <h1 class="section-title">Today's Most Popular Coupons & Deals</h1>
 
  <div class="popular-coupon-carousel   featured-coupon-carousel main-carousel flickity-enabled is-draggable" >
@@ -324,8 +304,6 @@
 
 
 </div>
-</div>
-
 </div>
 </div>  
 </div>  
