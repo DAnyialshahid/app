@@ -20,8 +20,8 @@
                    <center>
                           <ul class="stores-list row">
 
-                               <li  v-for="category in categories"  class="col-xs-6 col-md-6 col-lg-2" style="background: white;margin: 10px" >
-
+                               <li  v-for="category in categories"  class="col-xs-6 col-md-6 col-lg-2" >
+<div style="background: white;margin: 10px" >
                                                 
                                 <a :href="base_url+'category/'+category.slug"  class="text-center" title=" ">
                                         <div class="img-container " style="margin-top: 8px;">
@@ -41,7 +41,7 @@
                                         </div>
                                       
                                     </a>
-                     
+                     </div>
                                </li>
                                
 

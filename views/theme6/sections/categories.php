@@ -6,7 +6,8 @@
  <br>
 
  
-<div class="grid" >
+<div class="grid-responsive" style="" >
+<div class="grid"  style=" ">
   <div class="grid-sizer"></div>
 <div class="grid-item     "  v-for="group in categories_group"  style="width: 300px;    ">
   <a class="thumbnail custom-thumb" href="#">
@@ -42,6 +43,7 @@
 
  
  
+</div>
 </div>
  
 </div>

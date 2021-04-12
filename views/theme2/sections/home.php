@@ -166,8 +166,8 @@
 
               <center>   
                   <ul class="stores-list row">
-                    <li  v-for="category in popular_categories"  class="col-xs-3 col-md-2 " style="background: #f5f5f5;margin: 10px" >
-
+                    <li  v-for="category in popular_categories"  class="col-xs-6 col-md-2 "  >
+<div style="margin: 10px;background: #f5f5f5;">
                                                                    
                                           <a :href="base_url+'category/'+category.slug"  class="row" title=" ">
                                                   <div class="img-container " style="margin-top: 8px;">
@@ -188,7 +188,7 @@
                                                   </div>
                                                 
                                               </a>
-                                            
+                                            </div>
                                          </li>
 
                   </ul>
@@ -202,7 +202,7 @@
     <div class="row">
     <div class="article">
         <h1 class="h3">Today's Most Popular Coupons & Deals</h1>
- <div  v-for="coupon in popular_coupons"  class="col-md-6 col-xs-12 "  style="height: 178px"> 
+ <div  v-for="coupon in popular_coupons"  class="col-md-6 col-xs-12 "  style="height: 178px;margin-bottom: 38px;"> 
   <div  class=" tw-m-2  tw-rounded-sm tw-shadow tw-bg-white sm:tw-p-4 tw-p-2 sm:tw-mb-4 tw-mb-2 xl:tw-h-full1">
                                 <div class="tw-flex lato tw-h-full1">
                                     <div class="tw-text-center xl:tw-w-1/6 tw-w-1/4 xl:tw-min-w-1/6 tw-min-w-1/4">

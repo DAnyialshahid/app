@@ -100,7 +100,8 @@
    <div class="filter-label ">
                 Filtered By:
             </div>
-  <div class="filter-value" data-filter-label="offers" style="display: flex;justify-content: center;">
+  <div class="filter-value" data-filter-label="offers" style="display: flex;justify-content: center;background: white;
+padding: 10px;">
                 <a class=" tabs-link lrg-hide med-hide " href="#"   data-sort="all"  onclick="filture('all')">All Offers ({{row.count.coupons+row.count.deals}}) |</a>
                             <a class=" tabs-link lrg-hide med-hide " href="#"     data-sort="code" onclick="filture('coupon')">Codes ({{row.count.coupons}}) |</a>
                             <a class=" tabs-link lrg-hide med-hide " href="#" data-sort="deal"  onclick="filture('deal')">Deals ({{row.count.deals}})</a>

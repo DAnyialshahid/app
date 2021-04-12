@@ -171,7 +171,7 @@
             </div>
             <div class="col-md-12">
                 <div id="mc_embed_signup" style="width:364px;padding:10px;margin-left: auto; margin-right: auto;"> <div  style="height: 43px; " class="row">
-                      <input type="email" name="subscribe_email" class="email email col-xs-8 col-md-8 " id="email" placeholder="Enter Your Email" required="" style="     padding: 8px; height: 100%; background: #fffdfd; border: none; color: white; font-size: 24px; ">
+                      <input type="email" name="subscribe_email" class="email email col-xs-8 col-md-8 " id="email" placeholder="Enter Your Email" required="" style="     padding: 8px; height: 100%; background: #fffdfd; border: none;   font-size: 24px; ">
 
                       <span class="col-xs-2 col-md-2 " type="" onclick="subscribes_email();" name="action" style="padding: 8px;   height: 100%; background: red; border: none; color: white; font-size: 24px; ">
                         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>

@@ -199,7 +199,7 @@ html, body {
 .tile-block{
            width: 92%;
        margin: auto auto;
-       height: 350px !important;
+       height: 190px !important;
 }  
 
 @media(max-width:600px){
@@ -2021,7 +2021,7 @@ picture {
         padding: 3.75rem 0 0;
         height: 100%;
         overflow-y: scroll;
-        background: #2e3538;
+        background:#2a87cb;
         -webkit-transition: -webkit-transform .4s;
         transition: -webkit-transform .4s;
         transition: transform .4s;
@@ -2380,7 +2380,7 @@ picture {
 }
 
 .header-top-menu-icon {
-    color: #009ed9;
+    color: white;
     margin: 0 .3125rem 0 0
 }
 
@@ -2765,7 +2765,7 @@ picture {
 
 @media (max-width: 1023px) {
     .header-main-menu-icon {
-        color:#009ed9
+        color:white
     }
 }
 

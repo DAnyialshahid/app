@@ -26,7 +26,10 @@
 
     </a>
 
-     <img  class="mobile-logo"  src="<?=logo?>" class="img-responsive" style=" ">
+   
+        <a href="/" > 
+  <img  class="mobile-logo"  src="<?=logo?>" class="img-responsive" style=" ">
+</a>
 
     <div class="header-inner" style="overflow: hidden;"  >
         

@@ -7,6 +7,7 @@ var app= Vue.createApp({
     api_url: api_url, 
     base_url: base_url, 
     slug: slug, 
+    theme_base_url: theme_base_url, 
     row: {count:[] },  
 	 coupons: [  ],
 	 popular_stores: [  ],

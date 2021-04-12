@@ -19,6 +19,41 @@ html, body {
 /* no horizental scroll anymore*/
 
  
+
+.grid-responsive {
+    margin-left: 10px;margin-right: 10px
+}
+.grid {
+   max-width: 88%;  margin: auto; 
+}
+
+.grid-item     {
+
+    margin: 0px !important; 
+}
+/* // no horizental scroll anymore*/
+@media (max-width: 500px) {
+    .d-responsivecoupons{
+           padding-right: 49px !important;
+        padding-left: 49px !important; 
+    }
+
+
+.grid-responsive {
+    margin-left: none !important; ;
+    margin-right: none !important; ;
+}
+
+.grid {
+   max-width: 88%;  
+   margin: none !important; 
+}
+
+
+}
+
+
+
 /* allway on top */ 
 #d-loading-image{
 

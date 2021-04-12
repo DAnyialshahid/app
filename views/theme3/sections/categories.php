@@ -13,7 +13,7 @@
             <div class="container breadcrumb-list">
                 <ol itemscope="" itemtype="http://schema.org/BreadcrumbList" class="breadcrumb-ol">
                     <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="/" title=""><span itemprop="name">Home</span> </a> <meta itemprop="position" content="1"> <i class="fa fa-chevron-right"></i></li>
-                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><span itemprop="name">Categorires</span> <meta itemprop="position" content="2"> </li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><span itemprop="name">Categories</span> <meta itemprop="position" content="2"> </li>
                 </ol>
             </div>
         </div>
