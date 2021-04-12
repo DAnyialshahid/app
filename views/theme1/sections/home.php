@@ -1,6 +1,6 @@
- 
+  
 <div id="home">
-<section class="homepage banners bg-white" >
+<section class="homepage banners bg-white"     v-if="slides.length!=0">
     <div class="container">
       <div class="owl-carousel owl-theme">
 

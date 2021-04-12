@@ -1,5 +1,5 @@
-<div id="home">
-<section class="hero " style="padding-top: 4px; padding-bottom: 5px;padding-left: 5px;padding-right: 5px;">
+<div id="home"> 
+<section class="hero " style="padding-top: 4px; padding-bottom: 5px;padding-left: 5px;padding-right: 5px;"    v-if="slides.length!=0">
 
           <div class="owl-carousel owl-theme">
 

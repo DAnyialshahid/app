@@ -1,5 +1,5 @@
-<main class="main" id="home">
-             <div class="owl-carousel owl-theme">
+<main class="main" id="home"> 
+             <div class="owl-carousel owl-theme"    v-if="slides.length!=0">
 
             <a v-for="slide in slides"  :href="slide.link">
               <img class="owl-lazy"   :data-src="api_url+'/assets/uploads/slides/'+slide.file_name"   alt="" style="height: 320px">

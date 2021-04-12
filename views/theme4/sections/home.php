@@ -1,6 +1,6 @@
-<main class="main" id="home">
+<main class="main" id="home"> 
 
-    <div class="section bg slider-box">
+    <div class="section bg slider-box"    v-if="slides.length!=0">
     <div class="container-fluid">
          <div class="owl-carousel owl-theme">
 

@@ -1,5 +1,5 @@
 <main class="main" id="home">
-
+ 
 
     <div class="section bg slider-box">
     <div class="container">
@@ -43,9 +43,10 @@
 
          
     </div>
-<hr>
 
-    <div class="col-md-12 col-xs-12"    >
+
+    <div class="col-md-12 col-xs-12"     v-if="slides.length!=0">
+      <hr>
       <div class="owl-carousel owl-theme">
 
             <a v-for="slide in slides"  :href="slide.link">
