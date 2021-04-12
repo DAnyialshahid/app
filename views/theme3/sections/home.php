@@ -124,12 +124,12 @@
           
 
                 <!-- <div class="clear"></div> -->
-        <div class="col-md-7 col-xs-12 text-center ">
+        <div class="col-md-6 col-xs-12 text-center ">
           <b class="title" style="font-size: 30px;">  {{coupon.name}}</b>
             <div  style="font-size: 15px;"> {{coupon.description}}</div>
 
          </div>
-        <div class="col-md-2  text-center">
+        <div class="col-md-3  text-center">
                       <div  v-if="coupon.short_title"  class="hidden-xs col-md-12  flow-text truncate"><span>    {{coupon.short_title.split(' ')[0]}}     {{coupon.short_title.split(' ')[1]}}
                   </span></div>
 

@@ -1,4 +1,4 @@
-<main class="main" id="home">
+<main class="main" id="home"> 
   <br>
   <br>
     <div class="section bg slider-box" v-if="slides.length!=0">

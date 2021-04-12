@@ -70,7 +70,7 @@
       </div>
     </div>
     <div class="row   recommended-coupon-carousel hot-deals-carousel featured-coupon-carousel main-carousel flickity-enabled is-draggable"> 
-            <div v-for="coupon in recommended_coupons"  class="col-xs-12 col-sm-6 col-md-3 colresponsivecoupons ">
+            <div v-for="coupon in recommended_coupons"  class="col-sm-6 col-md-4 col-lg-3 col-xs-6 col-xxs-12  d-responsivecoupons ">
                       
 
                         <!--    <span class="ribbon ribbon1" v-if="coupon.exclusive!=0"><b>Exclusive </b></span>
@@ -197,7 +197,7 @@
       </div>
     </div>
     <div class="row   popular-coupon-carousel hot-deals-carousel featured-coupon-carousel main-carousel flickity-enabled is-draggable"> 
-            <div v-for="coupon in popular_coupons"  class="col-md-3 colresponsivecoupons ">
+            <div v-for="coupon in popular_coupons"  class="col-sm-6 col-md-4 col-lg-3 col-xs-6 col-xxs-12  d-responsivecoupons">
                       
 
                         <!--    <span class="ribbon ribbon1" v-if="coupon.exclusive!=0"><b>Exclusive </b></span>
