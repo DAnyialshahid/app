@@ -1,3 +1,24 @@
+
+/* no horizental scroll anymore*/
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -msbox-sizing: border-box;
+}
+body{
+   overflow-x: hidden;
+}
+img{
+   max-width:100%;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+/* no horizental scroll anymore*/
+
+
 /* stylelint-disable selector-list-comma-newline-after */
 .popular_stores .store a p{
       width: 155px;

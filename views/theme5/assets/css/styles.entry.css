@@ -1,3 +1,25 @@
+
+/* no horizental scroll anymore*/
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -msbox-sizing: border-box;
+}
+body{
+   overflow-x: hidden;
+}
+img{
+   max-width:100%;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+
+
 .coupon_title{
         margin-top: 10px;
      display: block;

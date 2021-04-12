@@ -1,3 +1,4 @@
+
 /* no horizental scroll anymore*/
 *{
     box-sizing: border-box;
@@ -10,7 +11,13 @@ body{
 img{
    max-width:100%;
 }
-/* // no horizental scroll anymore*/
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+/* no horizental scroll anymore*/
+
  
 /* allway on top */ 
 #d-loading-image{

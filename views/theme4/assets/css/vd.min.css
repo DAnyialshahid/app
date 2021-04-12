@@ -12,6 +12,27 @@ body {
     margin: 0
 }
 
+
+/* no horizental scroll anymore*/
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -msbox-sizing: border-box;
+}
+body{
+   overflow-x: hidden;
+}
+img{
+   max-width:100%;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+
 #d_sidebar_serialize label{
         color: #707070;
             font-size: 16px;

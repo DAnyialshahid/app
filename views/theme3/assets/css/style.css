@@ -16,6 +16,27 @@
     box-sizing: border-box
 }
 
+
+/* no horizental scroll anymore*/
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -msbox-sizing: border-box;
+}
+body{
+   overflow-x: hidden;
+}
+img{
+   max-width:100%;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+
 body,html {
     font-size: 16px
 }
