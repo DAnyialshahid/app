@@ -70,7 +70,7 @@
                 
 
 <star-rating  >
-    <div class="starrating"><div class="starrating-inner"><span class="starrating-value" style="width: 72%;" data-rating-value="true"></span><a href="/account/login" class="starrating-login" aria-label="login" data-modal-display="true" data-modal-url="/modal/authenticationmodals?step=Login&amp;redirectUrl=https%3A%2F%2Fwww.vouchercloud.com%2Fdeliveroo-vouchers"></a>
+    <div class="starrating"><div class="starrating-inner"><span class="starrating-value" style="width: 72%;"  ></span><a href="#" class="starrating-login" aria-label="login"></a>
         </div><div class="starrating-label">Rated 3.6 from 244 votes</div>
     </div>
 </star-rating>
@@ -89,15 +89,7 @@
 <div class="layout">
     <div class="container">
 
-        <main class="layout-content">
-
-            
-
-
-               
-                            
-                    
- 
+        <main class="layout-content"> 
 
             <div id="offers" class="section-tile-list"> 
 
@@ -135,7 +127,7 @@
 
 
 
-            <div class="row">
+<div class="row">
 
 
  <div class="tile tile-signup" style="background-color: rgb(3, 170, 166);"><div class="tile-signup-inner">

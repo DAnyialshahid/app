@@ -29,6 +29,13 @@ body{
 img{
    max-width:100%;
 }
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
 /* // no horizental scroll anymore*/
 
 

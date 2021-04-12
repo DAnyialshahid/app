@@ -34,7 +34,7 @@
     <div class="row">
     <div class="article">
         <h1 class="h3">Recommended Offers for You</h1>
- <div  v-for="coupon in recommended_coupons"  class="col-md-6 col-xs-12 "  style="height: 178px"> 
+ <div  v-for="coupon in recommended_coupons"  class="col-md-6 col-xs-12 "  style="height: 178px;margin-bottom: 38px;"> 
   <div  class=" tw-m-2  tw-rounded-sm tw-shadow tw-bg-white sm:tw-p-4 tw-p-2 sm:tw-mb-4 tw-mb-2 xl:tw-h-full1">
                                 <div class="tw-flex   tw-h-full1">
                                     <div class="tw-text-center xl:tw-w-1/6 tw-w-1/4 xl:tw-min-w-1/6 tw-min-w-1/4">
