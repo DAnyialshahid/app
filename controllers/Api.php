@@ -793,6 +793,19 @@ echo json_encode(['success'=>'yes','response'=>'Clear Group Successfully']);
 
 	}
 
+	public function clean_all_coupon_of_store($id)
+	{
+		  	$this->load->model('admin/coupons_model');
+			$delete=$this->coupons_model->delete_by_store_id($id); 
+			if($delete==true){ 
+					echo json_encode(['success'=>'yes','response'=>$delete]);
+			}else if(is_array($delete)){
+					echo json_encode(['success'=>'no','response'=>$delete->error]);
+			}
+		exit();
+
+	}
+
 	public function updatePage()
 	{
 		if($this->input->post('id')){

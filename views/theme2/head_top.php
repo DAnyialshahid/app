@@ -30,7 +30,7 @@
                   </li>
                
                 <a   :href="base_url+'categories'" class="tw-text-grey-lightest hover:tw-text-blue tw-font-normal tw-px-2"><li>Categories</li></a>
-                <a :href="base_url+'page/submit_offer'" class="tw-text-grey-lightest hover:tw-text-blue tw-font-normal tw-px-2"><li>Submit Offer</li></a>
+                <!-- <a :href="base_url+'page/submit_offer'" class="tw-text-grey-lightest hover:tw-text-blue tw-font-normal tw-px-2"><li>Submit Offer</li></a> -->
                 <a   :href="base_url+'page/about_us'"   class="tw-text-grey-lightest hover:tw-text-blue tw-font-normal tw-px-2"><li>About</li></a>
                 <a  :href="base_url+'page/contact_us'"  class="tw-text-grey-lightest hover:tw-text-blue tw-font-normal tw-px-2"><li>Contact</li></a> 
             </ul> 

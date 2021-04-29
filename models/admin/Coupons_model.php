@@ -92,6 +92,23 @@ class Coupons_model extends MY_Model{
 
 
 
+	public function delete_by_store_id($store_id){
+		
+		
+		 
+		$this->db->where('store_id' , $store_id);
+		if($this->db->delete('coupons' )){
+			return true;
+		}else{
+
+			return ['error'=>''];
+			 }
+		  
+	}
+
+
+
+
 public function sort($store_id,$coupon_ids){
 
 	foreach (explode(',',$coupon_ids) as $position => $coupon_id) {

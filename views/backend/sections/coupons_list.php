@@ -125,17 +125,17 @@
 
         <div class="mb-7">
     <div class="row align-items-center">
-        <div class="col-lg-9 col-xl-8">
+        <div class="col-lg-12 col-xl-12">
             <div class="row align-items-center">
-                <div class="col-md-4 my-2 my-md-0">
-                    <div class="input-icon">
-                        <input type="text" class="form-control" placeholder="Search..." id="kt_datatable_search_query">
-                        <span><i class="flaticon2-search-1 text-muted"></i></span>
-                    </div>
-                </div>
+			                <div class="col-md-3 my-2 my-md-0">
+			                    <div class="input-icon">
+			                        <input type="text" class="form-control" placeholder="Search..." id="kt_datatable_search_query">
+			                        <span><i class="flaticon2-search-1 text-muted"></i></span>
+			                    </div>
+			                </div>
 
                                
-                            <div class="col-md-4 my-2 my-md-0">
+                            <div class="col-md-3 my-2 my-md-0">
                                 <div class="d-flex align-items-center">
                                     <label class="mr-3 mb-0 d-none d-md-block">Status:</label>
                                     <div class="dropdown bootstrap-select form-control">
@@ -149,7 +149,7 @@
                                 </div>
                                 </div>
                             </div>      
-                            <div class="col-md-4 my-2 my-md-0">
+                            <div class="col-md-3 my-2 my-md-0">
                                 <div class="d-flex align-items-center">
                                     <label class="mr-3 mb-0 d-none d-md-block">Store:</label>
                                     <div class="dropdown bootstrap-select form-control">
@@ -160,6 +160,18 @@
                                     </select> 
                                 </div>
                                 </div>
+                            </div>
+
+
+                    <div class="col-md-3 my-2 my-md-0">
+                              
+                              <a href="javascript:;" onclick="Main.deleteAllSelected(746611)" class="btn  font-weight-bolder btn-danger" title="Delete Coupon">	                             
+	 <h3 class=" la la-trash text-white">&nbsp;</h3> Delete Selected Coupons
+                         
+                             			
+ 								</a>
+
+                         </div>
                             </div>
                 
                     </div>

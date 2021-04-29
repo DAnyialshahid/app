@@ -219,9 +219,15 @@ var Main = function() {
                                             </a>\
                                         </li>';
                     var sort_coupon='<li class="navi-item">\
-                                            <a href="#"  onclick="Route.go(\'coupons\',\'sort\',\''+row.id+'\')"  class="navi-link">\
+                                            <a href="#"  onclick="Route.go(\'coupons\',\'sort\',\''+row.id+'\')"   class="navi-link">\
                                                 <span class="navi-icon"><i class="la la-sort-amount-down"></i></span>\
                                                 <span class="navi-text">Sort Coupons</span>\
+                                            </a>\
+                                        </li>'; 
+                    var clear_all_coupon='<li class="navi-item">\
+                                            <a href="#"  onclick="Main.clear_all_coupon(\''+row.id+'\')"  class="navi-link">\
+                                                <span class="navi-icon"><i class="la la-trash"></i></span>\
+                                                <span class="navi-text">Clear All Coupons</span>\
                                             </a>\
                                         </li>'; 
                     var assing_task=' <li class="navi-item">\
@@ -247,6 +253,7 @@ var Main = function() {
                                             action_btn=
                                              add_coupon
                                             +sort_coupon
+                                            +clear_all_coupon
                                             +assing_task
                                             +copy_this;
                                         }else{
@@ -256,6 +263,7 @@ var Main = function() {
                                              action_btn=
                                              add_coupon
                                             +sort_coupon
+                                            +clear_all_coupon
                                             +complete_work
                                             +assing_task ;
                                         }
@@ -632,6 +640,47 @@ copySelected:function () {
                             }
                             else {
                               Swal.fire('Failed To copy',data.response,'error');
+                            }
+                         }
+                    });   
+
+
+                }
+            });
+
+                
+           
+        },
+ clear_all_coupon:function(id) {  
+
+               Swal.fire({
+                title: "Are you sure?",
+                text: "do you want clear all coupons of this stores ",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, clean it!"
+            }).then(function(result) {
+                if (result.value) {
+
+                      jQuery.ajax({
+                        type : "post",
+                     data:{'token':token}, headers: { 'x-cookie': cookie },  
+                         dataType : "json",
+                         url : api_base_url+"/clean_all_coupon_of_store/"+id,
+                         success: function(data) { 
+                            if(data.success === "yes") {  
+                                            Swal.fire(
+                                                "Cleaned!",
+                                                "Clean  Successfully",
+                                                "success"
+                                            ) 
+
+                                     
+                                     
+                               
+                            }
+                            else {
+                              Swal.fire('Failed To clean',data.response,'error');
                             }
                          }
                     });   
