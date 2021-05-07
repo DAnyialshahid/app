@@ -696,29 +696,25 @@ if (callback) { callback();}
 
 $(document).ready(function(){
 
-var extension=$('meta[name=extension_installed]').attr('content');
 
-if (!F.isMobile()) {
-    // alert(navigator.userAgent);
-    // return 1;
-   if (extension=='0') {
+//disable extenstion as per khurram demand
+// var extension=$('meta[name=extension_installed]').attr('content');
+
+// if (!F.isMobile()) {
+//     // alert(navigator.userAgent);
+//     // return 1;
+//    if (extension=='0') {
    
-    alert('please install extention to continue !');
-    window.location.href=base_url+'extension';
+//     alert('please install extention to continue !');
+//     window.location.href=base_url+'extension';
 
-      // $('body').html('Please Install Extension'+
-      // ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' );
+//    }else if (parseFloat(extension) < parseFloat(configs.lastest_extention_version)) {
+//        alert('please update your  extention to continue !');
+//       window.location.href=base_url+'extension/index.php?update=true';
 
-   }else if (parseFloat(extension) < parseFloat(configs.lastest_extention_version)) {
-       alert('please update your  extention to continue !');
-      window.location.href=base_url+'extension/index.php?update=true';
-
-      // $('body').html('Please Update your  Extension new version is '+configs.lastest_extention_version+
-      // ' <a href="'+configs.lastest_extention_url+'" >Click here </a>' 
-
-      //   );
-   }
-}
+     
+//    }
+// }
 
 
   F.getNotifications();
