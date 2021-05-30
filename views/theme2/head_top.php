@@ -36,7 +36,7 @@
             </ul> 
           </div>
 
-            <div class="col-md-4 col-xs-12">
+            <div class="col-md-3 col-xs-12">
               <div dusk="merchant-search" class="col-xs-12 nav-search tw-relative tw-w-full tw-z-20">
                   <div class="tw-flex">
                     <div class="tw-flex tw-flex-grow tw-rounded-l-sm tw-text-grey-darker tw-p-2">
@@ -44,11 +44,17 @@
                           <input type="text" class="typeahead" style="padding: 12px" id="search_input" name="merchant" placeholder="Search your favorite merchants..." class="tw-flex tw-flex-grow tw-rounded-l-sm tw-text-grey-darker tw-p-2" />
 
                     </div>
-                    
+                     
 
                       <a href="#" class="tw-flex tw-items-center tw-rounded-r-sm tw-text-grey-lightest tw-bg-blue" style="height: 43px; margin-top: 7px; margin-left: -8px; "><i class="tw-p-4 fa fa-search"></i></a> </div>
                   <!---->
               </div>
+              
+          </div>
+            <div class="col-md-1 col-xs-12 pt-2" style="padding-top: 18px">
+               <div class="footer-social" style="margin: auto; width: fit-content; "> <a href="#" target="_blank"><i class="fab fa-facebook"></i></a> <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
               
           </div>
         </div>

@@ -162,8 +162,7 @@
          <h2 class="title">Popular Categories</h2>  `
              <p class="sub-heading">
                  Check out curated deals from some of the most popular categories  
-                 </p>      
-
+                 </p>       
               <center>   
                   <ul class="stores-list row">
                     <li  v-for="category in popular_categories"  class="col-xs-6 col-md-2 "  >
@@ -175,17 +174,16 @@
                                                      <div   v-if="!category.feature_image" class="col-xs-12" > 
                                                        <i   :class="'fa fa-'+category.icon " style="font-size: 40px; "></i> </div>
                                                     <center>    
-                                                      <img 
-                                                      class="img-responsive "
-                                                      v-if="category.feature_image"  
-                                                      v-bind:src="api_url+'/assets/uploads/categories/'+category.feature_image" 
-                                                      v-bind:alt="category.name" 
-                                               style="width: 75px;height:  52px;" 
-                                                      />
-                                                  </center>
-                                            
-                                                               <span  class="col-xs-12 " style="overflow: hidden;height: 29px;    text-transform: uppercase;" >{{category.name}}</span>
-                                                  </div>
+                                                        <img 
+                                                        class="img-responsive "
+                                                        v-if="category.feature_image"  
+                                                        v-bind:src="api_url+'/assets/uploads/categories/'+category.feature_image" 
+                                                        v-bind:alt="category.name" 
+                                                 style="width: 75px;height:  52px;" 
+                                                        />
+                                                    </center>
+                                              
+                                                               <span  class="col-xs-12 " style="    overflow: hidden; height: 59px; text-transform: uppercase; padding: 0; font-size: 14px;" >{{category.name}}</span> </div>
                                                 
                                               </a>
                                             </div>

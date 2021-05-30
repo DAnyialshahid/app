@@ -13,9 +13,9 @@
         <div class="footer-social"> 
 
 
-            <a :href="configs.facebook" ><i class="fa fa-facebook hoverable"></i></a>
-            <a :href="configs.twitter" ><i class="fa fa-twitter hoverable"></i></a>
-            <a :href="configs.youtube" ><i class="fa fa-youtube hoverable"></i></a>
+            <a :href="configs.facebook" ><i class="fab fa-facebook hoverable"></i></a>
+            <a :href="configs.twitter" ><i class="fab fa-twitter hoverable"></i></a>
+            <a :href="configs.youtube" ><i class="fab fa-youtube hoverable"></i></a>
            
         </div>
 

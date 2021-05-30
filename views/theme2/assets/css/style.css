@@ -56,12 +56,12 @@ html, body {
     src: url("/fonts/333972_0_0.eot?#iefix") format("embedded-opentype"),url("/fonts/333972_0_0.woff2") format("woff2"),url("/fonts/333972_0_0.woff") format("woff"),url("/fonts/333972_0_0.ttf") format("truetype")
 }
 
-@font-face {
+/*@font-face {
     font-family: MuseoSansRounded-700;
     src: url("/fonts/333972_1_0.eot");
     src: url("/fonts/333972_1_0.eot?#iefix") format("embedded-opentype"),url("/fonts/333972_1_0.woff2") format("woff2"),url("/fonts/333972_1_0.woff") format("woff"),url("/fonts/333972_1_0.ttf") format("truetype")
 }
-
+*/
 header .dropdown-menu {
 border-radius: 0px;
 }

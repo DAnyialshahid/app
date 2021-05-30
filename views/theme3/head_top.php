@@ -26,6 +26,15 @@
                 <li class="login-navi hide-on-med-and-down">
                                             <a rel="nofollow"  :href="base_url+'/page/submit_offer'"  data-activates="slide-out" class="button-collapse btn login-btn">Add Offer</a>
                                     </li>
+    <li class="login-navi hide-on-med-and-down">
+                    <div class="" style="display: flex;"> 
+                         <a :href="configs.facebook" ><i class="fab fa-facebook"></i></a>
+                         <a :href="configs.twitter" ><i class="fab fa-twitter"></i></a>
+                        <a :href="configs.youtube" ><i class="fab fa-youtube"></i></a>
+                       
+                        </div>
+   </li>
+
             </ul>
             <a href="#" data-activates="nav-mobile"  onclick="$('#nav-mobile').toggle(700);" class="button-collapse-nav"><i class="fa fa-bars"></i></a>
             
@@ -91,6 +100,16 @@
                     <li><a href="/page/about_us" class="waves-effect waves-red">About Us</a>    
                     <li><a href="/pages/faq" class="waves-effect waves-red">Help</a>    
                     <li><a href="/page/submit_offer" class="waves-effect waves-red">Add offer</a>    
+                    <li>
+
+                      <div class="footer-social" style="display: flex;"> 
+                         <a :href="configs.facebook" ><i class="fab fa-facebook hoverable" style="background: white;"></i></a>
+                         <a :href="configs.twitter" ><i class="fab fa-twitter hoverable" style="background: white;"></i></a>
+                        <a :href="configs.youtube" ><i class="fab fa-youtube hoverable" style="background: white;"></i></a>
+                       
+                        </div>
+
+      </a>    
                     </div>
 </ul>
  

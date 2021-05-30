@@ -13,8 +13,8 @@
                         </div>
                     </div>
                 <div class="footer-social">
-                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a> <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a> <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
                 </div>
                 <h4 class="disclaimertitle">Disclaimer</h4>
                  <b v-html="configs.description" ></b> 

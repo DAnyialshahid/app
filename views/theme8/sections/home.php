@@ -7,13 +7,13 @@
        <span>Search any product and gear up your needs with astounding deals</span>
    </div>
     
-   <div class="container">
+   <div class="container"> 
   <div class="row popular_stores d-flex justify-content-center">
 
 <?php 
-
-if (isset($data->popular_stores)){
-  foreach (array_slice($data->popular_stores,0,21) as $store ) { 
+// dd($data);
+if (isset($data->popularStores)){
+  foreach (array_slice($data->popularStores,0,21) as $store ) { 
 
 ?>
       <div class="store col-md-2 col-sm-4 col-6 ">
@@ -40,6 +40,52 @@ if (isset($data->popular_stores)){
 
 </div>
  
+          <div class="dropdown-divider"></div>
+   <div class="row recommended_coupons d-flex justify-content-center">
+    <div class="col-md-12">
+                  <h2 align="center" class="popcat_head">  Featured Coupons & Deals   </h2>
+               </div>
+<?php 
+// dd($data);
+if (isset($data->recommendedCoupons)){
+  foreach (array_slice($data->recommendedCoupons,0,11) as $coupon ) { 
+
+?>
+    <div class="card col-12 col-sm-6 col-md-4  col-lg-2 mb-2  "  >
+ 
+  <div class="card-body">
+   <h6><span class="badge  color-<?=$coupon->type?>"><?=$coupon->type?></span> <a href="/store/<?=$coupon->store->custom_url?>"><span class="small text-muted"><?=$coupon->store->name?></span></a></h6>
+    <h5 class="card-title"><?=$coupon->name?></h5>
+    <p class="card-text"><?=$coupon->description?></p>
+    <?php if ($coupon->type=='coupon'){ ?>
+      <a href="#" class="btn btn-primary">Copy <?=substr($coupon->coupon_code,0,3)?>***</a>
+    <?php } else {?>
+            <a href="#" class="btn btn-primary">Get Deal</a>
+    <?php } ?>
+
+
+
+
+  </div>
+
+    <div class="card-footer">
+   ♥<?=$coupon->visits?>   |  📅  <?=$coupon->expire_date?>
+  </div>
+
+
+</div>
+
+
+  <?php 
+    }
+  }
+?> 
+
+
+  </div>
+
+
+
 <div  class="pt-4">
  
   <div  class="text-center pb-2"> 
@@ -52,8 +98,8 @@ if (isset($data->popular_stores)){
 
 <?php 
 
-if (isset($data->popular_categories)){
-  foreach (array_slice($data->popular_categories,0,21) as $cat ) { 
+if (isset($data->popuplarCategories)){
+  foreach (array_slice($data->popuplarCategories,0,21) as $cat ) { 
 
 ?>
       <div class="store col-md-2 col-sm-4 col-6 ">
@@ -125,6 +171,43 @@ if (isset($data->popular_categories)){
 
 
 
+                   <div class="dropdown-divider"></div>
+<div class="row recommended_coupons d-flex justify-content-center">
+   <div class="col-md-12">
+                  <h2 align="center" class="popcat_head"> Weekly Most Popular Coupons & Deals </h2>
+               </div>
+<?php 
+// dd($data);
+if (isset($data->popularCoupons)){
+  foreach (array_slice($data->popularCoupons,0,11) as $coupon ) { 
+
+?>
+    <div class="card col-12 col-sm-6 col-md-4  col-lg-2 mb-2  "  >
+ 
+ 
+  <div class="card-body">
+     <h6><span class="badge  color-<?=$coupon->type?>"><?=$coupon->type?></span> <a href="/store/<?=$coupon->store->custom_url?>"><span class="small text-muted"><?=$coupon->store->name?></span></a></h6>
+    <h5 class="card-title"><?=$coupon->name?></h5>
+    <p class="card-text"><?=$coupon->description?></p>
+    <?php if ($coupon->type=='coupon'){ ?>
+      <a href="#" class="btn btn-primary">Copy <?=substr($coupon->coupon_code,0,3)?>***</a>
+    <?php } else {?>
+            <a href="#" class="btn btn-primary">Get Deal</a>
+    <?php } ?>
+  </div>
+  <div class="card-footer">
+   ♥<?=$coupon->visits?>   |  📅  <?=$coupon->expire_date?>
+  </div>
+</div>
+
+
+  <?php 
+    }
+  }
+?> 
+
+
+  </div>
 
 
 
@@ -270,6 +353,77 @@ if (isset($data->popular_categories)){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <main class="main" id="home">
 
 <!-- 
@@ -332,28 +486,7 @@ if (isset($data->popular_categories)){
 
 
  <div class="row  bgwhite"   >
-    <div class="col-lg-12">
-        <div class="top-heading">
-          <h3><span>  Pouplar Stores </span> </h3>
-        </div>
-      </div>
- </div>
- <div class="row hot-stores bgwhite"   >
-
-<div class="col-md-2 col-xs-12"  v-for="store in show_in_home_stores" >
-<div class="noPd">
-      <div class="top-store">
-        <a :href="base_url+'store/'+store.custom_url" style="text-decoration:none">
-          <div class="web_imagebox">
-            <img class="img-responsive owl-lazy" v-bind:src="api_url+'/assets/uploads/stores/'+store.feature_image" style="opacity: 1;">
-          </div>
-          <p class="psc_title">{{store.name}}</p>
-         
-        </a>
-      </div>
-    </div>
-    </div>
-</div>    
+ 
 
 
 
@@ -396,7 +529,7 @@ if (isset($data->popular_categories)){
 
               <div class="col-md-9">
                   <div class="expired-info">
-                  <span class="p-5 fw-600"><i class="fa fa-eye"></i> {{coupon.visits}} Used</span>
+                           <span class="p-5 fw-600"><i class="fa fa-eye"></i> {{coupon.visits}} Used</span>
                             <span class="p-5 fw-600"><i class="fa fa-clock-o"></i> {{coupon.expire_date}}</span>
                       </div>
                 <!--<p class="code-type">Code</p>-->

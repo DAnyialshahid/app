@@ -40,9 +40,9 @@
                                         <div class="sm:tw-flex-grow tw-pr-4 coupon-card-inner-container" style="    flex-basis: 52%;">
                                           <div class="row col-xs-12">
  
-                                            <div v-if="coupon.verified==1" class="col-xs-6 col-md-3 col-sm-4 col-lg-3 tw-text-green sm:tw-border sm:tw-border-green sm:tw-text-green sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Verified </div>
-                                            <div v-if="coupon.exclusive==1" class="col-xs-6 col-md-3 col-sm-4 col-lg-3 tw-text-blue sm:tw-border sm:tw-border-blue sm:tw-text-blue sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Exclusive </div>
-                                            <div v-if="coupon.featured==1" class="col-xs-6 col-md-3 col-sm-4 col-lg-3 tw-text-orange sm:tw-border sm:tw-border-orange sm:tw-text-orange sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style="color: ;"> Featured </div> 
+                                            <div v-if="coupon.verified==1" class="col-xs-6 col-md-3 col-sm-4 col-lg-3 tw-text-green sm:tw-border sm:tw-border-green sm:tw-text-green sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style=" padding: 2px; margin: 3px; text-align: center;"> Verified </div>
+                                            <div v-if="coupon.exclusive==1" class="col-xs-6 col-md-3 col-sm-4 col-lg-3 tw-text-blue sm:tw-border sm:tw-border-blue sm:tw-text-blue sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style=" padding: 2px; margin: 3px; text-align: center;"> Exclusive </div>
+                                            <div v-if="coupon.featured==1" class="col-xs-6 col-md-3 col-sm-4 col-lg-3 tw-text-orange sm:tw-border sm:tw-border-orange sm:tw-text-orange sm:tw-text-base tw-text-xs lato sm:tw-rounded sm:tw-px-2 sm:tw-py-1" style=" padding: 2px; margin: 3px; text-align: center;"> Featured </div> 
                                           </div>
 
                                                 <!-- <p class="tw-text-grey sm:tw-text-base tw-text-xs lato">    {{coupon.store.name}} </p> -->

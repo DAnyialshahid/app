@@ -40,6 +40,7 @@ class Frontend extends front_api{
 	 
 	public function direct_access_data($page_name)
 	{	 
+
 		if ($this->direct_access) {
 			if ($page_name=='home') {
 				
@@ -66,9 +67,9 @@ class Frontend extends front_api{
 
 				  $_POST['limit']=15;
 				  $topStores=$this->getTopStores()['response'] ;
-
+ 
 				 
-		 		return (object)[
+		 		$return = (object)[
 		 			'common'=> $common, 
 		 			'slides'=> $slides, 
 		 			'recommendedCoupons'=> $recommendedCoupons, 
@@ -77,6 +78,7 @@ class Frontend extends front_api{
 		 			'popularStores'=> $popularStores, 
 		 			'topStores'=> $topStores, 
 		 		];
+		 		return $return ;
 			}			
 
 			if ($page_name=='stores') {
@@ -90,11 +92,12 @@ class Frontend extends front_api{
 				 $stores=$this->getStores()['response'] ;
 
 
-		 		return (object)[
+		 		$return = (object)[
 		 			'common'=> $common, 
 		 			'popularStores'=> $popularStores, 
 		 			'stores'=>$stores, 
 		 		];
+		 		return $return ;
 			}	
 
 			if ($page_name=='categories') {
@@ -105,21 +108,23 @@ class Frontend extends front_api{
 			
 			 
 
-		 		return (object)[
+		 		$return = (object)[
 		 			'common'=> $common, 
 		 			'categoriesByGroups'=> $categoriesByGroups, 
 		 		 
 		 		];
+		 		return $return ;
 			}	
 
 			if ($page_name=='single_store') {
 				 
 				 $_POST['limit']=9999999;
 				 $store=$this->getStore()['response'] ;
-		 		return (object)[
+		 		$return = (object)[
 		 			 
 		 			'store'=>$store, 
 		 		];
+		 		return $return ;
 			}
 		}
 		
@@ -136,7 +141,7 @@ class Frontend extends front_api{
 	public function home()
 	{
  
-	  // dd($this->direct_access_data('home'));
+//	  dd($this->direct_access_data('home'));
 
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/home',
