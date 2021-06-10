@@ -357,11 +357,12 @@ if (empty($category) && $return==false) {
 					 $coupon->store=$thisStore;	 
 					 $coupon->name=html_entity_decode($coupon->name);	 
 					 $coupon->name=html_entity_decode($coupon->name);	 
+					 $coupon->name=html_entity_decode($coupon->name);	 
 					 $coupon->short_title=html_entity_decode($coupon->short_title);	 
 					 $coupon->short_title=html_entity_decode($coupon->short_title);	 
 					 $coupon->description=html_entity_decode($coupon->description);	 	 
 					 $coupon->description=html_entity_decode($coupon->description);	 	 
-
+exit( $coupon->name);
 						}
 				}
 		}
