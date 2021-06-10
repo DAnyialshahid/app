@@ -355,14 +355,10 @@ if (empty($category) && $return==false) {
 				  $thisStore=$this->db->where(['site_id'=>$site_id,'id'=>$store->id])->get('stores')->first_row() ; 
 					foreach ($store->coupons as   &$coupon) { 
 					 $coupon->store=$thisStore;	 
-					 $coupon->name=html_entity_decode($coupon->name);	 
-					 $coupon->name=html_entity_decode($coupon->name);	 
-					 $coupon->name=html_entity_decode($coupon->name);	 
-					 $coupon->short_title=html_entity_decode($coupon->short_title);	 
-					 $coupon->short_title=html_entity_decode($coupon->short_title);	 
-					 $coupon->description=html_entity_decode($coupon->description);	 	 
-					 $coupon->description=html_entity_decode($coupon->description);	 	 
-exit( $coupon->name);
+					 $coupon->name=html_entity_decode($coupon->name);	   
+					 $coupon->short_title=html_entity_decode($coupon->short_title);	  
+					 $coupon->description=html_entity_decode($coupon->description);	  	 
+ 
 						}
 				}
 		}
@@ -424,7 +420,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		if ($this->direct_access) {
 			return $data;
 		}else{
-			echo json_encode($data);
+			echo json_encode($data,JSON_UNESCAPED_UNICODE );
 		}
 		$this->exit2();
 	}
