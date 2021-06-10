@@ -332,8 +332,8 @@
       </p> <div class="col-lg-12 happy-hunting-heading-list">
 
  
-        <div class="row"> 
-            <div   v-for="store in popular_stores.slice(0,36)" class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ><a :href="base_url+'store/'+store.custom_url"  >{{store.name}}</a></div>
+        <div class="row" style="word-break: break-all;"> 
+            <div   v-for="store in popular_stores.slice(0,36)" class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ><a :href="base_url+'store/'+store.custom_url"   >{{store.name}}</a></div>
         </div>
         <div class="action"><i class="view-more"></i></div>
     
