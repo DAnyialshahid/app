@@ -84,7 +84,7 @@
 
 
     <div  v-for="coupon in recommended_coupons"   class="col-3 col-xs-12 col-sm-4 col-lg-2 tile-inline" style="margin: 0px;"  >
-    <div  class=" grid tile tile-block tile-block-carousel"  >
+    <div  class=" grid tile tile-block tile-block-carousel"  style="   height: 300px;">
     <div class="tile-block-inner">
 
         <div class="tile-block-content">
@@ -202,7 +202,7 @@
 
 
     <div  v-for="coupon in popular_coupons"   class="col-3 col-xs-12 col-sm-4 col-lg-3 tile-inline" style="margin: 0px;"    >
-    <div  class=" grid tile tile-block tile-block-carousel"  >
+    <div  class=" grid tile tile-block tile-block-carousel"    style="   height: 350px;">
     <div class="tile-block-inner">
 
         <div class="tile-block-content">

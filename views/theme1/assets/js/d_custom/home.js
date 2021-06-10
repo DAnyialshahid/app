@@ -9,6 +9,7 @@
   data: {
     api_url: api_url, 
     base_url: base_url, 
+    configs: configs, 
     comeFrom: 'home', 
     	  slides: [  ],
 	  show_in_home_stores: [  ],

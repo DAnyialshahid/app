@@ -52,7 +52,7 @@
                     
                                         
                                         
-                    <li><a target="_blank" :href="configs.gplus" class="icon-gplus"><i class="wh fa fa-google-plus"></i></a></li>
+                    <li><a target="_blank" :href="configs.instagram" class="icon-instagram"><i class="wh fa fa-instagram"></i></a></li>
                     
                                         
                     

@@ -11,6 +11,7 @@ var home= Vue.createApp({
 	  popular_coupons: [  ],
 	  popular_categories: [  ],
 	  popular_stores: [  ],
+	//  configs: [  ],
 
 	 initCouponBox: function(coupon) { 
 	 	coupon_box.box_data=coupon; 

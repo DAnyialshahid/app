@@ -17,7 +17,7 @@
                  <!-- <span class="hd-seperator"></span> -->
                <form action="#" class="form-search" method="post" accept-charset="utf-8">
                   
-                 <div class="search">
+                 <div class="search" style="    margin-right: 0;">
  <!--start d_search-->
       <input type="text"  id="search-input"  class=" search-input search-textbox query js-search-query js-search-panel-opener" autocomplete="off" name="query" type="search" placeholder="Start searching...">
  <!--- end d_search-->
@@ -30,7 +30,8 @@
 
                  </div>
                  <div class="search_result_box border-orange"></div>
-                      
+                        <ul class="socialLinksUl socialLinksUl_top "  ><li><a target="_blank" class="icon-facebook" href="http://facebook.com"><i class="wh fa fa-facebook"></i></a></li><li><a target="_blank" class="icon-gplus"><i class="wh fa fa-google-plus"></i></a></li><li><a target="_blank" class="icon-twitter" href="http://Twitter.com"><i class="wh fa fa-twitter"></i></a></li></ul>
+
                  </form>  
 
             <!--      <a href="https://www.verifieddeals.co.uk/categories" class="btn btn-category">
@@ -59,6 +60,8 @@
 
             </div>
          </div>
+
+       
       </div>
       <!-- <div class="container-fluid">
          <div class="row">

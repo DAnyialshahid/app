@@ -13,7 +13,7 @@
               <div class="col-md-3 col-xs-12 text-center">
                     <a :href="base_url" class="tw-block img-responsive" style=" display: inline-block;width: 236px;" ><img   :src="base_url+'/assets/uploads/sites/'+configs.logo"  src2="<?=theme_base_url?>/assets/images/logo-white.png" alt="" /></a>
               </div>
-        <div class="col-md-4 col-xs-12 ">
+        <div class="col-md-3 col-xs-12 ">
               <ul class="tw-list-reset tw-flex tw-justify-between tw-w-full tw-my-4">
                 <li class="nav-item dropdown">
                     <a   class="nav-link dropdown-toggle tw-text-grey-lightest hover:tw-text-blue tw-font-normal tw-pr-2"  data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Stores</a>
@@ -52,8 +52,12 @@
               
           </div>
             <div class="col-md-1 col-xs-12 pt-2" style="padding-top: 18px">
-               <div class="footer-social" style="margin: auto; width: fit-content; "> <a href="#" target="_blank"><i class="fab fa-facebook"></i></a> <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+               <div class="footer-social" style="margin: auto; width: fit-content; "> 
+
+                   <a  :href="configs.facebook"  target="_blank"><i class="fab fa-facebook"></i></a> 
+                    <a  :href="configs.instagram"  target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a  :href="configs.twitter"  target="_blank"><i class="fab fa-twitter"></i></a>
+
                 </div>
               
           </div>

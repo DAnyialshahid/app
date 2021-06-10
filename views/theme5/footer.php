@@ -71,14 +71,19 @@
                         </ul>
                   <ul class="footer-meta-social footer-social lt-med-hide">
                             <li class="footer-social-item">
-                                <a :href="configs.facebook" target="_blank" rel="noopener" class="footer-social-link social-links-solid social-links-facebook">
+                                <a :href="configs.facebook" target="_blank" rel="noopener" class="footer-social-link social-links-solid fa fa-facebook">
                                     <span class="sr-only">Like us on Facebook</span>
+                                </a>
+                            </li>
+                             <li class="footer-social-item">
+                                <a :href="configs.twitter" target="_blank" rel="noopener" class="footer-social-link social-links-solid fa fa-twitter">
+                                    <span class="sr-only">Like us on twitter</span>
                                 </a>
                             </li>
                           
                             <li class="footer-social-item">
-                                <a :href="configs.twitter" target="_blank" rel="noopener" class="footer-social-link social-links-solid social-links-twitter">
-                                    <span class="sr-only">Follow us on Twitter</span>
+                                <a :href="configs.instagram" target="_blank" rel="noopener" class="footer-social-link social-links-solid fa fa-instagram">
+                                    <span class="sr-only">Follow us on instagram</span>
                                 </a>
                             </li>
                         </ul>

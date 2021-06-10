@@ -140,7 +140,7 @@ function getTopStores(){
 
  function getRecommendedCoupons(){
 
- var data={
+ var data={ 
   		top:1,
   		show_in_home:1,
   };

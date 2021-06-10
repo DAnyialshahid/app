@@ -199,7 +199,7 @@ html, body {
 .tile-block{
            width: 92%;
        margin: auto auto;
-       height: 190px !important;
+    
 }  
 
 @media(max-width:600px){

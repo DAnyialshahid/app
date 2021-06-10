@@ -28,9 +28,9 @@
                                     </li>
     <li class="login-navi hide-on-med-and-down">
                     <div class="" style="display: flex;"> 
-                         <a :href="configs.facebook" ><i class="fab fa-facebook"></i></a>
-                         <a :href="configs.twitter" ><i class="fab fa-twitter"></i></a>
-                        <a :href="configs.youtube" ><i class="fab fa-youtube"></i></a>
+                         <a target="_blank" :href="configs.facebook" ><i class="fab fa-facebook"></i></a>
+                         <a target="_blank" :href="configs.twitter" ><i class="fab fa-twitter"></i></a>
+                         <a target="_blank" :href="configs.instagram" ><i class="fab fa-instagram"></i></a>
                        
                         </div>
    </li>
