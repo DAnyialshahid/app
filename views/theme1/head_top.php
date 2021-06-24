@@ -3,7 +3,7 @@
         <div class="header-container clearfix">
             <div class="logo pull-left text-left">
                 <a href="/" title="">
-                    <img    :src="base_url+'/assets/uploads/sites/'+configs.logo"     height="40" alt="" />
+                    <img    src="<?=logo?>"     height="40" alt="" />
                 </a>
             </div>
             <div class="search">

@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-12 col-xs-12" style="padding:0px">
               <div class="col-md-3 col-xs-12 text-center">
-                    <a :href="base_url" class="tw-block img-responsive" style=" display: inline-block;width: 236px;" ><img   :src="base_url+'/assets/uploads/sites/'+configs.logo"  src2="<?=theme_base_url?>/assets/images/logo-white.png" alt="" /></a>
+                    <a :href="base_url" class="tw-block img-responsive" style=" display: inline-block;width: 236px;" ><img   src="<?=logo?>"  alt="" /></a>
               </div>
         <div class="col-md-3 col-xs-12 ">
               <ul class="tw-list-reset tw-flex tw-justify-between tw-w-full tw-my-4">

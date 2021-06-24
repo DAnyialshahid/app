@@ -9,7 +9,7 @@
                 <h3>About {{configs.site_name}}</h3>
                 <div class="   ">
                     <a href="/" class="LogoLink"> 
-                        <img :src="base_url+'/assets/uploads/sites/'+configs.logo"  style="max-height: 200px;" class="top-logo img-responsive">
+                        <img src="<?=logo?>"  style="max-height: 200px;" class="top-logo img-responsive">
                     </a>
                 </div>
                 <p class="footer-para" v-html="configs.description" > </p>

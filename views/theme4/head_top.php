@@ -5,8 +5,8 @@
       <div class="col-lg-12">
         <div class="flex-wrapper">
           <div class="logo-wrapper">
-            <a href="https://www.verifieddeals.co.uk/">
-              <img  :src="base_url+'/assets/uploads/sites/'+configs.logo" class="img-responsive">
+            <a href="#">
+              <img  src="<?=logo?>" class="img-responsive">
             </a>
           </div>
           <form action="#" class="search-bar form-search" method="post" accept-charset="utf-8"  >
