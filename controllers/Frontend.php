@@ -114,6 +114,16 @@ class Frontend extends front_api{
 		 		 
 		 		];
 		 		return $return ;
+			}		
+			if ($page_name=='constant_page') {
+				 $common=$this->getCommon()['response'] ;   
+
+		 		$return = (object)[
+		 			'common'=> $common, 
+		 			 
+		 		 
+		 		];
+		 		return $return ;
 			}	
 
 			if ($page_name=='single_store') {
@@ -171,10 +181,13 @@ class Frontend extends front_api{
 	
 	public function catagories()
 	{
+
+
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/categories',
 			 	'js'=>'categories',
 			 	'page_name'=>'catagories',
+			 		'data'=>$this->direct_access_data('categories'),
 			 ]); 
 
 	}
@@ -206,6 +219,8 @@ class Frontend extends front_api{
 			 	'slug'=>$slug,
 			 	'page_name'=>'single_category',
 
+			 		'data'=>$this->direct_access_data('catagory'),
+
 			 ]); 
 
 	}		
@@ -218,6 +233,8 @@ class Frontend extends front_api{
 			 	'content_page'=>'sections/pages/'.$slug,
 			 	'js'=>$slug,
 			 	'page_name'=>'constant_page',  
+
+			 		'data'=>$this->direct_access_data('constant_page'),
 
 			 ]); 
 			
@@ -232,6 +249,8 @@ class Frontend extends front_api{
 			 	'js'=>'dynamic_page',  
 			 	'slug'=>$slug,
 			 	'page_name'=>'dynamic_page',  
+
+			 		'data'=>$this->direct_access_data('dynamic_page'),
 
 			 ]); 
 

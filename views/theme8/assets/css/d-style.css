@@ -157,3 +157,21 @@ h1, h2, h3, h4, h5, h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+
+a.a_none {
+    color: #686e75 !important;
+}
+
+
+a.group {
+    color: #ffffff  !important;
+    background: #847bff;
+}
+
+/*a.list-group-item {
+  all: initial;
+  * {
+    all: unset;
+  }
+}*/

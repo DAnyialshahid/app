@@ -37,7 +37,7 @@
               
                 <div class="browse-card-list"> 
 
-                    <div class="card-item"  v-for="store in allStores">
+                    <div class="card-item"  v-for="store in allStores"  v-cloak>
                         <a :href="base_url+'store/'+store.custom_url" title=" ">
                             <div class="img-container">
                                 <img   v-bind:src="api_url+'/assets/uploads/stores/'+store.feature_image" 
@@ -48,7 +48,7 @@
                             </div>
                             <span>{{store.name}}</span>
                         </a>
-                        <button data-id="132683" class="follow" aria-label="Follow AAA"><i class="df df-follow-o"></i></button>
+                        <button ><i class="df df-follow-o"></i></button>
                     </div>
 
 

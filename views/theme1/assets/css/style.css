@@ -6,11 +6,20 @@ body, * {
     font-family: 'Hind',sans-serif !important;
 }
 
-  :root {
+/*  :root {
 --primary:#00a2e1;
 --primary_hover:#21aee4;
 --primary1:#03a1de;
 --primary1_hover:#5fc4ea;
+
+  }*/
+    :root {
+--primary:#ff2d8e;
+--primary_hover:#e10068;
+--primary1:#e10068;
+--primary1_hover:#c7005c;
+--primary_gradient1:#ff2d8e;
+--primary_gradient2:#ff2d54;
 
   }
 
@@ -31,6 +40,11 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
+
+[v-cloak]{
+display:none !important;
+}
+
 
 
 .coupon_labels{
@@ -79,12 +93,21 @@ html, body {
 
   }
   .obox .ocontent .ohop {
-        right: auto !important;
+        right: 6px !important;
     left: auto !important;
-    width: 87% !important;
+    width: 42% !important;
         border-radius: 3px !important;
         font-size: 20px !important;
-  }
+            background: var(--primary1) !important; 
+           
+  } 
+  .expired .obox .ocontent .ohop {
+      
+            background: none !important; 
+           
+  } 
+
+
 }
 h1 {
    
@@ -11745,7 +11768,7 @@ th {
 #submenu-drawer .active-menu {
   -webkit-align-items: center;
   align-items: center;
-  background-color: #fafafa;
+  background-color: var(--primary-hover);
   display: -webkit-flex;
   display: -msflex;
   display: flex;
@@ -12189,6 +12212,7 @@ th {
 }
 
 .obox .ocontent .odata .otype {
+  border-right: solid 1px #4646462e;
   -webkit-align-items: center;
   align-items: center;
   display: -webkit-flex;
@@ -12647,6 +12671,7 @@ th {
 }
 
 .obox .ocontent .ohop.code .code-container .code-action {
+   color: white !important; 
   -webkit-align-items: center;
   align-items: center;
   background-color: transparent;
@@ -12779,6 +12804,7 @@ th {
 }
 
 .obox .ocontent .ohop.deal .odeal {
+   color: white !important; 
   -webkit-align-items: center;
   align-items: center;
   color: var(--primary);
@@ -14892,7 +14918,9 @@ body.mobile {
 }
 
 .header__top-bar {
-  background-color: var(--primary);
+  /*background-color: var(--primary);*/
+  background-image: linear-gradient( 140deg, var(--primary_gradient1) 0%, var(--primary_gradient2) 75%);
+
   margin: 0 0 10px 0;
   padding: 15px 0;
   position: relative;

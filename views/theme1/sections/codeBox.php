@@ -8,7 +8,7 @@
                         <div class="fbox">
                             <div class="top">
                                 <div class="fcontent code">
-                                    <h4 class="htitle">
+                                    <h4 class="htitle" v-cloak >
                                         {{box_data.name}}
                                     </h4>
                                     <ul class="osubtitle code">
@@ -18,7 +18,7 @@
                                     <p>Copy and paste the code below at <a :href="store.website_url" class="link" target="_blank">{{store.website_url}}</a></p>
                                     <div     v-if="box_data.type=='coupon'"    class="offer-container clearfix">
                                         <div class="offer-code">
-                                            <div class="code-box code" aria-describedby="copy-button" id="copy-me">
+                                            <div class="code-box code" aria-describedby="copy-button" id="copy-me" v-cloak >
                                                 {{box_data.coupon_code}}
                                             </div>
                                             <button id="copy-button" :coupon_id="box_data.id"  data-clipboard-target="#copy-me">Copy</button>

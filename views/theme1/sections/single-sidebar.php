@@ -15,7 +15,7 @@
                                     width="40" 
                                  
                                 /> -->
-                                                  <span>{{store.name}}</span>
+                                                  <span v-cloak >{{store.name}}</span>
                             </div>
           
                         </a>
@@ -43,7 +43,7 @@
                                     width="40" 
                                  
                                 /> -->
-                                                  <span>{{store.name}}</span>
+                                                  <span v-cloak >{{store.name}}</span>
                             </div>
           
                         </a>

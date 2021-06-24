@@ -18,7 +18,7 @@
                                             v-bind:alt="category.name" 
                                             style="width: 40px; height: 40px;margin-left: auto; margin-right: auto;"/>
                                 </i>
-                         <i   v-if="!category.feature_image"   :class="'fa fa-'+category.icon"></i>
+                         <i   v-if="!category.feature_image"   v-cloak  :class="'fa fa-'+category.icon"></i>
 
                             <span>{{category.name}}</span> </a>
                     </div>

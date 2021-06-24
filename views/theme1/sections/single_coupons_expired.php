@@ -1,5 +1,5 @@
 
-     <li   v-for="coupon in coupons" v-if="new Date()>new Date(coupon.expire_date)"  class="obox code clearfix oexpired" id="c49712722" data-id="49712722" data-sid="8" data-coupon="yes" data-deal="no" data-freeshipping="no" data-verified="no" data-page="" data-type="c" data-otype="code">
+     <li  v-cloak   v-for="coupon in coupons" v-if="new Date()>new Date(coupon.expire_date)"  class="obox code clearfix oexpired" id="c49712722" data-id="49712722" data-sid="8" data-coupon="yes" data-deal="no" data-freeshipping="no" data-verified="no" data-page="" data-type="c" data-otype="code">
                     <div class="ocontent">
 
                         <button class="save-coupon" aria-label="Save Coupon"><i class="df-save-o"></i></button>

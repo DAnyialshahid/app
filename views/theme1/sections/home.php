@@ -4,7 +4,7 @@
     <div class="container">
       <div class="owl-carousel owl-theme">
 
-            <a v-for="slide in slides"  :href="slide.link">
+            <a v-for="slide in slides"  :href="slide.link" v-cloak  >
               <img class="owl-lazy"   :data-src="api_url+'/assets/uploads/slides/'+slide.file_name"   alt="" style="height: 320px">
              </a>
             </div>
@@ -22,7 +22,7 @@
     <div class="container">
         <h3>Free Online Coupons and Promo Codes for the Store You Love!</h3>
         <nav>
-            <a v-for="store in show_in_home_stores" :href="base_url+'store/'+store.custom_url"  :title="store.name" style="display: flex;" > <img  class="img-responsive lazy-load"  v-bind:src="api_url+'/assets/uploads/stores/'+store.feature_image"
+            <a v-for="store in show_in_home_stores" v-cloak :href="base_url+'store/'+store.custom_url"  :title="store.name" style="display: flex;" > <img  class="img-responsive lazy-load"  v-bind:src="api_url+'/assets/uploads/stores/'+store.feature_image"
                                        v-bind:alt="store.name" style="    vertical-align: middle;"/>
             </a>  
         </nav>
@@ -32,7 +32,7 @@
     <div class="container">
         <h1 class="h3">Recommended Offers for You</h1>
         <ul id="recommneded-coupons" class="coupons-container two-cols" style="margin:   0;"> 
-        <li v-for="coupon in recommended_coupons"   class="obox deal clearfix"  >
+        <li v-for="coupon in recommended_coupons"   v-cloak class="obox deal clearfix"  >
                 <div class="ocontent">
                     <button class="save-coupon" aria-label="Save Coupon"><i class="df-save-o"></i></button>
                     <div class="odata">
@@ -129,7 +129,7 @@
     <div class="container">
         <h1 class="h3">Today's Most Popular Coupons &amp; Deals</h1>
         <ul id="homepage-coupons" class="coupons-container two-cols"> 
-                <li v-for="coupon in popular_coupons"   class="obox deal clearfix"  >
+                <li v-for="coupon in popular_coupons" v-cloak  class="obox deal clearfix"  >
                 <div class="ocontent">
                     <button class="save-coupon" aria-label="Save Coupon"><i class="df-save-o"></i></button>
                     <div class="odata">
@@ -221,12 +221,13 @@
         </ul>
     </div>
 </section>
-<section class="homepage categories" style="    padding: 0px 0;">
-    <div class="container">
+<section class="homepage categories" style="    padding: 0px 0; background: white">
+    <div class="container"  ><br> 
         <h3>Popular Categories</h3>
         <nav class="popular_categories"> 
 
-                    <a v-for="category in popular_categories"  class="popular-category" :href="base_url+'category/'+category.slug"  > 
+                    <a v-for="category in popular_categories" v-cloak  class="popular-category" :href="base_url+'category/'+category.slug"  style="padding: 10px;width: 130px" > 
+                      <div style="padding: 10px;box-shadow: #7b78781a 0px 0px 8px 6px;height: 172px;">
                         <i v-if="!category.feature_image"  :class="'fa fa-'+category.icon"></i> 
                               <center>    
                                             <img 
@@ -234,11 +235,11 @@
                                             v-if="category.feature_image"  
                                             v-bind:src="api_url+'/assets/uploads/categories/'+category.feature_image" 
                                             v-bind:alt="category.name" 
-                                            style="width: 87px; height: 55px;" 
+                                            style="width: 87px; height: 75px;" 
                                             />
-                                        </center>
-                      <span>{{category.name}}</span> 
-
+                           </center>
+                      <span >{{category.name}}</span> 
+                      </div>
                     </a>
                          
 
@@ -250,7 +251,7 @@
     <div class="container">
         <h3>Popular Stores</h3>
         <div class="row"> 
-            <div   v-for="store in popular_stores" class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ><a :href="base_url+'store/'+store.custom_url"  >{{store.name}}</a></div>
+            <div   v-for="store in popular_stores" v-cloak class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ><a :href="base_url+'store/'+store.custom_url"  >{{store.name}}</a></div>
         </div>
         <div class="action"><i class="view-more"></i></div>
     </div>

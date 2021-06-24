@@ -1,53 +1,74 @@
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <div id="categories" class="row">
- <div class="col-lg-12"><div class="top-heading"><h3><span> All categories</span></h3></div></div>
- 
- <br>
- <br>
+
 
  
-<div class="grid" >
+<div class="container " >
+
+ <br>
+ <br>
+  <div class="col-lg-12"><div class="top-heading"><h3><span> All categories</span></h3></div></div>
+ 
+<div class="row" >
+<div class="grid row d-flex justify-content-center" >
   <div class="grid-sizer"></div>
-<div class="grid-item    "  v-for="group in categories_group"  style="width: 300px;    ">
 
+<?php 
 
-<!--   <a class="thumbnail custom-thumb col-md-3" href="#">
-    <img class=" img-responsive store-img owl-lazy"  v-if="group.feature_image" v-bind:src="api_url+'/assets/uploads/categories/'+group.feature_image"   style="opacity: 1;" />
-    <img class="img-responsive store-img owl-lazy"  v-if="!group.feature_image" :src="theme_base_url+'/assets/images/blank.png'"  style="opacity: 1;" />
+if (isset($data->categoriesByGroups)){
+  foreach (array_slice($data->categoriesByGroups,0,21) as $group ) { 
 
-  </a>
-     -->
-    <div class="col-md-12" >
-      <p class="pbname" style="">
-      <a href="#">         {{group.name}}</a>
-    </p>
-    <div class="col-md-12" style="padding: 0px" v-for="category in group.categories">
+?>
       
-
-                <a  :href="base_url+'category/'+category.slug" class="list-group-item">
-
-              
-                                 <!--     <img 
-
-                                            class="img-responsive "
-                                            v-if="category.feature_image"  
-                                            v-bind:src="api_url+'/assets/uploads/categories/'+category.feature_image" 
-                                            v-bind:alt="category.name" 
-                                            style="width: 25px; height: 25px;margin-left: auto; margin-right: auto; display: inline"/>
-                              
-                         <i   v-if="!category.feature_image"   :class="'fa fa-'+category.icon"></i> -->
-
- <i   class="fa fa-arrow-right"></i> 
+<div class="grid-item    "  style="width: 300px;    ">
 
 
+    <div class="col-md-12" >
+    
+      <a href="#" class=" list-group-item group a_none ">        <?=$group->name?></a>
+    
 
-                      {{category.name}}</a>
-              </div>  
+
+          <?php 
+// exit(print_r($group));
+          if (isset($group->categories)){
+            foreach (array_slice($group->categories,0,21) as $category ) { 
+
+          ?>
+              <div class="col-md-12" style="padding: 0px"  >
+                
+
+
+                          <a  href="<?=base_url()?>category/<?=$category->slug?>" class="list-group-item a_none">
+                              <i   class="fa fa-arrow-right"></i> 
+
+
+                              ➔  <?=$category->name?>
+                             </a>
+                        </div>  
+
+             <?php 
+              }
+            }
+          ?> 
+
+
+
+
               </div>  
   </div>
 
- 
- 
+   <?php 
+    }
+  }
+?> 
+
+
+   
+  </div>
+  </div>
+
+
 </div>
  
 </div>

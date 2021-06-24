@@ -15,8 +15,8 @@
     <div class="row">
         <div class="col-md-9 col-xs-12 main pull-md-right clearfix" id="single_store_container" style="display: none;">
             <div class="store-title clearfix">
-                <h1>
-                    <strong>{{row.name}}</strong>
+                <h1 v-cloak>
+                    <strong >{{row.name}}</strong>
                     Coupons
                 </h1>
                  
@@ -38,7 +38,7 @@
                <?php  add_page($this,'sections/single_coupons');?>
             </ul>
            
-            <h2 class="title-expired">Expired <strong>{{row.name}}</strong> Promo codes</h2>
+            <h2 class="title-expired" v-cloak>Expired <strong>{{row.name}}</strong> Promo codes</h2>
 
              <ul id="expired-coupons" class="coupons-container expired">  
                <?php  add_page($this,'sections/single_coupons_expired');?>
@@ -47,7 +47,7 @@
  
             
             <div class="prefooter-box top-coupons-table no-bg clearfix">
-                <h2 class="title no-toggle">Top <strong>{{row.name}}</strong> Coupons or Promo codes {{new Date().toLocaleString('default', { month: 'long' })+' ' + new Date().getFullYear() }} </h2>
+                <h2 class="title no-toggle" v-cloak>Top <strong>{{row.name}}</strong> Coupons or Promo codes {{new Date().toLocaleString('default', { month: 'long' })+' ' + new Date().getFullYear() }} </h2>
                 <div class="content no-padding">
                     <table class="table table-responsive table-hover" style="margin: 0;">
                         <thead>
@@ -58,7 +58,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr  v-for="coupon in coupons.slice(0,5)" >
+                            <tr  v-for="coupon in coupons.slice(0,5)" v-cloak >
                                 <td>{{coupon.name}}</td>
                                 <td>{{ (new Date(coupon.expire_date)+'').substr(0,15)   }}</td>
                                 <td v-if="coupon.type=='deal'">**DEAL**</td>
@@ -94,7 +94,7 @@
             </div>
             <div class="sidebar-menu-box facets-box hidden-xs hidden-sm clearfix">
                 <div class="offers-available">
-                    <div class="text"><span class="offer-count">{{row.count.coupons+row.count.deals}}</span> Offers Available</div>
+                    <div class="text"><span class="offer-count" v-cloak> {{row.count.coupons+row.count.deals}}</span> Offers Available</div>
                 </div>
                 <div class="applied-filters hidden">
                     <div class="left">
@@ -257,7 +257,7 @@
                 </div>
             </div>
             <div class="sidebar-menu-box store-stats clearfix">
-                <h5 class="title">About {{row.name}}</h5>
+                <h5 class="title" v-cloak>About {{row.name}}</h5>
                 <div class="content" style="display: none">
                     <div class="store_rating">
                         <i class="df df-rating-star rating-star active"></i> <i class="df df-rating-star rating-star active"></i> <i class="df df-rating-star rating-star active"></i> <i class="df df-rating-star rating-star active"></i>
@@ -284,15 +284,15 @@
                     <table class="table" style="margin: 0;">
                         <tbody>
                             <tr>
-                                <td><span class="emoji">🏷</span>Coupon codes:</td>
-                                <td align="right">{{row.count.coupons}}</td>
+                                <td>** Coupon codes:</td>
+                                <td align="right" v-cloak>{{row.count.coupons}}</td>
                             </tr>
                             <tr>
-                                <td><span class="emoji">🏷</span>Total Deals:</td>
-                                <td align="right">{{row.count.deals}}</td>
+                                <td>% Total Deals:</td>
+                                <td align="right" v-cloak>{{row.count.deals}}</td>
                             </tr> 
                             <tr>
-                                <td><span class="emoji">⏰</span>Last updated:</td>
+                                <td> ⏰ Last updated:</td>
                                 <td align="right">{{row.count.last_update}}</td>
                             </tr>
                         </tbody>

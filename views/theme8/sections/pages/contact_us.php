@@ -1,6 +1,4 @@
-<div class="container" id="contact">
-
-
+<div class="container" id="contact"> 
 
  <br>
 <section class="row"   >
@@ -70,10 +68,10 @@
                                           <ul class="pills-ul">
                                                            
                                                 
-                                                     <p class="cib-infop"><i class="fa fa-flag" aria-hidden="true"></i>  {{configs.contact_country}}</p>         
-                                                        <p class="cib-infop"><i class="fa fa-map-marker" aria-hidden="true"></i> {{configs.contact_address}}</p>
-                                                        <p class="cib-infop"><i class="fa fa-envelope" aria-hidden="true"></i>  {{configs.contact_email}}</span></p> 
-                                                        <p class="cib-infop"><i class="fa fa fa-phone" aria-hidden="true"></i>{{configs.contact_number}}</p>
+                                                     <p class="cib-infop"><i class="fa fa-flag" aria-hidden="true"></i>  <?=$data->common['configs']['contact_country']?></p>         
+                                                        <p class="cib-infop"><i class="fa fa-map-marker" aria-hidden="true"></i> <?=$data->common['configs']['contact_address']?></p>
+                                                        <p class="cib-infop"><i class="fa fa-envelope" aria-hidden="true"></i>  <?=$data->common['configs']['contact_email']?></span></p> 
+                                                        <p class="cib-infop"><i class="fa fa fa-phone" aria-hidden="true"></i><?=$data->common['configs']['contact_number']?></p>
 
                                          
                                           </ul>

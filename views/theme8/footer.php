@@ -1,112 +1,97 @@
+
+
 <?php  add_page($this,'footer_breadcrumbs');?>
- 
-<div  style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C86.90,126.80 458.23,-59.70 500.00,49.98 L500.00,150.00 L-109.47,256.08 Z" style="stroke: none; fill:var(--footer);"></path></svg></div>
-
-  <footer class="footer pdBtm30"  id="footer" >
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-2">
-                <h3>About {{configs.site_name}}</h3>
-                <div class="   ">
-                    <a href="/" class="LogoLink">
-                        <img :src="base_url+'/assets/uploads/sites/'+configs.logo"  class="top-logo img-responsive">
-                    </a>
-                </div>
-                
-                <ul class="socialLinksUl">
-                    
-                                    
-                    <li><a target="_blank" :href="configs.facebook" class="icon-facebook"><i class="wh fa fa-facebook"></i></a></li>
-                    
-                                        
-                                        
-                    <li><a target="_blank" :href="configs.gplus" class="icon-gplus"><i class="wh fa fa-google-plus"></i></a></li>
-                    
-                                        
-                    
-                                        
-                    <li><a target="_blank" :href="configs.twitter" class="icon-twitter"><i class="wh fa fa-twitter"></i></a></li>
-                    
-                                        
-                                        
-                </ul>
- 
+<!-- <div  style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C86.90,126.80 458.23,-59.70 500.00,49.98 L500.00,150.00 L-109.47,256.08 Z" style="stroke: none; fill:var(--footer);"></path></svg></div> -->
+<hr>
+<section class="divc footerm_main_head" style="">
+   <div class="container padtb20 home_container">
+      <div class="row">
+         <div class="col-md-4 col-xsm-12 col-xs-12">
+            <div class="footerm_box">
+               <p class="footerm_head">  <h3>About <?=$data->common['configs']['site_name']?></h3></p>
+               <div class="footerm_body">
+                  <p>Refer a Friend Programs with Guaranteed ROI</p>
                
+                   
+               </div>
             </div>
-
-                        
-                        <div class="col-xs-12 col-md-2">
-                        <h4>Top Stores</h4>
+         </div>
+         <div class="col-md-8 col-xsm-12 col-xs-12">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="footerm_box">
+                     <div class="footerm_body">
+                            <h4>Top Stores</h4>
                         <ul>
-                                                 
-                                          <li  v-for="store in popular_stores.slice(0, 4)"  >   <a :href="base_url+'store/'+store.custom_url"  >{{store.name}}</a> </li>  
-                                         </ul>
-                    </div>
-                    <div class="col-xs-12 col-md-2">
+                            
+
+                             <?php 
+
+                            if (isset($data->common['popular_stores'])){
+                              foreach (array_slice($data->common['popular_stores'],0,5) as $row ) {  
+                            ?>
+                              <li><a href="/categories/<?=$row->custom_url?>"><i aria-hidden="true" class="fa fa-caret-right"></i><?=$row->name?> </a></li>
+ 
+
+                              <?php 
+                                }
+                              }
+                          ?>  
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="footerm_box">
+                     <div class="footerm_body">
                             <h4>Quick Links</h4>
-                            <ul>
-                            <li><a  :href="base_url+'page/about_us'">About Us</a> </li>  
-                            <li><a  :href="base_url+'page/privacy_policy'">Privacy Policy</a> </li>
-                            <li><a  :href="base_url+'page/terms_conditions'">Terms of Use</a> </li>
-                            <li><a  :href="base_url+'page/contact_us'">Contact Us</a></li> 
-                            <li><a  :href="base_url+'pages/faq'">Help</a></li>   
+                         <ul>
+                            <li><a href="<?=base_url()?>page/about_us">About Us</a> </li>  
+                            <li><a href="<?=base_url()?>page/privacy_policy">Privacy Policy</a> </li>
+                            <li><a href="<?=base_url()?>page/terms_conditions">Terms of Use</a> </li>
+                            <li><a href="<?=base_url()?>page/contact_us">Contact Us</a></li> 
+                            <li><a href="<?=base_url()?>pages/faq">Help</a></li>   
                                       
 
   
-                            </ul>
-                        </div>
-                    <div class="col-xs-12 col-md-3">
-                        <h4>Top Categories</h4>
+                            </ul> 
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="footerm_box">
+                     <div class="footerm_body">
+                            <h4>Top Categories</h4>
                         <ul>
-                                                 
-                                          <li  v-for="category in popular_categories.slice(0, 4)"  >   <a :href="base_url+'category/'+category.slug"   >{{category.name}}</a> </li>  
-                                         </ul>
-                    </div>
+                         
 
-            <div class="col-xs-12 col-md-3">
-              
-                <div >
-                      <h4>Our Newsletter</h4>
-                  <input  type="email"   name="subscribe_email"   placeholder="Email" style="    padding: 5px;color:black;">
-                <button type="submit" aria-label="Sign up" onclick='subscribes_email();'  style="    padding: 5px;width:100px;" class="btn-primary">Subscribe</button>
-              </div>
+                             <?php 
 
-                <div >
-                     
-                  <p class="footer-para" v-html="configs.description" > </p>
-              </div>
+                            if (isset($data->common['popular_categories'])){
+                              foreach (array_slice($data->common['popular_categories'],0,5) as $row ) {  
+                            ?>
+                              <li><a href="/categories/<?=$row->slug?>"><i aria-hidden="true" class="fa fa-caret-right"></i><?=$row->name?> </a></li>
+ 
 
-              
-
-                </div>
+                              <?php 
+                                }
+                              }
+                          ?>  
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12" style="padding-left:0px;padding-right:0px;">
+            <small class="footer-copyright"> © Copyright  <?=$data->common['configs']['site_name']?> 2021. All rights reserved.</small>
+               </div>
             </div>
-
-            
-            
-
-
-
-            <!-- <div class="col-md-4">
-                <h4 class="marginBtm10">Coupons Alert!</h4>
-                <p>Recieve Coupons by email, Subscribe now.</p>
-                
-                
-            </div> -->
-        </div>
-     
-            <center class="" >
-              <small class="footer-copyright"><b>Enjoy unlimited discount. </b></small>
-                <small class="footer-copyright"> © Copyright  {{configs.site_name}} 2021. All rights reserved.</small>
-            </center>
-      
-    </div>
-    
-   
-</footer>
+         </div>
+      </div>
+   </div>
+</section>
 
 
-
+  
 
 
 
