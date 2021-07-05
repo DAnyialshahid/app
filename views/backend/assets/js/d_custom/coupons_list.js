@@ -40,7 +40,7 @@ var Main = function() {
                 field: 'id',
                 title: '#',
                 sortable: false,
-                width: 10,
+                width: 5,
                 type: 'number',
                 selector: {
                     class: ''
@@ -53,9 +53,20 @@ var Main = function() {
 
                     width: 50,
                 template: function(row) { 
-              
-                    if(Boolean(row.feature_image) ==false){row.feature_image='blank.png';}
-                    return '<img class="img-responsive" style="width:50px" src="'+base_url+'/assets/uploads/stores/'+row.feature_image+'"  />';
+           
+              var img='';
+                    if(Boolean(row.feature_image) !=false ){
+                            img='/assets/uploads/coupons/'+row.feature_image;
+                  }else{ 
+                           if(Boolean(row.store_feature_image) !=false){
+
+                             img='/assets/uploads/stores/'+row.store_feature_image;
+                 
+                          }else{
+                             img='/assets/uploads/stores/blank.png';
+                         }
+                  }
+                    return '<img class="img-responsive" style="width:50px" src="'+base_url+img+'"  />';
                 },
             }, {
                 field: 'name',

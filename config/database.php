@@ -7,8 +7,7 @@ if(env=='development'){
 	$active_group = 'production'; 
 
 }
- 
- 
+
  
 $query_builder = TRUE;
 

@@ -1,27 +1,66 @@
-<div class="horiz-coupon " v-for="coupon in coupons" >
+   <?php  
+ if (isset($data->store)){
+              foreach (array_slice($data->store->coupons,0,9999999) as $coupon ) { 
+            if ($coupon->expired ) {    continue;  }
+            ?>
+
+
+
+        <div class="col-md-12 border coupon_box">
+            <div class="coupon p-3  ">
+                <div class="row  ">
+                  
+                    <div class="col-md-2 border-right  d-flex  ">
+                        <div class="justify-content-center " >
+                                 <span class="short_title1"><?=$coupon->short_title1?></span>
+                                 <span class="short_title2"><?=$coupon->short_title2?></span>  
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <sup>
+                         <?=$coupon->type=='coupon'?'CODE':'DEAL'?>  
+
+
+                       </sup>
+
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="d-flex flex-row justify-content-start">
+                   
+
+                            <center> <img src="<?=$coupon->img_src?> " width="40px; "></center>
+
+                          <span class="title"> <?=$coupon->name?></span> 
+                               
+                            </div>
+                            <div class="d-flex flex-row justify-content-end  "> 
+                              <span class="button"><?=$coupon->coupon_code?></span>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="col-md-12 border-top  p-0 m-0  ">
+                         <span class="border-right"> <b>Views</b> <?=$coupon->visits?> </span>
+                         <span class="border-right">  <b>Expire:</b> <?=date('D M y',strtotime($coupon->expire_date))?> </span>
+             
+                      
+                              <span class="border-right">  <b>Store:</b> <?=$coupon->store->name?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+  <?php 
+            }
+            }
+            ?> 
+
+
+
+
+<div class="horiz-coupon " v-for="coupon in coupons"  style="display: none">
         <template v-if="new Date()<new Date(coupon.expire_date)"   >
 
   <div class="row  " style="margin:0">
-    <div class="col-md-2 noPd imageColumn">
-      <a href="javascript:void(0)" class="   custom-thumb     "  style="display: flex;">  
-
-
-       
-      <div class="coupon_label">
-         {{coupon.short_title.split(' ')[0]}}  <hr style="margin: 0px">    {{coupon.short_title.split(' ')[1]}}  
-    
-       </div>
-
-
-      <!--     <p class="short-title">
-            {{coupon.short_title.split(' ')[0]}}      {{coupon.short_title.split(' ')[1]}}      
-        <span class="badge small">
-            <span v-if="coupon.type=='coupon'"   style="font-size: 16px;color:#aa3552;"><b> Code </b>  </span>
-            <span v-if="coupon.type=='deal'"    style="font-size: 16px;color:#5858c7;"><b>Deal  </b></span>
-</span>
-             </p> -->
-      </a>
-    </div>
+ 
     <div class="col-md-10">
       <div class="main-coupon-content">
         <div class="col-md-8">

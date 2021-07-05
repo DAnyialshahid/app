@@ -11,8 +11,8 @@
 
 <?php 
 
-if (isset($data->popular_stores)){
-  foreach (array_slice($data->popular_stores,0,21) as $store ) { 
+if (isset($data->popularStores)){
+  foreach (array_slice($data->popularStores,0,21) as $store ) { 
 
 ?>
       <div class="store col-md-2 col-sm-4 col-6 ">
@@ -25,11 +25,7 @@ if (isset($data->popular_stores)){
     }
   }
 ?> 
-             <div class="store col-md-2 col-sm-4 col-6 ">
-                  <a href="/stores">
-                     <p align="center" >See All </p>
-                  </a>
-               </div>
+           
 
 
              </div>
@@ -75,6 +71,22 @@ if (isset($data->popular_stores)){
            
 
              </div>
+
+
+             <div class="row popular_stores d-flex justify-content-center"> 
+ 
+    <?php   foreach (['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']as $alphbets ) {    ?>
+                      <a   href="/stores/<?=$alphbets?>" class="pagination_alphabets col-md-1 col-sm-1 col-1 " href="/store/buildabear_com">
+                         <p align="center"><?=$alphbets?></p>
+                      </a>
+                
+     <?php  }  ?> 
+           
+
+             </div>
+
+
+             
 </div>
     
       

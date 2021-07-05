@@ -1,5 +1,6 @@
+<div class="top_header">
 <div class="container">
-  <header class="blog-header py-3">
+  <header class="blog-header py-3 ">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
         <a class="link-secondary" href="#">Subscribe</a>
@@ -33,6 +34,7 @@
       <a class="p-2 link-secondary" href="/page/contact_us">Contact  Us</a> 
     </nav>
   </div>
+</div>
 </div>
 
 

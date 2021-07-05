@@ -126,7 +126,7 @@
 
         <div class="mb-7">
     <div class="row align-items-center">
-        <div class="col-lg-9 col-xl-8">
+        <div class="col-lg-12 col-xl-12">
             <div class="row align-items-center">
                 <div class="col-md-4 my-2 my-md-0">
                     <div class="input-icon">
@@ -137,24 +137,9 @@
 
 
 
-                    <?php if($this->session->userdata('role')=='admin'):?> 
-                          <div class="col-md-3 my-2 my-md-0">
-                                <div class="d-flex align-items-center">
-                                    <label class="mr-3 mb-0 d-none d-md-block">Type:</label>
-                                    <div class="dropdown bootstrap-select form-control">
-                                        <select class="form-control" id="kt_datatable_search_type">
-                                        <option value=""    ></option>
-                                        <option value="Timing"    >Timing</option>
-                                        <option value="Everytime" >Everytime</option>
-                                        <option value="Unknown"   >Unknown</option> 
-                                    </select> 
-                                </div>
-                                </div>
-                            </div>
-
-                             <?php endif;?>
-                            <div class="col-md-3 my-2 my-md-0">
-                                <div class="d-flex align-items-center">
+             
+                            <div class="col-md-3 ">
+                                <div class="d-flex align-items-center ">
                                     <label class="mr-3 mb-0 d-none d-md-block">Status:</label>
                                     <div class="dropdown bootstrap-select form-control">
                                         <select class="form-control" id="kt_datatable_search_status">
@@ -173,6 +158,26 @@
                                 </div>
                                 </div>
                             </div>
+
+
+                 <?php if($this->session->userdata('role')=='admin'):?> 
+                          <div class="col-md-2">
+                                <div class="d-flex align-items-center ">
+                                    <label class="mr-3 mb-0 d-none d-md-block"> Type:</label>
+                                    <div class="dropdown bootstrap-select form-control">
+                                        <select class="form-control" id="kt_datatable_search_type">
+                                        <option value=""    ></option>
+                                        <option value="Timing"    >Timing</option>
+                                        <option value="Everytime" >Everytime</option>
+                                        <option value="Unknown"   >Unknown</option> 
+                                    </select> 
+                                </div>
+                                </div>
+                            </div>
+
+                            <?php endif;?>
+
+
                      <?php if($this->session->userdata('role')!='admin'):?> 
    <div class="col-md-3 my-2 my-md-0">
                       <label class="checkbox">
@@ -181,7 +186,10 @@
                 </label>
             </div>
                      <?php endif;?>
-   <div class="col-md-2 my-2 my-md-0"><a href="#" id="showall">Show All</a>      </div>
+
+   <div class="col-md-2 ">
+        <a href="#" class="ml-3 my-2 my-md-0" id="showall">Show All</a>      
+   </div>
 
 
 

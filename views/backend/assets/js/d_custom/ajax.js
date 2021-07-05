@@ -58,6 +58,7 @@ var History = function() {
 var Ajax = function() {
   return {
       loadPage:function(title,page,js,id,callbyHistory=false) {
+        console.log("Ajax.loadPage('"+title+"','"+page+"','"+js+"','"+id+"','"+callbyHistory+"')");
         if (!callbyHistory) {
             History.add(title,page,js,id);
         }
@@ -148,6 +149,8 @@ var Route = function() {
                    Ajax.loadPage('New Store','sections/stores_create','stores_create');  
                 }else if (type=='edit') {
                    Ajax.loadPage('Edit Store','sections/stores_create','stores_create',id);  
+                }else if (type=='editBunch') {
+                   Ajax.loadPage('Edit All Deals','sections/stores_bunch_edit','stores_bunch_edit',id);  
                 }else{
                   Route.E_404(page,type);
                 }

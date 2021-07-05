@@ -4,7 +4,7 @@ require_once APPPATH . 'controllers/Theme_Controller.php';
 class Authentication extends Theme_Controller{
 
 	
-	public function login_panel(){
+	public function login_panel($site_id=null){
 		
 		
 		 if( $this->session->userdata('loggedIn')==1){
@@ -17,6 +17,7 @@ class Authentication extends Theme_Controller{
 	 
 		
 		 backend_page($this,'login.php',[
+		 		'site_id'=>$site_id
 			 ]); 
 		
 		//$this->load->view('admin/templates/login');
@@ -81,6 +82,7 @@ return $token;
 			
 			$username_input = $this->input->post('username');
 			$password_input = $this->input->post('password');
+			$site_id = $this->input->post('site_id');
 
 			// echo $username_input . '<br>';
 			// echo $password_input;
@@ -121,8 +123,12 @@ return $token;
      //                }else{
      //                	 $user_active_site=$sites[0]->id;
      //                }
+
+				if (empty($site_id)) {
+					$site_id=getSites($this)[0]->id;
+				}
 				$this->session->set_userdata(array( 
-					'user_active_site'     => 	getSites($this)[0]->id, 
+					'user_active_site'     => $site_id	, 
 				));
 			 
 				

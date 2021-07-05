@@ -83,6 +83,9 @@ $this->direct_access=$direct_access;
 		  
 		 
   		$this->db->where('site_id',$site_id); 
+  		$this->db->select('coupons.*'); 
+  		$this->db->select('coupons.expire_date < date(now()) as expired'); 
+
 			$data = $this->db->get_where('coupons',[])->result();  
 			 
 			// echo $this->db->last_query();
@@ -144,11 +147,15 @@ $this->direct_access=$direct_access;
 	{
 		
 		$category_slug=$category_slug?$category_slug:$this->input->post('slug');
+
 		$site_id=$site_id?$site_id:$this->input->post('site_id'); 
 
 			$category=$this->db->select('*')->where('slug',$category_slug)->where('site_id',$site_id)->get('categories')->first_row();
+ 
 if (empty($category) && $return==false) {
-	 	$data=(['success'=>'no','response'=>'category not found']);
+	 	$data=(['success'=>'no','response'=>'404']);
+
+
 	 	if ($this->direct_access) {
 			return $data;
 		}else{
@@ -166,12 +173,33 @@ if (empty($category) && $return==false) {
 			$data['name']=$category->name;  
 			$data['id']=$category->id;  
 			$data['feature_image']=$category->feature_image?$category->feature_image:'blank.png';  
+			$data['img_src']=base_url().'/assets/uploads/categories/'.$category->feature_image;
 			$data['icon']=$category->icon;  
 				$this->side_bar_where_coditions();
 					$this->db->where('site_id',$site_id); 
+							$this->db->select('coupons.*'); 
+							$this->db->select('coupons.expire_date < date(now()) as expired'); 
 			$data['coupons'] = $this->db->get_where('coupons',[])->result();  
+
 			foreach ($data['coupons'] as $key => &$coupon) { 
+
 			$coupon->store=$this->db->where(['site_id'=>$site_id,'id'=>$coupon->store_id ])->get('stores')->first_row() ;
+		 
+                $img_src='blank.png';
+                if (!empty($coupon->feature_image)) {
+                   $coupon->img_src=base_url().'/assets/uploads/coupons/'.$coupon->feature_image;
+                }else if (!empty($coupon->store->feature_image)){
+                $coupon->img_src=base_url().'/assets/uploads/stores/'.$coupon->store->feature_image;
+                }else if (!empty($category->feature_image)){
+                $coupon->img_src=base_url().'/assets/uploads/categories/'.$category->feature_image;
+                }
+                $coupon->short_title1=explode(' ', $coupon->short_title)[0];
+
+                $coupon->short_title2=explode(' ', $coupon->short_title)[1];
+           
+
+            
+       
 				# code...
 			}
 
@@ -206,7 +234,7 @@ if (empty($category) && $return==false) {
 					 $data['count']=$count;
 
 			
-		
+			
 
 			if($return){return $data;}
 			//dd($data);
@@ -343,21 +371,36 @@ if (empty($category) && $return==false) {
 		$stores= $this->db->get_where('stores',[
 				'site_id'=>$site_id
 		])->result(); 
-
+			foreach ($stores as $key=>&$store) { 
+				$store->feature_image=$store->feature_image?$store->feature_image:'blank.png';  
+				$store->img_src=base_url().'/assets/uploads/stores/'.$store->feature_image;
+				$store->custom_url=!empty($store->custom_url)?$store->custom_url:''; 
+ }
 		if(isset( $with) && in_array('coupons', $with) && isset($stores)){
 			foreach ($stores as $key=>&$store) { 
 
-				
-				$store->feature_image=$store->feature_image?$store->feature_image:'blank.png';  
+ 
 
 				 $store->coupons=$this->getCoupons($store->id,$site_id,true);
 				 // echo $this->db->last_query();
 				  $thisStore=$this->db->where(['site_id'=>$site_id,'id'=>$store->id])->get('stores')->first_row() ; 
 					foreach ($store->coupons as   &$coupon) { 
 					 $coupon->store=$thisStore;	 
+					 //decode special symbol like euro pound ' dollar
 					 $coupon->name=html_entity_decode($coupon->name,ENT_QUOTES | ENT_XML1, 'UTF-8');	   
 					 $coupon->short_title=html_entity_decode($coupon->short_title,ENT_QUOTES | ENT_XML1, 'UTF-8');	  
-					 $coupon->description=html_entity_decode($coupon->description,ENT_QUOTES | ENT_XML1, 'UTF-8');	  	 
+					 $coupon->description=html_entity_decode($coupon->description,ENT_QUOTES | ENT_XML1, 'UTF-8');	 
+
+					 //setup img of coupon 
+					   $img_src='blank.png';
+	                if (!empty($coupon->feature_image)) {
+	                   $coupon->img_src=base_url().'/assets/uploads/coupons/'.$coupon->feature_image;
+	                }else if (!empty($store->feature_image)){
+	                $coupon->img_src=base_url().'/assets/uploads/stores/'.$coupon->store->feature_image;
+	                }	 
+	                //short title 
+	                $coupon->short_title1=explode(' ', $coupon->short_title)[0];
+                    $coupon->short_title2=explode(' ', $coupon->short_title)[1];
  
 						}
 				}
@@ -432,7 +475,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 		$slug=$this->input->post('slug'); 
 		$site_id=$this->input->post('site_id'); 
-	
+
 		$store=$this->getStores([
 				'custom_url'=>$slug,
 		],['coupons','popular_stores','relative_stores','counts'],true);
@@ -494,7 +537,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 //show only check if popular =1 
 	public function getPopularStores()
-	{
+	{ 
 
 	 
 		$site_id=$this->input->post('site_id'); 
@@ -537,13 +580,22 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		if (!empty($coupons)) {
 			foreach ($coupons as $key => &$coupon) { 
 			$store=$this->db->where(['site_id'=>$site_id,'id'=>$coupon->store_id ])->get('stores')->first_row() ;
+ 	if (!empty($store)) {
+					$store->feature_image=$store->feature_image?$store->feature_image:'blank.png';  
+			     	$store->img_src=base_url().'/assets/uploads/stores/'.$store->feature_image;
+			        $store->custom_url=!empty($store->custom_url)?$store->custom_url:''; 
+				}
+
+				
 			$coupon->store=$store;
+		
+
 			$coupon->name=html_entity_decode($coupon->name,ENT_QUOTES | ENT_XML1, 'UTF-8');
 			$coupon->short_title=html_entity_decode($coupon->short_title,ENT_QUOTES | ENT_XML1, 'UTF-8');
 		 
  
 				if (empty($coupon->store)) {
-					echo $this->db->last_query();
+					// echo $this->db->last_query();
 					unset($coupons[$key]);
 				}
 			}
@@ -570,13 +622,18 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		}
 		
 	
-		$coupons=$this->db->get_where('categories',[
+		$categories=$this->db->get_where('categories',[
 			'popular'=>1,
 			'show_in_home'=>1,
 			'site_id'=>$site_id,
 	])->result();
+
+		foreach ($categories as $key => &$category) { 
+			   $category->feature_image=$category->feature_image?$category->feature_image:'blank.png';  
+				$category->img_src=base_url().'/assets/uploads/categories/'.$category->feature_image;
+		}
 		 
-		$data=(['success'=>'yes','response'=>$coupons]);  
+		$data=(['success'=>'yes','response'=>$categories]);  
 		if ($this->direct_access) {
 			return $data;
 		}else{
@@ -693,7 +750,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 		$this->db->set('name',$name)->set('email',$email)->set('question',$question)->set('message',$message)->set('site_id',$site_id)->insert('contacts'); 
  
-		$data=(['success'=>'yes','response'=>'submited']);
+		$data=(['success'=>'yes','response'=>'Message Sent']);
 		if ($this->direct_access) {
 			return $data;
 		}else{

@@ -59,7 +59,9 @@
                     <!--begin::Form-->
                     <form class="form" novalidate="novalidate"  action="#"  id="kt_login_signin_form">
 
-    <input type="hidden" name="<?= $this->security->get_csrf_token_name()?>" id="token" value="<?= $this->security->get_csrf_hash()?>"/>
+
+                       <input type="hidden" name="site_id" id="site_id" value="<?= $site_id?>"/>
+                       <input type="hidden" name="<?= $this->security->get_csrf_token_name()?>" id="token" value="<?= $this->security->get_csrf_hash()?>"/>
 
     
     

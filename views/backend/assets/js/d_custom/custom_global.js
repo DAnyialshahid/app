@@ -408,7 +408,7 @@ console.log(v.type);
     .replace(/-+$/, '');            // Trim - from end of text
 
         },
-        submitForm: function(id,url,title,redirect_route=null) { 
+        submitForm: function(id,url,title,redirect_route=null,callback=null) { 
   
               KTApp.blockPage({overlayColor: '#000000', state: 'danger', message: 'Please wait...', size: 'lg'}); 
               // var datastring = $(id).serialize();
@@ -435,6 +435,7 @@ console.log(v.type);
                                      Swal.fire("Failed!", data.response, "error");
 
                             } 
+                              if (callback) {callback(data);}
 
                         },
                         error: function(e,x,c) { 

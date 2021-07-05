@@ -15,7 +15,7 @@ class Admin extends Theme_Controller{
 header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
 header("Pragma: no-cache"); // HTTP 1.0.
 header("Expires: 0"); // Proxies.
- 
+
 		// $this->load->model('admin/Taxonomies_model');
 	 	// dd($_SESSION); 
 
@@ -26,12 +26,12 @@ header("Expires: 0"); // Proxies.
 
 	     if(!$this->session->userdata('loggedIn')){
 
-	   
+ 
 
 	     		if (!($this->uri->segment(1)=='admin' && $this->uri->segment(2)=='login') ) {
 	   
 	     			 // redirect('authentication/login_panel');
-	     					exit('Redirecting to login <script>window.location.href=\''.str_ireplace('http:', 'https:', $this->config->item('api_url')).'authentication/login_panel\'</script>');
+	     					exit('Redirecting to login <script>window.location.href=\''.str_ireplace('http:', 'https:', $this->config->item('api_url')).'authentication/login_panel/'.site_id.'\'</script>');
 	     		}
 		
 			exit('Redirect to login');

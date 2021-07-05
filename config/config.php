@@ -8,7 +8,7 @@ $config['local_whitelist'] = array(
     '127.0.0.2',
     '127.0.0.3',
     '127.0.0.4',
-    '192.168.5.103',
+    '192.168.10.111',
     '::1'
 ); 
  
@@ -36,7 +36,7 @@ if (env=='development') {
 }else{
 	 $config['api_url'] =$protocol.'affiliateplatform.itworld.com.pk/';
 }	
-
+  
 // print_r($_SERVER['HTTP_X_FORWARDED_PROTO']? "https://" : "http://"));
 // exit($protocol);
 

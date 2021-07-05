@@ -46,6 +46,7 @@ class Frontend extends front_api{
 				
 
 				 $common=$this->getCommon()['response'] ;
+				  
 
 				 $slides=$this->getSlides()['response'] ;
 
@@ -68,7 +69,6 @@ class Frontend extends front_api{
 				  $_POST['limit']=15;
 				  $topStores=$this->getTopStores()['response'] ;
  
-				 
 		 		$return = (object)[
 		 			'common'=> $common, 
 		 			'slides'=> $slides, 
@@ -116,22 +116,39 @@ class Frontend extends front_api{
 		 		return $return ;
 			}		
 			if ($page_name=='constant_page') {
+					 $message='';
+					if (!empty($_POST['name']) || !empty($_POST['emai'])  ) {
+						$message=$this->contact_us_details()->response;
+					}
 				 $common=$this->getCommon()['response'] ;   
 
 		 		$return = (object)[
 		 			'common'=> $common, 
+		 			'message'=> $message, 
 		 			 
 		 		 
 		 		];
 		 		return $return ;
 			}	
 
-			if ($page_name=='single_store') {
-				 
+			if ($page_name=='single_store') {	
+				 	 $common=$this->getCommon()['response'] ;
 				 $_POST['limit']=9999999;
 				 $store=$this->getStore()['response'] ;
 		 		$return = (object)[
-		 			 
+		 			 	'common'=> $common, 
+		 			'store'=>$store, 
+		 		];
+		 		return $return ;
+			}
+
+			if ($page_name=='catagory') {
+				 	 $common=$this->getCommon()['response'] ;
+				 $_POST['limit']=9999999;
+				 $store=(object)$this->getCouponsByCategory()['response'] ;
+				 	// dd($store);
+		 		$return = (object)[
+		 			 	'common'=> $common, 
 		 			'store'=>$store, 
 		 		];
 		 		return $return ;
@@ -212,6 +229,9 @@ class Frontend extends front_api{
 	}
 	public function catagory($slug)
 	{
+			if ($this->direct_access) {
+			$_POST['slug']=$slug;
+		}
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/single_store',
 			 	'js'=>'single_store',

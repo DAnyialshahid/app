@@ -15,6 +15,91 @@ img{
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    background:#F7F7F7 !important;
+}
+
+.top_header nav a {
+    color:white !important;
+    text-decoration: none !important;
+}
+
+.top_header  a {
+      color:white !important;
+    text-decoration: none !important;
+    transition:all 0.2s ease-in-out;
+
+}
+.top_header nav a:hover{
+        background-color: rgb(167, 81, 212);
+ 
+    font-weight: bold;
+
+      color:white !important;
+    text-decoration: none !important; 
+}
+.top_header{
+  background: rgb(116, 31, 162);
+  color:white !important;
+}
+.coupon_box{
+  background: white;
+  margin:  10px;
+  padding: 2px;
+}
+.coupon_box .short_title1 , .coupon_box .short_title2{
+    white-space: nowrap;
+    text-transform: uppercase;
+    overflow: hidden;
+    font-size: 2.5625em;
+
+    font-weight: 800;
+    line-height: 1;
+    text-align: center;
+    overflow: hidden; 
+    color: rgb(116, 31, 162);
+}
+
+.coupon_box .button {
+     display: block;
+    font-size: 15px;
+    line-height: 1;
+    min-width: 13em;
+    padding: 1em 0.75em;
+    border: none;
+        position: relative;
+    border-radius: 1000px;
+    font-weight: 600;
+    font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Roboto, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    transition: background-color 500ms ease 0s, border-color 500ms ease 0s, color 500ms ease 0s, fill 500ms ease 0s;
+    -webkit-font-smoothing: antialiased;
+    border: thin solid rgb(116, 31, 162);
+    background-color: rgb(116, 31, 162);
+    color: white;
+    font-size: 1rem;
+    height: 3rem;
+    min-width: 12.5rem;
+    padding: 0px 2rem;
+    outline: none !important;
+}
+
+.coupon_box .title {
+  display: block;
+    color: rgb(50, 50, 50);
+    min-height: calc(38.4px);
+    margin-bottom: 5px;
+    font-weight: 600;
+    line-height: 1.2;
+       font-size: 1.5625em;
+    overflow-wrap: break-word;
+    text-decoration: none;
+    letter-spacing: 0.2px;
 }
 /* no horizental scroll anymore*/
 .color-coupon{

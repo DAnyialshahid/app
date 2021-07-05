@@ -328,10 +328,10 @@ public function getBotDetails($where=null,$return=false)
 			}else{
 				$this->db->order_by('coupons.id','desc');
 			}
-			$stores=$this->coupons_model->get_all($where); 
+			$coupons=$this->coupons_model->get_all($where); 
 
-				if($return){return $stores;}
-			echo json_encode(['success'=>'yes','response'=>$stores,'q'=>$this->db->last_query()]);
+				if($return){return $coupons;}
+			echo json_encode(['success'=>'yes','response'=>$coupons]);
 			exit();
 	}
 	public function sortCoupon()
@@ -826,6 +826,8 @@ echo json_encode(['success'=>'yes','response'=>'Clear Group Successfully']);
 		}
 	}
 
+ 
+
 	public function updateUser()
 	{
 		if($this->input->post('id')){
@@ -1122,6 +1124,25 @@ if(!empty($_FILES['feature_image']['name'])){
  
 			$this->load->model('admin/coupons_model');
 			$add=$this->coupons_model->add($uploaded_file['file_name'],$update,$id); 
+			if($add){
+						echo json_encode(['success'=>'yes','response'=>$add]);
+			}else{
+						echo json_encode(['success'=>'no','response'=>$add]);
+			}
+
+			
+	
+		exit();
+	}
+		
+
+
+	public function updateBatchCoupon()
+	{
+ 
+ 
+			$this->load->model('admin/coupons_model');
+			$add=$this->coupons_model->batchUpdate(); 
 			if($add){
 						echo json_encode(['success'=>'yes','response'=>$add]);
 			}else{

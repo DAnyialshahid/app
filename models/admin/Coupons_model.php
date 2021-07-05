@@ -15,6 +15,7 @@ class Coupons_model extends MY_Model{
    
 		$this->db->select('coupons.*');
 		$this->db->select('stores.name as store_name');
+		$this->db->select('stores.feature_image as store_feature_image');
 		
 		$this->db->join('stores','stores.id=coupons.store_id');
 		if($where){ $this->db->where($where);	 }	   
@@ -71,6 +72,71 @@ class Coupons_model extends MY_Model{
 		 
 				return $insert;
 			}
+	}
+
+	
+	public function batchUpdate(){
+		foreach ($this->input->post('coupon') as $id => $coupon) {
+
+
+
+
+				$data=array( 
+			'name'		        => !empty($coupon['coupon_title'])?$coupon['coupon_title']:null,
+			'short_title'		=> !empty($coupon['coupon_short_title'])?$coupon['coupon_short_title']:null ,
+			'description'		=> !empty($coupon['coupon_description'])?$coupon['coupon_description']:null,
+			'affiliate_link'	=> !empty($coupon['coupon_affiliate_link'])?$coupon['coupon_affiliate_link']:null,
+			'coupon_code'		=> !empty($coupon['coupon_code'])?$coupon['coupon_code']:null,
+			'expire_date'		=> !empty($coupon['coupon_expire_date'])?$coupon['coupon_expire_date']:null,
+			'status'	    	=> 'active',
+			'store_id'		    => $this->input->post('store_id'),
+			'category_id'		=> !empty($coupon['coupon_category'])?$coupon['coupon_category']:null,
+			'verified'		    => !empty($coupon['coupon_check_verified'])?$coupon['coupon_check_verified']:null ,
+			'featured'		    => !empty($coupon['coupon_check_featured'])?$coupon['coupon_check_featured']:null ,
+			'exclusive'		    => !empty($coupon['coupon_check_exclusive'])?$coupon['coupon_check_exclusive']:null ,
+			'popular'		    => !empty($coupon['coupon_check_popular'])?$coupon['coupon_check_popular']:null ,
+			'show_in_home'		=> !empty($coupon['coupon_check_show_in_home'])?$coupon['coupon_check_show_in_home']:null ,
+			'top'		        => !empty($coupon['coupon_check_top'])?$coupon['coupon_check_top']:null ,
+			'added_date'	    => date('y-m-d h:i:s'),
+			'updated_date'		=> date('y-m-d h:i:s'),
+			'inserted_from'		=>'human_batch',  
+			// 'seasonal_type'		=>$seasonal_type, 
+			// 'seo_coupon_meta_title'		=>$this->input->post('seo_coupon_meta_title'), 
+			// 'seo_coupon_meta_keywords'		=>$this->input->post('seo_coupon_meta_keywords'), 
+			// 'seo_coupon_meta_description'		=>$this->input->post('seo_coupon_meta_description'),  
+			'site_id'		=>$this->session->userdata('user_active_site'), 
+			'type'		=> !empty($coupon['coupon_code'])?'coupon':'deal', 
+		
+		);
+
+
+ 
+	 
+ 		
+			if(  (!empty($coupon['coupon_delete']) ) ){
+						 
+	 		if (strpos( $id,"new") !==false) {}else{
+	 			// dd($coupon);
+	 				 $this->db->where('id' ,$coupon['coupon_id'] );
+	 			     $delete=$this->db->delete('coupons' ,['id'=>$coupon['coupon_id'] ]);
+	 		}
+				// dd($coupon['coupon_id'].$delete);
+								
+			}else{
+
+						 		if (strpos( $id,"new") !==false) {
+						 
+							   	   $insert=$this->db->insert('coupons' ,$data );
+								}else{
+									$this->db->where('id' ,$coupon['coupon_id'] );
+								    $update=$this->db->update('coupons' ,$data );
+								}
+			}
+}
+
+	return true;
+
+
 	}
 
 	

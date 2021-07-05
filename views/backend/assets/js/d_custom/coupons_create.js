@@ -139,28 +139,7 @@ window.ckeditor_box.setData(copy_data.data_desc)
         init: function() { 
 
          
-
-
-/*
-             jQuery.ajax({
-                     type : "get",
-                     dataType : "json",
-                     url : api_base_url+"/getStores",
-                     data : {
-                        action: "", 
-                         },
-                     success: function(data) { 
-                        if(data.success === "yes") { 
-                                          init_table(data.response);
-
-                        }
-                        else {
-                            alert("Folder not created");
-                        }
-                     }
-                }); 
-
-*/
+ 
            
         },
     };
