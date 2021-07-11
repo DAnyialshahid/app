@@ -11,9 +11,9 @@ class Frontend extends front_api{
 	public function __construct()
 	{
  
+
  
 		$this->direct_access=  getallheaders()['direct_access']=='true'?true:false;
-
 		if ($this->direct_access) {
 			if (empty($_POST['site_id'])) {
 				 $_POST['site_id']=site_id;
@@ -22,7 +22,7 @@ class Frontend extends front_api{
 		}
 	 	parent::__construct($this->direct_access,true); 
 		ob_clean(); 
-  
+
 		// header("Title:"); // HTTP 1.1.
 
 
@@ -135,10 +135,21 @@ class Frontend extends front_api{
 				 	 $common=$this->getCommon()['response'] ;
 				 $_POST['limit']=9999999;
 				 $store=$this->getStore()['response'] ;
+				 $active_coupon=null;
+				 if (!empty(	 $store)) {
+				 	foreach ($store->coupons as  $coupon) {
+				 		if ( intval( $coupon->id)==intval($_POST['coupon_id'])) {
+				 			$active_coupon=$coupon;
+				 		}
+				 	}
+				 }
+			 
 		 		$return = (object)[
 		 			 	'common'=> $common, 
-		 			'store'=>$store, 
+		 			    'store'=>$store, 
+		 			    'coupon'=>$active_coupon, 
 		 		];
+		  
 		 		return $return ;
 			}
 
@@ -162,6 +173,12 @@ class Frontend extends front_api{
 	{
 		$this->direct_access=true;
 		echo json_encode(['success'=>'yes','response'=>$this->direct_access_data($pagename)]);
+	}
+
+	public function out($coupon_id)
+	{
+		$this->get_out($coupon_id);
+		 
 	}
 
 
@@ -210,10 +227,11 @@ class Frontend extends front_api{
 	}
 	
 
-	public function single_store($slug)
+	public function single_store($slug,$coupon_id=null)
 	{
 		if ($this->direct_access) {
 			$_POST['slug']=$slug;
+			$_POST['coupon_id']=@$coupon_id;
 		}
 
 			 add_page($this,'index.php',[
@@ -222,6 +240,7 @@ class Frontend extends front_api{
 			 	'type'=>'single_store',
 			 	'slug'=>$slug,
 			 	'page_name'=>'single_store',
+			 	'coupon_id'=>@$coupon_id,
 			 	'data'=>$this->direct_access_data('single_store'),
 
 			 ]); 

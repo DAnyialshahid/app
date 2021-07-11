@@ -7,16 +7,20 @@ class front_api extends Theme_Controller{
  
 	public function __construct($direct_access=false,$call_by_controller=false)
 	{
-	
+
 		parent::__construct();
 		if (isset($_POST['site_id'])) {
 				$_POST['site_id']=site_id;
 		}
 $this->direct_access=$direct_access;
-  flush(); 
+if ($this->uri->segment(1)!='out') {
+	 flush(); 
+}
+ 
+// dd($coupon_id);
    		
 
-	 	
+		
 		if (!( ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
 		   				 if(strpos($_SERVER['HTTP_ACCEPT'], 'json') !== false){  
 								
@@ -67,7 +71,28 @@ $this->direct_access=$direct_access;
 			$this->exit2();
 	}
 
-	  	public function getCoupons($store_id,$site_id=null,$return=false)
+	  	public function get_out($coupon_id)
+	{
+
+	$coupon=$this->db->select('*')->where('id',$coupon_id)->get('coupons')->first_row();
+
+	if (!empty($coupon->affiliate_link)) {
+	$out_link=$coupon->affiliate_link;
+}else  if (!empty($coupon->store->affiliate_link)) {
+	$out_link=$coupon->store->affiliate_link;
+}else  if (!empty($coupon->store->website_url)) {
+	$out_link=$coupon->store->website_url;
+}else{
+	$out_link=base_url().'/link_not_found';
+}
+
+header('Location:'.$out_link);
+
+exit();
+
+	}
+
+	public function getCoupons($store_id,$site_id=null,$return=false)
 	{
 		
 		$store_id=$store_id?$store_id:$this->input->post('store_id');
@@ -401,7 +426,8 @@ if (empty($category) && $return==false) {
 	                //short title 
 	                $coupon->short_title1=explode(' ', $coupon->short_title)[0];
                     $coupon->short_title2=explode(' ', $coupon->short_title)[1];
- 
+                    $this->attachAffiliateLink($coupon);
+ // dd($coupon);
 						}
 				}
 		}
@@ -469,6 +495,8 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 		$this->exit2();
 	}
 		
+
+ 
 
 	public function getStore()
 	{
@@ -858,7 +886,26 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
  	}
 
-  public function search($site_id,$query)
+  public function attachAffiliateLink(&$coupon)
+	{
+		$link_in_site=base_url().'store/'.$coupon->store->custom_url.'/'.$coupon->id;
+		$link_out_site=base_url().'out/'.$coupon->id;
+
+if (setting('open_affiliate_link_new_tab')=='true') {
+ 
+ $coupon->link1=$link_in_site;
+$coupon->link2=	$link_out_site;
+}else{
+$coupon->link1=$link_out_site;
+$coupon->link2=	$link_in_site;
+}
+
+
+
+	}   
+
+
+	 public function search($site_id,$query)
 	{  
  			  
  	 $this->db->like('name', $query, 'both'); 

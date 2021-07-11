@@ -46,6 +46,28 @@
             var api_url='<?=front_api_base_url?>';  
         </script>
 
+      
+        <script type="text/javascript"> 
+      function copycodebtn(a_element) {
+
+  const el = document.createElement('textarea');
+  el.value = a_element.getAttribute('coupon_code');
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+
+
+window.location.href=a_element.getAttribute('link2');
+
+      }
+
+
+        </script>
+
  
 
 

@@ -16,7 +16,7 @@ if (isset($data->popularStores)){
 
 ?>
       <div class="store col-md-2 col-sm-4 col-6 ">
-                  <a href="/<?=$store->custom_url?>">
+                  <a href="/store/<?=$store->custom_url?>">
                      <p align="center" ><?=$store->name?> </p>
                   </a>
                </div>

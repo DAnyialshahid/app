@@ -101,6 +101,10 @@ html, body {
     text-decoration: none;
     letter-spacing: 0.2px;
 }
+.coupon_box .feature_image {
+ width: 50px;
+ /*height:  100px;*/
+}
 /* no horizental scroll anymore*/
 .color-coupon{
   background: #11ab56;

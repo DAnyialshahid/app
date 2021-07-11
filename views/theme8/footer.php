@@ -105,10 +105,10 @@
     <?php  add_page($this,'sections/codeBox');?>
    
   
-              <script src="<?=script_attach(theme_base_url,'/assets/js/clipboard.min.js')?>"></script>
+              <!-- <script src="<?=script_attach(theme_base_url,'/assets/js/clipboard.min.js')?>"></script> -->
                           <!--begin::Page Scripts(used by this page)-->
 
-              <script src="<?=script_attach(theme_base_url,'/assets/js/d_custom/custom_global.js')?>"></script>
+              <!-- <script src="<?=script_attach(theme_base_url,'/assets/js/d_custom/custom_global.js')?>"></script> -->
                   
 
 </div>

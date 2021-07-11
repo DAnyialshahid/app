@@ -27,13 +27,13 @@
                             <div class="d-flex flex-row justify-content-start">
                    
 
-                            <center> <img src="<?=$coupon->img_src?> " width="40px; "></center>
+                            <center> <img src="<?=$coupon->img_src?> " class="feature_image img-responsive"></center>
 
                           <span class="title"> <?=$coupon->name?></span> 
                                
                             </div>
                             <div class="d-flex flex-row justify-content-end  "> 
-                              <span class="button"><?=$coupon->coupon_code?></span>
+                             <a href="<?=$coupon->link1?>" link2="<?=$coupon->link2?>" coupon_code="<?=$coupon->coupon_code?>" onclick="copycodebtn(this)" target="_blank"> <span class="button"><?=$coupon->coupon_code?></span></a>
                             </div>
                         </div>
                     </div>
