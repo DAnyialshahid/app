@@ -5,14 +5,62 @@ require_once APPPATH . 'controllers/Theme_Controller.php';
 class front_api extends Theme_Controller{
 	public $direct_access=false;
  
-	public function __construct($direct_access=false,$call_by_controller=false)
+	public function __construct(&$direct_access=false,$call_by_controller=false)
 	{
 
+
+
 		parent::__construct();
+
+		 $context = &get_instance(); 
+           $site= $context->db->get_where('sites',[  
+                     'url'=>str_ireplace('www.', '', $_SERVER['HTTP_HOST']),
+                  ])->first_row();
+
+                if (!empty($site) && $site->dns_hosted==1) {
+                  //find site with http_host from database and replace id
+
+                    DEFINE('site_id',$site->id);
+                    DEFINE('dns_hosted',true);
+                    
+
+                      if ($site->direct_access==1) {
+                      	 $_POST['site_id']=$site->id;
+                 	    	$this->direct_access=true;
+                      }     
+                   
+
+                }else{
+                  //   header('direct_access:true');
+               
+                 
+                }
+
+ 		//check is direct access allowed by client.php
+		$header_direct_access= @getallheaders()['direct_access']=='true'?true:false;
+		//check is direct access allowed by database
+		if (!empty($header_direct_access)) {
+			$this->direct_access=true;
+		} 
+
+		if ($this->direct_access) {
+			if (empty($_POST['site_id'])) {
+				 $_POST['site_id']=site_id;
+			}
+		
+		}
+
+
+ 
+
+ 
 		if (isset($_POST['site_id'])) {
 				$_POST['site_id']=site_id;
 		}
-$this->direct_access=$direct_access;
+
+   $direct_access=$this->direct_access;
+
+
 if ($this->uri->segment(1)!='out') {
 	 flush(); 
 }

@@ -9,18 +9,11 @@ class Frontend extends front_api{
  
  
 	public function __construct()
-	{
- 
+	{ 
+      	
 
- 
-		$this->direct_access=  getallheaders()['direct_access']=='true'?true:false;
-		if ($this->direct_access) {
-			if (empty($_POST['site_id'])) {
-				 $_POST['site_id']=site_id;
-			}
-		
-		}
 	 	parent::__construct($this->direct_access,true); 
+
 		ob_clean(); 
 
 		// header("Title:"); // HTTP 1.1.
@@ -35,6 +28,7 @@ class Frontend extends front_api{
 	        
 	        $this->output->enable_profiler(TRUE);
 	    }
+	     // dd($this->direct_access);
 	}
 
 	 
@@ -185,7 +179,7 @@ class Frontend extends front_api{
 	public function home()
 	{
  
-//	  dd($this->direct_access_data('home'));
+ //	  dd($this->direct_access_data('home'));
 
 			 add_page($this,'index.php',[
 			 	'content_page'=>'sections/home',

@@ -117,15 +117,44 @@ function backend_page($context,$page,$params=[]){
 
   }
   function common($context,$include=''){  
+
        $CI=&get_instance();
+          $headers=getallheaders();
     // dd(getallheaders());
-    if (isset(getallheaders()['site_id'])) {
-         DEFINE('site_id',decrypt(getallheaders()['site_id'],'no_one_can_decrypt'));
+    if (isset($headers['site_id'])) {
+         DEFINE('site_id',decrypt($headers['site_id'],'no_one_can_decrypt'));
     }else{
       if (isset($_POST['site_id'])) {
          DEFINE('site_id',decrypt($_POST['site_id'],'no_one_can_decrypt'));
       }else{
-              DEFINE('site_id',100);
+
+          $context = & get_instance(); 
+      
+           $site= $context->db->get_where('sites',[ 
+                  
+                     'url'=>str_ireplace('www.', '', $_SERVER['HTTP_HOST']),
+                  ])->first_row();
+
+                if (!empty($site)) {
+                  //find site with http_host from database and replace id
+           
+                    DEFINE('site_id',$site->id);
+                    DEFINE('dns_hosted',true);
+
+                    // if ($site->direct_access==1) {
+                    //   $_POST['site_id']=$site->id;
+                    // }     
+                   
+
+                }else{
+                  //   header('direct_access:true');
+               
+                    //development mode
+                //   DEFINE('site_id',100);
+                }
+
+
+             
       }
        
     }
@@ -136,7 +165,7 @@ function backend_page($context,$page,$params=[]){
       ])->result();
       
       DEFINE('settings',json_encode($settings));
-
+ 
      
       $url=$CI->config->item('api_url');
  
