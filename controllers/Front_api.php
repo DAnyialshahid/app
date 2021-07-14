@@ -592,7 +592,7 @@ $totalDeals=$this->db->select('count(*) as count','',false)->where('type','deal'
 
 	 
 		$site_id=$this->input->post('site_id'); 
-exit(	$site_id);
+ 
 		$stores=$this->getStores([
 				'site_id'=>$site_id,
 				'top'=>1,
