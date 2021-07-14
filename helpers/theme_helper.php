@@ -149,10 +149,10 @@ function backend_page($context,$page,$params=[]){
                 }else{
                   //   header('direct_access:true');
                
-                    //development mode
-                //   DEFINE('site_id',100);
+                  DEFINE('site_id',100);
                 }
-
+   //development mode
+             
 
              
       }
